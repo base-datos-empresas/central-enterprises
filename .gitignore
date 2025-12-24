@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Data and Outputs
+Outputs/
+data/outputs/
+_archive/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

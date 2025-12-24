@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITAN | Components Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .comp-section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--structural-line);
+        }
+
+        .comp-header {
+            margin-bottom: 4rem;
+        }
+
+        .swatch {
+            height: 100px;
+            border: 1px solid var(--structural-line);
+            display: flex;
+            align-items: flex-end;
+            padding: 1rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body data-theme="titan-dark">
+    <div class="grid-bg"></div>
+
+    <nav>
+        <div class="grid-container">
+            <div class="logo span-6">TITAN<span style="color:red">.</span>COMPONENTS</div>
+            <div class="span-6" style="text-align:right">
+                <a href="index.html"
+                    style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Back
+                    to Mandate</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Navigation TOC -->
+    <nav class="top-toc">
+        <ul>
+            <li><a href="#typography">01 Typography</a></li>
+            <li><a href="#colors">02 Color System</a></li>
+            <li><a href="#interactive">03 Interactive</a></li>
+            <li><a href="#data">04 Data & Intel</a></li>
+            <li><a href="#pricing">05 Access Mandates</a></li>
+            <li><a href="#cta">06 Action Protocols</a></li>
+            <li><a href="#grid">07 Structure</a></li>
+            <li><a href="#visuals">08 Visuals</a></li>
+        </ul>
+    </nav>
+
+    <main class="grid-container" style="margin-top: 4rem;">
+        <!-- Components Content (Full Width) -->
+        <div class="span-12">
+
+            <!-- Typography -->
+            <section id="typography" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">01/SYSTEM</span>
+                    <h2 class="section-title">Typography</h2>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 4rem;">
+                    <div>
+                        <h1 style="font-size: 5rem;">HEADING 01</h1>
+                        <p class="titan-label">SORA 900 / ULTRA BOLD / 5REM</p>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 3rem;">HEADING 02</h2>
+                        <p class="titan-label">SORA 800 / BOLD / 3REM</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.25rem; max-width: 600px;">TITAN utilizes Inter for all body text to
+                            ensure maximum legibility for high-precision data and international governance protocols.
+                            This is the standard paragraph style for the intelligence infrastructure.</p>
+                        <p class="titan-label">INTER 400 / REGULAR / 1.25REM</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Color System -->
+            <section id="colors" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">02/SYSTEM</span>
+                    <h2 class="section-title">Color System</h2>
+                </div>
+                <div class="grid-container span-12" style="padding:0; gap: 1rem;">
+                    <div class="span-4 swatch" style="background: var(--bg-primary); color: var(--text-header);">BG
+                        PRIMARY</div>
+                    <div class="span-4 swatch" style="background: var(--bg-secondary); color: var(--text-header);">BG
+                        SECONDARY</div>
+                    <div class="span-4 swatch" style="background: var(--surface); color: var(--text-header);">SURFACE
+                    </div>
+                    <div class="span-4 swatch" style="background: var(--accent); color: var(--bg-primary);">ACCENT CORE
+                    </div>
+                    <div class="span-4 swatch" style="background: var(--structural-line);">STRUCTURAL LINE</div>
+                </div>
+            </section>
+
+            <!-- Interactive -->
+            <section id="interactive" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">03/INTERFACE</span>
+                    <h2 class="section-title">Interactive Elements</h2>
+                </div>
+
+                <div class="titan-form-group">
+                    <p class="titan-label">Action Controls</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <button class="theme-btn active"
+                            style="background: var(--accent); color: var(--bg-primary);">Primary Action</button>
+                        <button class="theme-btn" style="border: 1px solid var(--structural-line);">Secondary
+                            Mandate</button>
+                        <button class="theme-btn" style="opacity: 0.5;">Ghost Protocol</button>
+                    </div>
+                </div>
+
+                <div class="titan-form-group">
+                    <label class="titan-label">Infrastructure ID / Input Field</label>
+                    <input type="text" class="titan-input" placeholder="Enter node identifier...">
+                </div>
+
+                <div class="titan-form-group">
+                    <label class="titan-label">System Range / Precision Slider</label>
+                    <input type="range"
+                        style="width: 100%; appearance: none; background: var(--structural-line); height: 2px;">
+                </div>
+            </section>
+
+            <!-- Data & Intel -->
+            <section id="data" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">04/INTELLIGENCE</span>
+                    <h2 class="section-title" style="grid-column: 1 / 10;">Data & Analysis Architecture</h2>
+                </div>
+
+                <div class="grid-container span-12" style="padding:0; margin-bottom: 4rem; gap: 0;">
+                    <div class="span-4 stat-card" style="border-right: none;">
+                        <span class="stat-val">1.2B</span>
+                        <span class="stat-label">Transactions Resolved</span>
+                    </div>
+                    <div class="span-4 stat-card" style="border-right: none;">
+                        <span class="stat-val">99.99<span
+                                style="font-size: 1.5rem; vertical-align: top;">%</span></span>
+                        <span class="stat-label">System Uptime Index</span>
+                    </div>
+                    <div class="span-4 stat-card">
+                        <span class="stat-val">0.4<span style="font-size: 1.5rem; vertical-align: top;">ms</span></span>
+                        <span class="stat-label">Average Latency</span>
+                    </div>
+                </div>
+
+                <div class="span-12" style="border-left: 1px solid var(--accent); padding-left: 2rem;">
+                    <table class="titan-table">
+                        <thead>
+                            <tr>
+                                <th>Node Identifier</th>
+                                <th>Operational Status</th>
+                                <th>Security Priority</th>
+                                <th>Data Integrity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EU-CENTRAL-01</td>
+                                <td><span class="status-operational">OPERATIONAL</span></td>
+                                <td>CRITICAL</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>US-EAST-GLOBAL</td>
+                                <td><span class="status-operational">OPERATIONAL</span></td>
+                                <td>HIGH</td>
+                                <td>99.9%</td>
+                            </tr>
+                            <tr>
+                                <td>ASIA-TKO-04</td>
+                                <td><span class="status-maintenance">MAINTENANCE</span></td>
+                                <td>MEDIUM</td>
+                                <td>94.2%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Access Mandates (Pricing) -->
+            <section id="pricing" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">05/ACCESS</span>
+                    <h2 class="section-title">Institutional Access Mandates</h2>
+                </div>
+
+                <div class="pricing-grid span-12">
+                    <!-- Basic -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="pricing-title">Standard Protocol</span>
+                            <div class="pricing-price">
+                                <span class="currency">$</span>2,400
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>10TB Storage Throughput</li>
+                            <li>L1 Security Clearance</li>
+                            <li>Standard Latency Core</li>
+                            <li class="disabled">Quantum Encryption</li>
+                            <li class="disabled">24/7 Delta Support</li>
+                        </ul>
+                        <button class="btn-institutional secondary">Initialize standard <span
+                                class="arrow">→</span></button>
+                    </div>
+
+                    <!-- Professional -->
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <span class="pricing-title">Advanced Authority</span>
+                            <div class="pricing-price">
+                                <span class="currency">$</span>8,900
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>100TB Storage Throughput</li>
+                            <li>L3 Security Clearance</li>
+                            <li>Low-Latency Edge Nodes</li>
+                            <li>Quantum Encryption Protocol</li>
+                            <li class="disabled">Global Mirroring</li>
+                        </ul>
+                        <button class="btn-institutional primary">Establish authority <span
+                                class="arrow">→</span></button>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <span class="pricing-title">Sovereign Entity</span>
+                            <div class="pricing-price">
+                                <span class="currency">$</span>24K
+                            </div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Unlimited Throughput</li>
+                            <li>Sovereign Clearance</li>
+                            <li>Dedicated Fiber Path</li>
+                            <li>Quantum Encryption Protocol</li>
+                            <li>24/7 Strategic Support</li>
+                        </ul>
+                        <button class="btn-institutional secondary">Contact Command <span
+                                class="arrow">→</span></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Protocols (CTA) -->
+            <section id="cta" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">06/PROTOCOLS</span>
+                    <h2 class="section-title">Action Protocols</h2>
+                </div>
+
+                <div class="grid-container span-12"
+                    style="background: var(--bg-secondary); padding: 4rem; border: 1px solid var(--structural-line);">
+                    <div class="span-7">
+                        <h3 style="font-family: var(--font-header); font-size: 2rem; margin-bottom: 1.5rem;">Initialize
+                            Global Infrastructure Deployment</h3>
+                        <p style="color: var(--text-body); margin-bottom: 2.5rem;">Deploying a sovereign intelligence
+                            network requires authorization from jurisdictional authorities. Begin the handshake protocol
+                            to secure your deployment vector.</p>
+                        <div class="cta-group">
+                            <button class="btn-institutional primary">Start Deployment <span
+                                    class="arrow">→</span></button>
+                            <button class="btn-institutional secondary">Review Security Docs</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Layout -->
+            <section id="grid" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">07/STRUCTURE</span>
+                    <h2 class="section-title">Architectural Grid</h2>
+                </div>
+                <div class="grid-container span-12"
+                    style="padding:0; background: var(--bg-secondary); border: 1px solid var(--structural-line);">
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        1</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        2</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        3</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        4</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        5</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        6</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        7</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        8</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        9</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        10</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        11</div>
+                    <div class="span-1"
+                        style="height: 100px; border: 1px solid var(--structural-line); display: grid; place-items: center;">
+                        12</div>
+                </div>
+            </section>
+
+            <!-- Visualizations -->
+            <section id="visuals" class="comp-section">
+                <div class="comp-header">
+                    <span class="feature-num">08/VISUALS</span>
+                    <h2 class="section-title">Strategic Visualizations</h2>
+                </div>
+                <div class="map-viz">
+                    <div class="grid-bg" style="position: absolute; opacity: 0.2;"></div>
+                    <!-- Nodes -->
+                    <div class="map-node" style="top: 30%; left: 20%;"></div>
+                    <div class="map-node" style="top: 40%; left: 50%;"></div>
+                    <div class="map-node" style="top: 60%; left: 80%;"></div>
+                    <div class="map-node" style="top: 25%; left: 75%;"></div>
+                    <!-- Simplified Visual Markers -->
+                    <div
+                        style="position: absolute; bottom: 2rem; left: 2rem; font-family: var(--font-header); font-size: 0.6rem; opacity: 0.5;">
+                        LAT: 40.7128 N<br>LON: 74.0060 W<br>SYST: ACTIVE
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="grid-container">
+            <div class="span-12" style="border-top: 1px solid var(--structural-line); padding-top: 4rem;">
+                <p class="titan-label">End of System Overview</p>
+                <p style="font-size: 0.75rem;">This library represents the core visual assets for the TITAN Global
+                    Infrastructure design system. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Titan Theme Switcher -->
+    <div class="theme-picker">
+        <button class="theme-btn active" data-set-theme="titan-dark">Titan Dark</button>
+        <button class="theme-btn" data-set-theme="titan-light">Titan Light</button>
+    </div>
+
+    <script src="js/theme-switcher.js"></script>
+    <script>
+        // Simple scroll spy logic for TOC
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.comp-section');
+            const navItems = document.querySelectorAll('.toc-item');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.querySelector('a').getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
