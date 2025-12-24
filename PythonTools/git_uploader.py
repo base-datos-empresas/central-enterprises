@@ -52,10 +52,13 @@ def main():
     if push_result.returncode == 0:
         print("\nSUCCESS: Project uploaded successfully to GitHub!")
     else:
-        print("\nFAILURE: Push failed. See details above.")
-        print("\nTIP: If you are hitting 'Repository not found', it might be an authentication issue.")
-        print("Try setting your GitHub Personal Access Token (PAT):")
-        print("git remote set-url origin https://<YOUR_TOKEN>@github.com/base-datos-empresas/central-enterprises.git")
+        print("\nFAILURE: Push failed. Since the repository is PRIVATE, you must authenticate.")
+        print("\n--- HOW TO FIX ---")
+        print("1. Generate a 'Fine-grained personal access token' on GitHub (Settings > Developer settings > Personal access tokens).")
+        print("2. Run the following command with your token:")
+        print("   git remote set-url origin https://<TOKEN>@github.com/base-datos-empresas/central-enterprises.git")
+        print("3. Then run this script again.")
+        print("\nAlternatively, use the browser window I've kept open to manually upload or manage settings.")
 
 if __name__ == "__main__":
     main()
