@@ -65,8 +65,8 @@ class TitanData
         if (!$handle)
             return null;
 
-        $header = fgetcsv($handle);
-        $row = fgetcsv($handle);
+        $header = fgetcsv($handle, 0, ",");
+        $row = fgetcsv($handle, 0, ",");
         fclose($handle);
 
         if (!$header || !$row)
@@ -82,9 +82,9 @@ class TitanData
 
         $data = [];
         if (($handle = fopen($filepath, "r")) !== FALSE) {
-            $header = fgetcsv($handle);
+            $header = fgetcsv($handle, 0, ",");
 
-            while (($row = fgetcsv($handle)) !== FALSE) {
+            while (($row = fgetcsv($handle, 0, ",")) !== FALSE) {
                 if (count($header) === count($row)) {
                     $data[] = array_combine($header, $row);
                 }
