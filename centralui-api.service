@@ -7,7 +7,7 @@ User=ubuntu
 Group=ubuntu
 WorkingDirectory=/opt/centralui
 Environment="PATH=/opt/centralui/venv/bin"
-ExecStart=/opt/centralui/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:8000 PythonTools.api:app
+ExecStart=/opt/centralui/venv/bin/gunicorn --workers 3 --worker-class uvicorn.workers.UvicornWorker --bind 127.0.0.1:8000 PythonTools.api:app
 Restart=always
 
 [Install]

@@ -23,6 +23,7 @@ $basePath = "";
     <div class="grid-bg"></div>
 
     <?php include 'includes/cookies_banner.php'; ?>
+    <?php include 'includes/foundation_banner.php'; ?>
     <?php include 'includes/header.php'; ?>
 
     <main>

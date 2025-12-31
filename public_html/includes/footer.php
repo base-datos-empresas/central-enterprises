@@ -3,6 +3,8 @@
         <div class="footer-content">
             <div class="footer-info">
                 <div style="font-weight:600; color:var(--text-header); margin-bottom:0.5rem">CENTRAL ENTERPRISES</div>
+                <div style="opacity:0.7; margin-bottom: 0.5rem;">Governance: <span
+                        style="color:var(--accent)">Foundation in Transition</span></div>
                 <div style="opacity:0.7">© 2025 Central Enterprises. All systems nominal.</div>
                 <div class="legal-links">
                     <a href="<?= $basePath ?>paginas/Legal/Terms.php">Terms of Operation</a>
