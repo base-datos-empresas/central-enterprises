@@ -3,8 +3,14 @@ venv/
 __pycache__/
 *.pyc
 
-# Environment
+# Environment & Secrets
 .env
+Server_Config/
+*.key
+*.pub
+
+# Redundant Binaries
+PythonTools/php/
 
 # Data and Outputs
 Outputs/

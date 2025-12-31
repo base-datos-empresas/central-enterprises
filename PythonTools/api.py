@@ -6,7 +6,7 @@ import sys
 app = FastAPI(title="TITAN CENTRAL API")
 
 # Basic Config
-API_TOKEN = os.getenv("API_TOKEN", "titan-secret-key")
+API_TOKEN = os.getenv("API_TOKEN") # Set this in your environment
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PROCESSOR_PATH = os.path.join(os.path.dirname(__file__), 'process_data.py')
 SOURCE_CSV = os.path.join(BASE_DIR, 'data', 'country_data.csv') 

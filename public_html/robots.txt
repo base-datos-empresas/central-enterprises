@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://central.enterprises/sitemap.xml
