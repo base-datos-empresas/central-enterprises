@@ -24,14 +24,20 @@ scp -i $KeyPath -o StrictHostKeyChecking=no -r PythonTools "${User}@${HostName}:
 Write-Host "Uploading Data..."
 scp -i $KeyPath -o StrictHostKeyChecking=no -r data "${User}@${HostName}:${RemotePath}"
 
-# 4. Upload Nginx Conf
-Write-Host "Uploading Nginx Config..."
+# 4. Upload System Files
+Write-Host "Uploading Config & Requirements..."
 scp -i $KeyPath -o StrictHostKeyChecking=no nginx.conf "${User}@${HostName}:${RemotePath}"
+scp -i $KeyPath -o StrictHostKeyChecking=no requirements.txt "${User}@${HostName}:${RemotePath}"
 
 Write-Host "Deployment Files Uploaded."
 
-# 5. Fix Permissions
-Write-Host "Fixing Remote Permissions..."
-ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo chmod -R 755 /opt/centralui/public_html"
+# 5. Remote Environment & Dependencies
+Write-Host "Updating Remote Environment..."
+ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "cd $RemotePath && ./venv/bin/pip install -r requirements.txt"
 
-Write-Host "Please SSH in to restart services/nginx if needed."
+# 6. Restart Services
+Write-Host "Restarting Services..."
+ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo systemctl restart centralui-api.service"
+ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo systemctl restart nginx"
+
+Write-Host "Deployment Complete. Services Synchronized."

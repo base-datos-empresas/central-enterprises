@@ -1,8 +1,8 @@
-dash
-dash-bootstrap-components
-dash-leaflet
+fastapi
+uvicorn
 pandas
 openpyxl
 python-dotenv
+python-multipart
 gunicorn
 requests

@@ -13,7 +13,33 @@ $data = $titan->getCountryData($code);
 
 if (!$data) {
     http_response_code(404);
-    die("TITAN SYSTEM ERROR: Data Protocol Not Found for Sector [{$code}]");
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>TITAN | PROTOCOL ERROR</title>
+        <link rel="stylesheet" href="/assets/titan.css">
+    </head>
+    <body data-theme="titan-dark">
+        <div class="grid-bg"></div>
+        <main style="display:flex; align-items:center; justify-content:center; height:100vh; text-align:center;">
+            <div class="grid-container">
+                <div class="span-12">
+                    <h1 class="hero-title" style="font-size: 4rem; color: var(--accent);">SIGNAL LOST</h1>
+                    <p class="hero-desc" style="border:none; padding:0; margin-top:1rem;">
+                        PROTOCOL ERROR: Data Sector [<?= htmlspecialchars($code) ?>] not found in central registry.
+                    </p>
+                    <div class="cta-group" style="justify-content:center; margin-top:2rem;">
+                        <a href="/" class="btn-institutional primary">Return to Base</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+    </html>
+    <?php
+    exit;
 }
 
 $stats = $data['stats'];
