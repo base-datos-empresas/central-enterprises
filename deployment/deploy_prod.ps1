@@ -24,9 +24,10 @@ scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "public_h
 Write-Host "Uploading PythonTools..."
 scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "PythonTools") "${User}@${HostName}:${RemotePath}"
 
-# 3. Upload Data
-Write-Host "Uploading Data..."
+# 3. Upload Data & Bases
+Write-Host "Uploading Data and Bases..."
 scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "data") "${User}@${HostName}:${RemotePath}"
+scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "bases") "${User}@${HostName}:${RemotePath}"
 
 # 4. Upload System Files
 Write-Host "Uploading Config & Requirements..."
