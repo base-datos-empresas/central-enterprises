@@ -37,9 +37,13 @@ scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $ProjectRoot "requirement
 
 Write-Host "Deployment Files Uploaded."
 
-# 5. Remote Environment & Dependencies
-Write-Host "Updating Remote Environment..."
-ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "cd $RemotePath && ./venv/bin/pip install -r requirements.txt && sudo chmod -R 755 public_html"
+# 5. Remote Environment, Dependencies & Permissions
+Write-Host "Updating Remote Environment and Permissions..."
+$RemoteCmds = "cd $RemotePath && " +
+"./venv/bin/pip install -r requirements.txt && " +
+"sudo chmod -R 755 public_html data bases && " +
+"sudo chown -R ubuntu:www-data data bases public_html"
+ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $RemoteCmds
 
 # 6. Restart Services
 Write-Host "Restarting Services..."
