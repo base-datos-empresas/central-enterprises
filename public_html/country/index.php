@@ -16,11 +16,13 @@ if (!$data) {
     ?>
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <title>TITAN | PROTOCOL ERROR</title>
         <link rel="stylesheet" href="/assets/titan.css">
     </head>
+
     <body data-theme="titan-dark">
         <div class="grid-bg"></div>
         <main style="display:flex; align-items:center; justify-content:center; height:100vh; text-align:center;">
@@ -37,6 +39,7 @@ if (!$data) {
             </div>
         </main>
     </body>
+
     </html>
     <?php
     exit;
@@ -57,6 +60,8 @@ $stats = $data['stats'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
+
+    <meta name="description" content="<?= htmlspecialchars($stats['landing_description']) ?>">
 
     <!-- Titan Core Styles -->
     <link rel="stylesheet" href="/assets/titan.css">

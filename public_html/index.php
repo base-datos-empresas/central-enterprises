@@ -13,6 +13,8 @@ $basePath = "";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
+    <meta name="description"
+        content="TITAN Central Enterprises: The common foundation for open data and corporate intelligence. Transform public signals into neutral business insights.">
     <!-- Titan Core Styles -->
     <link rel="stylesheet" href="assets/titan.css?v=8">
     <script src="assets/theme-toggle.js?v=7" defer></script>
