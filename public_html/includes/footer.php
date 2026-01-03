@@ -33,6 +33,7 @@
                         <a href="<?= $basePath ?>/legal/open-data/" style="color: inherit;">Open Data (CC0)</a>
                         <a href="<?= $basePath ?>/legal/pro-license/" style="color: inherit;">Pro License</a>
                         <a href="<?= $basePath ?>/data/requests/" style="color: inherit;">Data Requests</a>
+                        <a href="<?= $basePath ?>/docs/" style="color: inherit;">Documentation</a>
                     </div>
                 </div>
                 <div>
@@ -40,9 +41,10 @@
                         style="font-weight: 800; color: var(--text-header); margin-bottom: 1rem; text-transform: uppercase; font-size: 0.65rem; opacity: 0.4;">
                         Network</div>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="https://github.com/base-datos-empresas" target="_blank" rel="noopener"
+                        <a href="https://github.com/base-datos-empresas/central-enterprises" target="_blank" rel="noopener"
                             style="color: inherit;">GitHub</a>
-                        <a href="https://x.com/" target="_blank" rel="noopener" style="color: inherit;">X / Twitter</a>
+                        <a href="https://www.linkedin.com/in/pablocirre/?originalSubdomain=es" target="_blank" rel="noopener"
+                            style="color: inherit;">LinkedIn (Pablo Cirre)</a>
                         <a href="<?= $basePath ?>/contact/" style="color: var(--accent); font-weight: 800;">Contact</a>
                     </div>
                 </div>

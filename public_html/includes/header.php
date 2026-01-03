@@ -26,7 +26,6 @@
                     <a href="<?= $basePath ?>/foundation/" class="toc-item" style="font-size: 0.7rem;">FOUNDATION</a>
                     <a href="<?= $basePath ?>/pro/" class="toc-item"
                         style="font-size: 0.7rem; color: var(--accent); font-weight: 800;">PRO</a>
-                    <a href="<?= $basePath ?>/docs/" class="toc-item" style="font-size: 0.7rem;">DOCS</a>
                 </div>
                 <button id="theme-toggle" class="theme-btn" title="Toggle Theme" style="margin-right:0"></button>
             </div>
