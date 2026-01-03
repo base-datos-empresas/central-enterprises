@@ -627,19 +627,26 @@ footer {
 
     /* MASTER GRID RESET: Force single column stack */
     .grid-container {
-        padding: 0 1.5rem; /* Maximize width */
+        padding: 0 1.5rem;
+        /* Maximize width */
         gap: 1.5rem;
     }
 
-    .span-12, .span-8, .span-6, .span-4, .span-3,
-    .offset-2, .offset-4 {
+    .span-12,
+    .span-8,
+    .span-6,
+    .span-4,
+    .span-3,
+    .offset-2,
+    .offset-4 {
         grid-column: span 12 !important;
         grid-column-start: auto !important;
     }
 
     /* HERO RESET */
     .hero-title {
-        font-size: 2.5rem; /* Readable on mobile */
+        font-size: 2.5rem;
+        /* Readable on mobile */
         line-height: 1.1;
         margin-bottom: 1rem;
     }
@@ -653,7 +660,8 @@ footer {
 
     /* PRICING GRID RESET */
     .pricing-grid {
-        grid-template-columns: 1fr; /* Single column */
+        grid-template-columns: 1fr;
+        /* Single column */
         border: none;
     }
 
@@ -669,7 +677,10 @@ footer {
 
     /* NAVIGATION TARGETS */
     .header-links {
-        display: none; /* Hide desktop menu on mobile - simpler for now or stack? */
+        display: flex;
+        /* Ensure visible */
+        justify-content: flex-start;
+        gap: 1rem;
         /* Let's keep it visible but scrollable if needed */
         overflow-x: auto;
         padding-bottom: 0.5rem;
@@ -678,8 +689,10 @@ footer {
     }
 
     .toc-item {
-        font-size: 0.85rem; /* Larger */
-        padding: 0.8rem 1rem; /* Hit area */
+        font-size: 0.85rem;
+        /* Larger */
+        padding: 0.8rem 1rem;
+        /* Hit area */
         white-space: nowrap;
     }
 
@@ -691,7 +704,7 @@ footer {
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
     }
-    
+
     /* UTILITIES */
     .section-meta {
         border-top: none;
@@ -705,8 +718,11 @@ footer {
     }
 
     /* LEGAL TEXT */
-    .legal-content, p, li {
-        font-size: 1rem; /* 16px base for readability */
+    .legal-content,
+    p,
+    li {
+        font-size: 1rem;
+        /* 16px base for readability */
         line-height: 1.6;
     }
 }
