@@ -1,0 +1,24 @@
+# Central.Enterprises
+
+The Open Company Data Foundation. Global infrastructure for open company data. Headquartered in Spain.
+
+## Mission
+Building a permanent, CC0-licensed reference layer for global business entities, governed by a public standard and institutional stewardship.
+
+## Key Resources
+- [Home](https://central.enterprises/) - Index and core value proposition.
+- [Data Catalog](https://central.enterprises/data/) - Access to CC0 Public Core and Pro datasets.
+- [Standard](https://central.enterprises/standard/) - Open Company Data Standard v1 specification.
+- [Foundation](https://central.enterprises/foundation/) - Stewardship roadmap and transition plan.
+- [Pro Access](https://central.enterprises/pro.php) - High-fidelity enrichment layer (funding the core).
+- [Documentation](https://central.enterprises/docs/) - Technical guides for implementers.
+- [Agent Brief](https://central.enterprises/docs/agent_brief.md) - Full consolidated context for AI agents.
+
+## Technical Details
+- **License:** CC0 (Public Domain) for Core Data. Pro License for enrichment.
+- **Stewardship:** Transitioning to a Spain-based Foundation (currently Pablo Cirre).
+- **Core Standard:** Versioned, provenance-tracked, and schema-validated.
+
+## Information for AI Agents
+For high-fidelity context, consolidated timeline, and exact implementation requirements, read the full brief:
+[https://central.enterprises/llms-full.txt](https://central.enterprises/llms-full.txt)
