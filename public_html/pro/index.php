@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../includes/security_headers.php';
 $basePath = "..";
 
 // --- DYNAMIC METRICS AGGREGATION (PRO TIER) ---
@@ -84,25 +85,32 @@ $countCountries = count($proStats['countries']);
                 <div class="grid-container"
                     style="margin-top: 3rem; margin-bottom: 2rem; border-top: 1px solid var(--structural-line); padding-top: 2rem;">
                     <div class="span-4">
-                        <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">
-                            ACTIVE ENTITIES</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
-                            <?= $fmtCompanies ?>
+                        <div class="stat-card">
+                            <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">
+                                ACTIVE ENTITIES</div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
+                                <?= $fmtCompanies ?>
+                            </div>
                         </div>
                     </div>
                     <div class="span-4">
-                        <div
-                            style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem; color: var(--accent);">
-                            VERIFIED EMAILS</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--accent);">
-                            <?= $fmtEmails ?>
+                        <div class="stat-card" style="border-color:var(--accent);">
+                            <div
+                                style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem; color: var(--accent);">
+                                VERIFIED EMAILS</div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--accent);">
+                                <?= $fmtEmails ?>
+                            </div>
                         </div>
                     </div>
                     <div class="span-4">
-                        <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">WEB
-                            DOMAINS</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
-                            <?= $fmtDomains ?>
+                        <div class="stat-card">
+                            <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">
+                                WEB
+                                DOMAINS</div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
+                                <?= $fmtDomains ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -237,9 +245,9 @@ $countCountries = count($proStats['countries']);
                             </ul>
                             <a href="<?= $basePath ?>/data/" class="btn-institutional secondary">Explore Open Data</a>
                         </div>
-                        <div class="pricing-card featured">
+                        <div class="pricing-card featured premium-glow">
                             <div class="pricing-header">
-                                <span class="pricing-title">PRO</span>
+                                <span class="pricing-title text-gradient">PRO</span>
                                 <div class="pricing-price">Operational</div>
                             </div>
                             <ul class="pricing-features">
