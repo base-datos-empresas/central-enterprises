@@ -33,6 +33,7 @@ scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "bases") 
 Write-Host "Uploading Config & Requirements..."
 scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $DeployScriptRoot "nginx.conf") "${User}@${HostName}:${RemotePath}"
 scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $DeployScriptRoot "centralui-api.service") "${User}@${HostName}:${RemotePath}"
+scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $DeployScriptRoot "self_heal.sh") "${User}@${HostName}:${RemotePath}"
 scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $ProjectRoot "requirements.txt") "${User}@${HostName}:${RemotePath}"
 
 Write-Host "Deployment Files Uploaded."
@@ -41,18 +42,20 @@ Write-Host "Deployment Files Uploaded."
 Write-Host "Updating Remote Environment and Permissions..."
 $RemoteCmds = "cd $RemotePath && " +
 "./venv/bin/pip install -r requirements.txt && " +
+"sudo chmod +x self_heal.sh && " +
 "sudo chmod -R 755 public_html data bases && " +
 "sudo chown -R ubuntu:www-data data bases public_html"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $RemoteCmds
 
-# 6. Restart Services & Apply Config
+# 6. Restart Services & Apply Config & Set Cron
 Write-Host "Restarting Services..."
 $ServiceCmds = "sudo cp $RemotePath/centralui-api.service /etc/systemd/system/ && " +
 "sudo systemctl daemon-reload && " +
 "sudo systemctl restart centralui-api.service && " +
 "sudo cp $RemotePath/nginx.conf /etc/nginx/sites-available/central.enterprises && " +
 "sudo ln -sf /etc/nginx/sites-available/central.enterprises /etc/nginx/sites-enabled/ && " +
-"sudo systemctl restart nginx"
+"sudo systemctl restart nginx && " +
+"(crontab -l 2>/dev/null | grep -v 'self_heal.sh'; echo '*/5 * * * * /opt/centralui/self_heal.sh') | crontab -"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $ServiceCmds
 
-Write-Host "Deployment Complete. Services Synchronized."
+Write-Host "Deployment Complete. Services Synchronized and Hardened."

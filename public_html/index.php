@@ -14,7 +14,7 @@ $basePath = "";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <meta name="description"
-        content="Central.Enterprises is a Spain-based foundation (in formation) providing a CC0 global reference layer for business reality. Open data as infrastructure.">
+        content="Central.Enterprises is a Spain-based foundation providing a CC0 reference layer and professional company databases. Bases de datos de empresas, open data as infrastructure.">
     <!-- Titan Core Styles -->
     <link rel="stylesheet" href="assets/titan.css?v=11">
     <script src="assets/theme-toggle.js?v=7" defer></script>
@@ -43,19 +43,37 @@ $basePath = "";
     <div class="grid-bg"></div>
 
     <?php include 'includes/cookies_banner.php'; ?>
-    <?php include 'includes/foundation_banner.php'; ?>
     <?php include 'includes/header.php'; ?>
 
     <main>
         <header class="hero">
             <div class="grid-container">
-                <h1 class="hero-title">OPEN DATA <br>IS INFRASTRUCTURE.</h1>
+                <h1 class="hero-title">LAS BASES DE DATOS <br>SON INFRAESTRUCTURA.</h1>
                 <div class="hero-desc">
                     A CC0 global reference layer for business reality. Managed by the Central.Enterprises Foundation (in
-                    formation) to ensure corporate data remains a neutral public good.
+                    formation) to ensure corporate data remains a neutral public good. Bases de datos de empresas
+                    diseñadas para ser citadas, no solo consumidas.
                 </div>
             </div>
         </header>
+
+        <section class="section" style="padding-top: 5rem;">
+            <div class="grid-container">
+                <div class="span-8">
+                    <h2 class="section-title">Industrial Integrity.</h2>
+                    <p style="font-size: 1.25rem; line-height: 1.6; opacity: 0.8; margin-bottom: 2rem;">
+                        Eliminamos la fricción en el acceso a la realidad empresarial. Central.Enterprises estandariza
+                        registros mercantiles globales en un núcleo CC0 de libre acceso, financiado por una capa Pro de
+                        alta fidelidad.
+                    </p>
+                    <p style="opacity: 0.7; line-height: 1.8; margin-bottom: 2rem;">
+                        Nuestra misión es proporcionar las **bases de datos de empresas** más estables y transparentes
+                        del mercado, tratando la procedencia y la frescura del dato como características fundamentales
+                        de ingeniería, no como promesas de marketing.
+                    </p>
+                </div>
+            </div>
+        </section>
 
         <section class="section">
             <div class="grid-container">

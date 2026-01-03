@@ -1,3 +1,16 @@
+<div class="announcement-bar"
+    style="background: var(--bg-secondary); border-bottom: 1px solid var(--structural-line); padding: 0.5rem 0; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase;">
+    <div class="grid-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; opacity: 0.8;">
+            <div>Foundation in Formation | Estándar de Bases de Datos de Empresas</div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="<?= $basePath ?>/donations.php" style="color: var(--accent); font-weight: 800;">Foundation
+                    Transition</a>
+                <a href="<?= $basePath ?>/pro.php" style="color: var(--text-header); font-weight: 800;">Pro Access</a>
+            </div>
+        </div>
+    </div>
+</div>
 <nav>
     <div class="grid-container">
         <div class="nav-content">
