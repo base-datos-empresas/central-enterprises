@@ -6,8 +6,8 @@
                 open. Pro access funds stewardship, quality, and long-term availability.</span>
         </div>
         <div class="banner-links">
-            <a href="<?= $basePath ?>/donations.php">Foundation Transition</a>
-            <a href="<?= $basePath ?>/pro.php">Pro Access</a>
+            <a href="<?= $basePath ?>/donations/">Foundation Transition</a>
+            <a href="<?= $basePath ?>/pro/">Pro Access</a>
         </div>
     </div>
 </aside>

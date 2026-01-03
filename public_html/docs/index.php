@@ -47,7 +47,8 @@ $basePath = "..";
                             Download CC0 Core</h3>
                         <p style="opacity: 0.7; line-height: 1.8;">Fetch the latest jurisdictional dumps (bulk) from the
                             <a href="<?= $basePath ?>/data" style="color:var(--accent)">Data Catalog</a>. These files
-                            are updated in weekly and monthly sync cycles.</p>
+                            are updated in weekly and monthly sync cycles.
+                        </p>
                     </div>
 
                     <div style="margin-bottom: 4rem;">
@@ -55,7 +56,8 @@ $basePath = "..";
                             Verify Integrity</h3>
                         <p style="opacity: 0.7; line-height: 1.8;">Standard practice: always verify the
                             <code>record_hash</code> against your local ingestion. Our SHA-256 signatures ensure that
-                            the neutrality of the data is preserved from the source to your database.</p>
+                            the neutrality of the data is preserved from the source to your database.
+                        </p>
                     </div>
 
                     <div style="margin-bottom: 4rem;">
@@ -72,9 +74,14 @@ $basePath = "..";
                     <div style="padding: 2rem; border: 1px solid var(--structural-line);">
                         <h4 class="titan-label">RESOURCES</h4>
                         <ul class="compare-list" style="margin-top: 1rem; font-size: 0.85rem;">
-                            <li><a href="<?= $basePath ?>/standard">Standard v1 Schema</a></li>
-                            <li><a href="https://github.com/base-datos-empresas">GitHub Examples</a></li>
-                            <li><a href="<?= $basePath ?>/pro.php">Pro API Docs (REST)</a></li>
+                            <li><a href="<?= $basePath ?>/standard/">Standard v1 Schema</a></li>
+                            <li><a href="<?= $basePath ?>/docs/manifesto.php">Institutional Manifesto</a></li>
+                            <li><a href="<?= $basePath ?>/docs/methodology.php">Data Methodology</a></li>
+                            <li><a href="<?= $basePath ?>/docs/updates.php">Technical Updates</a></li>
+                            <li><a href="<?= $basePath ?>/docs/status.php">System Status</a></li>
+                            <li><a href="https://github.com/base-datos-empresas" target="_blank">GitHub Repository</a>
+                            </li>
+                            <li><a href="<?= $basePath ?>/pro/">Pro API Docs (REST)</a></li>
                         </ul>
                     </div>
                 </div>

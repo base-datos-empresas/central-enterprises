@@ -1,5 +1,5 @@
 ﻿<?php
-$basePath = "";
+$basePath = "..";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +14,8 @@ $basePath = "";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=8">
-    <script src="assets/theme-toggle.js?v=7" defer></script>
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=8">
+    <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
     <style>
         .status-grid {
             margin-top: 4rem;
@@ -75,7 +75,7 @@ $basePath = "";
 <body data-theme="titan-dark">
     <div class="grid-bg"></div>
 
-    <?php include 'includes/header.php'; ?>
+    <?php include $basePath . '/includes/header.php'; ?>
 
     <main>
         <header class="hero">
@@ -97,7 +97,7 @@ $basePath = "";
                                 <h3>API GATEWAY [v1]</h3>
                                 <p>Global endpoint for data consumption and reconciliation.</p>
                                 <div class="uptime-chart">
-                                    <?php for($i=0; $i<40; $i++): ?>
+                                    <?php for ($i = 0; $i < 40; $i++): ?>
                                         <div class="uptime-bar active" style="height: <?= rand(70, 100) ?>%"></div>
                                     <?php endfor; ?>
                                 </div>
@@ -134,22 +134,27 @@ $basePath = "";
                 <div class="span-6" style="margin-top: 5rem;">
                     <h3 class="heading" style="font-size: 1.25rem; margin-bottom: 2rem;">Incident History</h3>
                     <div style="font-size: 0.9rem; opacity: 0.7;">
-                        <p style="margin-bottom: 1.5rem;"><strong>2025-12-25:</strong> Scheduled maintenance on US-East data cluster completed successfully.</p>
-                        <p style="margin-bottom: 1.5rem;"><strong>2025-12-10:</strong> API Gateway upgrade to v1.2. Improved latency by 15%.</p>
+                        <p style="margin-bottom: 1.5rem;"><strong>2025-12-25:</strong> Scheduled maintenance on US-East
+                            data cluster completed successfully.</p>
+                        <p style="margin-bottom: 1.5rem;"><strong>2025-12-10:</strong> API Gateway upgrade to v1.2.
+                            Improved latency by 15%.</p>
                     </div>
                 </div>
 
-                <div class="span-6" style="margin-top: 5rem; border-left: 1px solid var(--structural-line); padding-left: 2rem;">
+                <div class="span-6"
+                    style="margin-top: 5rem; border-left: 1px solid var(--structural-line); padding-left: 2rem;">
                     <h3 class="heading" style="font-size: 1.25rem; margin-bottom: 2rem;">Uptime Commitment</h3>
                     <p style="font-size: 0.95rem; line-height: 1.6;">
-                        Central.Enterprises is built for reliability. We maintain a 99.9% uptime target for our core API protocols, ensuring that researchers and institutions can depend on our infrastructure as a shared reality.
+                        Central.Enterprises is built for reliability. We maintain a 99.9% uptime target for our core API
+                        protocols, ensuring that researchers and institutions can depend on our infrastructure as a
+                        shared reality.
                     </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include $basePath . '/includes/footer.php'; ?>
 </body>
 
 </html>

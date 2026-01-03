@@ -19,10 +19,10 @@
                         style="font-weight: 800; color: var(--text-header); margin-bottom: 1rem; text-transform: uppercase; font-size: 0.65rem; opacity: 0.4;">
                         Protocols</div>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="<?= $basePath ?>/legal-notice.php" style="color: inherit;">Legal Notice</a>
-                        <a href="<?= $basePath ?>/terms.php" style="color: inherit;">Terms</a>
-                        <a href="<?= $basePath ?>/privacy.php" style="color: inherit;">Privacy</a>
-                        <a href="<?= $basePath ?>/cookies.php" style="color: inherit;">Cookies</a>
+                        <a href="<?= $basePath ?>/legal/notice/" style="color: inherit;">Legal Notice</a>
+                        <a href="<?= $basePath ?>/legal/terms/" style="color: inherit;">Terms</a>
+                        <a href="<?= $basePath ?>/legal/privacy/" style="color: inherit;">Privacy</a>
+                        <a href="<?= $basePath ?>/legal/cookies/" style="color: inherit;">Cookies</a>
                     </div>
                 </div>
                 <div>
@@ -30,9 +30,9 @@
                         style="font-weight: 800; color: var(--text-header); margin-bottom: 1rem; text-transform: uppercase; font-size: 0.65rem; opacity: 0.4;">
                         Data</div>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                        <a href="<?= $basePath ?>/open-data.php" style="color: inherit;">Open Data (CC0)</a>
-                        <a href="<?= $basePath ?>/pro-license.php" style="color: inherit;">Pro License</a>
-                        <a href="<?= $basePath ?>/data-requests.php" style="color: inherit;">Data Requests</a>
+                        <a href="<?= $basePath ?>/legal/open-data/" style="color: inherit;">Open Data (CC0)</a>
+                        <a href="<?= $basePath ?>/legal/pro-license/" style="color: inherit;">Pro License</a>
+                        <a href="<?= $basePath ?>/data/requests/" style="color: inherit;">Data Requests</a>
                     </div>
                 </div>
                 <div>
@@ -43,7 +43,7 @@
                         <a href="https://github.com/base-datos-empresas" target="_blank" rel="noopener"
                             style="color: inherit;">GitHub</a>
                         <a href="https://x.com/" target="_blank" rel="noopener" style="color: inherit;">X / Twitter</a>
-                        <a href="<?= $basePath ?>/contact" style="color: var(--accent); font-weight: 800;">Contact</a>
+                        <a href="<?= $basePath ?>/contact/" style="color: var(--accent); font-weight: 800;">Contact</a>
                     </div>
                 </div>
             </div>

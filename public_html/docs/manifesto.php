@@ -1,5 +1,5 @@
 <?php
-$basePath = "";
+$basePath = "..";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +14,9 @@ $basePath = "";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=8">
-    <script src="assets/theme-toggle.js?v=7" defer></script>
-    <script src="assets/cookies.js?v=5" defer></script>
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=8">
+    <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
+    <script src="<?= $basePath ?>/assets/cookies.js?v=5" defer></script>
     <style>
         .manifesto-content p {
             margin-bottom: 2rem;
@@ -88,8 +88,8 @@ $basePath = "";
 <body data-theme="titan-dark">
     <div class="grid-bg"></div>
 
-    <?php include 'includes/cookies_banner.php'; ?>
-    <?php include 'includes/header.php'; ?>
+    <?php include $basePath . '/includes/cookies_banner.php'; ?>
+    <?php include $basePath . '/includes/header.php'; ?>
 
     <main>
         <header class="hero" style="padding-bottom: 5rem;">
@@ -194,7 +194,7 @@ $basePath = "";
         </section>
     </main>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include $basePath . '/includes/footer.php'; ?>
 </body>
 
 </html>

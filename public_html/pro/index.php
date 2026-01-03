@@ -1,12 +1,12 @@
-﻿<?php
-$basePath = "";
+<?php
+$basePath = "..";
 
 // --- DYNAMIC METRICS AGGREGATION (PRO TIER) ---
-$registryPath = __DIR__ . '/../data/registry_index.json';
+$registryPath = __DIR__ . '/../../data/registry_index.json';
 $proStats = [
     'companies' => 0,
     'emails' => 0,
-    'phones' => 0, // Placeholder if available in future
+    'phones' => 0,
     'domains' => 0,
     'countries' => []
 ];
@@ -15,8 +15,6 @@ if (file_exists($registryPath)) {
     $registry = json_decode(file_get_contents($registryPath), true);
 
     foreach ($registry as $asset) {
-        // We only care about Premium Metrics files
-        // Note: Registry might label it "Pro" or "Premium"
         $tier = $asset['tier'] ?? '';
         if ($tier !== 'Premium' && $tier !== 'Pro')
             continue;
@@ -25,10 +23,7 @@ if (file_exists($registryPath)) {
             continue;
 
         $jurisdiction = $asset['jurisdiction'];
-
-        // Construct physical path (Hybrid Architecture)
-        // Path: data/XPublicar1/{Country}/{Country}-Premium/{Filename}
-        $jsonPath = __DIR__ . "/../data/XPublicar1/{$jurisdiction}/{$jurisdiction}-Premium/{$asset['asset_name']}";
+        $jsonPath = __DIR__ . "/../../data/XPublicar1/{$jurisdiction}/{$jurisdiction}-Premium/{$asset['asset_name']}";
 
         if (file_exists($jsonPath)) {
             $data = json_decode(file_get_contents($jsonPath), true);
@@ -64,15 +59,15 @@ $countCountries = count($proStats['countries']);
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=9">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <script src="assets/theme-toggle.js?v=7" defer></script>
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=11">
+    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png">
+    <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
 </head>
 
 <body data-theme="titan-dark">
     <div class="grid-bg"></div>
 
-    <?php include 'includes/header.php'; ?>
+    <?php include $basePath . '/includes/header.php'; ?>
 
     <main>
         <header class="hero">
@@ -91,27 +86,31 @@ $countCountries = count($proStats['countries']);
                     <div class="span-4">
                         <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">
                             ACTIVE ENTITIES</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);"><?= $fmtCompanies ?>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
+                            <?= $fmtCompanies ?>
                         </div>
                     </div>
                     <div class="span-4">
                         <div
                             style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem; color: var(--accent);">
                             VERIFIED EMAILS</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--accent);"><?= $fmtEmails ?></div>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--accent);">
+                            <?= $fmtEmails ?>
+                        </div>
                     </div>
                     <div class="span-4">
                         <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">WEB
                             DOMAINS</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);"><?= $fmtDomains ?>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
+                            <?= $fmtDomains ?>
                         </div>
                     </div>
                 </div>
 
                 <div class="cta-group span-12">
-                    <a href="<?= $basePath ?>/contact" class="btn-institutional primary">Request Pro Access</a>
+                    <a href="<?= $basePath ?>/contact/" class="btn-institutional primary">Request Pro Access</a>
                     <a href="#compare" class="btn-institutional secondary">Compare Open vs Pro</a>
-                    <a href="<?= $basePath ?>/standard"
+                    <a href="<?= $basePath ?>/standard/"
                         style="font-size: 0.75rem; text-decoration: underline; margin-left: 2rem; opacity: 0.6;">Read
                         the Standard</a>
                 </div>
@@ -169,7 +168,6 @@ $countCountries = count($proStats['countries']);
             </div>
         </section>
 
-        <!-- NEW: TRUST BLOCK -->
         <section class="section" style="border-top: 1px solid var(--structural-line); padding: 5rem 0;">
             <div class="grid-container">
                 <div class="span-12" style="text-align: center;">
@@ -195,14 +193,14 @@ $countCountries = count($proStats['countries']);
                             <p style="margin-bottom: 1.5rem;">Designed for broad reuse, research, and public
                                 infrastructure. Company-level facts with provenance and versioning. Built to avoid
                                 personal data.</p>
-                            <a href="<?= $basePath ?>/data" class="btn-institutional secondary"
+                            <a href="<?= $basePath ?>/data/" class="btn-institutional secondary"
                                 style="width: 100%; justify-content: center;">Explore Open Data</a>
                         </div>
                         <div class="compare-card pro">
                             <h4 class="titan-label" style="color:var(--accent)">PRO (PAID ENRICHMENT LAYER)</h4>
                             <p style="margin-bottom: 1.5rem;">Designed for operations. Adds enrichment and faster
                                 updates. Built for legitimate B2B workflows where traceability and freshness matter.</p>
-                            <a href="<?= $basePath ?>/contact" class="btn-institutional primary"
+                            <a href="<?= $basePath ?>/contact/" class="btn-institutional primary"
                                 style="width: 100%; justify-content: center;">Request Pro Access</a>
                         </div>
                     </div>
@@ -232,7 +230,7 @@ $countCountries = count($proStats['countries']);
                                 <li>Standard Access</li>
                                 <li>Public Documentation</li>
                             </ul>
-                            <a href="<?= $basePath ?>/data" class="btn-institutional secondary">Explore Open Data</a>
+                            <a href="<?= $basePath ?>/data/" class="btn-institutional secondary">Explore Open Data</a>
                         </div>
                         <div class="pricing-card featured">
                             <div class="pricing-header">
@@ -245,7 +243,7 @@ $countCountries = count($proStats['countries']);
                                 <li>API Keys</li>
                                 <li>Bulk Exports</li>
                             </ul>
-                            <a href="<?= $basePath ?>/contact" class="btn-institutional primary">Request Pro Access</a>
+                            <a href="<?= $basePath ?>/contact/" class="btn-institutional primary">Request Pro Access</a>
                         </div>
                         <div class="pricing-card">
                             <div class="pricing-header">
@@ -258,49 +256,7 @@ $countCountries = count($proStats['countries']);
                                 <li>Governance Alignment</li>
                                 <li>Compliance Tooling</li>
                             </ul>
-                            <a href="<?= $basePath ?>/contact" class="btn-institutional secondary">Talk to Us</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="padding-bottom: 10rem;">
-            <div class="grid-container">
-                <div class="section-meta">FAQ</div>
-                <div class="span-10">
-                    <div style="margin-top: 2rem;">
-                        <h3 class="heading" style="font-size: 1.15rem; margin-bottom: 2rem;">Common Protocols</h3>
-
-                        <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Is Pro
-                                replacing CC0?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">No. CC0 remains the public core. Pro is the
-                                sustainability layer.</p>
-                        </div>
-
-                        <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Do Pro
-                                datasets include personal data?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">Pro focuses on business contact channels intended
-                                for professional communication. We prioritize role-based addresses and provide a clear
-                                suppression path for any contact that should not appear.</p>
-                        </div>
-
-                        <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Can I use Pro
-                                for outreach?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">Only for lawful communications. Pro is designed
-                                for legitimate B2B workflows—not bulk unsolicited marketing. We provide clear
-                                acceptable-use rules and suppression mechanisms.</p>
-                        </div>
-
-                        <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">What happens
-                                when the foundation is registered?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">The foundation becomes the steward of the
-                                standard and CC0 releases. Legal ownership/operator details and governance will be
-                                published and updated across the site.</p>
+                            <a href="<?= $basePath ?>/contact/" class="btn-institutional secondary">Talk to Us</a>
                         </div>
                     </div>
                 </div>
@@ -308,7 +264,7 @@ $countCountries = count($proStats['countries']);
         </section>
     </main>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include $basePath . '/includes/footer.php'; ?>
 </body>
 
 </html>

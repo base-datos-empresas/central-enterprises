@@ -1,5 +1,5 @@
 <?php
-$basePath = "";
+$basePath = "../..";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,14 +14,14 @@ $basePath = "";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=11">
-    <script src="assets/theme-toggle.js?v=7" defer></script>
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=11">
+    <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
 </head>
 
 <body data-theme="titan-dark">
     <div class="grid-bg"></div>
 
-    <?php include 'includes/header.php'; ?>
+    <?php include $basePath . '/includes/header.php'; ?>
 
     <main>
         <header class="hero">
@@ -69,7 +69,7 @@ $basePath = "";
         </section>
     </main>
 
-    <?php include 'includes/footer.php'; ?>
+    <?php include $basePath . '/includes/footer.php'; ?>
 </body>
 
 </html>

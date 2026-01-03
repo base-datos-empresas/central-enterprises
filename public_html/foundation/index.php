@@ -65,7 +65,7 @@ $basePath = "..";
                         </p>
                     </div>
 
-                    <a href="<?= $basePath ?>/donations.php" class="btn-institutional primary">Support the Mission</a>
+                    <a href="<?= $basePath ?>/donations/" class="btn-institutional primary">Support the Mission</a>
                 </div>
 
                 <div class="span-4">

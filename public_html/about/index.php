@@ -14,8 +14,29 @@ $basePath = "..";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=10">
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=8">
+    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png">
     <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
+    <style>
+        .about-content p {
+            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-header);
+        }
+
+        .vision-card {
+            padding: 3rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--structural-line);
+            margin-top: 4rem;
+        }
+
+        .vision-card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+    </style>
 </head>
 
 <body data-theme="titan-dark">
@@ -26,6 +47,7 @@ $basePath = "..";
     <main>
         <header class="hero">
             <div class="grid-container">
+
                 <div class="section-meta">ENGINEERING PHILOSOPHY</div>
                 <h1 class="hero-title">DATA AS A <br>PUBLIC FACT.</h1>
                 <div class="hero-desc">
