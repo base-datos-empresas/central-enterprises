@@ -16,9 +16,27 @@ $basePath = "";
     <meta name="description"
         content="Central.Enterprises is a Spain-based foundation (in formation) providing a CC0 global reference layer for business reality. Open data as infrastructure.">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=10">
+    <link rel="stylesheet" href="assets/titan.css?v=11">
     <script src="assets/theme-toggle.js?v=7" defer></script>
     <script src="assets/cookies.js?v=5" defer></script>
+    <!-- SEO & Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Central.Enterprises Foundation",
+      "url": "https://central.enterprises",
+      "logo": "https://central.enterprises/assets/logo.png",
+      "description": "A Spain-based foundation providing a CC0 global reference layer for business reality.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Trajano 8",
+        "addressLocality": "Granada",
+        "postalCode": "18002",
+        "addressCountry": "ES"
+      }
+    }
+    </script>
 </head>
 
 <body data-theme="titan-dark">
@@ -52,7 +70,8 @@ $basePath = "";
                             <span class="feature-num">EU-01</span>
                             <h3>Spain Registry</h3>
                             <p>CC0 standardization for the Kingdom of Spain.</p>
-                            <span class="btn-institutional primary" style="margin-top:1rem; display:inline-block">Get Data (CC0) →</span>
+                            <span class="btn-institutional primary" style="margin-top:1rem; display:inline-block">Get
+                                Data (CC0) →</span>
                         </a>
 
                         <a href="/country/us" class="feature-card span-4"
@@ -60,7 +79,8 @@ $basePath = "";
                             <span class="feature-num">NA-01</span>
                             <h3>United States</h3>
                             <p>Federal and state-level entity reconciliation.</p>
-                            <span class="btn-institutional secondary" style="margin-top:1rem; display:inline-block">Get Data (CC0) →</span>
+                            <span class="btn-institutional secondary" style="margin-top:1rem; display:inline-block">Get
+                                Data (CC0) →</span>
                         </a>
 
                         <a href="/pro.php" class="feature-card span-4"
@@ -68,7 +88,9 @@ $basePath = "";
                             <span class="feature-num" style="color: var(--accent);">PRO</span>
                             <h3>Enrichment Layer</h3>
                             <p>Commercial signals: domains, emails, and social footprint.</p>
-                            <span class="btn-institutional primary" style="margin-top:1rem; display:inline-block; background: var(--accent); color: var(--bg-primary);">Request Pro Access →</span>
+                            <span class="btn-institutional primary"
+                                style="margin-top:1rem; display:inline-block; background: var(--accent); color: var(--bg-primary);">Request
+                                Pro Access →</span>
                         </a>
                     </div>
                 </div>

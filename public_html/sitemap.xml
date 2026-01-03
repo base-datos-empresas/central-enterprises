@@ -48,6 +48,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://central.enterprises/donations.php</loc>
+    <lastmod><?= date('Y-m-d') ?></lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <!-- Legal Pages -->
   <url>
     <loc>https://central.enterprises/legal-notice.php</loc>
