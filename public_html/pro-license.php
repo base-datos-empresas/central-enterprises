@@ -14,23 +14,8 @@ $basePath = "";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=9">
+    <link rel="stylesheet" href="assets/titan.css?v=11">
     <script src="assets/theme-toggle.js?v=7" defer></script>
-    <style>
-        .license-section {
-            margin-bottom: 4rem;
-        }
-        .license-section h2 {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-        .license-section p {
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-        }
-    </style>
 </head>
 
 <body data-theme="titan-dark">
@@ -41,10 +26,10 @@ $basePath = "";
     <main>
         <header class="hero">
             <div class="grid-container">
-                <div class="section-meta">LEGAL FRAMEWORK</div>
+                <div class="section-meta">COMMERCIAL TERMS</div>
                 <h1 class="hero-title">PRO DATA <br>LICENSE.</h1>
                 <div class="hero-desc">
-                    Commercial terms for professional enrichment layer and infrastructure access.
+                    Pro is licensed access to enrichment and delivery mechanisms (exports and/or APIs). It exists to fund the stewardship of CC0 releases and the Open Company Data Standard under a foundation-led model.
                 </div>
             </div>
         </header>
@@ -52,41 +37,44 @@ $basePath = "";
         <section class="section">
             <div class="grid-container">
                 <div class="span-8">
-                    <div class="license-section">
-                        <h2>1. SCOPE OF LICENSE</h2>
-                        <p>Pro is licensed access to enrichment and delivery mechanisms (exports and/or APIs). It exists to fund the stewardship of CC0 releases and the Open Company Data Standard under a foundation-led model.</p>
-                    </div>
+                    <h2 class="section-title">Foundation Transition</h2>
+                    <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 3rem;">
+                        Central.Enterprises is in formation as a Spain-based foundation. Until registration, the service is operated by Pablo Cirre (see <a href="legal-notice.php" style="color:var(--accent)">Legal Notice</a>). Once registered, the foundation becomes the steward of governance and public releases, and the licensing entity will be clearly published. All changes will be documented with effective dates.
+                    </p>
 
-                    <div class="license-section">
-                        <h2>2. FOUNDATION TRANSITION</h2>
-                        <p>Central.Enterprises is in formation as a Spain-based foundation. Until registration, the service is operated by Pablo Cirre (see Legal Notice). Once registered, the foundation becomes the steward of governance and public releases.</p>
-                    </div>
+                    <h2 class="section-title">Intended Use</h2>
+                    <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 1rem;">Pro is intended for:</p>
+                    <ul class="compare-list" style="margin-bottom: 3rem;">
+                        <li>Market intelligence and segmentation.</li>
+                        <li>Data enrichment for internal CRMs.</li>
+                        <li>Partner qualification and due diligence.</li>
+                        <li>Research, analytics, and internal tooling.</li>
+                    </ul>
 
-                    <div class="license-section">
-                        <h2>3. INTENDED USE</h2>
-                        <p>Pro data is intended for market intelligence, CRM enrichment, partner qualification, research, and analytics. It is built for professional workflows where data quality and provenance are critical.</p>
-                    </div>
+                    <h2 class="section-title">Contact Channels</h2>
+                    <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 3rem;">
+                        Pro may include business contact channels such as websites and emails. These fields are provided for professional context and operational workflows. We aim to prioritize role-based business addresses and provide a straightforward suppression process for any address that should not appear.
+                    </p>
 
-                    <div class="license-section">
-                        <h2>4. CONTACT CHANNELS & RESPONSIBILITY</h2>
-                        <p>Pro may include business contact channels such as websites and emails. These fields are provided for professional context. We prioritize role-based addresses and provide a suppression process for any address that should not appear.</p>
-                        <p><strong>Acceptable Use:</strong> You must use Pro data lawfully. It is not a spam list. Use for unlawful unsolicited outreach is prohibited. Customers are responsible for compliance with privacy laws and opt-out handling.</p>
-                    </div>
+                    <h2 class="section-title">Acceptable Use</h2>
+                    <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 3rem;">
+                        You must use Pro data lawfully and responsibly. Pro is not a “spam list,” and it must not be used for unlawful unsolicited outreach, harassment, or misuse. Customers are responsible for compliance with applicable communications and privacy laws, including opt-out handling and suppression requests.
+                    </p>
 
-                    <div class="license-section">
-                        <h2>5. REDISTRIBUTION & QUALITY</h2>
-                        <p>Pro data may not be republished, resold, or made available to third parties except as permitted under an enterprise agreement.</p>
-                        <p>Data is provided as-is, focusing on the most recent verified signals. Provenance and timestamps are provided to support robust internal workflows.</p>
-                    </div>
-                </div>
+                    <h2 class="section-title">Redistribution</h2>
+                    <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 3rem;">
+                        Pro data may not be republished, resold, or made available to third parties except as explicitly permitted under an enterprise agreement.
+                    </p>
 
-                <div class="span-4">
-                    <div class="sidebar-toc">
-                        <h4 class="titan-label">COMPLIANCE</h4>
-                        <a href="paginas/Legal/Privacy.php" class="toc-item">Privacy Policy</a>
-                        <a href="paginas/Legal/Terms.php" class="toc-item">Terms of Operation</a>
-                        <a href="paginas/Contact/" class="toc-item">Suppression Request</a>
-                    </div>
+                    <h2 class="section-title">Quality & Change</h2>
+                    <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 3rem;">
+                        Pro data is updated and can change. We do not guarantee deliverability of emails or permanence of contact channels. Provenance and timestamps are provided so you can build robust workflows.
+                    </p>
+
+                    <h2 class="section-title">Enforcement</h2>
+                    <p style="opacity: 0.8; line-height: 1.6;">
+                        We may suspend access if we detect credential sharing, automated abuse, or use that conflicts with acceptable use rules.
+                    </p>
                 </div>
             </div>
         </section>

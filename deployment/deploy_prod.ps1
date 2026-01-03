@@ -45,9 +45,14 @@ $RemoteCmds = "cd $RemotePath && " +
 "sudo chown -R ubuntu:www-data data bases public_html"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $RemoteCmds
 
-# 6. Restart Services
+# 6. Restart Services & Apply Config
 Write-Host "Restarting Services..."
-ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo cp $RemotePath/centralui-api.service /etc/systemd/system/ && sudo systemctl daemon-reload && sudo systemctl restart centralui-api.service"
-ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo systemctl restart nginx"
+$ServiceCmds = "sudo cp $RemotePath/centralui-api.service /etc/systemd/system/ && " +
+"sudo systemctl daemon-reload && " +
+"sudo systemctl restart centralui-api.service && " +
+"sudo cp $RemotePath/nginx.conf /etc/nginx/sites-available/central.enterprises && " +
+"sudo ln -sf /etc/nginx/sites-available/central.enterprises /etc/nginx/sites-enabled/ && " +
+"sudo systemctl restart nginx"
+ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $ServiceCmds
 
 Write-Host "Deployment Complete. Services Synchronized."

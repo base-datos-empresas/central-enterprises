@@ -7,16 +7,16 @@ $basePath = "";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TITAN | Central.Enterprises</title>
+    <title>Central.Enterprises | The Open Company Data Foundation</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <meta name="description"
-        content="TITAN Central Enterprises: The common foundation for open data and corporate intelligence. Transform public signals into neutral business insights.">
+        content="Central.Enterprises is a Spain-based foundation (in formation) providing a CC0 global reference layer for business reality. Open data as infrastructure.">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=8">
+    <link rel="stylesheet" href="assets/titan.css?v=10">
     <script src="assets/theme-toggle.js?v=7" defer></script>
     <script src="assets/cookies.js?v=5" defer></script>
 </head>
@@ -33,10 +33,8 @@ $basePath = "";
             <div class="grid-container">
                 <h1 class="hero-title">OPEN DATA <br>IS INFRASTRUCTURE.</h1>
                 <div class="hero-desc">
-                    Central.Enterprises provides a common foundation where researchers, small businesses, and
-                    institutions
-                    work from a shared reality. We transform public signals into the neutral layer of global business
-                    intelligence.
+                    A CC0 global reference layer for business reality. Managed by the Central.Enterprises Foundation (in
+                    formation) to ensure corporate data remains a neutral public good.
                 </div>
             </div>
         </header>
@@ -53,27 +51,24 @@ $basePath = "";
                             style="text-decoration:none; color:inherit; display:block">
                             <span class="feature-num">EU-01</span>
                             <h3>Spain Registry</h3>
-                            <p>Access to uniform corporate data for the Kingdom of Spain.</p>
-                            <span class="btn-institutional primary" style="margin-top:1rem; display:inline-block">View
-                                Data →</span>
+                            <p>CC0 standardization for the Kingdom of Spain.</p>
+                            <span class="btn-institutional primary" style="margin-top:1rem; display:inline-block">Get Data (CC0) →</span>
                         </a>
 
                         <a href="/country/us" class="feature-card span-4"
                             style="text-decoration:none; color:inherit; display:block">
                             <span class="feature-num">NA-01</span>
                             <h3>United States</h3>
-                            <p>Federal and state-level corporate entity reconciliation.</p>
-                            <span class="btn-institutional secondary" style="margin-top:1rem; display:inline-block">View
-                                Data →</span>
+                            <p>Federal and state-level entity reconciliation.</p>
+                            <span class="btn-institutional secondary" style="margin-top:1rem; display:inline-block">Get Data (CC0) →</span>
                         </a>
 
-                        <a href="/country/gb" class="feature-card span-4"
-                            style="text-decoration:none; color:inherit; display:block">
-                            <span class="feature-num">EU-02</span>
-                            <h3>United Kingdom</h3>
-                            <p>Companies House data integration and verification.</p>
-                            <span class="btn-institutional secondary" style="margin-top:1rem; display:inline-block">View
-                                Data →</span>
+                        <a href="/pro.php" class="feature-card span-4"
+                            style="text-decoration:none; color:inherit; display:block; border-color: var(--accent);">
+                            <span class="feature-num" style="color: var(--accent);">PRO</span>
+                            <h3>Enrichment Layer</h3>
+                            <p>Commercial signals: domains, emails, and social footprint.</p>
+                            <span class="btn-institutional primary" style="margin-top:1rem; display:inline-block; background: var(--accent); color: var(--bg-primary);">Request Pro Access →</span>
                         </a>
                     </div>
                 </div>

@@ -13,21 +13,23 @@ $proStats = [
 
 if (file_exists($registryPath)) {
     $registry = json_decode(file_get_contents($registryPath), true);
-    
+
     foreach ($registry as $asset) {
         // We only care about Premium Metrics files
         // Note: Registry might label it "Pro" or "Premium"
         $tier = $asset['tier'] ?? '';
-        if ($tier !== 'Premium' && $tier !== 'Pro') continue;
-        
-        if (strpos($asset['asset_name'], 'Metrics-Premium.json') === false) continue;
-        
+        if ($tier !== 'Premium' && $tier !== 'Pro')
+            continue;
+
+        if (strpos($asset['asset_name'], 'Metrics-Premium.json') === false)
+            continue;
+
         $jurisdiction = $asset['jurisdiction'];
-        
+
         // Construct physical path (Hybrid Architecture)
         // Path: data/XPublicar1/{Country}/{Country}-Premium/{Filename}
         $jsonPath = __DIR__ . "/../data/XPublicar1/{$jurisdiction}/{$jurisdiction}-Premium/{$asset['asset_name']}";
-        
+
         if (file_exists($jsonPath)) {
             $data = json_decode(file_get_contents($jsonPath), true);
             if (isset($data['totals'])) {
@@ -77,29 +79,40 @@ $countCountries = count($proStats['countries']);
                 <div class="section-meta">INFRASTRUCTURE CORE</div>
                 <h1 class="hero-title">PRO <br>ACCESS.</h1>
                 <div class="hero-desc">
-                    Infrastructure-grade company intelligence. CC0 is the public core. Pro is the funding layer that keeps the standard, validation, and refresh cycles sustainable.
+                    Pro Access for infrastructure-grade company intelligence. CC0 is the public core. Pro is the funding
+                    layer that keeps the standard, validation, and refresh cycles sustainable—without compromising
+                    openness.
                 </div>
 
                 <!-- LIVE INFRASTRUCTURE STATS -->
-                <div class="grid-container" style="margin-top: 3rem; margin-bottom: 2rem; border-top: 1px solid var(--structural-line); padding-top: 2rem;">
+                <div class="grid-container"
+                    style="margin-top: 3rem; margin-bottom: 2rem; border-top: 1px solid var(--structural-line); padding-top: 2rem;">
                     <div class="span-4">
-                        <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">ACTIVE ENTITIES</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);"><?= $fmtCompanies ?></div>
+                        <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">
+                            ACTIVE ENTITIES</div>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);"><?= $fmtCompanies ?>
+                        </div>
                     </div>
                     <div class="span-4">
-                        <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem; color: var(--accent);">VERIFIED EMAILS</div>
+                        <div
+                            style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem; color: var(--accent);">
+                            VERIFIED EMAILS</div>
                         <div style="font-size: 2rem; font-weight: 800; color: var(--accent);"><?= $fmtEmails ?></div>
                     </div>
                     <div class="span-4">
-                        <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">WEB DOMAINS</div>
-                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);"><?= $fmtDomains ?></div>
+                        <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">WEB
+                            DOMAINS</div>
+                        <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);"><?= $fmtDomains ?>
+                        </div>
                     </div>
                 </div>
 
                 <div class="cta-group span-12">
-                    <a href="paginas/Contact/" class="btn-institutional primary">Request Pro Access</a>
+                    <a href="<?= $basePath ?>/contact" class="btn-institutional primary">Request Pro Access</a>
                     <a href="#compare" class="btn-institutional secondary">Compare Open vs Pro</a>
-                    <a href="#coverage" style="font-size: 0.75rem; text-decoration: underline; margin-left: 2rem; opacity: 0.6;">View Global Roadmap</a>
+                    <a href="<?= $basePath ?>/standard"
+                        style="font-size: 0.75rem; text-decoration: underline; margin-left: 2rem; opacity: 0.6;">Read
+                        the Standard</a>
                 </div>
             </div>
         </header>
@@ -109,7 +122,11 @@ $countCountries = count($proStats['countries']);
                 <div class="span-8">
                     <h2 class="section-title">Why Pro exists</h2>
                     <p style="font-size: 1.25rem; line-height: 1.6; opacity: 0.8; margin-bottom: 3rem;">
-                        Central.Enterprises is moving toward a foundation model to permanently steward open company data under CC0. Pro exists to finance that stewardship: faster refresh, stronger provenance, higher coverage, and enriched business contact channels for legitimate professional use.
+                        Central.Enterprises is moving toward a foundation model in Spain to permanently steward open
+                        company data under CC0. Pro exists to finance that stewardship: faster refresh, stronger
+                        provenance, higher coverage, and enriched business contact channels for legitimate professional
+                        use. The result is a public core anyone can build on—and a professional layer for teams who need
+                        operational depth.
                     </p>
 
                     <div class="grid-container" style="padding:0">
@@ -121,23 +138,24 @@ $countCountries = count($proStats['countries']);
                         <div class="span-6 feature-card">
                             <span class="feature-num">02</span>
                             <h3>Enrichment Layer</h3>
-                            <p>Verified websites, business contact channels, and classification signals.</p>
+                            <p>Website, business contact channels, and classification signals.</p>
                         </div>
                         <div class="span-6 feature-card">
                             <span class="feature-num">03</span>
                             <h3>Stable Identifiers</h3>
-                            <p>Cleaner joins and consistent IDs across snapshots for longitudinal analytics.</p>
+                            <p>Cleaner joins and consistent IDs across snapshots for analytics and pipelines.</p>
                         </div>
                         <div class="span-6 feature-card">
                             <span class="feature-num">04</span>
                             <h3>Full Provenance</h3>
-                            <p>Record-level timestamps, source tracking, and confidence scoring.</p>
+                            <p>Provenance-first records including timestamps, sources, and confidence tracking.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="span-4">
-                    <div class="protocol-card" style="padding: 2rem; background: var(--bg-secondary); border: 1px solid var(--structural-line);">
+                    <div class="protocol-card"
+                        style="padding: 2rem; background: var(--bg-secondary); border: 1px solid var(--structural-line);">
                         <h4 class="titan-label">DELIVERY PROTOCOLS</h4>
                         <ul class="compare-list" style="margin-top: 1rem;">
                             <li>Bulk JSON/CSV Exports</li>
@@ -150,36 +168,17 @@ $countCountries = count($proStats['countries']);
             </div>
         </section>
 
-        <!-- NEW: GLOBAL COVERAGE TABLE -->
-        <section class="section" id="coverage" style="border-top: 1px solid var(--structural-line);">
+        <!-- NEW: TRUST BLOCK -->
+        <section class="section" style="border-top: 1px solid var(--structural-line); padding: 5rem 0;">
             <div class="grid-container">
-                <div class="section-meta">GLOBAL FOOTPRINT</div>
-                <div class="span-12">
-                    <h2 class="section-title">Current Pro Coverage</h2>
-                    <div style="overflow-x: auto;">
-                        <table style="width: 100%; border-collapse: collapse; margin-top: 2rem;">
-                            <thead>
-                                <tr style="border-bottom: 2px solid var(--structural-line); text-align: left;">
-                                    <th style="padding: 1rem; font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6;">JURISDICTION</th>
-                                    <th style="padding: 1rem; font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6;">ACTIVE ENTITIES</th>
-                                    <th style="padding: 1rem; font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; color: var(--accent);">VERIFIED CONTACTS</th>
-                                    <th style="padding: 1rem; font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6;">STATUS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($proStats['countries'] as $country => $stats): ?>
-                                <tr style="border-bottom: 1px solid var(--structural-line);">
-                                    <td style="padding: 1rem; font-weight: 700;"><?= $country ?></td>
-                                    <td style="padding: 1rem; opacity: 0.8;"><?= number_format($stats['companies']) ?></td>
-                                    <td style="padding: 1rem; color: var(--accent); font-weight: 700;"><?= number_format($stats['emails']) ?></td>
-                                    <td style="padding: 1rem;">
-                                        <span style="background: rgba(0,255,100,0.1); color: #00ff64; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.7rem;">LIVE</span>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="span-12" style="text-align: center;">
+                    <h2 style="font-size: 1.5rem; font-weight: 800; font-family: var(--font-header);">Built to be cited,
+                        not just consumed.</h2>
+                    <p style="opacity: 0.6; margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        We treat provenance, versioning, and integrity as product features. Pro users benefit from
+                        stronger guarantees around update discipline and record continuity—while the CC0 core remains
+                        freely reusable.
+                    </p>
                 </div>
             </div>
         </section>
@@ -192,30 +191,26 @@ $countCountries = count($proStats['countries']);
                     <div class="pro-compare-grid">
                         <div class="compare-card">
                             <h4 class="titan-label">OPEN (CC0 PUBLIC CORE)</h4>
-                            <h3>Designed for broad reuse, research, and infrastructure.</h3>
-                            <ul class="compare-list">
-                                <li>Company-level facts</li>
-                                <li>Standardized schema</li>
-                                <li>Public snapshots</li>
-                                <li>CC0 Universal License</li>
-                            </ul>
-                            <a href="catalog.php" class="btn-institutional secondary" style="width: 100%; justify-content: center;">Explore Open Data</a>
+                            <p style="margin-bottom: 1.5rem;">Designed for broad reuse, research, and public
+                                infrastructure. Company-level facts with provenance and versioning. Built to avoid
+                                personal data.</p>
+                            <a href="<?= $basePath ?>/data" class="btn-institutional secondary"
+                                style="width: 100%; justify-content: center;">Explore Open Data</a>
                         </div>
                         <div class="compare-card pro">
                             <h4 class="titan-label" style="color:var(--accent)">PRO (PAID ENRICHMENT LAYER)</h4>
-                            <h3>Designed for professional operations and B2B workflows.</h3>
-                            <ul class="compare-list">
-                                <li>All Open Core features</li>
-                                <li>Professional contact channels</li>
-                                <li>Extended enrichment fields</li>
-                                <li>Operational refresh cadence</li>
-                            </ul>
-                            <a href="paginas/Contact/" class="btn-institutional primary" style="width: 100%; justify-content: center;">Request Pro Access</a>
+                            <p style="margin-bottom: 1.5rem;">Designed for operations. Adds enrichment and faster
+                                updates. Built for legitimate B2B workflows where traceability and freshness matter.</p>
+                            <a href="<?= $basePath ?>/contact" class="btn-institutional primary"
+                                style="width: 100%; justify-content: center;">Request Pro Access</a>
                         </div>
                     </div>
-                    
-                    <div style="margin-top: 4rem; text-align: center; opacity: 0.6; font-size: 0.9rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                        <strong>A foundation-led promise:</strong> When the foundation is registered, it will steward CC0 releases and the standard. Pro revenue is explicitly aligned with funding data stewardship and long-term availability.
+
+                    <div
+                        style="margin-top: 4rem; text-align: center; opacity: 0.6; font-size: 0.9rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                        <strong>A foundation-led promise:</strong> When the foundation is registered, it will steward
+                        CC0 releases and the standard. Pro revenue is explicitly aligned with funding data stewardship
+                        and long-term availability.
                     </div>
                 </div>
             </div>
@@ -229,32 +224,32 @@ $countCountries = count($proStats['countries']);
                         <div class="pricing-card">
                             <div class="pricing-header">
                                 <span class="pricing-title">OPEN</span>
-                                <div class="pricing-price">Free</div>
+                                <div class="pricing-price">Informed</div>
                             </div>
                             <ul class="pricing-features">
                                 <li>CC0 Downloads</li>
                                 <li>Standard Access</li>
-                                <li>Public Docs</li>
+                                <li>Public Documentation</li>
                             </ul>
-                            <a href="catalog.php" class="btn-institutional secondary">Get Data</a>
+                            <a href="<?= $basePath ?>/data" class="btn-institutional secondary">Explore Open Data</a>
                         </div>
                         <div class="pricing-card featured">
                             <div class="pricing-header">
                                 <span class="pricing-title">PRO</span>
-                                <div class="pricing-price"><span class="currency">$</span>57<span style="font-size: 1rem; opacity: 0.5;">/mo</span></div>
+                                <div class="pricing-price">Operational</div>
                             </div>
                             <ul class="pricing-features">
                                 <li>Enrichment Layer</li>
-                                <li>High Cadence</li>
+                                <li>Higher Cadence</li>
                                 <li>API Keys</li>
-                                <li>Operational Exports</li>
+                                <li>Bulk Exports</li>
                             </ul>
-                            <a href="paginas/Contact/" class="btn-institutional primary">Request Access</a>
+                            <a href="<?= $basePath ?>/contact" class="btn-institutional primary">Request Pro Access</a>
                         </div>
                         <div class="pricing-card">
                             <div class="pricing-header">
                                 <span class="pricing-title">ENTERPRISE</span>
-                                <div class="pricing-price">Custom</div>
+                                <div class="pricing-price">Strategic</div>
                             </div>
                             <ul class="pricing-features">
                                 <li>Custom Refresh</li>
@@ -262,7 +257,7 @@ $countCountries = count($proStats['countries']);
                                 <li>Governance Alignment</li>
                                 <li>Compliance Tooling</li>
                             </ul>
-                            <a href="paginas/Contact/" class="btn-institutional secondary">Talk to Us</a>
+                            <a href="<?= $basePath ?>/contact" class="btn-institutional secondary">Talk to Us</a>
                         </div>
                     </div>
                 </div>
@@ -275,25 +270,36 @@ $countCountries = count($proStats['countries']);
                 <div class="span-10">
                     <div style="margin-top: 2rem;">
                         <h3 class="heading" style="font-size: 1.15rem; margin-bottom: 2rem;">Common Protocols</h3>
-                        
+
                         <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Is Pro replacing CC0?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">No. CC0 remains the public core. Pro is the sustainability layer that funds its maintenance, validation, and expansion.</p>
+                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Is Pro
+                                replacing CC0?</p>
+                            <p style="opacity: 0.7; line-height: 1.6;">No. CC0 remains the public core. Pro is the
+                                sustainability layer.</p>
                         </div>
 
                         <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Do Pro datasets include personal data?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">Pro focuses on business contact channels intended for professional communication. We prioritize role-based addresses and provide a clear suppression path for any contact that should not appear.</p>
+                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Do Pro
+                                datasets include personal data?</p>
+                            <p style="opacity: 0.7; line-height: 1.6;">Pro focuses on business contact channels intended
+                                for professional communication. We prioritize role-based addresses and provide a clear
+                                suppression path for any contact that should not appear.</p>
                         </div>
 
                         <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Can I use Pro for outreach?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">Only for lawful communications. Pro is designed for legitimate B2B workflows. We provide clear acceptable-use rules and suppression mechanisms.</p>
+                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">Can I use Pro
+                                for outreach?</p>
+                            <p style="opacity: 0.7; line-height: 1.6;">Only for lawful communications. Pro is designed
+                                for legitimate B2B workflows—not bulk unsolicited marketing. We provide clear
+                                acceptable-use rules and suppression mechanisms.</p>
                         </div>
 
                         <div style="margin-bottom: 3rem;">
-                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">What happens when the foundation is registered?</p>
-                            <p style="opacity: 0.7; line-height: 1.6;">The foundation becomes the steward of the standard and CC0 releases. Legal ownership and governance details will be formally transferred and updated here.</p>
+                            <p style="font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">What happens
+                                when the foundation is registered?</p>
+                            <p style="opacity: 0.7; line-height: 1.6;">The foundation becomes the steward of the
+                                standard and CC0 releases. Legal ownership/operator details and governance will be
+                                published and updated across the site.</p>
                         </div>
                     </div>
                 </div>
