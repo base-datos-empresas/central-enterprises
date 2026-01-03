@@ -10,7 +10,7 @@ Building a permanent, CC0-licensed reference layer for global business entities,
 - [Data Catalog](https://central.enterprises/data/) - Access to CC0 Public Core and Pro datasets.
 - [Standard](https://central.enterprises/standard/) - Open Company Data Standard v1 specification.
 - [Foundation](https://central.enterprises/foundation/) - Stewardship roadmap and transition plan.
-- [Pro Access](https://central.enterprises/pro.php) - High-fidelity enrichment layer (funding the core).
+- [Pro Access](https://central.enterprises/pro/) - High-fidelity enrichment layer (funding the core).
 - [Documentation](https://central.enterprises/docs/) - Technical guides for implementers.
 - [Agent Brief](https://central.enterprises/docs/agent_brief.md) - Full consolidated context for AI agents.
 
