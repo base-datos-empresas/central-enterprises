@@ -110,9 +110,14 @@ $countCountries = count($proStats['countries']);
                 <div class="cta-group span-12">
                     <a href="<?= $basePath ?>/contact/" class="btn-institutional primary">Request Pro Access</a>
                     <a href="#compare" class="btn-institutional secondary">Compare Open vs Pro</a>
-                    <a href="<?= $basePath ?>/standard/"
-                        style="font-size: 0.75rem; text-decoration: underline; margin-left: 2rem; opacity: 0.6;">Read
-                        the Standard</a>
+                    <div style="margin-top:1rem; width:100%; display:flex; gap:2rem; align-items:center;">
+                        <a href="<?= $basePath ?>/standard/"
+                            style="font-size: 0.75rem; text-decoration: underline; opacity: 0.6; color:inherit;">Read
+                            the Standard</a>
+                        <a href="<?= $basePath ?>/pro/status/"
+                            style="font-size: 0.75rem; text-decoration: underline; opacity: 0.6; color:var(--accent);">Check
+                            Application Status</a>
+                    </div>
                 </div>
             </div>
         </header>
