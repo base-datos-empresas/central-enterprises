@@ -622,18 +622,92 @@ footer {
     opacity: 0.7;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+/* Mobile First Overrides (Titan Master Reset) */
+@media (max-width: 900px) {
 
-    .hero-title,
-    .hero-desc,
-    .section-meta,
-    .section-content {
-        grid-column: span 12;
+    /* MASTER GRID RESET: Force single column stack */
+    .grid-container {
+        padding: 0 1.5rem; /* Maximize width */
+        gap: 1.5rem;
+    }
+
+    .span-12, .span-8, .span-6, .span-4, .span-3,
+    .offset-2, .offset-4 {
+        grid-column: span 12 !important;
+        grid-column-start: auto !important;
+    }
+
+    /* HERO RESET */
+    .hero-title {
+        font-size: 2.5rem; /* Readable on mobile */
+        line-height: 1.1;
+        margin-bottom: 1rem;
     }
 
     .hero-desc {
-        margin-top: 3rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+        padding-left: 1rem;
+        border-width: 2px;
+    }
+
+    /* PRICING GRID RESET */
+    .pricing-grid {
+        grid-template-columns: 1fr; /* Single column */
+        border: none;
+    }
+
+    .pricing-card {
+        border-right: none;
+        border-bottom: 1px solid var(--structural-line);
+        padding: 2rem 1.5rem;
+    }
+
+    .pricing-price {
+        font-size: 3rem;
+    }
+
+    /* NAVIGATION TARGETS */
+    .header-links {
+        display: none; /* Hide desktop menu on mobile - simpler for now or stack? */
+        /* Let's keep it visible but scrollable if needed */
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .toc-item {
+        font-size: 0.85rem; /* Larger */
+        padding: 0.8rem 1rem; /* Hit area */
+        white-space: nowrap;
+    }
+
+    /* TABLE RESPONSIVE WRAPPER */
+    /* Add logic if container exists, but for now ensure table scrolls */
+    .titan-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* UTILITIES */
+    .section-meta {
+        border-top: none;
+        padding-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    /* LEGAL TEXT */
+    .legal-content, p, li {
+        font-size: 1rem; /* 16px base for readability */
+        line-height: 1.6;
     }
 }
 
