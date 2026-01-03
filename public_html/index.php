@@ -101,7 +101,7 @@ $basePath = "";
                                 Data (CC0) →</span>
                         </a>
 
-                        <a href="/pro.php" class="feature-card span-4"
+                        <a href="<?= $basePath ?>/pro/" class="feature-card span-4"
                             style="text-decoration:none; color:inherit; display:block; border-color: var(--accent);">
                             <span class="feature-num" style="color: var(--accent);">PRO</span>
                             <h3>Enrichment Layer</h3>
