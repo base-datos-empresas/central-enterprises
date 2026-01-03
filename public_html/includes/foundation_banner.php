@@ -1,4 +1,4 @@
-﻿<aside class="top-banner">
+<aside class="top-banner">
     <div class="grid-container">
         <div class="banner-text">
             Central.Enterprises is becoming a Spain-based foundation.

@@ -1,4 +1,4 @@
-Ôªø<?php
+<?php
 $basePath = "..";
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ $basePath = "..";
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=isometric">
+    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=transparent">
     <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=11">
     <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
 </head>
@@ -32,7 +32,7 @@ $basePath = "..";
                 <div class="hero-desc">
                     Helping build a global open standard for corporate reality. Central.Enterprises is becoming a
                     Spain-based foundation to steward CC0 Open Data and the Open Company Data Standard long-term. This
-                    is not a marketing promise‚Äîit‚Äôs an operating model designed for permanence, governance, and
+                    is not a marketing promiseóitís an operating model designed for permanence, governance, and
                     transparency.
                 </div>
             </div>
@@ -54,7 +54,7 @@ $basePath = "..";
                         <li>The foundation becomes the official steward of the standard and CC0 releases.</li>
                         <li>Governance becomes formal including trustees, published decisions, and version policy.</li>
                         <li>Transparency reporting becomes a scheduled obligation.</li>
-                        <li>Donation mechanics will be updated to reflect the foundation‚Äôs legal status.</li>
+                        <li>Donation mechanics will be updated to reflect the foundationís legal status.</li>
                     </ul>
 
                     <h2 class="section-title">Tax Deductibility</h2>
@@ -65,7 +65,7 @@ $basePath = "..";
 
                     <h2 class="section-title">Why support matters</h2>
                     <p style="opacity: 0.7; line-height: 1.8; margin-bottom: 2rem;">
-                        Open data at scale is not ‚Äúfree to run.‚Äù Stewardship requires infrastructure, validation,
+                        Open data at scale is not ìfree to run.î Stewardship requires infrastructure, validation,
                         refresh cycles, and documentation. Pro funds this through professional access; support helps
                         expand the CC0 core faster and keep the standard stable for everyone.
                     </p>

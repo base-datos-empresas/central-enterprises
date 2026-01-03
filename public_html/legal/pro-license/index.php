@@ -1,4 +1,4 @@
-Ôªø<?php
+<?php
 $basePath = "../..";
 ?>
 <!DOCTYPE html>
@@ -67,7 +67,7 @@ $basePath = "../..";
 
                     <h2 class="section-title">Acceptable Use</h2>
                     <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 3rem;">
-                        You must use Pro data lawfully and responsibly. Pro is not a ‚Äúspam list,‚Äù and it must not be
+                        You must use Pro data lawfully and responsibly. Pro is not a ìspam list,î and it must not be
                         used for unlawful unsolicited outreach, harassment, or misuse. Customers are responsible for
                         compliance with applicable communications and privacy laws, including opt-out handling and
                         suppression requests.
