@@ -95,8 +95,10 @@ $basePath = "../..";
 
                     <h2 class="section-title">6. Contact</h2>
                     <p style="opacity: 0.8; line-height: 1.6;">
-                        For legal notices or data requests, contact: <strong>LEGAL@CENTRAL.ENTERPRISES</strong> or use
-                        the <a href="<?= $basePath ?>/data/requests/" style="color:var(--accent)">Data Requests</a>
+                        For legal notices or data requests, please use our official
+                        <a href="<?= $basePath ?>/contact/" style="color:var(--accent)">Contact Form</a> or the
+                        <a href="<?= $basePath ?>/data/requests/" style="color:var(--accent)">Data Requests</a>
+                        channel.
                         channel.
                     </p>
                 </div>

@@ -241,9 +241,11 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                                             </div>
                                         </div>
                                         <div>
-                                            <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Quality
+                                            <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Verified Fields
                                             </div>
-                                            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent);">98.5%</div>
+                                            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent);">
+                                                <?= isset($meta['totals']['fields_verified']) ? $meta['totals']['fields_verified'] : '5/5' ?>
+                                            </div>
                                         </div>
                                     </div>
                                 <?php else: ?>
