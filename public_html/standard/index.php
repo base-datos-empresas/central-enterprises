@@ -15,6 +15,7 @@ $basePath = "..";
         rel="stylesheet">
     <!-- Titan Core Styles -->
     <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=10">
+    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png">
     <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
 </head>
 
