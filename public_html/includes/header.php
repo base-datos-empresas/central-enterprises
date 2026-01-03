@@ -20,8 +20,7 @@
             </div>
             <div style="display: flex; align-items: center; gap: 2rem;">
                 <div class="header-links" style="display: flex; gap: 1.5rem;">
-                    <a href="<?= $basePath ?>/" class="toc-item" style="font-size: 0.7rem;">HOME</a>
-                    <a href="<?= $basePath ?>/data/" class="toc-item" style="font-size: 0.7rem;">DATA</a>
+                    <a href="<?= $basePath ?>/data/" class="toc-item" style="font-size: 0.7rem;">DATASETS</a>
                     <a href="<?= $basePath ?>/standard/" class="toc-item" style="font-size: 0.7rem;">STANDARD</a>
                     <a href="<?= $basePath ?>/foundation/" class="toc-item" style="font-size: 0.7rem;">FOUNDATION</a>
                     <a href="<?= $basePath ?>/pro/" class="toc-item"
