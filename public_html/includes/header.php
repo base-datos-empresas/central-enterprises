@@ -21,10 +21,10 @@
             <div style="display: flex; align-items: center; gap: 2rem;">
                 <div class="header-links" style="display: flex; gap: 1.5rem;">
                     <a href="<?= $basePath ?>/data/" class="toc-item" style="font-size: 0.7rem;">DATASETS</a>
-                    <a href="<?= $basePath ?>/standard/" class="toc-item" style="font-size: 0.7rem;">STANDARD</a>
-                    <a href="<?= $basePath ?>/foundation/" class="toc-item" style="font-size: 0.7rem;">FOUNDATION</a>
                     <a href="<?= $basePath ?>/pro/" class="toc-item"
                         style="font-size: 0.7rem; color: var(--accent); font-weight: 800;">PRO</a>
+                    <a href="<?= $basePath ?>/standard/" class="toc-item" style="font-size: 0.7rem;">STANDARD</a>
+                    <a href="<?= $basePath ?>/foundation/" class="toc-item" style="font-size: 0.7rem;">FOUNDATION</a>
                 </div>
                 <button id="theme-toggle" class="theme-btn" title="Toggle Theme" style="margin-right:0"></button>
             </div>
