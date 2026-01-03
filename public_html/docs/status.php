@@ -96,10 +96,9 @@ $basePath = "..";
                             <div class="status-info">
                                 <h3>API GATEWAY [v1]</h3>
                                 <p>Global endpoint for data consumption and reconciliation.</p>
-                                <div class="uptime-chart">
-                                    <?php for ($i = 0; $i < 40; $i++): ?>
-                                        <div class="uptime-bar active" style="height: <?= rand(70, 100) ?>%"></div>
-                                    <?php endfor; ?>
+                                <div class="uptime-chart"
+                                    style="background:var(--bg-secondary); height:4px; margin-top:1rem; width:100%;">
+                                    <div style="width:100%; height:100%; background:var(--accent);"></div>
                                 </div>
                             </div>
                             <div class="status-indicator status-operational">OPERATIONAL</div>
@@ -126,7 +125,7 @@ $basePath = "..";
                                 <h3>SEARCH INDEX [GLOBAL]</h3>
                                 <p>Cross-jurisdiction entity resolution and indexing.</p>
                             </div>
-                            <div class="status-indicator status-maintenance">MAINTENANCE</div>
+                            <div class="status-indicator status-operational">OPERATIONAL</div>
                         </div>
                     </div>
                 </div>

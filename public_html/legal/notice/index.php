@@ -51,12 +51,15 @@ $basePath = "../..";
                     </p>
                     <div
                         style="padding: 2rem; border-left: 2px solid var(--accent); background: rgba(var(--accent-rgb), 0.05); margin-bottom: 2rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong>Operator / Website owner (temporary):</strong> Pablo
-                            Cirre</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Registered address:</strong> España, Trajano 8, 18002
-                            Granada (Spain)</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Tax ID (NIF/CIF):</strong> [ADD NIF/CIF]</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Contact email:</strong> LEGAL@CENTRAL.ENTERPRISES</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Legal Operator:</strong> Pablo Cirre (acting as
+                            Steward for Central.Enterprises Foundation in Formation)</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Tax ID (NIF):</strong> [Pending Registration]</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Address:</strong> Trajano 8, Granada, Spain (18002)
+                        </p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Jurisdiction:</strong> Courts of Granada, Spain.</p>
+                        <p style="font-size:0.8rem; margin-top:1rem; opacity:0.7;"><em>Note: Upon official inscripion in
+                                the Registry of Foundations, ownership and governance will formally transfer to the
+                                Foundation entity.</em></p>
                     </div>
                     <p style="opacity: 0.7; font-size: 0.9rem; margin-bottom: 3rem;">
                         This Legal Notice is provided to comply with Spanish information society rules (LSSI).

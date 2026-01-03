@@ -1,0 +1,29 @@
+[
+    {
+        "asset_name": "ES-Companies-Full-Archive.zip",
+        "jurisdiction": "ES",
+        "tier": "Open",
+        "size_bytes": 450000000,
+        "last_sync": "2026-01-03",
+        "dropbox_url": "#",
+        "description": "Complete snapshot of active Spanish companies."
+    },
+    {
+        "asset_name": "ES-Companies-Metrics-OpenData.json",
+        "jurisdiction": "ES",
+        "tier": "Open",
+        "size_bytes": 1024,
+        "last_sync": "2026-01-03",
+        "dropbox_url": "#",
+        "description": "Metadata and totals for Spain."
+    },
+    {
+        "asset_name": "US-Delaware-Companies.csv",
+        "jurisdiction": "US",
+        "tier": "Open",
+        "size_bytes": 120000000,
+        "last_sync": "2026-01-03",
+        "dropbox_url": "#",
+        "description": "reconciliation of Delaware entities."
+    }
+]
