@@ -15,6 +15,7 @@ if (file_exists($registryFile)) {
 $assetTree = [];
 $formatMap = [
     'csv' => ['icon' => '📄', 'label' => 'CSV'],
+    'json' => ['icon' => '📎', 'label' => 'JSON'], // Added JSON
     'xlsx' => ['icon' => '📊', 'label' => 'EXCEL'],
     'zip' => ['icon' => '📦', 'label' => 'ZIP'],
     'gz' => ['icon' => '🗜️', 'label' => 'GZIP']
@@ -63,6 +64,8 @@ foreach ($registry as $asset) {
         $assetTree[$jurisdiction][$category][$baseName] = [
             'name' => $baseName,
             'clean_name' => str_replace([$jurisdiction . '-'], '', $baseName), // "IT-Companies"
+            'source' => $asset['source_registry'] ?? 'Central.Enterprises Index',
+            'hash' => $asset['sha256'] ?? null,
             'formats' => []
         ];
     }
@@ -174,7 +177,19 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                     <?php endif; ?>
                 </div>
             </div>
+            </div>
+            </div>
         </header>
+
+        <!-- SEARCH BAR -->
+        <div class="test-search-container"
+            style="background:var(--bg-secondary); border-top:1px solid var(--structural-line); border-bottom:1px solid var(--structural-line);">
+            <div class="grid-container" style="padding: 1rem 2rem;">
+                <input type="text" id="catalog-search"
+                    placeholder="SEARCH CATALOG (e.g. 'Spain', 'Tax', 'Companies')..." class="titan-input"
+                    style="font-size:1.2rem; padding:1.5rem; background:transparent; border:none; width:100%; color:var(--text-header);">
+            </div>
+        </div>
 
         <section class="section">
             <div class="grid-container">
@@ -208,19 +223,22 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                                             <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Companies
                                             </div>
                                             <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
-                                                <?= number_format($meta['totals']['companies_unique']) ?></div>
+                                                <?= number_format($meta['totals']['companies_unique']) ?>
+                                            </div>
                                         </div>
                                         <div>
                                             <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Emails
                                             </div>
                                             <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
-                                                <?= number_format($meta['totals']['unique_emails']) ?></div>
+                                                <?= number_format($meta['totals']['unique_emails']) ?>
+                                            </div>
                                         </div>
                                         <div>
                                             <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Domains
                                             </div>
                                             <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
-                                                <?= number_format($meta['totals']['web_domains_unique']) ?></div>
+                                                <?= number_format($meta['totals']['web_domains_unique']) ?>
+                                            </div>
                                         </div>
                                         <div>
                                             <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Quality
@@ -281,6 +299,19 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                                             </div>
                                             <div style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
                                                 Complete jurisdiction snapshot. Includes all sectors, identifiers, and metadata.
+                                                <?php if ($asset['source']): ?>
+                                                    <div
+                                                        style="margin-top:0.5rem; font-size:0.75rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em;">
+                                                        Source: <?= $asset['source'] ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <?php if ($asset['hash']): ?>
+                                                    <div class="hash-container" title="Click to Copy"
+                                                        onclick="navigator.clipboard.writeText('<?= $asset['hash'] ?>'); alert('Hash Copied!');"
+                                                        style="cursor:pointer; font-family:monospace; background:rgba(0,0,0,0.3); padding:0.4rem; margin-top:0.5rem; border-radius:4px; font-size:0.7rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border:1px solid var(--structural-line);">
+                                                        SHA256: <?= $asset['hash'] ?>
+                                                    </div>
+                                                <?php endif; ?>
                                             </div>
                                             <div style="display: flex; gap: 0.5rem;">
                                                 <?php foreach ($asset['formats'] as $fmt): ?>
@@ -356,6 +387,28 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
     </main>
 
     <?php include $basePath . '/includes/footer.php'; ?>
+
+    <script>
+        // Simple Client-Side Search
+        document.getElementById('catalog-search').addEventListener('input', function (e) {
+            const term = e.target.value.toLowerCase();
+
+            // Search Jurisdiction Cards
+            document.querySelectorAll('.span-4').forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(term) ? 'block' : 'none';
+            });
+
+            // Search Asset Cards
+            document.querySelectorAll('.span-6, .span-4').forEach(card => {
+                const text = card.innerText.toLowerCase();
+                // Keep visible if parent section is visible? logic simplification: just search text
+                if (card.closest('#assets-ES') || card.closest('#assets-US')) {
+                    card.style.display = text.includes(term) ? 'block' : 'none';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
