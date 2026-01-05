@@ -15,8 +15,12 @@
     <div class="grid-container">
         <div class="nav-content">
             <div class="logo">
-                <a href="<?= $basePath ?>/" style="text-decoration:none; color:inherit;">CENTRAL
-                    ENTERPRISES</a>
+                <a href="<?= $basePath ?>/"
+                    style="text-decoration:none; color:inherit; display: flex; align-items: center; gap: 0.8rem;">
+                    <img src="<?= $basePath ?>/assets/Logo-Opendata-Central.png" alt="Central Enterprises Logo"
+                        style="height: 32px; width: auto; object-fit: contain;">
+                    <span>CENTRAL <br> ENTERPRISES</span>
+                </a>
             </div>
             <div style="display: flex; align-items: center; gap: 2rem;">
                 <div class="header-links" style="display: flex; gap: 1.5rem;">
