@@ -61,7 +61,7 @@ $countCountries = count($proStats['countries']);
         rel="stylesheet">
     <!-- Titan Core Styles -->
     <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=11">
-    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=transparent">
+    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=logo_native">
     <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
 </head>
 
