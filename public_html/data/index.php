@@ -1,115 +1,57 @@
 <?php
 require_once __DIR__ . '/../includes/security_headers.php';
 $basePath = "..";
-$registryFile = __DIR__ . '/../../data/registry_index.json';
-$registry = [];
+
+// 1. Load Registry (Digital Library)
+// This file is the single source of truth for all countries and links
+$registryFile = __DIR__ . '/../../data/digital_library.json';
+$library = [];
 
 if (file_exists($registryFile)) {
-    $registry = json_decode(file_get_contents($registryFile), true);
+    $library = json_decode(file_get_contents($registryFile), true);
 } else {
-    // Log error but allow page to load with empty registry
-    error_log("Titan Registry: Index file not found at " . $registryFile);
+    error_log("Titan Registry: Library file not found at " . $registryFile);
 }
 
-// Group by jurisdiction to show in table
-// Intelligent Asset Tree Processing
-$assetTree = [];
-$formatMap = [
-    'csv' => ['icon' => '📄', 'label' => 'CSV'],
-    'json' => ['icon' => '📎', 'label' => 'JSON'], // Added JSON
-    'xlsx' => ['icon' => '📊', 'label' => 'EXCEL'],
-    'zip' => ['icon' => '📦', 'label' => 'ZIP'],
-    'gz' => ['icon' => '🗜️', 'label' => 'GZIP']
-];
+// 2. Prepare Catalog Data
+// We iterate the library to build the view structure
+$groupedCatalog = [];
 
-foreach ($registry as $asset) {
-    if ($asset['tier'] !== 'Open')
+foreach ($library as $countryName => $tiers) {
+    if ($countryName === '_metadata')
         continue;
 
-    // 1. FILTER: Noise reduction
-    if (strpos($asset['asset_name'], 'INFO-') !== false)
-        continue;
-    if (strpos($asset['asset_name'], 'COLUMN-AUDIT') !== false)
-        continue;
-    if (strpos($asset['asset_name'], '.txt') !== false)
-        continue;
+    // Check availability
+    $openData = $tiers['OpenData'] ?? null;
+    $premium = $tiers['Premium'] ?? null;
 
-    $jurisdiction = $asset['jurisdiction'];
-
-    // 2. NORMALIZE: Base Name Detection
-    // Remove standard suffixes to find the "concept"
-    // e.g. "Poland-IT-Companies-OpenData.xlsx" -> "Poland-IT-Companies"
-    $baseName = str_replace(
-        ['-OpenData', '-Premium', '.xlsx', '.csv', '.zip', '.gz'],
-        '',
-        $asset['asset_name']
-    );
-    $ext = strtolower(pathinfo($asset['asset_name'], PATHINFO_EXTENSION));
-
-    // 3. CLASSIFY: MegaPack vs Sector
-    $category = 'sectors';
-    if (strpos($baseName, 'MegaPack') !== false || strpos($baseName, 'Databases') !== false) {
-        $category = 'full_archives';
-    }
-
-    // 4. GROUP: Merge formats
-    if (!isset($assetTree[$jurisdiction])) {
-        $assetTree[$jurisdiction] = [
-            'full_archives' => [],
-            'sectors' => [],
-            'updated_at' => $asset['last_sync']
-        ];
-    }
-
-    if (!isset($assetTree[$jurisdiction][$category][$baseName])) {
-        $assetTree[$jurisdiction][$category][$baseName] = [
-            'name' => $baseName,
-            'clean_name' => str_replace([$jurisdiction . '-'], '', $baseName), // "IT-Companies"
-            'source' => $asset['source_registry'] ?? 'Central.Enterprises Index',
-            'hash' => $asset['sha256'] ?? null,
-            'formats' => []
-        ];
-    }
-
-    $assetTree[$jurisdiction][$category][$baseName]['formats'][] = [
-        'type' => $ext,
-        'size' => $asset['size_bytes'],
-        'url' => $asset['dropbox_url'], // Ensure this maps correctly from registry
-        'meta' => $formatMap[$ext] ?? ['icon' => '📎', 'label' => strtoupper($ext)]
+    // We only list if there is Open Data available (or at least placeholder)
+    $groupedCatalog[$countryName] = [
+        'name' => $countryName,
+        'iso' => strtoupper(substr($countryName, 0, 2)), // Approximation, or use a map if needed
+        'metrics' => $openData['metrics'] ?? ['companies' => 0],
+        'links' => $openData['links'] ?? [],
+        'premium_links' => $premium['links'] ?? [], // For upselling logic if needed
+        'updated_at' => $library['_metadata']['last_update'] ?? date('Y-m-d')
     ];
 }
 
-// Assign to groupedCatalog for backwards compatibility loop (metrics calc)
-// Note: Metrics calc still iterates this structure in Pass 1 below
-$groupedCatalog = $assetTree;
-// URL Rewrite handling (Nginx passes jurisdiction via GET)
+// Sort alphabetically
+ksort($groupedCatalog);
+
+// 3. Filter Handling (Search/URL)
 $filterJurisdiction = $_GET['jurisdiction'] ?? null;
-$filterSector = $_GET['sector'] ?? null; // NEW: Deep Link parameter
 
 if ($filterJurisdiction) {
-    $filterJurisdiction = ucfirst($filterJurisdiction); // Normalize e.g. "poland" -> "Poland"
-
-    // Filter by Jurisdiction
-    if (isset($groupedCatalog[$filterJurisdiction])) {
-        $groupedCatalog = [$filterJurisdiction => $groupedCatalog[$filterJurisdiction]];
-
-        // Filter by Sector (Deep Registry)
-        if ($filterSector) {
-            // Find matching sector by clean name
-            $sectorAssets = [];
-            foreach ($groupedCatalog[$filterJurisdiction]['sectors'] as $baseName => $data) {
-                if (strcasecmp($data['clean_name'], $filterSector) === 0) {
-                    $sectorAssets[$baseName] = $data;
-                }
-            }
-
-            // Overwrite the sectors list with ONLY the filtered one
-            $groupedCatalog[$filterJurisdiction]['sectors'] = $sectorAssets;
-            // Clear full archives for sector-specific view to reduce noise
-            $groupedCatalog[$filterJurisdiction]['full_archives'] = [];
+    // Case insensitive search
+    foreach ($groupedCatalog as $name => $data) {
+        if (strcasecmp($name, $filterJurisdiction) === 0) {
+            $groupedCatalog = [$name => $data];
+            break;
         }
     }
 }
+
 
 // --- SEO METADATA GENERATION ---
 $pageTitle = "Dataset Catalog | The Global Reference Layer";
@@ -195,73 +137,59 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
         <section class="section">
             <div class="grid-container">
                 <!-- GRID VIEW FOR JURISDICTIONS -->
-                <?php foreach ($groupedCatalog as $jurisdiction => $ds):
-                    // Attempt to load rich metadata from JSON
-                    $jsonPath = __DIR__ . "/../../data/XPublicar1/{$jurisdiction}/{$jurisdiction}-OpenData/{$jurisdiction}-Companies-Metrics-OpenData.json";
-                    $meta = null;
-                    if (file_exists($jsonPath)) {
-                        $meta = json_decode(file_get_contents($jsonPath), true);
-                    }
-                    ?>
+                <?php foreach ($groupedCatalog as $jurisdiction => $ds): ?>
                     <div class="span-4" style="margin-bottom: 2rem;">
                         <div
                             style="background: var(--bg-secondary); border: 1px solid var(--structural-line); height: 100%; display: flex; flex-direction: column;">
                             <!-- Card Header -->
                             <div
                                 style="padding: 1.5rem; border-bottom: 1px solid var(--structural-line); display: flex; justify-content: space-between; align-items: center;">
-                                <h3 class="titan-label" style="font-size: 1rem; margin:0;"><?= strtoupper($jurisdiction) ?>
+                                <h3 class="titan-label" style="font-size: 1rem; margin:0;"><?= strtoupper($ds['name']) ?>
                                 </h3>
                                 <span style="font-size: 0.7rem; opacity: 0.6;">ISO:
-                                    <?= strtoupper(substr($jurisdiction, 0, 2)) ?></span>
+                                    <?= $ds['iso'] ?></span>
                             </div>
 
-                            <!-- Rich Stats or Basic Info -->
+                            <!-- Rich Stats -->
                             <div style="padding: 1.5rem; flex-grow: 1;">
-                                <?php if ($meta && isset($meta['totals'])): ?>
-                                    <div
-                                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
-                                        <div>
-                                            <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Companies
-                                            </div>
-                                            <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
-                                                <?= number_format($meta['totals']['companies_unique']) ?>
-                                            </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                                    <!-- Companies -->
+                                    <div>
+                                        <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Companies
                                         </div>
-                                        <div>
-                                            <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Emails
-                                            </div>
-                                            <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
-                                                <?= number_format($meta['totals']['unique_emails']) ?>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Domains
-                                            </div>
-                                            <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
-                                                <?= number_format($meta['totals']['web_domains_unique']) ?>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Verified
-                                                Fields
-                                            </div>
-                                            <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent);">
-                                                <?= isset($meta['totals']['fields_verified']) ? $meta['totals']['fields_verified'] : '5/5' ?>
-                                            </div>
+                                        <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
+                                            <?= number_format($ds['metrics']['companies']) ?>
                                         </div>
                                     </div>
-                                <?php else: ?>
-                                    <div style="margin-bottom: 1.5rem;">
-                                        <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Total
-                                            Collections</div>
-                                        <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-header);">
-                                            <?= count($ds['sectors'] ?? []) + count($ds['full_archives'] ?? []) ?> Categories
+                                    <!-- Emails -->
+                                    <div>
+                                        <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Emails
+                                        </div>
+                                        <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
+                                            <?= number_format($ds['metrics']['emails']) ?>
                                         </div>
                                     </div>
-                                <?php endif; ?>
+                                    <!-- Domains -->
+                                    <div>
+                                        <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Domains
+                                        </div>
+                                        <div style="font-size: 1.2rem; font-weight: 800; color: var(--text-header);">
+                                            <?= number_format($ds['metrics']['web_domains']) ?>
+                                        </div>
+                                    </div>
+                                    <!-- Categories -->
+                                    <div>
+                                        <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">Categories
+                                        </div>
+                                        <div style="font-size: 1.2rem; font-weight: 800; color: var(--accent);">
+                                            <?= number_format($ds['metrics']['categories']) ?>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div style="font-size: 0.7rem; opacity: 0.5;">
-                                    Last Snapshot: <?= date('Y-m-d', strtotime($ds['updated_at'])) ?>
+                                    Updated: <?= date('Y-m-d', strtotime($ds['updated_at'])) ?>
                                 </div>
                             </div>
 
@@ -279,93 +207,70 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
         <!-- ASSET LISTING SECTION -->
         <section class="section" style="padding-top: 0;">
             <div class="grid-container">
-                <?php foreach ($groupedCatalog as $jurisdiction => $groups): ?>
+                <?php foreach ($groupedCatalog as $jurisdiction => $ds): ?>
                     <div id="assets-<?= $jurisdiction ?>" class="span-12"
                         style="margin-top: 4rem; padding-top: 4rem; border-top: 1px solid var(--structural-line);">
                         <div
                             style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3rem;">
-                            <h3 class="titan-label" style="font-size: 1.5rem; color:white;"><?= strtoupper($jurisdiction) ?>
+                            <h3 class="titan-label" style="font-size: 1.5rem; color:white;"><?= strtoupper($ds['name']) ?>
                                 | REPOSITORY</h3>
                             <a href="#" style="font-size: 0.8rem; opacity: 0.6; text-decoration: none;">↑ Back to Top</a>
                         </div>
 
-                        <!-- SECTION 1: FULL ARCHIVES -->
-                        <?php if (!empty($groups['full_archives'])): ?>
+                        <!-- OPEN DATA ASSETS -->
+                        <?php if (!empty($ds['links'])): ?>
                             <div style="margin-bottom: 4rem;">
-                                <h4 class="titan-label" style="margin-bottom: 2rem;">📦 COMPLETE ARCHIVES (GOLD STANDARD)</h4>
+                                <h4 class="titan-label" style="margin-bottom: 2rem;">🔓 OPEN DATA (PUBLIC LICENSE)</h4>
                                 <div class="grid-container" style="padding:0">
-                                    <?php foreach ($groups['full_archives'] as $asset): ?>
-                                        <div class="span-6"
-                                            style="background: var(--bg-secondary); padding: 2rem; border: 1px solid var(--accent);">
-                                            <div
-                                                style="font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-header);">
-                                                <?= $asset['clean_name'] ?>
-                                            </div>
-                                            <div style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
-                                                Complete jurisdiction snapshot. Includes all sectors, identifiers, and metadata.
-                                                <?php if ($asset['source']): ?>
-                                                    <div
-                                                        style="margin-top:0.5rem; font-size:0.75rem; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em;">
-                                                        Source: <?= $asset['source'] ?>
-                                                    </div>
-                                                <?php endif; ?>
-                                                <?php if ($asset['hash']): ?>
-                                                    <div class="hash-container" title="Click to Copy"
-                                                        onclick="navigator.clipboard.writeText('<?= $asset['hash'] ?>'); alert('Hash Copied!');"
-                                                        style="cursor:pointer; font-family:monospace; background:rgba(0,0,0,0.3); padding:0.4rem; margin-top:0.5rem; border-radius:4px; font-size:0.7rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; border:1px solid var(--structural-line);">
-                                                        SHA256: <?= $asset['hash'] ?>
-                                                    </div>
-                                                <?php endif; ?>
-                                            </div>
-                                            <div style="display: flex; gap: 0.5rem;">
-                                                <?php foreach ($asset['formats'] as $fmt): ?>
-                                                    <a href="<?= $fmt['url'] ?>" target="_blank" class="btn-institutional primary"
-                                                        style="padding: 0.75rem 1.5rem; font-size: 0.7rem;">
-                                                        <span style="margin-right: 0.5rem;"><?= $fmt['meta']['icon'] ?></span>
-                                                        DOWNLOAD <?= $fmt['meta']['label'] ?>
-                                                        <span
-                                                            style="opacity:0.6; margin-left:0.3rem;">(<?= round($fmt['size'] / (1024 * 1024), 2) ?>
-                                                            MB)</span>
-                                                    </a>
-                                                <?php endforeach; ?>
-                                            </div>
+                                    <div class="span-12"
+                                        style="background: var(--bg-secondary); padding: 2rem; border: 1px solid var(--accent);">
+                                        <div
+                                            style="font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-header);">
+                                            <?= $ds['name'] ?> Official Registry (Open Data)
                                         </div>
-                                    <?php endforeach; ?>
+                                        <div style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
+                                            Full masked dataset for <?= $ds['name'] ?>. Includes Company Names, IDs, Cities, and masked emails.
+                                        </div>
+                                        
+                                        <div style="display: flex; gap: 0.5rem; flex-wrap:wrap;">
+                                            <?php foreach ($ds['links'] as $format => $link): 
+                                                $icon = '📎';
+                                                if($format === 'ZIP') $icon = '📦';
+                                                if($format === 'CSV') $icon = '📄';
+                                                if($format === 'Excel') $icon = '📊';
+                                            ?>
+                                                <a href="<?= $link ?>" target="_blank" class="btn-institutional primary"
+                                                    style="padding: 0.75rem 1.5rem; font-size: 0.7rem;">
+                                                    <span style="margin-right: 0.5rem;"><?= $icon ?></span>
+                                                    DOWNLOAD <?= strtoupper($format) ?>
+                                                </a>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <?php endif; ?>
 
-                        <!-- SECTION 2: SECTOR BREAKDOWNS -->
-                        <?php if (!empty($groups['sectors'])): ?>
+                        <!-- PREMIUM ASSETS (UPSCREEN) -->
+                        <?php if (!empty($ds['premium_links'])): ?>
                             <div>
-                                <?php if (!$filterSector): ?>
-                                    <h4 class="titan-label" style="margin-bottom: 2rem;">📂 SECTOR BREAKDOWNS (SPECIFIC VERTICALS)
-                                    </h4>
-                                <?php endif; ?>
-
+                                <h4 class="titan-label" style="margin-bottom: 2rem; color:var(--accent);">🔒 PREMIUM DATA (FULL CONTACTS)</h4>
                                 <div class="grid-container" style="padding:0">
-                                    <?php foreach ($groups['sectors'] as $asset): ?>
-                                        <div class="span-4"
-                                            style="background: var(--bg-secondary); padding: 1.5rem; border: 1px solid var(--structural-line); margin-bottom: 1rem;">
-                                            <div
-                                                style="margin-bottom: 1rem; height: 2.5rem; overflow: hidden; display:flex; align-items:center;">
-                                                <a href="#"
-                                                    style="font-weight: 800; font-size: 0.95rem; color: var(--text-header); text-decoration: none;">
-                                                    <?= $asset['clean_name'] ?>
-                                                </a>
-                                            </div>
-
-                                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                                <?php foreach ($asset['formats'] as $fmt): ?>
-                                                    <a href="<?= $fmt['url'] ?>" target="_blank"
-                                                        style="padding: 0.5rem 1rem; border: 1px solid var(--structural-line); font-size: 0.7rem; color: var(--text-body); text-decoration: none; display: flex; align-items: center; border-radius: 4px;">
-                                                        <span style="margin-right: 0.3rem;"><?= $fmt['meta']['icon'] ?></span>
-                                                        <?= $fmt['meta']['label'] ?>
-                                                    </a>
-                                                <?php endforeach; ?>
-                                            </div>
+                                    <div class="span-12"
+                                        style="background: rgba(255,255,255,0.05); padding: 2rem; border: 1px dashed var(--structural-line);">
+                                        <div
+                                            style="font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-muted);">
+                                            <?= $ds['name'] ?> Complete Marketing Database
                                         </div>
-                                    <?php endforeach; ?>
+                                        <div style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 1.5rem;">
+                                            Includes unmasked emails, direct phone numbers, and full executive contacts.
+                                        </div>
+                                        <div style="display: flex; gap: 0.5rem;">
+                                            <a href="/pro" class="btn-institutional secondary" style="opacity:0.7">
+                                                Upgrade to Access
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         <?php endif; ?>
