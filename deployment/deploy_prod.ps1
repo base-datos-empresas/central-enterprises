@@ -15,6 +15,8 @@ Write-Host "Starting Deployment to $HostName..."
 # 0. Remote Setup (Ensure directory exists and is writable)
 Write-Host "Setting up remote directories..."
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo mkdir -p /opt/centralui && sudo chown -R ubuntu:ubuntu /opt/centralui"
+if ($LASTEXITCODE -ne 0) { Write-Error "Failed to setup remote directories." }
+
 
 # 1. Upload public_html
 Write-Host "Uploading public_html..."
@@ -41,11 +43,13 @@ Write-Host "Deployment Files Uploaded."
 # 5. Remote Environment, Dependencies & Permissions
 Write-Host "Updating Remote Environment and Permissions..."
 $RemoteCmds = "cd $RemotePath && " +
-"./venv/bin/pip install -r requirements.txt && " +
+"sudo ./venv/bin/pip install -r requirements.txt && " +
 "sudo chmod +x self_heal.sh && " +
-"sudo chmod -R 755 public_html data bases && " +
+"sudo find public_html data bases -type d -exec chmod 755 {} \; && " +
+"sudo find public_html data bases -type f -exec chmod 644 {} \; && " +
 "sudo chown -R ubuntu:www-data data bases public_html"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $RemoteCmds
+if ($LASTEXITCODE -ne 0) { Write-Error "Failed to update remote environment/permissions." }
 
 # 6. Restart Services & Apply Config & Set Cron
 Write-Host "Restarting Services..."
