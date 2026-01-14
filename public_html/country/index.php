@@ -2,73 +2,127 @@
 require_once __DIR__ . '/../includes/security_headers.php';
 $basePath = "..";
 
-// 1. Load Registry
+// 1. Load Primary Manifests
 $registryFile = __DIR__ . '/../../data/registry_index.json';
+$libraryFile = __DIR__ . '/../../data/digital_library.json';
+
 $registry = [];
+$library = [];
 
 if (file_exists($registryFile)) {
     $registry = json_decode(file_get_contents($registryFile), true);
-} else {
-    error_log("Titan Registry: Index file not found at " . $registryFile);
+}
+if (file_exists($libraryFile)) {
+    $library = json_decode(file_get_contents($libraryFile), true);
 }
 
-// 2. Identify Country
-$code = $_GET['code'] ?? null;
-if (!$code) {
-    // Redirect to main catalog if no code provided
+// 2. Identify Country from Slug/Code
+$slug = $_GET['code'] ?? null;
+if (!$slug) {
     header("Location: /data/");
     exit;
 }
-$code = strtoupper($code); // ISO is uppercase (ES, US)
 
-// 3. Filter Metrics & Assets
-// We need to aggregate stats for this specific country
-$countryAssets = [];
-$stats = [
-    'landing_title' => $code . ' Open Registry',
-    'landing_description' => "Official Open Data Record for {$code}.",
-    'total_companies' => 0,
-    'total_emails' => 0,
-    'total_domains' => 0,
-    'updated_at' => date('Y-m-d')
+// Mapping Logic: Slugs to ISO and Display Names
+$countryMap = [
+    'spain' => ['iso' => 'ES', 'name' => 'Spain'],
+    'united-states' => ['iso' => 'US', 'name' => 'United States'],
+    'germany' => ['iso' => 'DE', 'name' => 'Germany'],
+    'france' => ['iso' => 'FR', 'name' => 'France'],
+    'italy' => ['iso' => 'IT', 'name' => 'Italy'],
+    'united-kingdom' => ['iso' => 'GB', 'name' => 'United Kingdom'],
+    'austria' => ['iso' => 'AT', 'name' => 'Austria'],
+    'belgium' => ['iso' => 'BE', 'name' => 'Belgium'],
+    'brazil' => ['iso' => 'BR', 'name' => 'Brazil'],
+    'canada' => ['iso' => 'CA', 'name' => 'Canada'],
+    'switzerland' => ['iso' => 'CH', 'name' => 'Switzerland'],
+    'indonesia' => ['iso' => 'ID', 'name' => 'Indonesia'],
+    'ireland' => ['iso' => 'IE', 'name' => 'Ireland'],
+    'lithuania' => ['iso' => 'LT', 'name' => 'Lithuania'],
+    'malaysia' => ['iso' => 'MY', 'name' => 'Malaysia'],
+    'netherlands' => ['iso' => 'NL', 'name' => 'Netherlands'],
+    'norway' => ['iso' => 'NO', 'name' => 'Norway'],
+    'poland' => ['iso' => 'PL', 'name' => 'Poland'],
+    'portugal' => ['iso' => 'PT', 'name' => 'Portugal'],
+    'romania' => ['iso' => 'RO', 'name' => 'Romania'],
+    'australia' => ['iso' => 'AU', 'name' => 'Australia'],
 ];
 
-foreach ($registry as $asset) {
-    // Must match country AND be Open Tier
-    if (strtoupper($asset['jurisdiction']) !== $code)
-        continue;
-    if ($asset['tier'] !== 'Open')
-        continue;
+// Normalize input
+$input = strtolower($slug);
+$targetCountry = null;
 
-    // Filter Noise
-    if (strpos($asset['asset_name'], 'INFO-') !== false)
-        continue;
-    if (strpos($asset['asset_name'], 'COLUMN-AUDIT') !== false)
-        continue;
-
-    $countryAssets[] = $asset;
+// Case 1: Input is a known slug (exact or prefix)
+foreach ($countryMap as $key => $map) {
+    if ($input === $key || strpos($input, $key . '-') === 0) {
+        $targetCountry = $map;
+        break;
+    }
 }
 
-// 4. Handle 404 (No assets for this country)
-if (empty($countryAssets)) {
+// Case 2: Input might be an ISO code (legacy)
+if (!$targetCountry) {
+    foreach ($countryMap as $s => $map) {
+        if (strtolower($map['iso']) === $input) {
+            $targetCountry = $map;
+            break;
+        }
+    }
+}
+
+// Fallback: If not in map, try title case against library keys
+if (!$targetCountry) {
+    $titleCase = ucwords(str_replace('-', ' ', $input));
+    if (isset($library[$titleCase])) {
+        $targetCountry = ['iso' => $input, 'name' => $titleCase];
+    }
+}
+
+if (!$targetCountry) {
     http_response_code(404);
-    include __DIR__ . '/../404.php'; // Assuming a generic 404 exists, otherwise inline
+    echo "<h1>Country Protocol Not Found</h1><p>Jurisdiction '$slug' is not currently being indexed.</p>";
     exit;
 }
 
-// 5. Calculate Stats from Metadata (if available) or Estimate
-// Attempt to load the specific metrics JSON if it exists in data path
-// data/XPublicar1/ES/ES-OpenData/ES-Companies-Metrics-OpenData.json
-$metricsPath = __DIR__ . "/../../data/XPublicar1/{$code}/{$code}-OpenData/{$code}-Companies-Metrics-OpenData.json";
-if (file_exists($metricsPath)) {
-    $meta = json_decode(file_get_contents($metricsPath), true);
-    if (isset($meta['totals'])) {
-        $stats['total_companies'] = $meta['totals']['companies_unique'];
-        $stats['total_emails'] = $meta['totals']['unique_emails'];
+$iso = $targetCountry['iso'];
+$currentCountryName = $targetCountry['name'];
+
+// 3. Aggregate Stats from Digital Library
+$stats = [
+    'landing_title' => $currentCountryName . ' Business Registry',
+    'landing_description' => "Access standardized corporate data for {$currentCountryName}. CC0 Open Data and Premium Enrichment layers.",
+    'total_companies' => 0,
+    'total_emails' => 0,
+    'total_domains' => 0,
+    'total_categories' => 0,
+    'updated_at' => date('Y-m-d'),
+    'links' => []
+];
+
+if (isset($library[$currentCountryName])) {
+    $libData = $library[$currentCountryName];
+    // Use OpenData metrics if available, otherwise Premium
+    $metrics = $libData['OpenData']['metrics'] ?? $libData['Premium']['metrics'] ?? [];
+    $stats['total_companies'] = $metrics['companies'] ?? 0;
+    $stats['total_emails'] = $metrics['emails'] ?? 0;
+    $stats['total_domains'] = $metrics['web_domains'] ?? 0;
+    $stats['total_categories'] = $metrics['categories'] ?? 0;
+    $stats['links'] = $libData['OpenData']['links'] ?? [];
+}
+
+// 4. Load Sector Metadata (The "Perfect Landing" Data)
+$sectors = [];
+// Path convention: Outputs/{CountryName}/{CountryName}-OpenData/METADATA.json
+$metaFile = __DIR__ . "/../../Outputs/{$currentCountryName}/{$currentCountryName}-OpenData/METADATA.json";
+if (file_exists($metaFile)) {
+    $meta = json_decode(file_get_contents($metaFile), true);
+    if (isset($meta['sector_breakdown'])) {
+        $sectors = $meta['sector_breakdown'];
+        // Sort by count descending
+        usort($sectors, function ($a, $b) {
+            return $b[1] <=> $a[1];
+        });
     }
-} else {
-    // Fallback: Estimate from file size or just show asset count
-    $stats['total_companies'] = count($countryAssets) * 5000; // Rough heuristic if missing
 }
 
 ?>
@@ -78,135 +132,124 @@ if (file_exists($metricsPath)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TITAN | <?= htmlspecialchars($stats['landing_title']) ?></title>
+    <title><?= htmlspecialchars($stats['landing_title']) ?> | Central.Enterprises</title>
 
-    <!-- Fonts (Sora + Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
-
     <meta name="description" content="<?= htmlspecialchars($stats['landing_description']) ?>">
-
-    <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="/assets/titan.css">
+    <link rel="stylesheet" href="/assets/titan.css?v=seo_1">
 </head>
 
 <body data-theme="titan-dark">
-    <!-- Global Grid Overlay -->
     <div class="grid-bg"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="grid-container">
-            <div class="logo span-6">TITAN<span style="color:var(--accent)">.</span>CENTRAL</div>
-            <div class="span-6" style="text-align:right">
-                <a href="/"
-                    style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em;">Global
-                    Mandate</a>
-            </div>
-        </div>
-    </nav>
+    <?php include __DIR__ . '/../includes/header.php'; ?>
 
     <main>
-        <!-- Hero Section -->
-        <header class="hero">
+        <header class="hero" style="padding: 6rem 0 4rem 0;">
             <div class="grid-container">
                 <div class="span-12">
-                    <h1 class="hero-title"><?= htmlspecialchars($stats['landing_title']) ?></h1>
+                    <span class="feature-num" style="font-size: 1rem;"><?= $iso ?>-INFRA-<?= date('Y') ?></span>
+                    <h1 class="hero-title"><?= htmlspecialchars($currentCountryName) ?> <br>DATA ASSET.</h1>
                     <div class="hero-desc">
                         <?= htmlspecialchars($stats['landing_description']) ?>
-                        <div class="cta-group" style="margin-top: 2rem;">
-                            <button class="btn-institutional primary">Access Registry <span
-                                    class="arrow">→</span></button>
-                            <button class="btn-institutional secondary">System Report</button>
+                        <div class="cta-group" style="margin-top: 3rem;">
+                            <?php if (isset($stats['links']['ZIP'])): ?>
+                                <a href="<?= $stats['links']['ZIP'] ?>" class="btn-institutional primary">Download Full ZIP
+                                    <span class="arrow">↓</span></a>
+                            <?php endif; ?>
+                            <a href="#sectors" class="btn-institutional secondary">Inspect Sectors</a>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Intelligence Section -->
         <section class="section">
             <div class="grid-container">
-                <div class="section-meta">SYSTEM INTELLIGENCE</div>
+                <div class="section-meta">GLOBAL INVENTORY</div>
                 <div class="section-content">
-                    <h2 class="section-title">Sovereign Data Infrastructure</h2>
+                    <h2 class="section-title">Verified Datasets</h2>
 
-                    <!-- Stats Grid -->
-                    <div class="grid-container" style="padding:0; gap:0; margin-bottom: 4rem;">
-                        <div class="span-4 stat-card">
+                    <div class="grid-container" style="padding:0; gap:1.5rem; margin-bottom: 4rem;">
+                        <div class="span-3 stat-card">
                             <span class="stat-val"><?= number_format($stats['total_companies']) ?></span>
-                            <span class="stat-label">Verified Entities</span>
+                            <span class="stat-label">Companies</span>
                         </div>
-                        <div class="span-4 stat-card">
-                            <span class="stat-val"><?= $stats['avg_rating'] > 0 ? $stats['avg_rating'] : 'N/A' ?></span>
-                            <span class="stat-label">Quality Index</span>
+                        <div class="span-3 stat-card">
+                            <span class="stat-val"><?= number_format($stats['total_emails']) ?></span>
+                            <span class="stat-label">Emails</span>
                         </div>
-                        <div class="span-4 stat-card">
-                            <span class="stat-val">100<span style="font-size:1.5rem; vertical-align:top">%</span></span>
-                            <span class="stat-label">Uptime</span>
+                        <div class="span-3 stat-card">
+                            <span class="stat-val"><?= number_format($stats['total_domains']) ?></span>
+                            <span class="stat-label">Domains</span>
+                        </div>
+                        <div class="span-3 stat-card">
+                            <span class="stat-val"><?= number_format($stats['total_categories']) ?></span>
+                            <span class="stat-label">Sectors</span>
                         </div>
                     </div>
 
-                    <!-- Top Categories Table -->
-                    <div class="span-12" style="border-top: 1px solid var(--structural-line); padding-top: 2rem;">
-                        <h3
-                            style="font-family: var(--font-header); font-size: 1rem; margin-bottom: 1.5rem; color: var(--accent);">
-                            SECTOR DOMINANCE</h3>
+                    <div id="sectors" style="margin-top: 5rem;">
+                        <h3 style="margin-bottom: 2rem;">Sector Dominance Index</h3>
+                        <p style="margin-bottom: 2rem; opacity: 0.7;">High-fidelity distribution of commercial
+                            activities within the <?= $currentCountryName ?> jurisdiction.</p>
+
                         <table class="titan-table">
                             <thead>
                                 <tr>
-                                    <th>Dataset Name</th>
-                                    <th>Format</th>
-                                    <th style="text-align:right">Action</th>
+                                    <th>Activity Group</th>
+                                    <th style="text-align:right">Estimated Entities</th>
+                                    <th style="text-align:right">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($countryAssets as $asset): 
-                                    $cleanName = str_replace(['-OpenData.zip', '.zip'], '', $asset['asset_name']);
-                                ?>
+                                <?php if (!empty($sectors)): ?>
+                                    <?php foreach (array_slice($sectors, 0, 15) as $sector):
+                                        $label = str_replace(['ES\\', 'ES-', 'US-', '_extracted.csv', '.csv'], '', $sector[0]);
+                                        $label = str_replace('_', ' ', $label);
+                                        ?>
+                                        <tr>
+                                            <td style="font-weight:600;"><?= htmlspecialchars(ucwords($label)) ?></td>
+                                            <td style="text-align:right; font-family: monospace;">
+                                                <?= number_format($sector[1]) ?>
+                                            </td>
+                                            <td style="text-align:right;"><span class="status-operational">READY</span></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
                                     <tr>
-                                        <td style="font-weight:600; color:var(--text-header);">
-                                            <?= htmlspecialchars($cleanName) ?>
-                                            <?php if(isset($asset['source_registry'])): ?>
-                                                <div style="font-size:0.7rem; color:var(--text-muted); font-weight:400;">
-                                                    Source: <?= htmlspecialchars($asset['source_registry']) ?>
-                                                </div>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <span style="background:var(--bg-secondary); border:1px solid var(--structural-line); padding:0.2rem 0.5rem; font-size:0.7rem; border-radius:4px;">ZIP</span>
-                                            <span style="font-size:0.7rem; opacity:0.6; margin-left:0.5rem;">
-                                                <?= round($asset['size_bytes'] / (1024*1024), 2) ?> MB
-                                            </span>
-                                        </td>
-                                        <td style="text-align:right">
-                                            <a href="<?= htmlspecialchars($asset['dropbox_url']) ?>" class="btn-institutional primary" style="padding:0.4rem 1rem; font-size:0.7rem;">
-                                                Details & Download
-                                            </a>
-                                        </td>
+                                        <td colspan="3" style="text-align:center; opacity: 0.5; padding: 4rem;">Metadata
+                                            indexing in progress for this jurisdiction.</td>
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
+                    </div>
+
+                    <div
+                        style="margin-top: 5rem; padding: 3rem; background: var(--bg-secondary); border-left: 4px solid var(--accent);">
+                        <h3>Access Protocols</h3>
+                        <p style="margin-top: 1rem; margin-bottom: 2rem;">Downloads are provided via the
+                            Central.Enterprises Foundation distributed infrastructure.</p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <?php foreach ($stats['links'] as $format => $url): ?>
+                                <a href="<?= $url ?>"
+                                    class="btn-institutional <?= $format === 'ZIP' ? 'primary' : 'secondary' ?>"
+                                    style="font-size: 0.7rem; padding: 0.8rem 1.5rem;">
+                                    DOWNLOAD <?= $format ?>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="grid-container">
-            <div class="span-6">
-                <p class="titan-label">System Timestamp</p>
-                <p><?= htmlspecialchars($stats['updated_at']) ?></p>
-            </div>
-            <div class="span-6" style="text-align:right">
-                TITAN CENTRAL INFRASTRUCTURE
-            </div>
-        </div>
-    </footer>
+    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 
 </html>

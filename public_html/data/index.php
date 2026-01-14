@@ -173,7 +173,8 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                                             onmouseover="this.style.background='rgba(255,255,255,0.02)'"
                                             onmouseout="this.style.background='transparent'">
                                             <td style="padding: 1.5rem; font-weight: 700; color: var(--text-header);">
-                                                <a href="?jurisdiction=<?= urlencode($ds['name']) ?>"
+                                                <?php $slug = strtolower(str_replace(' ', '-', $ds['name'])) . '-business-databases-b2b'; ?>
+                                                <a href="/country/<?= $slug ?>"
                                                     style="color: inherit; text-decoration: none; display: flex; align-items: center;">
                                                     <span
                                                         style="display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 1rem;"></span>
@@ -183,18 +184,21 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                                             <td style="padding: 1.5rem; font-family: monospace; opacity: 0.7;"><?= $ds['iso'] ?>
                                             </td>
                                             <td style="padding: 1.5rem; text-align: right; font-family: 'Sora', sans-serif;">
-                                                <?= number_format($ds['metrics']['companies']) ?></td>
+                                                <?= number_format($ds['metrics']['companies']) ?>
+                                            </td>
                                             <td
                                                 style="padding: 1.5rem; text-align: right; font-family: 'Sora', sans-serif; opacity: 0.8;">
-                                                <?= number_format($ds['metrics']['emails']) ?></td>
+                                                <?= number_format($ds['metrics']['emails']) ?>
+                                            </td>
                                             <td
                                                 style="padding: 1.5rem; text-align: right; font-family: 'Sora', sans-serif; opacity: 0.8;">
-                                                <?= number_format($ds['metrics']['categories']) ?></td>
+                                                <?= number_format($ds['metrics']['categories']) ?>
+                                            </td>
                                             <td style="padding: 1.5rem; font-size: 0.85rem; opacity: 0.6;">
                                                 <?= date('M d, Y', strtotime($ds['updated_at'])) ?>
                                             </td>
                                             <td style="padding: 1.5rem; text-align: right;">
-                                                <a href="?jurisdiction=<?= urlencode($ds['name']) ?>"
+                                                <a href="/country/<?= strtolower(str_replace(' ', '-', $ds['name'])) ?>-business-databases-b2b"
                                                     class="btn-institutional small"
                                                     style="padding: 0.5rem 1rem; font-size: 0.7rem; border: 1px solid var(--structural-line); text-decoration: none; color: var(--text-header);">
                                                     INSPECT

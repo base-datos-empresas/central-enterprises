@@ -1,50 +1,62 @@
+import json
 import os
-import glob
 from datetime import datetime
 
-# Configuration
-OUTPUT_DIR = os.path.join(os.path.dirname(__file__), '../data/outputs')
-PUBLIC_HTML = os.path.join(os.path.dirname(__file__), '../public_html')
-BASE_URL = "https://central.enterprises" # Configure base URL
-
 def generate_sitemap():
-    print(f"Scanning {OUTPUT_DIR} for country stats...")
+    base_url = "https://central.enterprises"
+    library_path = r"c:\Users\MASTER\Desktop\Centra-data\central-enterprises\data\digital_library.json"
+    output_path = r"c:\Users\MASTER\Desktop\Centra-data\central-enterprises\public_html\sitemap.xml"
     
-    urls = []
+    if not os.path.exists(library_path):
+        print(f"Error: {library_path} not found.")
+        return
+
+    with open(library_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    countries = [k for k in data.keys() if k != "_metadata"]
     
-    # Find all country_stats_{code}.csv
-    files = glob.glob(os.path.join(OUTPUT_DIR, 'country_stats_*.csv'))
+    sitemap_content = []
+    sitemap_content.append('<?xml version="1.0" encoding="UTF-8"?>')
+    sitemap_content.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
     
-    for f in files:
-        basename = os.path.basename(f)
-        # Extract code: country_stats_es.csv -> es
-        code = basename.replace('country_stats_', '').replace('.csv', '')
-        
-        # In a real CSV reader we would get updated_at, but file mtime is a good proxy for file-system generation
-        lastmod = datetime.fromtimestamp(os.path.getmtime(f)).strftime('%Y-%m-%d')
-        
-        loc = f"{BASE_URL}/country/{code}"
-        urls.append((loc, lastmod))
-        
-    # Build XML
-    xml = ['<?xml version="1.0" encoding="UTF-8"?>']
-    xml.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+    # Static Pages
+    static_pages = [
+        "/",
+        "/data/",
+        "/pro/",
+        "/standard/",
+        "/foundation/",
+        "/about/",
+        "/contact/"
+    ]
     
-    for loc, lastmod in urls:
-        xml.append('  <url>')
-        xml.append(f'    <loc>{loc}</loc>')
-        xml.append(f'    <lastmod>{lastmod}</lastmod>')
-        xml.append('    <changefreq>daily</changefreq>')
-        xml.append('  </url>')
-        
-    xml.append('</urlset>')
+    now = datetime.now().strftime("%Y-%m-%d")
     
-    # Write to public_html
-    sitemap_path = os.path.join(PUBLIC_HTML, 'sitemap.xml')
-    with open(sitemap_path, 'w') as f:
-        f.write('\n'.join(xml))
-        
-    print(f"Generated sitemap with {len(urls)} URLs at {sitemap_path}")
+    for page in static_pages:
+        sitemap_content.append(f"  <url>")
+        sitemap_content.append(f"    <loc>{base_url}{page}</loc>")
+        sitemap_content.append(f"    <lastmod>{now}</lastmod>")
+        sitemap_content.append(f"    <changefreq>daily</changefreq>")
+        sitemap_content.append(f"    <priority>1.0</priority>")
+        sitemap_content.append(f"  </url>")
+    
+    # Dynamic Country Pages
+    for country in countries:
+        slug = country.lower().replace(" ", "-")
+        sitemap_content.append(f"  <url>")
+        sitemap_content.append(f"    <loc>{base_url}/country/{slug}</loc>")
+        sitemap_content.append(f"    <lastmod>{now}</lastmod>")
+        sitemap_content.append(f"    <changefreq>weekly</changefreq>")
+        sitemap_content.append(f"    <priority>0.8</priority>")
+        sitemap_content.append(f"  </url>")
+    
+    sitemap_content.append('</urlset>')
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(sitemap_content))
+    
+    print(f"Sitemap generated successfully at {output_path}")
 
 if __name__ == "__main__":
     generate_sitemap()

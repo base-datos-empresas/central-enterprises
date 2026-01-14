@@ -59,7 +59,19 @@ $ServiceCmds = "sudo cp $RemotePath/centralui-api.service /etc/systemd/system/ &
 "sudo cp $RemotePath/nginx.conf /etc/nginx/sites-available/central.enterprises && " +
 "sudo ln -sf /etc/nginx/sites-available/central.enterprises /etc/nginx/sites-enabled/ && " +
 "sudo systemctl restart nginx && " +
+"sudo /opt/centralui/self_heal.sh && " +
 "(crontab -l 2>/dev/null | grep -v 'self_heal.sh'; echo '*/5 * * * * /opt/centralui/self_heal.sh') | crontab -"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $ServiceCmds
+
+# 7. Post-Deployment Verification
+Write-Host "Verifying Deployment..."
+$VerifyStatus = curl.exe -I -s -o /dev/null -w "%{http_code}" "https://$HostName"
+if ($VerifyStatus -eq "200" -or $VerifyStatus -eq "301" -or $VerifyStatus -eq "302") {
+    Write-Host "SUCCESS: Site is LIVE and STABLE (Status: $VerifyStatus)."
+}
+else {
+    Write-Warning "CAUTION: Site returned status $VerifyStatus. Running emergency self-heal..."
+    ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo /opt/centralui/self_heal.sh"
+}
 
 Write-Host "Deployment Complete. Services Synchronized and Hardened."
