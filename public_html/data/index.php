@@ -265,47 +265,53 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                             style="background: var(--bg-secondary); border: 1px solid var(--structural-line); overflow: hidden;">
                             <table class="titan-table" style="width: 100%; border-collapse: collapse;">
                                 <thead>
-                                    <tr style="border-bottom: 1px solid var(--accent); background: rgba(0,0,0,0.2);">
+                                    <tr style="border-bottom: 2px solid var(--accent); background: rgba(0,0,0,0.4);">
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--accent);">
-                                            Country</th>
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-header); text-align: left; letter-spacing: 0.1em;">
+                                            Jurisdiction</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: left; letter-spacing: 0.1em;">
                                             ISO</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
-                                            Companies</th>
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                            Verified Entities</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
-                                            Emails</th>
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                            Market Context</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
-                                            Action</th>
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                            Protocol</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($groupedCatalog as $name => $ds): ?>
-                                        <tr style="border-bottom: 1px solid var(--structural-line);">
-                                            <td style="padding: 1.5rem; font-weight: 700;">
+                                        <tr style="border-bottom: 1px solid var(--structural-line); transition: all 0.2s;"
+                                            onmouseover="this.style.background='rgba(59, 130, 246, 0.05)'"
+                                            onmouseout="this.style.background='transparent'">
+                                            <td style="padding: 1.25rem; font-weight: 800;">
                                                 <a href="<?= $ds['url'] ?>"
-                                                    style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                                                    style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 1rem;">
                                                     <span
-                                                        style="display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 1rem;"></span>
+                                                        style="width: 8px; height: 8px; background: var(--accent); border-radius: 0;"></span>
                                                     <?= strtoupper($name) ?>
                                                 </a>
                                             </td>
-                                            <td style="padding: 1.5rem; font-family: monospace; opacity: 0.7;"><?= $ds['iso'] ?>
-                                            </td>
-                                            <td style="padding: 1.5rem; text-align: right; font-family: 'Sora', sans-serif;">
+                                            <td
+                                                style="padding: 1.25rem; font-family: monospace; opacity: 0.4; font-size: 0.8rem;">
+                                                <?= $ds['iso'] ?></td>
+                                            <td
+                                                style="padding: 1.25rem; text-align: right; font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600;">
                                                 <?= number_format($ds['metrics']['companies']) ?>
                                             </td>
                                             <td
-                                                style="padding: 1.5rem; text-align: right; font-family: 'Sora', sans-serif; opacity: 0.8;">
-                                                <?= number_format($ds['metrics']['emails']) ?>
+                                                style="padding: 1.25rem; text-align: right; font-family: 'Inter', sans-serif; opacity: 0.6; font-size: 0.75rem;">
+                                                <?= number_format($ds['metrics']['emails_unique'] ?? $ds['metrics']['emails'] ?? 0) ?>
+                                                Signals
                                             </td>
-                                            <td style="padding: 1.5rem; text-align: right;">
-                                                <a href="<?= $ds['url'] ?>" class="btn-institutional small"
-                                                    style="padding: 0.5rem 1rem; font-size: 0.7rem; border: 1px solid var(--structural-line); text-decoration: none; color: var(--text-header);">INSPECT</a>
+                                            <td style="padding: 1.25rem; text-align: right;">
+                                                <a href="<?= $ds['url'] ?>" class="btn-institutional secondary"
+                                                    style="padding: 0.5rem 1rem; font-size: 0.6rem; border-color: var(--structural-line); text-decoration: none; color: var(--text-header); font-weight: 800; border-radius: 0;">ACCESS
+                                                    LAYER →</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

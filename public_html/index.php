@@ -184,58 +184,71 @@ $basePath = "";
         <section class="section" style="padding-top: 0;">
             <div class="grid-container">
                 <div class="section-meta">GLOBAL DATASET CATALOG</div>
-                <h2 class="section-title">Select a jurisdiction to inspect corporate entities.</h2>
+                <div
+                    style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+                    <h2 class="section-title" style="margin-bottom: 0;">Select a jurisdiction to inspect corporate
+                        entities.</h2>
+                    <div style="position: relative; width: 300px;">
+                        <input type="text" id="catalogSearch" placeholder="SEARCH JURISDICTIONS..."
+                            style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--structural-line); padding: 0.75rem 1rem; color: var(--text-header); font-family: var(--font-header); font-size: 0.7rem; letter-spacing: 0.1em; border-radius: 0; outline: none; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--accent)'"
+                            onblur="this.style.borderColor='var(--structural-line)'">
+                    </div>
+                </div>
 
                 <div class="span-12" style="margin-top: 2rem;">
                     <div
                         style="background: var(--bg-secondary); border: 1px solid var(--structural-line); overflow: hidden; border-radius: 4px;">
                         <table class="titan-table" style="width: 100%; border-collapse: collapse;">
                             <thead>
-                                <tr style="border-bottom: 1px solid var(--accent); background: rgba(0,0,0,0.2);">
+                                <tr style="border-bottom: 2px solid var(--accent); background: rgba(0,0,0,0.4);">
                                     <th
-                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--accent); text-align: left;">
-                                        Country</th>
+                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-header); text-align: left; letter-spacing: 0.1em;">
+                                        Jurisdiction</th>
                                     <th
-                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: left;">
+                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: left; letter-spacing: 0.1em;">
                                         ISO</th>
                                     <th
-                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
-                                        Companies</th>
+                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                        Verified Entities</th>
                                     <th
-                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
-                                        Emails</th>
+                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                        Market Context</th>
                                     <th
-                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
-                                        Link</th>
+                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                        Protocol</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($groupedCatalog as $name => $ds): ?>
-                                    <tr style="border-bottom: 1px solid var(--structural-line); transition: background 0.2s;"
-                                        onmouseover="this.style.background='rgba(255,255,255,0.03)'"
+                                    <tr style="border-bottom: 1px solid var(--structural-line); transition: all 0.2s;"
+                                        onmouseover="this.style.background='rgba(59, 130, 246, 0.05)'"
                                         onmouseout="this.style.background='transparent'">
-                                        <td style="padding: 1rem 1.25rem; font-weight: 700;">
+                                        <td style="padding: 1.25rem; font-weight: 800;">
                                             <a href="<?= $ds['url'] ?>"
-                                                style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                                                style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 1rem;">
                                                 <span
-                                                    style="display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 0.75rem;"></span>
+                                                    style="width: 8px; height: 8px; background: var(--accent); border-radius: 0;"></span>
                                                 <?= strtoupper($name) ?>
                                             </a>
                                         </td>
                                         <td
-                                            style="padding: 1rem 1.25rem; font-family: monospace; opacity: 0.6; font-size: 0.85rem;">
-                                            <?= $ds['iso'] ?></td>
+                                            style="padding: 1.25rem; font-family: monospace; opacity: 0.4; font-size: 0.8rem;">
+                                            <?= $ds['iso'] ?>
+                                        </td>
                                         <td
-                                            style="padding: 1rem 1.25rem; text-align: right; font-family: 'Sora', sans-serif; font-size: 0.9rem;">
+                                            style="padding: 1.25rem; text-align: right; font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600;">
                                             <?= number_format($ds['metrics']['companies']) ?>
                                         </td>
                                         <td
-                                            style="padding: 1rem 1.25rem; text-align: right; font-family: 'Sora', sans-serif; opacity: 0.7; font-size: 0.85rem;">
+                                            style="padding: 1.25rem; text-align: right; font-family: 'Inter', sans-serif; opacity: 0.6; font-size: 0.75rem;">
                                             <?= number_format($ds['metrics']['emails_unique'] ?? $ds['metrics']['emails'] ?? 0) ?>
+                                            Signals
                                         </td>
-                                        <td style="padding: 1rem 1.25rem; text-align: right;">
-                                            <a href="<?= $ds['url'] ?>" class="btn-institutional small"
-                                                style="padding: 0.4rem 0.8rem; font-size: 0.65rem; border: 1px solid var(--structural-line); text-decoration: none; color: var(--text-header); font-weight: 700;">INSPECT</a>
+                                        <td style="padding: 1.25rem; text-align: right;">
+                                            <a href="<?= $ds['url'] ?>" class="btn-institutional secondary"
+                                                style="padding: 0.5rem 1rem; font-size: 0.6rem; border-color: var(--structural-line); text-decoration: none; color: var(--text-header); font-weight: 800; border-radius: 0;">ACCESS
+                                                LAYER →</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -297,9 +310,9 @@ $basePath = "";
                         applyData: 'companies',
                         values: mapData
                     },
-                    colorMin: '#2d3748',
-                    colorMax: '#00e5ff',
-                    colorNoData: '#141414',
+                    colorMin: '#334155',
+                    colorMax: '#3b82f6',
+                    colorNoData: '#1e293b',
                     minZoom: 1.0,
                     maxZoom: 3.5,
                     initialZoom: 1.06,
@@ -336,6 +349,25 @@ $basePath = "";
                 document.head.appendChild(style);
             }
         });
+        // Catalog Table Filter
+        const searchInput = document.getElementById('catalogSearch');
+        if (searchInput) {
+            searchInput.addEventListener('input', function () {
+                const query = this.value.toLowerCase();
+                const rows = document.querySelectorAll('.titan-table tbody tr');
+
+                rows.forEach(row => {
+                    const countryName = row.querySelector('td:first-child').textContent.toLowerCase();
+                    const iso = row.querySelector('td:nth-child(2)').textContent.toLowerCase();
+
+                    if (countryName.includes(query) || iso.includes(query)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        }
     </script>
 </body>
 

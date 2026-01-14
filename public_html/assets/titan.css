@@ -37,7 +37,8 @@ html[data-theme="titan-dark"],
     --surface: #2c2c2c;
     --text-header: #ffffff;
     --text-body: #d1d1d1;
-    --accent: #007aff;
+    --accent: #3b82f6;
+    /* Institutional Blue */
     --structural-line: #3d3d3d;
     --grid-opacity: 0.05;
 }
