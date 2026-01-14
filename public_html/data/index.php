@@ -358,9 +358,9 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                         applyData: 'companies',
                         values: mapData
                     },
-                    colorMin: '#1a1a1a',
+                    colorMin: '#2d3748',
                     colorMax: '#00e5ff', // Titan Accent Cyan
-                    colorNoData: '#ffffff',
+                    colorNoData: '#141414',
                     minZoom: 1.0,
                     maxZoom: 3.5,
                     initialZoom: 1.06,

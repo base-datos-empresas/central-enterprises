@@ -75,7 +75,7 @@ $basePath = "";
     <?php include 'includes/header.php'; ?>
 
     <?php
-    // Load Data for Map
+    // Load Data for Map & Table
     $libraryPath = __DIR__ . '/../data/digital_library.json';
     $library = json_decode(file_get_contents($libraryPath), true);
 
@@ -103,24 +103,41 @@ $basePath = "";
         'Romania' => 'RO',
         'Lithuania' => 'LT',
         'Czechia' => 'CZ',
-        'Slovak Republic' => 'SK'
+        'Slovak Republic' => 'SK',
+        'Russia' => 'RU',
+        'China' => 'CN',
+        'Japan' => 'JP',
+        'India' => 'IN'
     ];
 
     $mapData = [];
+    $groupedCatalog = [];
     foreach ($library as $countryName => $tiers) {
         if ($countryName === '_metadata')
             continue;
         $iso = $isoMap[$countryName] ?? null;
+        $openData = $tiers['OpenData'] ?? null;
+        $metrics = $openData['metrics'] ?? ['companies' => 0, 'emails' => 0];
+        $slug = strtolower(str_replace(' ', '-', $countryName));
+        $link = "/country/" . $slug;
+
         if ($iso) {
-            $metrics = $tiers['OpenData']['metrics'] ?? ['companies' => 0, 'emails' => 0];
             $mapData[$iso] = [
                 'companies' => $metrics['companies'],
                 'emails' => $metrics['emails_unique'] ?? $metrics['emails'] ?? 0,
-                'link' => "/country/" . strtolower(str_replace(' ', '-', $countryName)),
+                'link' => $link,
                 'name' => $countryName
             ];
         }
+
+        $groupedCatalog[$countryName] = [
+            'name' => $countryName,
+            'iso' => $iso ?? '??',
+            'metrics' => $metrics,
+            'url' => $link
+        ];
     }
+    ksort($groupedCatalog);
     ?>
 
     <main>
@@ -128,12 +145,13 @@ $basePath = "";
             <div class="grid-container">
                 <div class="section-meta">GLOBAL REGISTRY FOUNDATION</div>
                 <h1 class="hero-title">
-                    <span style="color: #64748b; font-weight:800;">MAPPING THE WORLD'S</span> <br>
-                    <span style="color: var(--accent); font-weight:300;">CORPORATE REALITY.</span>
+                    <span style="color: #64748b; font-weight:800;">THE GLOBAL REFERENCE LAYER</span> <br>
+                    <span style="color: var(--accent); font-weight:300;">FOR BUSINESS REALITY.</span>
                 </h1>
                 <div class="hero-desc" style="max-width: 800px;">
                     Central.Enterprises provides the definitive CC0 reference layer for business identity.
-                    Neutral, open-source infrastructure for global economic transparency.
+                    <strong>Open Data as Critical Infrastructure.</strong> Neutral, open-source protocol for global
+                    economic transparency.
                 </div>
             </div>
         </header>
@@ -163,41 +181,66 @@ $basePath = "";
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" style="padding-top: 0;">
             <div class="grid-container">
-                <div class="section-meta">ACCESS PROTOCOLS</div>
-                <div class="section-content">
-                    <h2 class="section-title">Select a jurisdiction to inspect corporate entities.</h2>
+                <div class="section-meta">GLOBAL DATASET CATALOG</div>
+                <h2 class="section-title">Select a jurisdiction to inspect corporate entities.</h2>
 
-                    <div class="grid-container" style="padding:0; margin-top:3rem; gap: 1.5rem;">
-                        <!-- Country Cards -->
-                        <a href="/country/spain" class="feature-card span-4"
-                            style="text-decoration:none; color:inherit; display:block">
-                            <span class="feature-num">EU-01</span>
-                            <h3>Spain Registry</h3>
-                            <p>CC0 standardization for the Kingdom of Spain.</p>
-                            <span class="btn-institutional primary" style="margin-top:1rem; display:inline-block">Get
-                                Data (CC0) →</span>
-                        </a>
-
-                        <a href="/country/united-states" class="feature-card span-4"
-                            style="text-decoration:none; color:inherit; display:block">
-                            <span class="feature-num">NA-01</span>
-                            <h3>United States</h3>
-                            <p>Federal and state-level entity reconciliation.</p>
-                            <span class="btn-institutional secondary" style="margin-top:1rem; display:inline-block">Get
-                                Data (CC0) →</span>
-                        </a>
-
-                        <a href="<?= $basePath ?>/pro/" class="feature-card span-4"
-                            style="text-decoration:none; color:inherit; display:block; border-color: var(--accent);">
-                            <span class="feature-num" style="color: var(--accent);">PRO</span>
-                            <h3>Enrichment Layer</h3>
-                            <p>Commercial signals: domains, emails, and social footprint.</p>
-                            <span class="btn-institutional primary"
-                                style="margin-top:1rem; display:inline-block; background: var(--accent); color: var(--bg-primary);">Request
-                                Pro Access →</span>
-                        </a>
+                <div class="span-12" style="margin-top: 2rem;">
+                    <div
+                        style="background: var(--bg-secondary); border: 1px solid var(--structural-line); overflow: hidden; border-radius: 4px;">
+                        <table class="titan-table" style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--accent); background: rgba(0,0,0,0.2);">
+                                    <th
+                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--accent); text-align: left;">
+                                        Country</th>
+                                    <th
+                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: left;">
+                                        ISO</th>
+                                    <th
+                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
+                                        Companies</th>
+                                    <th
+                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
+                                        Emails</th>
+                                    <th
+                                        style="padding: 1.25rem; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
+                                        Link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($groupedCatalog as $name => $ds): ?>
+                                    <tr style="border-bottom: 1px solid var(--structural-line); transition: background 0.2s;"
+                                        onmouseover="this.style.background='rgba(255,255,255,0.03)'"
+                                        onmouseout="this.style.background='transparent'">
+                                        <td style="padding: 1rem 1.25rem; font-weight: 700;">
+                                            <a href="<?= $ds['url'] ?>"
+                                                style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                                                <span
+                                                    style="display: inline-block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; margin-right: 0.75rem;"></span>
+                                                <?= strtoupper($name) ?>
+                                            </a>
+                                        </td>
+                                        <td
+                                            style="padding: 1rem 1.25rem; font-family: monospace; opacity: 0.6; font-size: 0.85rem;">
+                                            <?= $ds['iso'] ?></td>
+                                        <td
+                                            style="padding: 1rem 1.25rem; text-align: right; font-family: 'Sora', sans-serif; font-size: 0.9rem;">
+                                            <?= number_format($ds['metrics']['companies']) ?>
+                                        </td>
+                                        <td
+                                            style="padding: 1rem 1.25rem; text-align: right; font-family: 'Sora', sans-serif; opacity: 0.7; font-size: 0.85rem;">
+                                            <?= number_format($ds['metrics']['emails_unique'] ?? $ds['metrics']['emails'] ?? 0) ?>
+                                        </td>
+                                        <td style="padding: 1rem 1.25rem; text-align: right;">
+                                            <a href="<?= $ds['url'] ?>" class="btn-institutional small"
+                                                style="padding: 0.4rem 0.8rem; font-size: 0.65rem; border: 1px solid var(--structural-line); text-decoration: none; color: var(--text-header); font-weight: 700;">INSPECT</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -254,9 +297,9 @@ $basePath = "";
                         applyData: 'companies',
                         values: mapData
                     },
-                    colorMin: '#1a1a1a',
+                    colorMin: '#2d3748',
                     colorMax: '#00e5ff',
-                    colorNoData: '#ffffff',
+                    colorNoData: '#141414',
                     minZoom: 1.0,
                     maxZoom: 3.5,
                     initialZoom: 1.06,
