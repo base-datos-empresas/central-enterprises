@@ -94,7 +94,6 @@ foreach ($library as $countryName => $tiers) {
         'iso' => $iso,
         'metrics' => $metrics,
         'links' => $openData['links'] ?? [],
-        'premium_links' => $premium['links'] ?? [],
         'updated_at' => $library['_metadata']['last_update'] ?? date('Y-m-d'),
         'slug' => $slug,
         'url' => $link

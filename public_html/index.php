@@ -39,6 +39,33 @@ $basePath = "";
       }
     }
     </script>
+    <style>
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            margin-bottom: 2rem;
+        }
+
+        #svgMap {
+            width: 100%;
+            height: 500px;
+            border: 1px solid var(--structural-line);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            margin: 4rem 0;
+            cursor: default;
+        }
+
+        /* svgMap Tooltip Overrides */
+        .svgMap-tooltip {
+            background: var(--bg-primary) !important;
+            border: 1px solid var(--accent) !important;
+            color: var(--text-header) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+            padding: 1rem !important;
+        }
+    </style>
 </head>
 
 <body data-theme="titan-dark">
@@ -47,17 +74,77 @@ $basePath = "";
     <?php include 'includes/cookies_banner.php'; ?>
     <?php include 'includes/header.php'; ?>
 
+    <?php
+    // Load Data for Map
+    $libraryPath = __DIR__ . '/../data/digital_library.json';
+    $library = json_decode(file_get_contents($libraryPath), true);
+
+    $isoMap = [
+        'Spain' => 'ES',
+        'United States' => 'US',
+        'United Kingdom' => 'GB',
+        'Germany' => 'DE',
+        'France' => 'FR',
+        'Italy' => 'IT',
+        'Netherlands' => 'NL',
+        'Belgium' => 'BE',
+        'Austria' => 'AT',
+        'Portugal' => 'PT',
+        'Ireland' => 'IE',
+        'Switzerland' => 'CH',
+        'Canada' => 'CA',
+        'Australia' => 'AU',
+        'Brazil' => 'BR',
+        'Mexico' => 'MX',
+        'Indonesia' => 'ID',
+        'Malaysia' => 'MY',
+        'Poland' => 'PL',
+        'Norway' => 'NO',
+        'Romania' => 'RO',
+        'Lithuania' => 'LT',
+        'Czechia' => 'CZ',
+        'Slovak Republic' => 'SK'
+    ];
+
+    $mapData = [];
+    foreach ($library as $countryName => $tiers) {
+        if ($countryName === '_metadata')
+            continue;
+        $iso = $isoMap[$countryName] ?? null;
+        if ($iso) {
+            $metrics = $tiers['OpenData']['metrics'] ?? ['companies' => 0, 'emails' => 0];
+            $mapData[$iso] = [
+                'companies' => $metrics['companies'],
+                'emails' => $metrics['emails_unique'] ?? $metrics['emails'] ?? 0,
+                'link' => "/country/" . strtolower(str_replace(' ', '-', $countryName)),
+                'name' => $countryName
+            ];
+        }
+    }
+    ?>
+
     <main>
-        <header class="hero">
+        <header class="hero" style="padding-bottom: 0;">
             <div class="grid-container">
-                <h1 class="hero-title">OPEN DATA <br>IS INFRASTRUCTURE.</h1>
-                <div class="hero-desc">
-                    A CC0 global reference layer for business reality. Managed by the Central.Enterprises Foundation (in
-                    formation) to ensure corporate data remains a neutral public good. High-fidelity company databases
-                    designed for citation, not just consumption.
+                <div class="section-meta">GLOBAL REGISTRY FOUNDATION</div>
+                <h1 class="hero-title">
+                    <span style="color: #64748b; font-weight:800;">MAPPING THE WORLD'S</span> <br>
+                    <span style="color: var(--accent); font-weight:300;">CORPORATE REALITY.</span>
+                </h1>
+                <div class="hero-desc" style="max-width: 800px;">
+                    Central.Enterprises provides the definitive CC0 reference layer for business identity.
+                    Neutral, open-source infrastructure for global economic transparency.
                 </div>
             </div>
         </header>
+
+        <section class="section" style="padding-top: 2rem;">
+            <div class="grid-container">
+                <div class="span-12">
+                    <div id="svgMap"></div>
+                </div>
+            </div>
+        </section>
 
         <section class="section" style="padding-top: 5rem;">
             <div class="grid-container">
@@ -137,6 +224,76 @@ $basePath = "";
     </main>
 
     <?php include 'includes/footer.php'; ?>
+
+    <!-- Map Dependencies -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.10.1/dist/svgMap.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.10.1/dist/svgMap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof svgMap !== 'undefined') {
+                const mapData = <?= json_encode($mapData) ?>;
+
+                new svgMap({
+                    targetElementID: 'svgMap',
+                    data: {
+                        data: {
+                            companies: {
+                                name: 'Companies',
+                                format: '{0}',
+                                thousandSeparator: ',',
+                                thresholdMax: 2000000,
+                                thresholdMin: 0
+                            },
+                            emails: {
+                                name: 'Verified Emails',
+                                format: '{0}',
+                                thousandSeparator: ','
+                            }
+                        },
+                        applyData: 'companies',
+                        values: mapData
+                    },
+                    colorMin: '#1a1a1a',
+                    colorMax: '#00e5ff',
+                    colorNoData: '#ffffff',
+                    minZoom: 1.0,
+                    maxZoom: 3.5,
+                    initialZoom: 1.06,
+                    flagType: 'emoji',
+                    showContinentSelector: false
+                });
+
+                // Interaction Handling
+                const mapContainer = document.getElementById('svgMap');
+                mapContainer.addEventListener('click', function (e) {
+                    let target = e.target;
+                    while (target && target !== mapContainer && target.tagName !== 'path') {
+                        target = target.parentNode;
+                    }
+                    if (target && target.tagName === 'path') {
+                        const id = target.getAttribute('id');
+                        if (id && id.includes('country-')) {
+                            const iso = id.split('country-')[1];
+                            if (mapData[iso] && mapData[iso].link) {
+                                window.location.href = mapData[iso].link;
+                            }
+                        }
+                    }
+                });
+
+                // Cursor pointer for active countries
+                const style = document.createElement('style');
+                let css = '';
+                for (const iso in mapData) {
+                    css += `#svgMap-map-country-${iso} { cursor: pointer; fill-opacity: 1 !important; stroke: #fff !important; } `;
+                }
+                style.type = 'text/css';
+                style.appendChild(document.createTextNode(css));
+                document.head.appendChild(style);
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -133,7 +133,6 @@ if (isset($library[$currentCountryName])) {
     $stats['total_categories'] = $pMetrics['categories'] ?? 0;
 
     $stats['links'] = $libData['OpenData']['links'] ?? [];
-    $stats['premium_links'] = $libData['Premium']['links'] ?? [];
 }
 
 // 4. Load Sector Metadata logic
@@ -210,16 +209,8 @@ $datasetSchema = [
     ]
 ];
 
-// Add Distributions (OpenData)
-foreach ($stats['links'] as $format => $url) {
-    if ($format === 'ZIP')
-        $format = 'Zip';
-    $datasetSchema['distribution'][] = [
-        "@type" => "DataDownload",
-        "encodingFormat" => "application/" . strtolower($format),
-        "contentUrl" => $url
-    ];
-}
+// Distributions are handled via UI buttons to prevent direct crawler exposure of links.
+$datasetSchema['isAccessibleForFree'] = true;
 
 ?>
 <!DOCTYPE html>
@@ -577,50 +568,56 @@ foreach ($stats['links'] as $format => $url) {
                             </table>
                         </div>
 
-                        <div id="sample" style="margin-top: 4rem; position: relative;">
-                            <h3 style="margin-bottom: 1.5rem;">Data Preview</h3>
+                        <div id="sample">
                             <div
-                                style="border: 1px solid var(--structural-line); overflow: hidden; position: relative;">
-                                <table class="sample-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Company Name</th>
-                                            <th>Activity</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Address</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $mockNames = ["TechSol", "EuroLink", "GlobalSystems", "MediGroup", "ArchBuild"];
-                                        $mockCities = ["Madrid", "Barcelona", "Berlin", "Paris", "London"];
-                                        $mockSectors = ["Cloud Infrastructure", "Smart Logistics", "Cyber Security", "Medical Devices", "Renewable Energy"];
-                                        for ($i = 0; $i < 5; $i++):
-                                            $cName = $mockNames[$i] . " " . $iso . " " . rand(100, 999);
-                                            $cEmail = "contact@" . strtolower($mockNames[$i]) . ".com";
-                                            $cPhone = "+" . rand(11, 49) . " " . rand(100, 999) . " " . rand(100, 999);
-                                            $cAddr = rand(1, 400) . " Business Park, " . $mockCities[$i];
-                                            ?>
+                                style="background: var(--bg-secondary); border: 1px solid var(--structural-line); padding: 1.5rem; margin-bottom: 2rem;">
+                                <h4 class="titan-label" style="margin-bottom: 1rem;">PROFESSIONAL DATA PREVIEW</h4>
+                                <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem;">
+                                    This preview demonstrates the normalized record quality. Field masking is applied to
+                                    the
+                                    <strong>OpenData</strong> tier to maintain privacy and compliance requirements.
+                                </p>
+
+                                <div style="overflow-x: auto;">
+                                    <table class="titan-table" style="font-size: 0.75rem;">
+                                        <thead>
                                             <tr>
-                                                <td style="color: var(--text-header); font-weight: 600;"><?= $cName ?></td>
-                                                <td><?= $mockSectors[$i] ?></td>
-                                                <td class="blur-col"><?= $cEmail ?></td>
-                                                <td class="blur-col"><?= $cPhone ?></td>
-                                                <td class="blur-col"><?= $cAddr ?></td>
+                                                <th>ENTITY NAME</th>
+                                                <th>INDUSTRIAL SECTOR</th>
+                                                <th>LOCATION</th>
+                                                <th style="color:var(--accent);">PREMIUM ENRICHMENT</th>
                                             </tr>
-                                        <?php endfor; ?>
-                                    </tbody>
-                                </table>
-                                <!-- Unlock Overlay -->
-                                <div
-                                    style="position: absolute; bottom: 0; left: 0; width: 100%; height: 60%; background: linear-gradient(to top, var(--bg-primary), transparent); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2rem;">
-                                    <a href="<?= $stats['links']['ZIP'] ?? '#' ?>"
-                                        class="btn-institutional primary">UNLOCK FULL DATASET</a>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $mockEntities = [
+                                                ['Acme Industrial S.A.', 'Construction & Infrastructure', 'Madrid', 'Verified Email + Social'],
+                                                ['Titan Logistics SL', 'Transport & Distribution', 'Barcelona', 'Direct Phone + Contact Name'],
+                                                ['Green Energy Corp', 'Renewable Energy Systems', 'Granada', 'Spending Signals + LinkedIn'],
+                                                ['Global Software Solutions', 'IT Services & Software', 'Valencia', 'Validated Domain + Ad Data'],
+                                                ['Central Food Group', 'Food Processing & Supply', 'Sevilla', 'Full Executive Mapping']
+                                            ];
+                                            foreach ($mockEntities as $entity):
+                                                ?>
+                                                <tr>
+                                                    <td style="font-weight:700;"><?= $entity[0] ?></td>
+                                                    <td style="opacity:0.8;"><?= $entity[1] ?></td>
+                                                    <td style="opacity:0.7;"><?= $entity[2] ?></td>
+                                                    <td
+                                                        style="font-family:monospace; color:var(--accent); font-size: 0.7rem;">
+                                                        <span style="opacity:0.4;">[MASKED]</span> <?= $entity[3] ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div style="margin-top: 1rem; font-size: 0.7rem; opacity: 0.5; font-style: italic;">
+                                    * Sample represents generalized record structure. Download full dataset for real
+                                    entity data.
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <!-- Right: Asset Card -->
@@ -647,9 +644,11 @@ foreach ($stats['links'] as $format => $url) {
                                     included.</span>
                             </div>
                             <?php if (isset($stats['links']['ZIP'])): ?>
-                                <a href="<?= $stats['links']['ZIP'] ?>" class="btn-institutional secondary"
-                                    style="width: 100%; justify-content: center; font-weight: 700; border-color: var(--structural-line);">
-                                    DOWNLOAD ZIP
+                                <a href="javascript:void(0)"
+                                    onclick="<?= !empty($stats['links']['ZIP']) ? "window.open('" . htmlspecialchars($stats['links']['ZIP']) . "')" : "openComingSoonModal()" ?>"
+                                    class="btn-institutional secondary"
+                                    style="width: 100%; justify-content: center; font-weight: 800; border-color: var(--structural-line); text-align: center; height: auto; padding: 1.5rem 0.5rem; letter-spacing: 0.05em; line-height: 1.1;">
+                                    DOWNLOAD FREE <?= strtoupper($currentCountryName) ?> <br> COMPANIES DATABASE
                                 </a>
                             <?php else: ?>
                                 <div style="font-size:0.7rem; opacity:0.6;">OpenData Unavailable</div>
@@ -667,16 +666,16 @@ foreach ($stats['links'] as $format => $url) {
                                 <strong>Everything in Open +</strong> Direct Emails, Phones, Websites, Social Profiles.
                             </div>
                             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <?php foreach ($stats['premium_links'] as $format => $url): ?>
-                                    <a href="javascript:void(0)" onclick="openComingSoonModal()"
-                                        class="btn-institutional primary"
-                                        style="flex: 1; justify-content: center; font-size: 0.7rem;">
-                                        GET <?= $format ?>
-                                    </a>
-                                <?php endforeach; ?>
-                                <?php if (empty($stats['premium_links'])): ?>
-                                    <div style="font-size:0.7rem; opacity:0.6;">Premium Link Unavailable</div>
-                                <?php endif; ?>
+                                <a href="javascript:void(0)" onclick="openComingSoonModal()"
+                                    class="btn-institutional primary"
+                                    style="flex: 1; justify-content: center; font-size: 0.75rem; padding: 1.25rem 0.5rem; text-align: center; line-height: 1.2; background: var(--accent); color: var(--bg-primary);">
+                                    GET FULL <?= strtoupper($currentCountryName) ?> DATABASE (CSV)
+                                </a>
+                                <a href="javascript:void(0)" onclick="openComingSoonModal()"
+                                    class="btn-institutional primary"
+                                    style="flex: 1; justify-content: center; font-size: 0.75rem; padding: 1.25rem 0.5rem; text-align: center; line-height: 1.2; background: var(--accent); color: var(--bg-primary);">
+                                    GET FULL <?= strtoupper($currentCountryName) ?> DATABASE (EXCEL)
+                                </a>
                             </div>
                         </div>
 
