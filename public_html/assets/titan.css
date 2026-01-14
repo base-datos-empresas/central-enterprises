@@ -552,35 +552,58 @@ body[data-theme="titan-light"] .status-critical {
     box-shadow: 0 0 10px var(--accent);
 }
 
-/* Tooltip Perfection */
+/* 
+   SVG MAP ROBUST STANDARDS
+   Ensures tooltips are always visible over subsequent sections
+   and theme-neutral legibility.
+*/
+.svgMap-map-wrapper {
+    background: transparent !important;
+}
+
 .svgMap-tooltip {
-    background: var(--bg-secondary) !important;
+    background: var(--bg-primary) !important;
+    /* Use primary for better contrast */
     border: 1px solid var(--accent) !important;
     border-radius: 0 !important;
     padding: 1.25rem !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
     opacity: 1 !important;
-    backdrop-filter: blur(10px);
-    z-index: 9999 !important;
-}
-
-.svgMap-tooltip-content-container {
-    padding: 0 !important;
+    z-index: 10000 !important;
+    /* Ensure it stays above everything */
+    pointer-events: none;
+    min-width: 200px;
 }
 
 .svgMap-tooltip-title {
     font-family: var(--font-header) !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    font-size: 0.9rem !important;
-    margin-bottom: 0.75rem !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 0.5rem !important;
     color: var(--text-header) !important;
+    border-bottom: 1px solid var(--structural-line);
+    padding-bottom: 0.5rem;
 }
 
 .svgMap-tooltip-content {
     font-family: var(--font-body) !important;
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     color: var(--text-body) !important;
+    line-height: 1.4 !important;
+}
+
+/* Fix for Light Mode Legibility */
+html[data-theme="titan-light"] .svgMap-tooltip {
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Map specific section handling */
+.map-section {
+    position: relative;
+    z-index: 20 !important;
+    /* Higher than contents to keep tooltips on top */
 }
 
 .map-line {

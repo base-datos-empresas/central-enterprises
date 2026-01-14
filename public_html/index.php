@@ -160,16 +160,19 @@ $basePath = "";
             </div>
         </header>
 
-        <section class="section" style="padding-top: 2rem;">
+        <section class="section map-section" style="padding-top: 4rem; position: relative;">
             <div class="grid-container">
                 <div class="span-12">
-                    <div id="svgMap"></div>
+                    <div id="svgMap"
+                        style="margin-top: 2rem; margin-bottom: 2rem; min-height: 500px; background: transparent;">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" style="padding-top: 5rem;">
+        <section id="infrastructure" class="section" style="padding-top: 10rem; position: relative; z-index: 10;">
             <div class="grid-container">
+                <div class="section-meta">INFRASTRUCTURE</div>
                 <div class="span-8">
                     <h2 class="section-title">Global Data infrastructure.</h2>
                     <p style="font-size: 1.25rem; line-height: 1.6; opacity: 0.8; margin-bottom: 2rem;">
@@ -185,7 +188,8 @@ $basePath = "";
             </div>
         </section>
 
-        <section class="section" style="padding-top: 2rem; background: rgba(var(--accent-rgb), 0.02);">
+        <section class="section"
+            style="padding-top: 5rem; background: rgba(var(--accent-rgb), 0.02); position: relative; z-index: 10;">
             <div class="grid-container">
                 <div class="span-4">
                     <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent);">Architectural Stability.
@@ -203,6 +207,36 @@ $basePath = "";
                     <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent);">Global Reach.</h2>
                     <p style="font-size: 0.9rem; opacity: 0.7;">Covering 44+ jurisdictions with a single unified schema.
                         One protocol, infinite possibilities for economic development.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 8rem;">
+            <div class="grid-container">
+                <div class="section-meta">THE STANDARD</div>
+                <div class="span-8">
+                    <h2 class="section-title" style="font-size: 2.5rem;">Technical Specification v1.1</h2>
+                    <p style="font-size: 1.1rem; opacity: 0.7; line-height: 1.7; margin-bottom: 2rem;">Our immutable
+                        37-column schema ensures that data from Madrid, New York, and Jakarta can be processed by the
+                        same machine-learning models without modification.</p>
+                    <a href="/standard/" class="btn-institutional primary">View Specification →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 8rem; border-top: 1px solid var(--structural-line);">
+            <div class="grid-container">
+                <div class="span-6">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Ethical Data Stewardship</h2>
+                    <p style="opacity: 0.7; margin-bottom: 2rem;">We distinguish between organization data and personal
+                        privacy. Our stewardship model focuses on transparency for legal entities while strictly masking
+                        sensitive individual endpoints.</p>
+                </div>
+                <div class="span-6">
+                    <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Universal Data Scale</h2>
+                    <p style="opacity: 0.7; margin-bottom: 2rem;">Managing over 12 million verified signals across 11
+                        million corporate entities. We provide the scale required for global supply chain analysis and
+                        economic research.</p>
                 </div>
             </div>
         </section>
@@ -301,7 +335,7 @@ $basePath = "";
                 </div>
         </section>
 
-        <section class="section">
+        <section class="section" style="padding-top: 15rem; border-top: 1px solid var(--structural-line);">
             <div class="grid-container">
                 <div class="section-meta">INSTITUTIONAL COMMITMENT</div>
                 <div class="span-8">
@@ -310,6 +344,32 @@ $basePath = "";
                         the place people point to to understand the business reality of a region. We publish data that
                         other systems can depend on, built with engineering discipline and published with absolute
                         responsibility.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 8rem; border-top: 1px solid var(--structural-line);">
+            <div class="grid-container">
+                <div class="span-4">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--accent);">Engineering Discipline.
+                    </h2>
+                    <p style="font-size: 0.85rem; opacity: 0.6; line-height: 1.6;">We don't just scrape data; we
+                        engineer it. Every record undergoes a validation pipeline that checks for syntactic correctness,
+                        temporal freshness, and cross-reference validity before reaching the reference layer.</p>
+                </div>
+                <div class="span-4">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--accent);">Global
+                        Interoperability.</h2>
+                    <p style="font-size: 0.85rem; opacity: 0.6; line-height: 1.6;">By normalizing disparate
+                        jurisdictional formats into the SuperDataCloud Standard, we enable cross-border economic
+                        analysis that was previously impossible without significant manual labor.</p>
+                </div>
+                <div class="span-4">
+                    <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--accent);">Cryptographic Trust.
+                    </h2>
+                    <p style="font-size: 0.85rem; opacity: 0.6; line-height: 1.6;">The foundation is working towards
+                        implementing cryptographic hashing for all dataset versions, ensuring that the data you consume
+                        today can be audited for integrity years into the future.</p>
                 </div>
             </div>
         </section>
@@ -365,8 +425,8 @@ $basePath = "";
                         applyData: 'companies',
                         values: mapData
                     },
-                    colorMin: '#334155',
-                    colorMax: '#3b82f6',
+                    colorMin: '#2d3748',
+                    colorMax: '#00e5ff',
                     colorNoData: 'transparent',
                     minZoom: 1.0,
                     maxZoom: 3.5,
@@ -419,7 +479,7 @@ $basePath = "";
                         row.style.display = '';
                     } else {
                         row.style.display = 'none';
-                    }
+         }
                 });
             });
         }
