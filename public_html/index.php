@@ -137,7 +137,11 @@ $basePath = "";
             'url' => $link
         ];
     }
-    ksort($groupedCatalog);
+
+    // Sort by verified companies count (descending)
+    uasort($groupedCatalog, function ($a, $b) {
+        return ($b['metrics']['companies'] ?? 0) <=> ($a['metrics']['companies'] ?? 0);
+    });
     ?>
 
     <main>
@@ -167,16 +171,38 @@ $basePath = "";
         <section class="section" style="padding-top: 5rem;">
             <div class="grid-container">
                 <div class="span-8">
-                    <h2 class="section-title">Industrial Integrity.</h2>
+                    <h2 class="section-title">Global Data infrastructure.</h2>
                     <p style="font-size: 1.25rem; line-height: 1.6; opacity: 0.8; margin-bottom: 2rem;">
-                        We eliminate friction in accessing corporate reality. Central.Enterprises standardizes global
-                        commercial registries into a free-access CC0 core, supported by a high-fidelity Pro layer.
+                        Open data is not a trend. It is infrastructure. We believe that company data must be accessible,
+                        verifiable, and useful at scale.
                     </p>
                     <p style="opacity: 0.7; line-height: 1.8; margin-bottom: 2rem;">
-                        Our mission is to provide the most stable and transparent **company databases** on the market,
-                        treating data provenance and freshness as fundamental engineering features, not marketing
-                        promises.
+                        The Central.Enterprises Foundation eliminates technical and economic friction in accessing
+                        corporate reality. We standardize global commercial registries into a unified reference layer,
+                        enabling researchers and developers to build on absolute transparency.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 2rem; background: rgba(var(--accent-rgb), 0.02);">
+            <div class="grid-container">
+                <div class="span-4">
+                    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent);">Architectural Stability.
+                    </h2>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">We treat quality as an engineering discipline. Every
+                        dataset is versioned, standardized, and published with cryptographic integrity proofs.</p>
+                </div>
+                <div class="span-4">
+                    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent);">Neutral Access.</h2>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Business information should not be trapped behind
+                        proprietary walls. We provide a CC0 core available to everyone, from startups to public
+                        institutions.</p>
+                </div>
+                <div class="span-4">
+                    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent);">Global Reach.</h2>
+                    <p style="font-size: 0.9rem; opacity: 0.7;">Covering 44+ jurisdictions with a single unified schema.
+                        One protocol, infinite possibilities for economic development.</p>
                 </div>
             </div>
         </section>
@@ -186,9 +212,12 @@ $basePath = "";
                 <div class="section-meta">GLOBAL DATASET CATALOG</div>
                 <div
                     style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
-                    <h2 class="section-title" style="margin-bottom: 0;">Select a jurisdiction to inspect corporate
-                        entities.</h2>
-                    <div style="position: relative; width: 300px;">
+                    <div>
+                        <h2 class="section-title" style="margin-bottom: 0.5rem;">Global Corporate Intelligence.</h2>
+                        <p style="opacity: 0.6; font-size: 0.9rem;">Select a jurisdiction to inspect verified entities
+                            and market signals.</p>
+                    </div>
+                    <div style="position: relative; width: 300px; margin-bottom: 2rem;">
                         <input type="text" id="catalogSearch" placeholder="SEARCH JURISDICTIONS..."
                             style="width: 100%; background: var(--bg-secondary); border: 1px solid var(--structural-line); padding: 0.75rem 1rem; color: var(--text-header); font-family: var(--font-header); font-size: 0.7rem; letter-spacing: 0.1em; border-radius: 0; outline: none; transition: border-color 0.3s;"
                             onfocus="this.style.borderColor='var(--accent)'"
@@ -197,64 +226,90 @@ $basePath = "";
                 </div>
 
                 <div class="span-12" style="margin-top: 2rem;">
+                    <h2 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem;">The Reference Layer for
+                        44+ Jurisdictions.</h2>
+                    <p style="max-width: 800px; margin-bottom: 2rem; opacity: 0.7;">We normalize local government
+                        identifiers and digital presence signals into a single, predictable format. Our standard v1.1
+                        ensures total interoperability across borders.</p>
                     <div
                         style="background: var(--bg-secondary); border: 1px solid var(--structural-line); overflow: hidden; border-radius: 4px;">
-                        <table class="titan-table" style="width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr style="border-bottom: 2px solid var(--accent); background: rgba(0,0,0,0.4);">
-                                    <th
-                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-header); text-align: left; letter-spacing: 0.1em;">
-                                        Jurisdiction</th>
-                                    <th
-                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: left; letter-spacing: 0.1em;">
-                                        ISO</th>
-                                    <th
-                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
-                                        Verified Entities</th>
-                                    <th
-                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
-                                        Market Context</th>
-                                    <th
-                                        style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
-                                        Protocol</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($groupedCatalog as $name => $ds): ?>
-                                    <tr style="border-bottom: 1px solid var(--structural-line); transition: all 0.2s;"
-                                        onmouseover="this.style.background='rgba(59, 130, 246, 0.05)'"
-                                        onmouseout="this.style.background='transparent'">
-                                        <td style="padding: 1.25rem; font-weight: 800;">
-                                            <a href="<?= $ds['url'] ?>"
-                                                style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 1rem;">
-                                                <span
-                                                    style="width: 8px; height: 8px; background: var(--accent); border-radius: 0;"></span>
-                                                <?= strtoupper($name) ?>
-                                            </a>
-                                        </td>
-                                        <td
-                                            style="padding: 1.25rem; font-family: monospace; opacity: 0.4; font-size: 0.8rem;">
-                                            <?= $ds['iso'] ?>
-                                        </td>
-                                        <td
-                                            style="padding: 1.25rem; text-align: right; font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600;">
-                                            <?= number_format($ds['metrics']['companies']) ?>
-                                        </td>
-                                        <td
-                                            style="padding: 1.25rem; text-align: right; font-family: 'Inter', sans-serif; opacity: 0.6; font-size: 0.75rem;">
-                                            <?= number_format($ds['metrics']['emails_unique'] ?? $ds['metrics']['emails'] ?? 0) ?>
-                                            Signals
-                                        </td>
-                                        <td style="padding: 1.25rem; text-align: right;">
-                                            <a href="<?= $ds['url'] ?>" class="btn-institutional secondary"
-                                                style="padding: 0.5rem 1rem; font-size: 0.6rem; border-color: var(--structural-line); text-decoration: none; color: var(--text-header); font-weight: 800; border-radius: 0;">ACCESS
-                                                LAYER →</a>
-                                        </td>
+                        <div style="overflow-x: auto;">
+                            <!-- Table remains here -->
+                            <table class="titan-table" style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="border-bottom: 2px solid var(--accent); background: rgba(0,0,0,0.4);">
+                                        <th
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-header); text-align: left; letter-spacing: 0.1em;">
+                                            Jurisdiction</th>
+                                        <th
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: left; letter-spacing: 0.1em;">
+                                            ISO</th>
+                                        <th
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                            Empresas</th>
+                                        <th
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                            Signals (Emails)</th>
+                                        <th
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                            Websites</th>
+                                        <th
+                                            style="padding: 1.5rem 1.25rem; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); text-align: right; letter-spacing: 0.1em;">
+                                            Protocol</th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($groupedCatalog as $name => $ds): ?>
+                                        <tr style="border-bottom: 1px solid var(--structural-line); transition: all 0.2s;"
+                                            onmouseover="this.style.background='rgba(59, 130, 246, 0.05)'"
+                                            onmouseout="this.style.background='transparent'">
+                                            <td style="padding: 1.25rem; font-weight: 800;">
+                                                <a href="<?= $ds['url'] ?>"
+                                                    style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+                                                    <span
+                                                        style="width: 8px; height: 8px; background: var(--accent); border-radius: 0;"></span>
+                                                    <?= strtoupper($name) ?>
+                                                </a>
+                                            </td>
+                                            <td
+                                                style="padding: 1.25rem; font-family: monospace; opacity: 0.4; font-size: 0.8rem;">
+                                                <?= $ds['iso'] ?>
+                                            </td>
+                                            <td
+                                                style="padding: 1.25rem; text-align: right; font-family: 'Sora', sans-serif; font-size: 0.9rem; font-weight: 600;">
+                                                <?= number_format($ds['metrics']['companies']) ?>
+                                            </td>
+                                            <td
+                                                style="padding: 1.25rem; text-align: right; font-family: 'Inter', sans-serif; opacity: 0.6; font-size: 0.75rem;">
+                                                <?= number_format($ds['metrics']['emails_unique'] ?? $ds['metrics']['emails'] ?? 0) ?>
+                                            </td>
+                                            <td
+                                                style="padding: 1.25rem; text-align: right; font-family: 'Inter', sans-serif; opacity: 0.6; font-size: 0.75rem;">
+                                                <?= number_format($ds['metrics']['web_domains'] ?? 0) ?>
+                                            </td>
+                                            <td style="padding: 1.25rem; text-align: right;">
+                                                <a href="<?= $ds['url'] ?>" class="btn-institutional secondary"
+                                                    style="padding: 0.5rem 1rem; font-size: 0.6rem; border-color: var(--structural-line); text-decoration: none; color: var(--text-header); font-weight: 800; border-radius: 0;">ACCESS
+                                                    LAYER →</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+                </div>
+        </section>
+
+        <section class="section">
+            <div class="grid-container">
+                <div class="section-meta">INSTITUTIONAL COMMITMENT</div>
+                <div class="span-8">
+                    <h2 class="section-title">A Shared Reality for the Global Economy.</h2>
+                    <p style="font-size: 1.1rem; opacity: 0.7; line-height: 1.7;">Our goal is to be the reference layer:
+                        the place people point to to understand the business reality of a region. We publish data that
+                        other systems can depend on, built with engineering discipline and published with absolute
+                        responsibility.</p>
                 </div>
             </div>
         </section>
@@ -312,7 +367,7 @@ $basePath = "";
                     },
                     colorMin: '#334155',
                     colorMax: '#3b82f6',
-                    colorNoData: '#1e293b',
+                    colorNoData: 'transparent',
                     minZoom: 1.0,
                     maxZoom: 3.5,
                     initialZoom: 1.06,
