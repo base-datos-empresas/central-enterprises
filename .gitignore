@@ -18,9 +18,14 @@ id_rsa
 PythonTools/php/
 
 # Data and Outputs
+# Data and Outputs
 Outputs/
 data/outputs/
 _archive/
+bases/
+data/
+!data/*.json
+!data/registry_index.json
 
 # Logs
 *.log

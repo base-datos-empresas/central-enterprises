@@ -35,9 +35,10 @@ Write-Host "Uploading PythonTools..."
 scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "PythonTools") "${User}@${HostName}:${RemotePath}"
 
 # 3. Upload Data & Bases
-Write-Host "Uploading Data and Bases..."
-scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "data") "${User}@${HostName}:${RemotePath}"
-scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "bases") "${User}@${HostName}:${RemotePath}"
+# 3. Upload Data & Bases (SKIPPED - DROPBOX REFERENCED)
+Write-Host "Skipping Data/Bases Upload (Dropbox Referenced)..."
+# scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "data") "${User}@${HostName}:${RemotePath}"
+# scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "bases") "${User}@${HostName}:${RemotePath}"
 
 # 4. Upload System Files
 Write-Host "Uploading Config & Requirements..."
