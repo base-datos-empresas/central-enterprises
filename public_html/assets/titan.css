@@ -559,20 +559,33 @@ body[data-theme="titan-light"] .status-critical {
 */
 .svgMap-map-wrapper {
     background: transparent !important;
+    width: 100% !important;
+    /* Ensure full width */
 }
 
+/* Map Paths - Glassy Look for No-Data */
+.svgMap-country {
+    stroke: var(--structural-line) !important;
+    stroke-width: 0.5px;
+    transition: fill 0.3s, stroke 0.3s;
+}
+
+/* Tooltip Perfection */
 .svgMap-tooltip {
     background: var(--bg-primary) !important;
-    /* Use primary for better contrast */
     border: 1px solid var(--accent) !important;
-    border-radius: 0 !important;
-    padding: 1.25rem !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+    border-radius: 4px !important;
+    padding: 1rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
     opacity: 1 !important;
     z-index: 10000 !important;
-    /* Ensure it stays above everything */
     pointer-events: none;
-    min-width: 200px;
+    min-width: 180px;
+    backdrop-filter: none !important;
+}
+
+.svgMap-tooltip-content-container {
+    padding: 0 !important;
 }
 
 .svgMap-tooltip-title {
@@ -593,17 +606,26 @@ body[data-theme="titan-light"] .status-critical {
     line-height: 1.4 !important;
 }
 
-/* Fix for Light Mode Legibility */
+/* Fix for Light Mode Legibility - Solid White */
 html[data-theme="titan-light"] .svgMap-tooltip {
     background: #ffffff !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    border-color: #e5e5e5 !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="titan-light"] .svgMap-tooltip-title {
+    color: #000000 !important;
+    border-color: #f0f0f0 !important;
+}
+
+html[data-theme="titan-light"] .svgMap-tooltip-content {
+    color: #333333 !important;
 }
 
 /* Map specific section handling */
 .map-section {
     position: relative;
     z-index: 20 !important;
-    /* Higher than contents to keep tooltips on top */
 }
 
 .map-line {

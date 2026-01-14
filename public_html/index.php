@@ -427,7 +427,7 @@ $basePath = "";
                     },
                     colorMin: '#2d3748',
                     colorMax: '#00e5ff',
-                    colorNoData: 'transparent',
+                    colorNoData: 'rgba(0,0,0,0)', /* TRUE TRANSPARENCY */
                     minZoom: 1.0,
                     maxZoom: 3.5,
                     initialZoom: 1.06,
@@ -457,12 +457,23 @@ $basePath = "";
                 const style = document.createElement('style');
                 let css = '';
                 for (const iso in mapData) {
-                    css += `#svgMap-map-country-${iso} { cursor: pointer; fill-opacity: 1 !important; stroke: #fff !important; } `;
+                    css += `#svgMap-map-country-${iso} { cursor: pointer; } `;
                 }
                 style.type = 'text/css';
                 style.appendChild(document.createTextNode(css));
                 document.head.appendChild(style);
             }
+            document.head.appendChild(style);
+        }
+
+            // Force Resize Calculation
+            window.addEventListener('resize', function () {
+            const mapWrapper = document.querySelector('.svgMap-map-wrapper');
+            if (mapWrapper) {
+                mapWrapper.style.width = '100%';
+                mapWrapper.style.height = 'auto';
+            }
+        });
         });
         // Catalog Table Filter
         const searchInput = document.getElementById('catalogSearch');
@@ -479,7 +490,7 @@ $basePath = "";
                         row.style.display = '';
                     } else {
                         row.style.display = 'none';
-         }
+                    }
                 });
             });
         }
