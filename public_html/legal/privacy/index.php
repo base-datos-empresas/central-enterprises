@@ -54,8 +54,8 @@ $basePath = "../..";
                         style="padding: 2rem; border-left: 2px solid var(--accent); background: rgba(var(--accent-rgb), 0.05); margin-bottom: 2rem;">
                         <p><strong>Pablo Cirre</strong><br>
                             Address: España, Trajano 8, Granada (Spain)<br>
-                            Tax ID: [ADD NIF/CIF]<br>
-                            Email: LEGAL@CENTRAL.ENTERPRISES</p>
+                            Tax ID: ESB74657091 (Provisional)<br>
+                            Email: INFO@CENTRAL.ENTERPRISES</p>
                     </div>
 
                     <h2 class="section-title">2. Scope</h2>
@@ -96,7 +96,7 @@ $basePath = "../..";
                     <p style="opacity: 0.8; line-height: 1.6;">
                         Submit correction or removal requests at <a href="<?= $basePath ?>/data/requests/"
                             style="color:var(--accent)">/data-requests</a> or email
-                        <strong>LEGAL@CENTRAL.ENTERPRISES</strong>.
+                        <strong>INFO@CENTRAL.ENTERPRISES</strong>.
                     </p>
                 </div>
             </div>

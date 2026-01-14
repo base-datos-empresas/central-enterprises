@@ -53,7 +53,7 @@ $basePath = "../..";
 
                     <h2 class="section-title">How to submit</h2>
                     <p style="opacity: 0.8; line-height: 1.6; margin-bottom: 2rem;">
-                        Email <strong>LEGAL@CENTRAL.ENTERPRISES</strong> with the following details:
+                        Email <strong>INFO@CENTRAL.ENTERPRISES</strong> with the following details:
                     </p>
                     <div
                         style="padding: 2rem; border: 1px solid var(--structural-line); background: rgba(255,255,255,0.02); margin-bottom: 3rem;">

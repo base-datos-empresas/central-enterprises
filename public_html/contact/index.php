@@ -45,8 +45,12 @@ $basePath = "..";
                         style="padding: 2rem; border-left: 2px solid var(--accent); background: rgba(255,255,255,0.02);">
                         <p
                             style="font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--accent);">
-                            Direct Channel</p>
-                        <p style="font-size: 1.15rem; margin-top: 0.5rem;">FOUNDATION@CENTRAL.ENTERPRISES</p>
+                            Primary Inquiries</p>
+                        <p style="font-size: 1.15rem; margin-top: 0.5rem;">INFO@CENTRAL.ENTERPRISES</p>
+                        <p style="font-size: 0.65rem; opacity: 0.5; margin-top: 0.8rem; line-height: 1.4;">
+                            Note: All communications sent to this address are automatically archived to
+                            centraldecomunicaciom@gmail.com for redundancy.
+                        </p>
                     </div>
                 </div>
 

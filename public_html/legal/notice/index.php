@@ -54,7 +54,7 @@ $basePath = "../..";
                         style="padding: 2rem; border-left: 2px solid var(--accent); background: rgba(var(--accent-rgb), 0.05); margin-bottom: 2rem;">
                         <p style="margin-bottom: 0.5rem;"><strong>Legal Operator:</strong> Pablo Cirre (acting as
                             Steward for Central.Enterprises Foundation in Formation)</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Tax ID (NIF):</strong> [Pending Registration]</p>
+                        <p style="margin-bottom: 0.5rem;"><strong>Tax ID (CIF):</strong> ESB74657091 (Provisional)</p>
                         <p style="margin-bottom: 0.5rem;"><strong>Address:</strong> Trajano 8, Granada, Spain (18002)
                         </p>
                         <p style="margin-bottom: 0.5rem;"><strong>Jurisdiction:</strong> Courts of Granada, Spain.</p>

@@ -32,7 +32,7 @@ $basePath = "..";
                 <div class="hero-desc">
                     Helping build a global open standard for corporate reality. Central.Enterprises is becoming a
                     Spain-based foundation to steward CC0 Open Data and the Open Company Data Standard long-term. This
-                    is not a marketing promiseóitís an operating model designed for permanence, governance, and
+                    is not a marketing promise‚Äîit‚Äôs an operating model designed for permanence, governance, and
                     transparency.
                 </div>
             </div>
@@ -54,7 +54,7 @@ $basePath = "..";
                         <li>The foundation becomes the official steward of the standard and CC0 releases.</li>
                         <li>Governance becomes formal including trustees, published decisions, and version policy.</li>
                         <li>Transparency reporting becomes a scheduled obligation.</li>
-                        <li>Donation mechanics will be updated to reflect the foundationís legal status.</li>
+                        <li>Donation mechanics will be updated to reflect the foundation‚Äôs legal status.</li>
                     </ul>
 
                     <h2 class="section-title">Tax Deductibility</h2>
@@ -65,7 +65,7 @@ $basePath = "..";
 
                     <h2 class="section-title">Why support matters</h2>
                     <p style="opacity: 0.7; line-height: 1.8; margin-bottom: 2rem;">
-                        Open data at scale is not ìfree to run.î Stewardship requires infrastructure, validation,
+                        Open data at scale is not ‚Äúfree to run.‚Äù Stewardship requires infrastructure, validation,
                         refresh cycles, and documentation. Pro funds this through professional access; support helps
                         expand the CC0 core faster and keep the standard stable for everyone.
                     </p>
@@ -79,7 +79,7 @@ $basePath = "..";
                         style="padding: 2rem; border-left: 1px solid var(--accent); background: rgba(var(--accent-rgb), 0.05);">
                         <h4 class="titan-label">SUPPORT STATUS</h4>
                         <p style="font-size: 0.85rem; margin-top: 1rem;">
-                            <strong>Eligibility:</strong> Pending registration.<br>
+                            <strong>Eligibility:</strong> Spain Foundation in Formation (CIF: ESB74657091).<br>
                             <strong>Stewardship:</strong> Central.Enterprises Foundation (in formation).
                         </p>
                     </div>
