@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/security_headers.php';
+require_once __DIR__ . '/../includes/pricing_config.php';
 $basePath = "..";
 
 // 1. Load Primary Manifests
@@ -104,7 +105,13 @@ if (!$targetCountry) {
 }
 
 $iso = $targetCountry['iso'];
+$iso = $targetCountry['iso'];
 $currentCountryName = $targetCountry['name'];
+
+// 2.2 Initialize Pricing for this Country
+$pricing = PricingConfig::getCountryPricing($iso);
+$basePrice = $pricing['pro']['price_annual'];
+$monthlyDisplay = $pricing['pro']['price_monthly_display'];
 
 // 3. Aggregate Stats from Digital Library
 $stats = [
@@ -458,6 +465,18 @@ $datasetSchema['isAccessibleForFree'] = true;
                             <br>
                             <span style="color: var(--accent); font-weight:300;">Business Database</span>
                         </h1>
+                        <div
+                            style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600;">
+                            STARTING FROM <span
+                                style="color: var(--text-header); font-weight: 800;">€<?= number_format($monthlyDisplay, 2) ?></span>
+                            / MO
+                        </div>
+                        <div
+                            style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600;">
+                            STARTING FROM <span
+                                style="color: var(--text-header); font-weight: 800;">€<?= number_format($monthlyDisplay, 2) ?></span>
+                            / MO
+                        </div>
                         <p class="hero-desc"
                             style="grid-column: auto; border: none; padding: 0; font-size: 1.1rem; max-width: 600px;">
                             <?= htmlspecialchars($stats['landing_description']) ?>
@@ -621,79 +640,101 @@ $datasetSchema['isAccessibleForFree'] = true;
                     </div>
 
                     <!-- Right: Asset Card -->
+                    <!-- Right: Pricing Card -->
                     <div class="asset-card">
-                        <h3
-                            style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--structural-line); padding-bottom: 1rem;">
-                            ACCESS OPTIONS</h3>
-
-                        <!-- OpenData Section -->
                         <div
-                            style="margin-bottom: 2rem; padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--structural-line); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                            <div style="display:flex; justify-content:space-between; margin-bottom: 0.8rem;">
-                                <span class="tier-badge tier-od"
-                                    style="background: var(--text-header); color: var(--bg-primary);">OpenData</span>
-                                <span
-                                    style="font-size: 0.75rem; color: var(--text-header); opacity: 0.7; font-weight: 600;">CC0
-                                    (Free)</span>
+                            style="text-align:center; padding-bottom: 1.5rem; border-bottom: 1px solid var(--structural-line); margin-bottom: 1.5rem;">
+                            <h3 style="margin-bottom: 0.5rem; color: var(--text-header);">LICENSING OPTIONS</h3>
+                            <div style="font-size: 0.8rem; color: var(--accent); font-weight: 700;">OFFICIAL DATASET
+                                ACCESS</div>
+                        </div>
+
+                        <!-- 1. Open Data (Free) -->
+                        <div style="margin-bottom: 2rem; opacity: 0.8;">
+                            <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem;">
+                                <span style="font-weight:700; font-size: 0.9rem;">Open Data</span>
+                                <span style="font-weight:700; color: var(--accent);">Free</span>
                             </div>
-                            <div
-                                style="font-size: 0.85rem; margin-bottom: 1.5rem; color: var(--text-header); opacity: 0.9; line-height: 1.4;">
-                                <strong>Basic identity fields.</strong><br>
-                                Registration IDs, Legal Names, and Normalized Addresses. <br>
-                                <span style="font-size: 0.75rem; opacity: 0.6;">No personal contact verification
-                                    included.</span>
+                            <div style="font-size: 0.8rem; line-height: 1.4;">
+                                Public CC0 license. Basic identity fields only. No contact data.
                             </div>
                             <?php if (isset($stats['links']['ZIP'])): ?>
-                                <a href="javascript:void(0)"
-                                    onclick="<?= !empty($stats['links']['ZIP']) ? "window.open('" . htmlspecialchars($stats['links']['ZIP']) . "')" : "openComingSoonModal()" ?>"
-                                    class="btn-institutional secondary"
-                                    style="width: 100%; justify-content: center; font-weight: 800; border-color: var(--structural-line); text-align: center; height: auto; padding: 1.5rem 0.5rem; letter-spacing: 0.05em; line-height: 1.1;">
-                                    DOWNLOAD FREE <?= strtoupper($currentCountryName) ?> <br> COMPANIES DATABASE
+                                <a href="<?= $stats['links']['ZIP'] ?>"
+                                    style="display:block; margin-top:0.5rem; padding: 0.6rem; border: 1px solid var(--structural-line); text-align: center; text-decoration: none; font-size: 0.8rem; font-weight: 600; color: var(--text-body);">
+                                    Download ZIP
                                 </a>
-                            <?php else: ?>
-                                <div style="font-size:0.7rem; opacity:0.6;">OpenData Unavailable</div>
                             <?php endif; ?>
                         </div>
 
-                        <!-- Premium Section -->
+                        <!-- 2. Starter 90D -->
                         <div
-                            style="padding: 1rem; background: rgba(0, 229, 255, 0.05); border: 1px solid var(--accent);">
-                            <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem;">
-                                <span class="tier-badge tier-premium">Premium</span>
-                                <span style="font-size: 0.7rem; color: var(--accent);">Commercial</span>
+                            style="margin-bottom: 2rem; padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--structural-line);">
+                            <div
+                                style="display:flex; justify-content:space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                                <span style="font-weight:800; font-size: 1rem; text-transform:uppercase;">Starter
+                                    90D</span>
+                                <span
+                                    style="font-weight:800; font-size: 1.2rem;">€<?= number_format($pricing['starter']['price_one_time'], 0) ?></span>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--text-body); margin-bottom: 1rem;">
-                                <strong>Everything in Open +</strong> Direct Emails, Phones, Websites, Social Profiles.
+                            <div style="font-size: 0.75rem; opacity: 0.6; margin-bottom: 1rem;">One-time payment • No
+                                updates</div>
+                            <ul style="list-style: none; font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.6;">
+                                <li>✓ Full Dataset Export</li>
+                                <li>✓ Commercial Use</li>
+                                <li>✓ 90 Day Validity</li>
+                            </ul>
+                            <a href="<?= PricingConfig::getStripeLink('starter', $iso, $pricing['starter']['price_one_time']) ?>"
+                                style="display:block; width:100%; padding: 0.8rem; background: transparent; border: 2px solid var(--text-header); color: var(--text-header); text-align: center; text-decoration: none; font-weight: 800; font-size: 0.9rem;">
+                                GET STARTER
+                            </a>
+                        </div>
+
+                        <!-- 3. Pro Country (Hero) -->
+                        <div
+                            style="padding: 1.5rem; background: var(--text-header); color: var(--bg-primary); position: relative; overflow: hidden;">
+                            <div
+                                style="position: absolute; top: 0; right: 0; background: var(--accent); color: white; font-size: 0.6rem; padding: 2px 8px; font-weight: 800;">
+                                RECOMMENDED</div>
+
+                            <h4
+                                style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform:uppercase;">
+                                Pro Country</h4>
+
+                            <!-- Marketed as Monthly -->
+                            <div style="display:flex; align-items: baseline; gap: 4px;">
+                                <span
+                                    style="font-size: 2.5rem; font-weight: 800; line-height: 1;">€<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></span>
+                                <span style="font-size: 0.8rem; opacity: 0.7;">/ mo</span>
                             </div>
-                            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                                <a href="javascript:void(0)" onclick="openComingSoonModal()"
-                                    class="btn-institutional primary"
-                                    style="flex: 1; justify-content: center; font-size: 0.75rem; padding: 1.25rem 0.5rem; text-align: center; line-height: 1.2; background: var(--accent); color: var(--bg-primary);">
-                                    GET FULL <?= strtoupper($currentCountryName) ?> DATABASE (CSV)
-                                </a>
-                                <a href="javascript:void(0)" onclick="openComingSoonModal()"
-                                    class="btn-institutional primary"
-                                    style="flex: 1; justify-content: center; font-size: 0.75rem; padding: 1.25rem 0.5rem; text-align: center; line-height: 1.2; background: var(--accent); color: var(--bg-primary);">
-                                    GET FULL <?= strtoupper($currentCountryName) ?> DATABASE (EXCEL)
-                                </a>
+                            <div style="font-size: 0.75rem; opacity: 0.5; margin-bottom: 1.5rem;">
+                                Billed <strong>€<?= number_format($pricing['pro']['price_annual'], 0) ?></strong> yearly
+                            </div>
+
+                            <ul style="list-style: none; font-size: 0.9rem; margin-bottom: 2rem; line-height: 1.6;">
+                                <li style="margin-bottom: 0.5rem;">✓ <strong>Everything in Starter</strong></li>
+                                <li style="margin-bottom: 0.5rem;">✓ <strong>Daily Updates</strong> (1 Year)</li>
+                                <li style="margin-bottom: 0.5rem;">✓ Priority Support</li>
+                                <li>✓ Verified Emails & Phones</li>
+                            </ul>
+
+                            <a href="<?= PricingConfig::getStripeLink('pro', $iso, $pricing['pro']['price_annual']) ?>"
+                                style="display:block; width:100%; padding: 1rem; background: var(--accent); color: white; text-align: center; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform:uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                                PAY €<?= number_format($pricing['pro']['price_annual'], 0) ?> NOW — 1 YEAR ACCESS
+                            </a>
+                            <div style="text-align:center; margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.5;">
+                                Secure Stripe Checkout
                             </div>
                         </div>
 
-                        <div style="margin-top:2rem; border-top:1px solid var(--structural-line); padding-top:1rem;">
-                            <div class="metric-row" style="border:none;">
-                                <span>Jurisdiction</span>
-                                <span><?= $currentCountryName ?> (<?= $iso ?>)</span>
-                            </div>
-                            <div class="metric-row" style="border:none;">
-                                <span>Update Frequency</span>
-                                <span>Quarterly</span>
-                            </div>
-                        </div>
-
+                        <!-- 4. Global Agency -->
                         <div
-                            style="margin-top: 1rem; font-size: 0.7rem; color: var(--text-muted); line-height: 1.4; text-align:center;">
-                            SHA-256 Verified Source.<br>
-                            Central Enterprises Foundation.
+                            style="margin-top: 2rem; text-align: center; border-top: 1px solid var(--structural-line); padding-top: 1.5rem;">
+                            <div
+                                style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-header);">
+                                AGENCY / MULTI-COUNTRY?</div>
+                            <a href="/contact/?plan=agency"
+                                style="font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 600;">Contact
+                                Sales for Global Plans →</a>
                         </div>
                     </div>
                 </div>

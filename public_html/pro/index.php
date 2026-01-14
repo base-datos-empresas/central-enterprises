@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/security_headers.php';
+require_once __DIR__ . '/../includes/pricing_config.php';
+$globalPrices = PricingConfig::getGlobalPricing();
 $basePath = "..";
 
 // --- DYNAMIC METRICS AGGREGATION (PRO TIER) ---
@@ -251,34 +253,43 @@ $countCountries = count($proStats['countries']);
                         <a href="<?= $basePath ?>/data/" class="btn-institutional secondary">Start Free</a>
                     </div>
 
-                    <!-- PRO -->
+                    <!-- AGENCY (Global) -->
                     <div class="pricing-card featured premium-glow"
                         style="border: 1px solid var(--accent); background: var(--bg-primary);">
                         <div class="pricing-header">
-                            <span class="pricing-title text-gradient">PRO ACCESS</span>
-                            <div class="pricing-price">Operational</div>
+                            <span
+                                class="pricing-title text-gradient"><?= strtoupper($globalPrices['agency']['name']) ?></span>
+                            <div class="pricing-price">
+                                €<?= number_format($globalPrices['agency']['price_monthly_display'], 0) ?>/mo</div>
+                            <div style="font-size:0.75rem; opacity:0.6; font-weight:400;">Billed
+                                €<?= number_format($globalPrices['agency']['price_annual'], 0) ?> yearly</div>
                         </div>
                         <ul class="pricing-features">
-                            <li><strong>Full Enrichment Layer</strong></li>
-                            <li>Email Verifier API Checks</li>
+                            <li><strong>Up to 5 Countries</strong></li>
+                            <li>Client Services License</li>
                             <li>Monthly Sync Cycles</li>
                             <li>Bulk CSV/Excel Access</li>
                             <li>Priority Support</li>
                         </ul>
-                        <a href="<?= $basePath ?>/contact/" class="btn-institutional primary">Request Access</a>
+                        <a href="<?= $basePath ?>/contact/?plan=agency" class="btn-institutional primary">Request
+                            Access</a>
                     </div>
 
-                    <!-- Enterprise -->
+                    <!-- ENTERPRISE (Base) -->
                     <div class="pricing-card"
                         style="background: var(--bg-primary); border: 1px solid var(--structural-line);">
                         <div class="pricing-header">
                             <span class="pricing-title">ENTERPRISE</span>
-                            <div class="pricing-price">Infrastructure</div>
+                            <div class="pricing-price">
+                                €<?= number_format($globalPrices['enterprise_base']['price_monthly_display'], 0) ?>/mo
+                            </div>
+                            <div style="font-size:0.75rem; opacity:0.6; font-weight:400;">Billed
+                                €<?= number_format($globalPrices['enterprise_base']['price_annual'], 0) ?> yearly</div>
                         </div>
                         <ul class="pricing-features">
+                            <li><strong>Unlimited Countries</strong></li>
                             <li>REST API Integration</li>
                             <li>Real-time Monitoring</li>
-                            <li>Custom Jurisdictions</li>
                             <li>Legal Sovereignty Support</li>
                             <li>Dedicated SLA</li>
                         </ul>
