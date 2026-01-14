@@ -1,0 +1,6 @@
+{
+    "app_key": "PASTE_APP_KEY_HERE",
+    "app_secret": "PASTE_APP_SECRET_HERE",
+    "refresh_token": "PASTE_REFRESH_TOKEN_HERE",
+    "access_token": "PASTE_ACCESS_TOKEN_HERE"
+}

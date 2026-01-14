@@ -1,0 +1,271 @@
+{
+  "country": "Brazil",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 621395,
+    "emails_unique": 324177,
+    "email_domains_unique": 147911,
+    "web_domains_unique": 404977,
+    "hosts_unique": 447031,
+    "phones_unique": 570723,
+    "sector_count": 5098,
+    "rows_with_email": 245055,
+    "rows_with_website": 621395,
+    "rows_with_phone": 591394,
+    "rows_with_any_social": 335638,
+    "rows_with_feed": 170165,
+    "social_counts": {
+      "facebook": 270453,
+      "instagram": 285907,
+      "linkedin": 77265,
+      "twitter": 80124,
+      "tiktok": 23136,
+      "youtube": 115919
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "BR\\BR-Agriculture_extracted.csv",
+      12492
+    ],
+    [
+      "BR\\BR-Architects_extracted.csv",
+      11929
+    ],
+    [
+      "BR\\BR-ArtGalleries_extracted.csv",
+      3080
+    ],
+    [
+      "BR\\BR-Associations_extracted.csv",
+      18902
+    ],
+    [
+      "BR\\BR-Banks_extracted.csv",
+      7396
+    ],
+    [
+      "BR\\BR-BarsandNightClubs_extracted.csv",
+      5584
+    ],
+    [
+      "BR\\BR-BeautyCenters_extracted.csv",
+      11274
+    ],
+    [
+      "BR\\BR-Bookstores_extracted.csv",
+      3539
+    ],
+    [
+      "BR\\BR-Cafes_extracted.csv",
+      10702
+    ],
+    [
+      "BR\\BR-CarDealerships_extracted.csv",
+      12098
+    ],
+    [
+      "BR\\BR-Carpentries_extracted.csv",
+      2402
+    ],
+    [
+      "BR\\BR-Cleaning_extracted.csv",
+      11880
+    ],
+    [
+      "BR\\BR-Clinics_extracted.csv",
+      29629
+    ],
+    [
+      "BR\\BR-Clothing_extracted.csv",
+      21197
+    ],
+    [
+      "BR\\BR-Construction suppliers_extracted.csv",
+      23120
+    ],
+    [
+      "BR\\BR-Construction_extracted.csv",
+      26429
+    ],
+    [
+      "BR\\BR-Consulting_extracted.csv",
+      37305
+    ],
+    [
+      "BR\\BR-Dentist_extracted.csv",
+      18359
+    ],
+    [
+      "BR\\BR-Education center_extracted.csv",
+      22709
+    ],
+    [
+      "BR\\BR-Electronic_extracted.csv",
+      23792
+    ],
+    [
+      "BR\\BR-Florist_extracted.csv",
+      5310
+    ],
+    [
+      "BR\\BR-Foundations_extracted.csv",
+      9503
+    ],
+    [
+      "BR\\BR-Furniture_extracted.csv",
+      16621
+    ],
+    [
+      "BR\\BR-Gas Stations_extracted.csv",
+      7611
+    ],
+    [
+      "BR\\BR-Gyms_extracted.csv",
+      10796
+    ],
+    [
+      "BR\\BR-Hardware_extracted.csv",
+      10908
+    ],
+    [
+      "BR\\BR-Hotels_extracted.csv",
+      16392
+    ],
+    [
+      "BR\\BR-Human Resources_extracted.csv",
+      8948
+    ],
+    [
+      "BR\\BR-Insurance_extracted.csv",
+      14803
+    ],
+    [
+      "BR\\BR-Interior Design_extracted.csv",
+      12980
+    ],
+    [
+      "BR\\BR-It Companies_extracted.csv",
+      37780
+    ],
+    [
+      "BR\\BR-Jewelry_extracted.csv",
+      9993
+    ],
+    [
+      "BR\\BR-Laboratories_extracted.csv",
+      9644
+    ],
+    [
+      "BR\\BR-Lawyers_extracted.csv",
+      24829
+    ],
+    [
+      "BR\\BR-Legal Accounting_extracted.csv",
+      10429
+    ],
+    [
+      "BR\\BR-Livestock_extracted.csv",
+      1785
+    ],
+    [
+      "BR\\BR-Manufacturing_extracted.csv",
+      15751
+    ],
+    [
+      "BR\\BR-Marketing_extracted.csv",
+      29681
+    ],
+    [
+      "BR\\BR-Mechanics_extracted.csv",
+      11509
+    ],
+    [
+      "BR\\BR-Mining_extracted.csv",
+      3720
+    ],
+    [
+      "BR\\BR-Moving Companies_extracted.csv",
+      11931
+    ],
+    [
+      "BR\\BR-Museums_extracted.csv",
+      2761
+    ],
+    [
+      "BR\\BR-Nursing Homes_extracted.csv",
+      4984
+    ],
+    [
+      "BR\\BR-Nutrition_extracted.csv",
+      10749
+    ],
+    [
+      "BR\\BR-Opticians_extracted.csv",
+      6758
+    ],
+    [
+      "BR\\BR-Orthopedic_extracted.csv",
+      8218
+    ],
+    [
+      "BR\\BR-Pet_extracted.csv",
+      9776
+    ],
+    [
+      "BR\\BR-Pharmacies_extracted.csv",
+      9024
+    ],
+    [
+      "BR\\BR-Printing_extracted.csv",
+      18467
+    ],
+    [
+      "BR\\BR-Real State_extracted.csv",
+      17821
+    ],
+    [
+      "BR\\BR-Restaurants_extracted.csv",
+      24730
+    ],
+    [
+      "BR\\BR-Security_extracted.csv",
+      13134
+    ],
+    [
+      "BR\\BR-Shops_extracted.csv",
+      27081
+    ],
+    [
+      "BR\\BR-Sports Clubs_extracted.csv",
+      10615
+    ],
+    [
+      "BR\\BR-Textile_extracted.csv",
+      16375
+    ],
+    [
+      "BR\\BR-Transport_extracted.csv",
+      16369
+    ],
+    [
+      "BR\\BR-Travel Agencies_extracted.csv",
+      17202
+    ],
+    [
+      "BR\\BR-Veterinarian_extracted.csv",
+      9158
+    ],
+    [
+      "BR\\BR-Waste Management_extracted.csv",
+      5009
+    ],
+    [
+      "BR\\BR-Work Clothes_extracted.csv",
+      6564
+    ]
+  ]
+}

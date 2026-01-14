@@ -1,0 +1,231 @@
+{
+  "country": "Australia",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 298933,
+    "emails_unique": 233204,
+    "email_domains_unique": 110644,
+    "web_domains_unique": 230033,
+    "hosts_unique": 235824,
+    "phones_unique": 263350,
+    "sector_count": 3184,
+    "rows_with_email": 150451,
+    "rows_with_website": 298933,
+    "rows_with_phone": 282085,
+    "rows_with_any_social": 172770,
+    "rows_with_feed": 102882,
+    "social_counts": {
+      "facebook": 153007,
+      "instagram": 122499,
+      "linkedin": 56596,
+      "twitter": 41706,
+      "tiktok": 13923,
+      "youtube": 44240
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "AU\\AU-Architects_extracted.csv",
+      6516
+    ],
+    [
+      "AU\\AU-Art Galleries_extracted.csv",
+      2177
+    ],
+    [
+      "AU\\AU-Associations_extracted.csv",
+      17329
+    ],
+    [
+      "AU\\AU-Banks_extracted.csv",
+      3889
+    ],
+    [
+      "AU\\AU-Bars and Nightclubs_extracted.csv",
+      4680
+    ],
+    [
+      "AU\\AU-BeautyCenters_extracted.csv",
+      9666
+    ],
+    [
+      "AU\\AU-Bookstores_extracted.csv",
+      984
+    ],
+    [
+      "AU\\AU-Cafés_extracted.csv",
+      6287
+    ],
+    [
+      "AU\\AU-Car Dealerships_extracted.csv",
+      7223
+    ],
+    [
+      "AU\\AU-Carpentries_extracted.csv",
+      3113
+    ],
+    [
+      "AU\\AU-Cleaning_extracted.csv",
+      10687
+    ],
+    [
+      "AU\\AU-Clinics_extracted.csv",
+      9970
+    ],
+    [
+      "AU\\AU-Clothing_extracted.csv",
+      11615
+    ],
+    [
+      "AU\\AU-Construction suppliers_extracted.csv",
+      10718
+    ],
+    [
+      "AU\\AU-Construction_extracted.csv",
+      17033
+    ],
+    [
+      "AU\\AU-Consulting_extracted.csv",
+      16686
+    ],
+    [
+      "AU\\AU-Dentists_extracted.csv",
+      5425
+    ],
+    [
+      "AU\\AU-Electronics_extracted.csv",
+      7107
+    ],
+    [
+      "AU\\AU-Florists_extracted.csv",
+      2358
+    ],
+    [
+      "AU\\AU-Foundations_extracted.csv",
+      4144
+    ],
+    [
+      "AU\\AU-Furniture_extracted.csv",
+      4512
+    ],
+    [
+      "AU\\AU-Gas Stations_extracted.csv",
+      3484
+    ],
+    [
+      "AU\\AU-Gyms_extracted.csv",
+      4750
+    ],
+    [
+      "AU\\AU-Hardware_extracted.csv",
+      2868
+    ],
+    [
+      "AU\\AU-Hotels_extracted.csv",
+      5699
+    ],
+    [
+      "AU\\AU-HumanResources_extracted.csv",
+      3869
+    ],
+    [
+      "AU\\AU-Insurance_extracted.csv",
+      5106
+    ],
+    [
+      "AU\\AU-Interior Design_extracted.csv",
+      7408
+    ],
+    [
+      "AU\\AU-ITCompanies_extracted.csv",
+      15122
+    ],
+    [
+      "AU\\AU-Jewelry_extracted.csv",
+      6952
+    ],
+    [
+      "AU\\AU-Laboratories_extracted.csv",
+      3643
+    ],
+    [
+      "AU\\AU-Lawyers_extracted.csv",
+      7211
+    ],
+    [
+      "AU\\AU-Manufacturing_extracted.csv",
+      17572
+    ],
+    [
+      "AU\\AU-Marketing_extracted.csv",
+      11043
+    ],
+    [
+      "AU\\AU-Mechanics_extracted.csv",
+      7714
+    ],
+    [
+      "AU\\AU-MovingCompanies_extracted.csv",
+      4870
+    ],
+    [
+      "AU\\AU-Opticians_extracted.csv",
+      2332
+    ],
+    [
+      "AU\\AU-OrthopedicShops_extracted.csv",
+      2517
+    ],
+    [
+      "AU\\AU-Pet_extracted.csv",
+      7704
+    ],
+    [
+      "AU\\AU-Pharmacies_extracted.csv",
+      2382
+    ],
+    [
+      "AU\\AU-Printing Shops_extracted.csv",
+      6388
+    ],
+    [
+      "AU\\AU-Real State_extracted.csv",
+      10796
+    ],
+    [
+      "AU\\AU-Restaurants_extracted.csv",
+      14686
+    ],
+    [
+      "AU\\AU-Security_extracted.csv",
+      5987
+    ],
+    [
+      "AU\\AU-Shops_extracted.csv",
+      13671
+    ],
+    [
+      "AU\\AU-SportsClubs_extracted.csv",
+      11817
+    ],
+    [
+      "AU\\AU-Textile_extracted.csv",
+      8307
+    ],
+    [
+      "AU\\AU-Transport_extracted.csv",
+      5895
+    ],
+    [
+      "AU\\AU-TravelAgencies_extracted.csv",
+      5698
+    ],
+    [
+      "AU\\AU-Work Clothes_extracted.csv",
+      2905
+    ]
+  ]
+}

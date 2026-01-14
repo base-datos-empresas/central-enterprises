@@ -1,0 +1,271 @@
+{
+  "country": "Ireland",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 41148,
+    "emails_unique": 31653,
+    "email_domains_unique": 17751,
+    "web_domains_unique": 33081,
+    "hosts_unique": 33611,
+    "phones_unique": 36123,
+    "sector_count": 2778,
+    "rows_with_email": 23188,
+    "rows_with_website": 41148,
+    "rows_with_phone": 38376,
+    "rows_with_any_social": 24576,
+    "rows_with_feed": 16371,
+    "social_counts": {
+      "facebook": 21105,
+      "instagram": 16630,
+      "linkedin": 9038,
+      "twitter": 10548,
+      "tiktok": 2415,
+      "youtube": 6262
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "IE\\IE-Agriculture_extracted.csv",
+      1174
+    ],
+    [
+      "IE\\IE-Architects-_extracted.csv",
+      565
+    ],
+    [
+      "IE\\IE-ArtGalleries_extracted.csv",
+      281
+    ],
+    [
+      "IE\\IE-Associations_extracted.csv",
+      2338
+    ],
+    [
+      "IE\\IE-Banks_extracted.csv",
+      343
+    ],
+    [
+      "IE\\IE-Bars and Nightclubs_extracted.csv",
+      987
+    ],
+    [
+      "IE\\IE-Beauty Centers_extracted.csv",
+      1670
+    ],
+    [
+      "IE\\IE-Bookstores_extracted.csv",
+      176
+    ],
+    [
+      "IE\\IE-Cafes_extracted.csv",
+      1681
+    ],
+    [
+      "IE\\IE-Car Dealerships_extracted.csv",
+      1172
+    ],
+    [
+      "IE\\IE-Carpentries_extracted.csv",
+      291
+    ],
+    [
+      "IE\\IE-Cleaning_extracted.csv",
+      1296
+    ],
+    [
+      "IE\\IE-Clinics_extracted.csv",
+      1888
+    ],
+    [
+      "IE\\IE-Clothing_extracted.csv",
+      2154
+    ],
+    [
+      "IE\\IE-Construction suppliers_extracted.csv",
+      1218
+    ],
+    [
+      "IE\\IE-Construction_extracted.csv",
+      2020
+    ],
+    [
+      "IE\\IE-Consulting_extracted.csv",
+      2579
+    ],
+    [
+      "IE\\IE-Dentists_extracted.csv",
+      504
+    ],
+    [
+      "IE\\IE-Education center_extracted.csv",
+      1310
+    ],
+    [
+      "IE\\IE-Electronics_extracted.csv",
+      1319
+    ],
+    [
+      "IE\\IE-Florist_extracted.csv",
+      217
+    ],
+    [
+      "IE\\IE-Foundations_extracted.csv",
+      1005
+    ],
+    [
+      "IE\\IE-Furniture_extracted.csv",
+      933
+    ],
+    [
+      "IE\\IE-Gas Stations_extracted.csv",
+      725
+    ],
+    [
+      "IE\\IE-Gyms_extracted.csv",
+      656
+    ],
+    [
+      "IE\\IE-Hardware_extracted.csv",
+      304
+    ],
+    [
+      "IE\\IE-Hotels_extracted.csv",
+      995
+    ],
+    [
+      "IE\\IE-Human Resources_extracted.csv",
+      416
+    ],
+    [
+      "IE\\IE-Insurance_extracted.csv",
+      450
+    ],
+    [
+      "IE\\IE-Interior Design_extracted.csv",
+      671
+    ],
+    [
+      "IE\\IE-IT Companies_extracted.csv",
+      2503
+    ],
+    [
+      "IE\\IE-Jewelry_extracted.csv",
+      947
+    ],
+    [
+      "IE\\IE-Laboratories_extracted.csv",
+      532
+    ],
+    [
+      "IE\\IE-Lawyers_extracted.csv",
+      920
+    ],
+    [
+      "IE\\IE-Legal Accounting_extracted.csv",
+      994
+    ],
+    [
+      "IE\\IE-Livestock_extracted.csv",
+      48
+    ],
+    [
+      "IE\\IE-Manufacturing_extracted.csv",
+      2543
+    ],
+    [
+      "IE\\IE-Marketing_extracted.csv",
+      2206
+    ],
+    [
+      "IE\\IE-Mechanics_extracted.csv",
+      698
+    ],
+    [
+      "IE\\IE-Mining_extracted.csv",
+      1083
+    ],
+    [
+      "IE\\IE-Moving Companies_extracted.csv",
+      500
+    ],
+    [
+      "IE\\IE-Museums_extracted.csv",
+      244
+    ],
+    [
+      "IE\\IE-Nursing Homes_extracted.csv",
+      335
+    ],
+    [
+      "IE\\IE-Nutrition_extracted.csv",
+      835
+    ],
+    [
+      "IE\\IE-Opticians_extracted.csv",
+      223
+    ],
+    [
+      "IE\\IE-Orthopedic_extracted.csv",
+      401
+    ],
+    [
+      "IE\\IE-Pet_extracted.csv",
+      969
+    ],
+    [
+      "IE\\IE-Pharmacies_extracted.csv",
+      422
+    ],
+    [
+      "IE\\IE-Printing_extracted.csv",
+      765
+    ],
+    [
+      "IE\\IE-Real State_extracted.csv",
+      845
+    ],
+    [
+      "IE\\IE-Restaurants_extracted.csv",
+      2432
+    ],
+    [
+      "IE\\IE-Security_extracted.csv",
+      454
+    ],
+    [
+      "IE\\IE-Shops_extracted.csv",
+      2225
+    ],
+    [
+      "IE\\IE-Sports Clubs_extracted.csv",
+      1639
+    ],
+    [
+      "IE\\IE-Textile_extracted.csv",
+      1673
+    ],
+    [
+      "IE\\IE-Transport_extracted.csv",
+      890
+    ],
+    [
+      "IE\\IE-Travel Agencies_extracted.csv",
+      796
+    ],
+    [
+      "IE\\IE-Veterinarian_extracted.csv",
+      203
+    ],
+    [
+      "IE\\IE-Waste Management_extracted.csv",
+      347
+    ],
+    [
+      "IE\\IE-Work Clothes_extracted.csv",
+      957
+    ]
+  ]
+}

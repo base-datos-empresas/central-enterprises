@@ -1,0 +1,12 @@
+# CENTRAL.ENTERPRISES ROUTING
+RewriteEngine On
+RewriteBase /
+
+# 1. Redirect old long slugs to new clean slugs (SEO Preservation)
+RewriteRule ^country/([a-z0-9\-]+)-business-databases-b2b/?$ /country/$1 [R=301,L]
+
+# 2. Dynamic Country Routing
+# Route /country/slug to country/index.php?code=slug
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^country/([a-z0-9\-]+)/?$ country/index.php?code=$1 [L,QSA]

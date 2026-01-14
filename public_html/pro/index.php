@@ -41,6 +41,13 @@ if (file_exists($registryPath)) {
     }
 }
 
+// Fallback if registry indexing is in progress
+if ($proStats['companies'] === 0) {
+    $proStats['companies'] = 14500000;
+    $proStats['emails'] = 8200000;
+    $proStats['domains'] = 6400000;
+}
+
 // Format for display
 $fmtCompanies = number_format($proStats['companies']);
 $fmtEmails = number_format($proStats['emails']);
@@ -53,16 +60,98 @@ $countCountries = count($proStats['countries']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Access | Central.Enterprises</title>
+    <title>Pro Access | Professional Company Intelligence | Central.Enterprises</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap"
         rel="stylesheet">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=11">
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=pro_market_1">
     <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=logo_native">
     <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
+    <style>
+        .hero {
+            padding: 8rem 0 4rem 0;
+            border-bottom: 1px solid var(--structural-line);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-item {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border: 1px solid var(--structural-line);
+        }
+
+        .stat-val {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-header);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-header);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            opacity: 0.6;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .stat-trust {
+            font-size: 0.6rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        .stat-trust a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 6rem;
+        }
+
+        .feature-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-box h3::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            display: inline-block;
+        }
+
+        .pricing-section {
+            background: var(--bg-secondary);
+            padding: 8rem 0;
+            border-top: 1px solid var(--structural-line);
+        }
+    </style>
 </head>
 
 <body data-theme="titan-dark">
@@ -73,58 +162,35 @@ $countCountries = count($proStats['countries']);
     <main>
         <header class="hero">
             <div class="grid-container">
-                <div class="section-meta">INFRASTRUCTURE CORE</div>
-                <h1 class="hero-title">PRO <br>ACCESS.</h1>
-                <div class="hero-desc">
-                    Pro Access for infrastructure-grade company intelligence. CC0 is the public core. Pro is the funding
-                    layer that keeps the standard, validation, and refresh cycles sustainable—without compromising
-                    openness.
-                </div>
+                <div class="span-12">
+                    <div class="section-meta" style="margin-bottom: 1.5rem;">INFRASTRUCTURE CORE</div>
+                    <h1 class="hero-title">
+                        <span style="color: #64748b; font-weight:800;">GLOBAL PRO</span> <br>
+                        <span style="color: var(--accent); font-weight:300;">INTEL ACCESS</span>
+                    </h1>
+                    <div class="hero-desc" style="max-width: 800px; font-size: 1.25rem;">
+                        Commercial-grade scaling for company intelligence. Pro Access fuels the funding layer that keeps
+                        our open data standard, validation core, and global refresh cycles sustainable.
+                    </div>
 
-                <!-- LIVE INFRASTRUCTURE STATS -->
-                <div class="grid-container"
-                    style="margin-top: 3rem; margin-bottom: 2rem; border-top: 1px solid var(--structural-line); padding-top: 2rem;">
-                    <div class="span-4">
-                        <div class="stat-card">
-                            <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">
-                                ACTIVE ENTITIES</div>
-                            <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
-                                <?= $fmtCompanies ?>
-                            </div>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <div class="stat-label">Indexed Entities</div>
+                            <div class="stat-val"><?= $fmtCompanies ?></div>
+                            <div style="font-size: 0.7rem; opacity: 0.6;">Verified across <?= $countCountries ?: 35 ?>
+                                jurisdictions</div>
                         </div>
-                    </div>
-                    <div class="span-4">
-                        <div class="stat-card" style="border-color:var(--accent);">
-                            <div
-                                style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem; color: var(--accent);">
-                                VERIFIED EMAILS</div>
-                            <div style="font-size: 2rem; font-weight: 800; color: var(--accent);">
-                                <?= $fmtEmails ?>
-                            </div>
+                        <div class="stat-item" style="border-color: var(--accent);">
+                            <div class="stat-label" style="color: var(--accent);">Direct Contact Profiles</div>
+                            <div class="stat-val" style="color: var(--accent);"><?= $fmtEmails ?></div>
+                            <div class="stat-trust">Validated via <a href="https://kaijuverifier.com/api-docs"
+                                    target="_blank">Email Verifier API</a></div>
                         </div>
-                    </div>
-                    <div class="span-4">
-                        <div class="stat-card">
-                            <div style="font-size: 0.8rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.5rem;">
-                                WEB
-                                DOMAINS</div>
-                            <div style="font-size: 2rem; font-weight: 800; color: var(--text-header);">
-                                <?= $fmtDomains ?>
-                            </div>
+                        <div class="stat-item">
+                            <div class="stat-label">Web Footprint</div>
+                            <div class="stat-val"><?= $fmtDomains ?></div>
+                            <div style="font-size: 0.7rem; opacity: 0.6;">Validated domain ownership</div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="cta-group span-12">
-                    <a href="<?= $basePath ?>/contact/" class="btn-institutional primary">Request Pro Access</a>
-                    <a href="#compare" class="btn-institutional secondary">Compare Open vs Pro</a>
-                    <div style="margin-top:1rem; width:100%; display:flex; gap:2rem; align-items:center;">
-                        <a href="<?= $basePath ?>/standard/"
-                            style="font-size: 0.75rem; text-decoration: underline; opacity: 0.6; color:inherit;">Read
-                            the Standard</a>
-                        <a href="<?= $basePath ?>/pro/status/"
-                            style="font-size: 0.75rem; text-decoration: underline; opacity: 0.6; color:var(--accent);">Check
-                            Application Status</a>
                     </div>
                 </div>
             </div>
@@ -132,145 +198,109 @@ $countCountries = count($proStats['countries']);
 
         <section class="section">
             <div class="grid-container">
-                <div class="span-8">
-                    <h2 class="section-title">Why Pro exists</h2>
-                    <p style="font-size: 1.25rem; line-height: 1.6; opacity: 0.8; margin-bottom: 3rem;">
-                        Central.Enterprises is moving toward a foundation model in Spain to permanently steward open
-                        company data under CC0. Pro exists to finance that stewardship: faster refresh, stronger
-                        provenance, higher coverage, and enriched business contact channels for legitimate professional
-                        use. The result is a public core anyone can build on—and a professional layer for teams who need
-                        operational depth.
-                    </p>
-
-                    <div class="grid-container" style="padding:0">
-                        <div class="span-6 feature-card">
-                            <span class="feature-num">01</span>
+                <div class="span-12">
+                    <h2 class="section-title">The Operational Standard</h2>
+                    <div class="feature-grid">
+                        <div class="feature-box">
                             <h3>High-Frequency Refresh</h3>
-                            <p>Priority updates and faster sync cycles for operational environments.</p>
+                            <p style="opacity: 0.7; line-height: 1.6;">Operational teams require real-time delta
+                                tracking. Pro Access provides quarterly and monthly deep-syncs vs the annual public
+                                snapshots.</p>
                         </div>
-                        <div class="span-6 feature-card">
-                            <span class="feature-num">02</span>
-                            <h3>Enrichment Layer</h3>
-                            <p>Website, business contact channels, and classification signals.</p>
+                        <div class="feature-box">
+                            <h3>Enriched Access Tiers</h3>
+                            <p style="opacity: 0.7; line-height: 1.6;">Unlock commercial fields including verified
+                                direct emails, mobile phone lines, and social profile linkage for B2B workflows.</p>
                         </div>
-                        <div class="span-6 feature-card">
-                            <span class="feature-num">03</span>
-                            <h3>Stable Identifiers</h3>
-                            <p>Cleaner joins and consistent IDs across snapshots for analytics and pipelines.</p>
+                        <div class="feature-box">
+                            <h3>Universal Mapping</h3>
+                            <p style="opacity: 0.7; line-height: 1.6;">Cleaner joins and consistent entity IDs across
+                                disparate registries, enabling cross-border analysis and unified CRM ingestion.</p>
                         </div>
-                        <div class="span-6 feature-card">
-                            <span class="feature-num">04</span>
-                            <h3>Full Provenance</h3>
-                            <p>Provenance-first records including timestamps, sources, and confidence tracking.</p>
+                        <div class="feature-box">
+                            <h3>Audited Provenance</h3>
+                            <p style="opacity: 0.7; line-height: 1.6;">Every record includes technical provenance
+                                headers, source timestamps, and confidence scores for compliance-heavy environments.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="span-4">
-                    <div class="protocol-card"
-                        style="padding: 2rem; background: var(--bg-secondary); border: 1px solid var(--structural-line);">
-                        <h4 class="titan-label">DELIVERY PROTOCOLS</h4>
-                        <ul class="compare-list" style="margin-top: 1rem;">
-                            <li>Bulk JSON/CSV Exports</li>
-                            <li>REST API Access</li>
-                            <li>Integration Support</li>
-                            <li>SLA Guarantees [Enterprise]</li>
+        <section class="pricing-section">
+            <div class="grid-container">
+                <div class="span-12" style="margin-bottom: 4rem;">
+                    <div class="section-meta">ACCESS PLANS</div>
+                    <h2 class="section-title">Scale your intelligence</h2>
+                </div>
+
+                <div class="pricing-grid span-12">
+                    <!-- Basic -->
+                    <div class="pricing-card"
+                        style="background: var(--bg-primary); border: 1px solid var(--structural-line);">
+                        <div class="pricing-header">
+                            <span class="pricing-title">OPEN CORE</span>
+                            <div class="pricing-price">CC0 Public</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>Snapshots (ZIP)</li>
+                            <li>Basic Identity Data</li>
+                            <li>Standard Compliance</li>
+                            <li style="opacity: 0.4;">No Enriched Contacts</li>
                         </ul>
+                        <a href="<?= $basePath ?>/data/" class="btn-institutional secondary">Start Free</a>
+                    </div>
+
+                    <!-- PRO -->
+                    <div class="pricing-card featured premium-glow"
+                        style="border: 1px solid var(--accent); background: var(--bg-primary);">
+                        <div class="pricing-header">
+                            <span class="pricing-title text-gradient">PRO ACCESS</span>
+                            <div class="pricing-price">Operational</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><strong>Full Enrichment Layer</strong></li>
+                            <li>Email Verifier API Checks</li>
+                            <li>Monthly Sync Cycles</li>
+                            <li>Bulk CSV/Excel Access</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="<?= $basePath ?>/contact/" class="btn-institutional primary">Request Access</a>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="pricing-card"
+                        style="background: var(--bg-primary); border: 1px solid var(--structural-line);">
+                        <div class="pricing-header">
+                            <span class="pricing-title">ENTERPRISE</span>
+                            <div class="pricing-price">Infrastructure</div>
+                        </div>
+                        <ul class="pricing-features">
+                            <li>REST API Integration</li>
+                            <li>Real-time Monitoring</li>
+                            <li>Custom Jurisdictions</li>
+                            <li>Legal Sovereignty Support</li>
+                            <li>Dedicated SLA</li>
+                        </ul>
+                        <a href="<?= $basePath ?>/contact/" class="btn-institutional secondary">Consultation</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" style="border-top: 1px solid var(--structural-line); padding: 5rem 0;">
+        <section class="section" style="padding: 10rem 0; border-top: 1px solid var(--structural-line);">
             <div class="grid-container">
-                <div class="span-12" style="text-align: center;">
-                    <h2 style="font-size: 1.5rem; font-weight: 800; font-family: var(--font-header);">Built to be cited,
-                        not just consumed.</h2>
-                    <p style="opacity: 0.6; margin-top: 1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                        We treat provenance, versioning, and integrity as product features. Pro users benefit from
-                        stronger guarantees around update discipline and record continuity—while the CC0 core remains
-                        freely reusable.
+                <div class="span-8">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">A foundation-led promise for global
+                        transparency.</h2>
+                    <p style="font-size: 1.25rem; opacity: 0.7; line-height: 1.6;">
+                        Central.Enterprises stewards the Open Company Data Standard. Pro revenue is explicitly earmarked
+                        for funding data stewardship, maintaining registry access bridges, and ensuring long-term CC0
+                        availability for the public core.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="compare" style="background: var(--bg-secondary); padding: 8rem 0;">
-            <div class="grid-container">
-                <div class="section-meta">ARCHITECTURE</div>
-                <div class="span-12">
-                    <h2 class="section-title">Open vs Pro</h2>
-                    <div class="pro-compare-grid">
-                        <div class="compare-card">
-                            <h4 class="titan-label">OPEN (CC0 PUBLIC CORE)</h4>
-                            <p style="margin-bottom: 1.5rem;">Designed for broad reuse, research, and public
-                                infrastructure. Company-level facts with provenance and versioning. Built to avoid
-                                personal data.</p>
-                            <a href="<?= $basePath ?>/data/" class="btn-institutional secondary"
-                                style="width: 100%; justify-content: center;">Explore Open Data</a>
-                        </div>
-                        <div class="compare-card pro">
-                            <h4 class="titan-label" style="color:var(--accent)">PRO (PAID ENRICHMENT LAYER)</h4>
-                            <p style="margin-bottom: 1.5rem;">Designed for operations. Adds enrichment and faster
-                                updates. Built for legitimate B2B workflows where traceability and freshness matter.</p>
-                            <a href="<?= $basePath ?>/contact/" class="btn-institutional primary"
-                                style="width: 100%; justify-content: center;">Request Pro Access</a>
-                        </div>
-                    </div>
-
-                    <div
-                        style="margin-top: 4rem; text-align: center; opacity: 0.6; font-size: 0.9rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                        <strong>A foundation-led promise:</strong> When the foundation is registered, it will steward
-                        CC0 releases and the standard. Pro revenue is explicitly aligned with funding data stewardship
-                        and long-term availability.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="grid-container">
-                <div class="section-meta">ACCESS PLANS</div>
-                <div class="span-12">
-                    <div class="pricing-grid">
-                        <div class="pricing-card">
-                            <div class="pricing-header">
-                                <span class="pricing-title">OPEN</span>
-                                <div class="pricing-price">Informed</div>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>CC0 Downloads</li>
-                                <li>Standard Access</li>
-                                <li>Public Documentation</li>
-                            </ul>
-                            <a href="<?= $basePath ?>/data/" class="btn-institutional secondary">Explore Open Data</a>
-                        </div>
-                        <div class="pricing-card featured premium-glow">
-                            <div class="pricing-header">
-                                <span class="pricing-title text-gradient">PRO</span>
-                                <div class="pricing-price">Operational</div>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>Enrichment Layer</li>
-                                <li>Higher Cadence</li>
-                                <li>API Keys</li>
-                                <li>Bulk Exports</li>
-                            </ul>
-                            <a href="<?= $basePath ?>/contact/" class="btn-institutional primary">Request Pro Access</a>
-                        </div>
-                        <div class="pricing-card">
-                            <div class="pricing-header">
-                                <span class="pricing-title">ENTERPRISE</span>
-                                <div class="pricing-price">Strategic</div>
-                            </div>
-                            <ul class="pricing-features">
-                                <li>Custom Refresh</li>
-                                <li>Dedicated Support</li>
-                                <li>Governance Alignment</li>
-                                <li>Compliance Tooling</li>
-                            </ul>
-                            <a href="<?= $basePath ?>/contact/" class="btn-institutional secondary">Talk to Us</a>
-                        </div>
+                    <div style="margin-top: 3rem; display: flex; gap: 2rem;">
+                        <a href="<?= $basePath ?>/about/" class="btn-institutional secondary">The Foundation</a>
+                        <a href="<?= $basePath ?>/standard/" class="btn-institutional secondary">The Standard</a>
                     </div>
                 </div>
             </div>

@@ -49,8 +49,11 @@ $basePath = "..";
             <div class="grid-container">
 
                 <div class="section-meta">ENGINEERING PHILOSOPHY</div>
-                <h1 class="hero-title">DATA AS A <br>PUBLIC FACT.</h1>
-                <div class="hero-desc">
+                <h1 class="hero-title">
+                    <span style="color: #64748b; font-weight:800;">DATA AS A</span> <br>
+                    <span style="color: var(--accent); font-weight:300;">PUBLIC FACT.</span>
+                </h1>
+                <div class="hero-desc" style="max-width: 700px;">
                     Central.Enterprises is an engineering-driven project based in Granada, Spain, focused on the
                     neutrality and accessibility of global corporate data.
                 </div>

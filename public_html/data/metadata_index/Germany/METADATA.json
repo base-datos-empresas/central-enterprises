@@ -1,0 +1,239 @@
+{
+  "country": "Germany",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 1060411,
+    "emails_unique": 908844,
+    "email_domains_unique": 496146,
+    "web_domains_unique": 808039,
+    "hosts_unique": 832145,
+    "phones_unique": 927367,
+    "sector_count": 5401,
+    "rows_with_email": 643987,
+    "rows_with_website": 1060411,
+    "rows_with_phone": 999389,
+    "rows_with_any_social": 432451,
+    "rows_with_feed": 330359,
+    "social_counts": {
+      "facebook": 351759,
+      "instagram": 303208,
+      "linkedin": 120410,
+      "twitter": 60735,
+      "tiktok": 30257,
+      "youtube": 125851
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "DE\\DE-Architects_extracted.csv",
+      20858
+    ],
+    [
+      "DE\\DE-ArtGalleries_extracted.csv",
+      6838
+    ],
+    [
+      "DE\\DE-Associations_extracted.csv",
+      78687
+    ],
+    [
+      "DE\\DE-Banks_extracted.csv",
+      12005
+    ],
+    [
+      "DE\\DE-BarsAndNightclubs_extracted.csv",
+      13662
+    ],
+    [
+      "DE\\DE-BeautyCenters_extracted.csv",
+      25750
+    ],
+    [
+      "DE\\DE-BookStores_extracted.csv",
+      4997
+    ],
+    [
+      "DE\\DE-Cafés_extracted.csv",
+      27492
+    ],
+    [
+      "DE\\DE-CarDealerships_extracted.csv",
+      15668
+    ],
+    [
+      "DE\\DE-Cleaning_extracted.csv",
+      27190
+    ],
+    [
+      "DE\\DE-Clinics_extracted.csv",
+      40870
+    ],
+    [
+      "DE\\DE-Clothing_extracted.csv",
+      35105
+    ],
+    [
+      "DE\\DE-Construction suppliers_extracted.csv",
+      44878
+    ],
+    [
+      "DE\\DE-Construction_extracted.csv",
+      70002
+    ],
+    [
+      "DE\\DE-Consulting_extracted.csv",
+      60048
+    ],
+    [
+      "DE\\DE-Dentists_extracted.csv",
+      25900
+    ],
+    [
+      "DE\\DE-Electronics_extracted.csv",
+      25024
+    ],
+    [
+      "DE\\DE-Florists_extracted.csv",
+      6828
+    ],
+    [
+      "DE\\DE-Foundations_extracted.csv",
+      13795
+    ],
+    [
+      "DE\\DE-Furniture_extracted.csv",
+      23432
+    ],
+    [
+      "DE\\DE-Gas Stations_extracted.csv",
+      9782
+    ],
+    [
+      "DE\\DE-Gyms_extracted.csv",
+      13054
+    ],
+    [
+      "DE\\DE-Hardware_extracted.csv",
+      15184
+    ],
+    [
+      "DE\\DE-Hotels_extracted.csv",
+      26813
+    ],
+    [
+      "DE\\DE-HumanResources_extracted.csv",
+      16156
+    ],
+    [
+      "DE\\DE-Insurance_extracted.csv",
+      41521
+    ],
+    [
+      "DE\\DE-InteriorDesign_extracted.csv",
+      20486
+    ],
+    [
+      "DE\\DE-ITCompanies_extracted.csv",
+      66042
+    ],
+    [
+      "DE\\DE-Jewelry_extracted.csv",
+      20395
+    ],
+    [
+      "DE\\DE-Laboratories_extracted.csv",
+      11796
+    ],
+    [
+      "DE\\DE-Lawyers_extracted.csv",
+      26284
+    ],
+    [
+      "DE\\DE-Manufacturing_extracted.csv",
+      77159
+    ],
+    [
+      "DE\\DE-Marketing_extracted.csv",
+      51640
+    ],
+    [
+      "DE\\DE-Mechanics_extracted.csv",
+      25831
+    ],
+    [
+      "DE\\DE-MovingCompanies_extracted.csv",
+      19365
+    ],
+    [
+      "DE\\DE-NursingHomes_extracted.csv",
+      20995
+    ],
+    [
+      "DE\\DE-Nutrition_extracted.csv",
+      20124
+    ],
+    [
+      "DE\\DE-Opticians_extracted.csv",
+      9050
+    ],
+    [
+      "DE\\DE-Orthopedic_extracted.csv",
+      9559
+    ],
+    [
+      "DE\\DE-Pet_extracted.csv",
+      31981
+    ],
+    [
+      "DE\\DE-Pharmacies_extracted.csv",
+      11635
+    ],
+    [
+      "DE\\DE-Printing_extracted.csv",
+      25996
+    ],
+    [
+      "DE\\DE-RealState_extracted.csv",
+      17722
+    ],
+    [
+      "DE\\DE-Restaurants_extracted.csv",
+      56476
+    ],
+    [
+      "DE\\DE-Security_extracted.csv",
+      10247
+    ],
+    [
+      "DE\\DE-Shops_extracted.csv",
+      77451
+    ],
+    [
+      "DE\\DE-Sports Clubs_extracted.csv",
+      45784
+    ],
+    [
+      "DE\\DE-Textile_extracted.csv",
+      38552
+    ],
+    [
+      "DE\\DE-Transport_extracted.csv",
+      21173
+    ],
+    [
+      "DE\\DE-Travel Agencies_extracted.csv",
+      24014
+    ],
+    [
+      "DE\\DE-Veterinarian_extracted.csv",
+      9033
+    ],
+    [
+      "DE\\DE-Work Clothes_extracted.csv",
+      7805
+    ]
+  ]
+}

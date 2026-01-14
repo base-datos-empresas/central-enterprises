@@ -10,9 +10,17 @@ $User = "ubuntu"
 $HostName = "central.enterprises"
 $RemotePath = "/opt/centralui"
 
-Write-Host "Starting Deployment to $HostName..."
+# 0. Pre-Flight Integrity Check
+Write-Host "Running Pre-Flight Checks..."
+if (-not (Test-Path $KeyPath)) { 
+    Write-Error "CRITICAL: Private key not found at $KeyPath. Deployment aborted." 
+}
 
-# 0. Remote Setup (Ensure directory exists and is writable)
+# Verify local manifest exists
+if (-not (Test-Path (Join-Path $ProjectRoot "data\digital_library.json"))) {
+    Write-Error "CRITICAL: data\digital_library.json missing. Deployment aborted."
+}
+
 Write-Host "Setting up remote directories..."
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo mkdir -p /opt/centralui && sudo chown -R ubuntu:ubuntu /opt/centralui"
 if ($LASTEXITCODE -ne 0) { Write-Error "Failed to setup remote directories." }

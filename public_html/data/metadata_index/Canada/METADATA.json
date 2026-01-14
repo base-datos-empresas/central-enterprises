@@ -1,0 +1,251 @@
+{
+  "country": "Canada",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 376184,
+    "emails_unique": 735164,
+    "email_domains_unique": 207059,
+    "web_domains_unique": 276693,
+    "hosts_unique": 285187,
+    "phones_unique": 340444,
+    "sector_count": 3801,
+    "rows_with_email": 237548,
+    "rows_with_website": 376129,
+    "rows_with_phone": 360059,
+    "rows_with_any_social": 243348,
+    "rows_with_feed": 115250,
+    "social_counts": {
+      "facebook": 217320,
+      "instagram": 168511,
+      "linkedin": 89980,
+      "twitter": 93984,
+      "tiktok": 23868,
+      "youtube": 88311
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "CA\\CA-Agriculture_extracted.csv",
+      7882
+    ],
+    [
+      "CA\\CA-Architects_extracted.csv",
+      5896
+    ],
+    [
+      "CA\\CA-Art Galleries_extracted.csv",
+      3180
+    ],
+    [
+      "CA\\CA-Associations_extracted.csv",
+      18707
+    ],
+    [
+      "CA\\CA-Banks_extracted.csv",
+      5720
+    ],
+    [
+      "CA\\CA-BarsAndNightclubs_extracted.csv",
+      5764
+    ],
+    [
+      "CA\\CA-BeautyCenters_extracted.csv",
+      13309
+    ],
+    [
+      "CA\\CA-Bookstores_extracted.csv",
+      2896
+    ],
+    [
+      "CA\\CA-Cafés_extracted.csv",
+      12328
+    ],
+    [
+      "CA\\CA-Car Dealerships_extracted.csv",
+      10391
+    ],
+    [
+      "CA\\CA-Carpentries_extracted.csv",
+      3398
+    ],
+    [
+      "CA\\CA-Cleaning_extracted.csv",
+      13112
+    ],
+    [
+      "CA\\CA-Clinics_extracted.csv",
+      9700
+    ],
+    [
+      "CA\\CA-Clothing_extracted.csv",
+      11440
+    ],
+    [
+      "CA\\CA-Construction suppliers_extracted.csv",
+      4877
+    ],
+    [
+      "CA\\CA-Construction_extracted.csv",
+      20114
+    ],
+    [
+      "CA\\CA-Consulting_extracted.csv",
+      19732
+    ],
+    [
+      "CA\\CA-Dentist_extracted.csv",
+      8380
+    ],
+    [
+      "CA\\CA-Education Centers_extracted.csv",
+      12808
+    ],
+    [
+      "CA\\CA-Electronics_extracted.csv",
+      11640
+    ],
+    [
+      "CA\\CA-Florist_extracted.csv",
+      3048
+    ],
+    [
+      "CA\\CA-Foundations_extracted.csv",
+      8962
+    ],
+    [
+      "CA\\CA-Furniture_extracted.csv",
+      3640
+    ],
+    [
+      "CA\\CA-Gas Stations_extracted.csv",
+      7186
+    ],
+    [
+      "CA\\CA-Gyms_extracted.csv",
+      7358
+    ],
+    [
+      "CA\\CA-Hardware_extracted.csv",
+      2620
+    ],
+    [
+      "CA\\CA-Hotels_extracted.csv",
+      860
+    ],
+    [
+      "CA\\CA-Human Resources_extracted.csv",
+      4089
+    ],
+    [
+      "CA\\CA-Insurance_extracted.csv",
+      8675
+    ],
+    [
+      "CA\\CA-Interior Design_extracted.csv",
+      9065
+    ],
+    [
+      "CA\\CA-IT Companies_extracted.csv",
+      19503
+    ],
+    [
+      "CA\\CA-Jewelry_extracted.csv",
+      7895
+    ],
+    [
+      "CA\\CA-Laboratories_extracted.csv",
+      3491
+    ],
+    [
+      "CA\\CA-Lawyers_extracted.csv",
+      8060
+    ],
+    [
+      "CA\\CA-Legal Accounting_extracted.csv",
+      8611
+    ],
+    [
+      "CA\\CA-Live Stock_extracted.csv",
+      3280
+    ],
+    [
+      "CA\\CA-Manufacturing_extracted.csv",
+      15427
+    ],
+    [
+      "CA\\CA-Marketing_extracted.csv",
+      5020
+    ],
+    [
+      "CA\\CA-Mechanics_extracted.csv",
+      9767
+    ],
+    [
+      "CA\\CA-Mining_extracted.csv",
+      2856
+    ],
+    [
+      "CA\\CA-Moving Companies_extracted.csv",
+      7479
+    ],
+    [
+      "CA\\CA-Museums_extracted.csv",
+      1963
+    ],
+    [
+      "CA\\CA-Nursing Homes_extracted.csv",
+      5558
+    ],
+    [
+      "CA\\CA-Nutrition_extracted.csv",
+      6036
+    ],
+    [
+      "CA\\CA-Opticians_extracted.csv",
+      2100
+    ],
+    [
+      "CA\\CA-Pet_extracted.csv",
+      11299
+    ],
+    [
+      "CA\\CA-Pharmacies_extracted.csv",
+      7136
+    ],
+    [
+      "CA\\CA-Real State_extracted.csv",
+      15846
+    ],
+    [
+      "CA\\CA-Restaurants_extracted.csv",
+      22544
+    ],
+    [
+      "CA\\CA-Security_extracted.csv",
+      6060
+    ],
+    [
+      "CA\\CA-Shops_extracted.csv",
+      2960
+    ],
+    [
+      "CA\\CA-Textile_extracted.csv",
+      9073
+    ],
+    [
+      "CA\\CA-Travel Agencies_extracted.csv",
+      6400
+    ],
+    [
+      "CA\\CA-Waste Management_extracted.csv",
+      4962
+    ],
+    [
+      "CA\\CA-Work Clothes_extracted.csv",
+      1540
+    ]
+  ]
+}

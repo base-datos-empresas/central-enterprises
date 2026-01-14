@@ -1,0 +1,255 @@
+{
+  "country": "Norway",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 39266,
+    "emails_unique": 44847,
+    "email_domains_unique": 17769,
+    "web_domains_unique": 26678,
+    "hosts_unique": 27248,
+    "phones_unique": 32512,
+    "sector_count": 2225,
+    "rows_with_email": 24253,
+    "rows_with_website": 39266,
+    "rows_with_phone": 36138,
+    "rows_with_any_social": 22262,
+    "rows_with_feed": 11563,
+    "social_counts": {
+      "facebook": 20491,
+      "instagram": 15421,
+      "linkedin": 7215,
+      "twitter": 2302,
+      "tiktok": 1395,
+      "youtube": 5007
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "NO\\NO-Agriculture_extracted.csv",
+      746
+    ],
+    [
+      "NO\\NO-Architects_extracted.csv",
+      942
+    ],
+    [
+      "NO\\NO-Associations_extracted.csv",
+      2233
+    ],
+    [
+      "NO\\NO-Bars and Nightclubs_extracted.csv",
+      771
+    ],
+    [
+      "NO\\NO-Beauty Centers_extracted.csv",
+      1609
+    ],
+    [
+      "NO\\NO-Bookstores_extracted.csv",
+      200
+    ],
+    [
+      "NO\\NO-Cafes_extracted.csv",
+      1770
+    ],
+    [
+      "NO\\NO-Car Dealerships_extracted.csv",
+      705
+    ],
+    [
+      "NO\\NO-Carpentries_extracted.csv",
+      670
+    ],
+    [
+      "NO\\NO-Cleaning_extracted.csv",
+      1383
+    ],
+    [
+      "NO\\NO-Clinics_extracted.csv",
+      2149
+    ],
+    [
+      "NO\\NO-Construction_extracted.csv",
+      2495
+    ],
+    [
+      "NO\\NO-Cooperatives_extracted.csv",
+      684
+    ],
+    [
+      "NO\\NO-Dentists_extracted.csv",
+      1159
+    ],
+    [
+      "NO\\NO-Electronics_extracted.csv",
+      1502
+    ],
+    [
+      "NO\\NO-Florists_extracted.csv",
+      610
+    ],
+    [
+      "NO\\NO-Foundations_extracted.csv",
+      1537
+    ],
+    [
+      "NO\\NO-Gas Stations_extracted.csv",
+      450
+    ],
+    [
+      "NO\\NO-Gyms_extracted.csv",
+      879
+    ],
+    [
+      "NO\\NO-Hardware_extracted.csv",
+      284
+    ],
+    [
+      "NO\\NO-Hospitals_extracted.csv",
+      138
+    ],
+    [
+      "NO\\NO-Hotels_extracted.csv",
+      688
+    ],
+    [
+      "NO\\NO-Insurance_extracted.csv",
+      236
+    ],
+    [
+      "NO\\NO-Interior Design_extracted.csv",
+      763
+    ],
+    [
+      "NO\\NO-IT Companies_extracted.csv",
+      2884
+    ],
+    [
+      "NO\\NO-Jewelry_extracted.csv",
+      779
+    ],
+    [
+      "NO\\NO-Laboratories_extracted.csv",
+      435
+    ],
+    [
+      "NO\\NO-Lawyers_extracted.csv",
+      601
+    ],
+    [
+      "NO\\NO-Legal Accounting_extracted.csv",
+      404
+    ],
+    [
+      "NO\\NO-Livestock_extracted.csv",
+      21
+    ],
+    [
+      "NO\\NO-Manufacturing_extracted.csv",
+      2747
+    ],
+    [
+      "NO\\NO-Marketing_extracted.csv",
+      1906
+    ],
+    [
+      "NO\\NO-Mechanics_extracted.csv",
+      1853
+    ],
+    [
+      "NO\\NO-Mining_extracted.csv",
+      1170
+    ],
+    [
+      "NO\\NO-Moving Companies_extracted.csv",
+      514
+    ],
+    [
+      "NO\\NO-Museums_extracted.csv",
+      275
+    ],
+    [
+      "NO\\NO-Nursing Homes_extracted.csv",
+      571
+    ],
+    [
+      "NO\\NO-ONGs_extracted.csv",
+      433
+    ],
+    [
+      "NO\\NO-Orthopedic_extracted.csv",
+      225
+    ],
+    [
+      "NO\\NO-Pet_extracted.csv",
+      1191
+    ],
+    [
+      "NO\\NO-Pharmacies_extracted.csv",
+      453
+    ],
+    [
+      "NO\\NO-Printing_extracted.csv",
+      978
+    ],
+    [
+      "NO\\NO-Production_extracted.csv",
+      2598
+    ],
+    [
+      "NO\\NO-Real State_extracted.csv",
+      1572
+    ],
+    [
+      "NO\\NO-Restaurants_extracted.csv",
+      2027
+    ],
+    [
+      "NO\\NO-Second Hand_extracted.csv",
+      711
+    ],
+    [
+      "NO\\NO-Security_extracted.csv",
+      385
+    ],
+    [
+      "NO\\NO-Shops_extracted.csv",
+      2654
+    ],
+    [
+      "NO\\NO-Sports Clubs_extracted.csv",
+      1872
+    ],
+    [
+      "NO\\NO-Supermarkets_extracted.csv",
+      1045
+    ],
+    [
+      "NO\\NO-Textile_extracted.csv",
+      2037
+    ],
+    [
+      "NO\\NO-Transport_extracted.csv",
+      1054
+    ],
+    [
+      "NO\\NO-Travel Agencies_extracted.csv",
+      1534
+    ],
+    [
+      "NO\\NO-Veterinarian_extracted.csv",
+      645
+    ],
+    [
+      "NO\\NO-Waste Management_extracted.csv",
+      584
+    ],
+    [
+      "NO\\NO-Work Clothes_extracted.csv",
+      707
+    ]
+  ]
+}

@@ -10,161 +10,160 @@
     <loc>https://central.enterprises/data/</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://central.enterprises/pro/</loc>
     <lastmod>2026-01-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://central.enterprises/standard/</loc>
     <lastmod>2026-01-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://central.enterprises/foundation/</loc>
     <lastmod>2026-01-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://central.enterprises/about/</loc>
     <lastmod>2026-01-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://central.enterprises/contact/</loc>
     <lastmod>2026-01-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
-  <!-- Country Landing Pages -->
   <url>
-    <loc>https://central.enterprises/country/austria-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/austria</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/belgium-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/belgium</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/australia-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/australia</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/canada-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/canada</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/brazil-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/brazil</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/switzerland-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/switzerland</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/spain-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/spain</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/germany-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/germany</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/indonesia-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/indonesia</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/ireland-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/ireland</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/france-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/france</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/lithuania-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/lithuania</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/malaysia-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/malaysia</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/italy-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/italy</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/netherlands-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/netherlands</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/norway-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/norway</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/portugal-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/portugal</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/romania-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/romania</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/poland-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/poland</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/united-kingdom-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/united-kingdom</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://central.enterprises/country/united-states-business-databases-b2b</loc>
+    <loc>https://central.enterprises/country/united-states</loc>
     <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

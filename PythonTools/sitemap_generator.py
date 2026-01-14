@@ -43,7 +43,7 @@ def generate_sitemap():
     
     # Dynamic Country Pages
     for country in countries:
-        slug = country.lower().replace(" ", "-")
+        slug = country.lower().replace(" ", "-") # Simplified to just country-name
         sitemap_content.append(f"  <url>")
         sitemap_content.append(f"    <loc>{base_url}/country/{slug}</loc>")
         sitemap_content.append(f"    <lastmod>{now}</lastmod>")

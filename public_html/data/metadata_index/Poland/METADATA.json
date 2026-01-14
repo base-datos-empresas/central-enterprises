@@ -1,0 +1,287 @@
+{
+  "country": "Poland",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 270493,
+    "emails_unique": 220902,
+    "email_domains_unique": 106946,
+    "web_domains_unique": 194666,
+    "hosts_unique": 210070,
+    "phones_unique": 237639,
+    "sector_count": 3860,
+    "rows_with_email": 162793,
+    "rows_with_website": 270493,
+    "rows_with_phone": 255726,
+    "rows_with_any_social": 133675,
+    "rows_with_feed": 96496,
+    "social_counts": {
+      "facebook": 126319,
+      "instagram": 64973,
+      "linkedin": 26928,
+      "twitter": 16264,
+      "tiktok": 9604,
+      "youtube": 37756
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "PL\\PL-Agriculture_extracted.csv",
+      15013
+    ],
+    [
+      "PL\\PL-Architects_extracted.csv",
+      6918
+    ],
+    [
+      "PL\\PL-Art Galleries_extracted.csv",
+      1377
+    ],
+    [
+      "PL\\PL-Associations_extracted.csv",
+      13854
+    ],
+    [
+      "PL\\PL-Bars and Nightclubs_extracted.csv",
+      3451
+    ],
+    [
+      "PL\\PL-Beauty Centers_extracted.csv",
+      8276
+    ],
+    [
+      "PL\\PL-Bookstores_extracted.csv",
+      2399
+    ],
+    [
+      "PL\\PL-Cafes_extracted.csv",
+      8814
+    ],
+    [
+      "PL\\PL-Car Dealerships_extracted.csv",
+      3149
+    ],
+    [
+      "PL\\PL-Carpentries_extracted.csv",
+      2199
+    ],
+    [
+      "PL\\PL-Cleaning_extracted.csv",
+      7026
+    ],
+    [
+      "PL\\PL-Clothing_extracted.csv",
+      7657
+    ],
+    [
+      "PL\\PL-Construction suppliers_extracted.csv",
+      16550
+    ],
+    [
+      "PL\\PL-Construction_extracted.csv",
+      18320
+    ],
+    [
+      "PL\\PL-Consulting_extracted.csv",
+      17270
+    ],
+    [
+      "PL\\PL-Dentists_extracted.csv",
+      6839
+    ],
+    [
+      "PL\\PL-Electronics_extracted.csv",
+      11107
+    ],
+    [
+      "PL\\PL-Florists_extracted.csv",
+      2185
+    ],
+    [
+      "PL\\PL-Foundations_extracted.csv",
+      5387
+    ],
+    [
+      "PL\\PL-FreightTransport_extracted.csv",
+      5188
+    ],
+    [
+      "PL\\PL-Furniture_extracted.csv",
+      9101
+    ],
+    [
+      "PL\\PL-Gas Stations_extracted.csv",
+      2332
+    ],
+    [
+      "PL\\PL-GeneralCargoTransport_extracted.csv",
+      896
+    ],
+    [
+      "PL\\PL-Gyms_extracted.csv",
+      3915
+    ],
+    [
+      "PL\\PL-Hardware_extracted.csv",
+      6467
+    ],
+    [
+      "PL\\PL-HeavyHaulage_extracted.csv",
+      1957
+    ],
+    [
+      "PL\\PL-Hospitals_extracted.csv",
+      1716
+    ],
+    [
+      "PL\\PL-Hotels_extracted.csv",
+      6223
+    ],
+    [
+      "PL\\PL-Human Resources_extracted.csv",
+      18208
+    ],
+    [
+      "PL\\PL-Insurance_extracted.csv",
+      9635
+    ],
+    [
+      "PL\\PL-Interior Design_extracted.csv",
+      5298
+    ],
+    [
+      "PL\\PL-IT Companies_extracted.csv",
+      18208
+    ],
+    [
+      "PL\\PL-Jewelry_extracted.csv",
+      3949
+    ],
+    [
+      "PL\\PL-Laboratories_extracted.csv",
+      4660
+    ],
+    [
+      "PL\\PL-Lawyers_extracted.csv",
+      10628
+    ],
+    [
+      "PL\\PL-Legal Accounting_extracted.csv",
+      6115
+    ],
+    [
+      "PL\\PL-Livestock_extracted.csv",
+      2187
+    ],
+    [
+      "PL\\PL-Manufacturing_extracted.csv",
+      21608
+    ],
+    [
+      "PL\\PL-Marketing_extracted.csv",
+      10666
+    ],
+    [
+      "PL\\PL-Mechanics_extracted.csv",
+      9084
+    ],
+    [
+      "PL\\PL-Mining_extracted.csv",
+      14090
+    ],
+    [
+      "PL\\PL-Moving Companies_extracted.csv",
+      6207
+    ],
+    [
+      "PL\\PL-Museums_extracted.csv",
+      1355
+    ],
+    [
+      "PL\\PL-Nursing Homes_extracted.csv",
+      3653
+    ],
+    [
+      "PL\\PL-Nutrition_extracted.csv",
+      5130
+    ],
+    [
+      "PL\\PL-Opticians_extracted.csv",
+      3038
+    ],
+    [
+      "PL\\PL-Pet_extracted.csv",
+      5064
+    ],
+    [
+      "PL\\PL-Pharmacies_extracted.csv",
+      3757
+    ],
+    [
+      "PL\\PL-Printing_extracted.csv",
+      9371
+    ],
+    [
+      "PL\\PL-Real State_extracted.csv",
+      7414
+    ],
+    [
+      "PL\\PL-Restaurants_extracted.csv",
+      11448
+    ],
+    [
+      "PL\\PL-RoadLogistics_extracted.csv",
+      540
+    ],
+    [
+      "PL\\PL-Security_extracted.csv",
+      2538
+    ],
+    [
+      "PL\\PL-Shops_extracted.csv",
+      12945
+    ],
+    [
+      "PL\\PL-Sports Clubs_extracted.csv",
+      6971
+    ],
+    [
+      "PL\\PL-Supermarkets_extracted.csv",
+      4862
+    ],
+    [
+      "PL\\PL-Textile_extracted.csv",
+      7308
+    ],
+    [
+      "PL\\PL-Toy shops_extracted.csv",
+      3288
+    ],
+    [
+      "PL\\PL-Transport_extracted.csv",
+      7744
+    ],
+    [
+      "PL\\PL-Travel Agencies_extracted.csv",
+      6824
+    ],
+    [
+      "PL\\PL-Trucking_extracted.csv",
+      6521
+    ],
+    [
+      "PL\\PL-Veterinarian_extracted.csv",
+      2390
+    ],
+    [
+      "PL\\PL-Waste Management_extracted.csv",
+      3434
+    ],
+    [
+      "PL\\PL-Work Clothes_extracted.csv",
+      2239
+    ]
+  ]
+}

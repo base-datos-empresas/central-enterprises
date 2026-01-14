@@ -1,0 +1,271 @@
+{
+  "country": "Italy",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 490351,
+    "emails_unique": 358442,
+    "email_domains_unique": 185404,
+    "web_domains_unique": 376123,
+    "hosts_unique": 394087,
+    "phones_unique": 439863,
+    "sector_count": 4533,
+    "rows_with_email": 281106,
+    "rows_with_website": 487307,
+    "rows_with_phone": 463273,
+    "rows_with_any_social": 262591,
+    "rows_with_feed": 195454,
+    "social_counts": {
+      "facebook": 237965,
+      "instagram": 176150,
+      "linkedin": 79080,
+      "twitter": 50990,
+      "tiktok": 14725,
+      "youtube": 68038
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "IT\\IT-Architects_extracted.csv",
+      13118
+    ],
+    [
+      "IT\\IT-ArtGalleries_extracted.csv",
+      3380
+    ],
+    [
+      "IT\\IT-Associations_extracted.csv",
+      24716
+    ],
+    [
+      "IT\\IT-Banks_extracted.csv",
+      5022
+    ],
+    [
+      "IT\\IT-Bars and Nightclubs_extracted.csv",
+      8706
+    ],
+    [
+      "IT\\IT-bathroom sanitary installation_extracted.csv",
+      3047
+    ],
+    [
+      "IT\\IT-Beauty Centers_extracted.csv",
+      8962
+    ],
+    [
+      "IT\\IT-Bookstores_extracted.csv",
+      4043
+    ],
+    [
+      "IT\\IT-Cafes_extracted.csv",
+      12669
+    ],
+    [
+      "IT\\IT-CarDealerships_extracted.csv",
+      8411
+    ],
+    [
+      "IT\\IT-Carpentries_extracted.csv",
+      2573
+    ],
+    [
+      "IT\\IT-Catering.csv",
+      10029
+    ],
+    [
+      "IT\\IT-Cleaning_extracted.csv",
+      8867
+    ],
+    [
+      "IT\\IT-Clinics_extracted.csv",
+      20331
+    ],
+    [
+      "IT\\IT-Clothing_extracted.csv",
+      18689
+    ],
+    [
+      "IT\\IT-Construction suppliers_extracted.csv",
+      26233
+    ],
+    [
+      "IT\\IT-Construction_extracted.csv",
+      25664
+    ],
+    [
+      "IT\\IT-Consulting_extracted.csv",
+      24264
+    ],
+    [
+      "IT\\IT-Dentists_extracted.csv",
+      12366
+    ],
+    [
+      "IT\\IT-electrical installation company_extracted.csv",
+      3685
+    ],
+    [
+      "IT\\IT-Electronics_extracted.csv",
+      14316
+    ],
+    [
+      "IT\\IT-energy management systems compan_extracted.csv",
+      900
+    ],
+    [
+      "IT\\IT-Florists_extracted.csv",
+      2763
+    ],
+    [
+      "IT\\IT-Foundations_extracted.csv",
+      6739
+    ],
+    [
+      "IT\\IT-Furniture_extracted.csv",
+      15466
+    ],
+    [
+      "IT\\IT-GasStations_extracted.csv",
+      5561
+    ],
+    [
+      "IT\\IT-Gyms_extracted.csv",
+      7763
+    ],
+    [
+      "IT\\IT-Hardware_extracted.csv",
+      11923
+    ],
+    [
+      "IT\\IT-heating installation company_extracted.csv",
+      3090
+    ],
+    [
+      "IT\\IT-hot water installation compan_extracted.csv",
+      2831
+    ],
+    [
+      "IT\\IT-Hotels_extracted.csv",
+      24743
+    ],
+    [
+      "IT\\IT-HumanResources_extracted.csv",
+      5619
+    ],
+    [
+      "IT\\IT-Insurance_extracted.csv",
+      9088
+    ],
+    [
+      "IT\\IT-InteriorDesign_extracted.csv",
+      12639
+    ],
+    [
+      "IT\\IT-ITCompanies_extracted.csv",
+      28119
+    ],
+    [
+      "IT\\IT-Jewelry_extracted.csv",
+      9598
+    ],
+    [
+      "IT\\IT-Laboratories_extracted.csv",
+      11617
+    ],
+    [
+      "IT\\IT-Lawyers_extracted.csv",
+      12130
+    ],
+    [
+      "IT\\IT-Manufacturing_extracted.csv",
+      35849
+    ],
+    [
+      "IT\\IT-Marketing_extracted.csv",
+      22859
+    ],
+    [
+      "IT\\IT-Mechanics_extracted.csv",
+      11481
+    ],
+    [
+      "IT\\IT-Moving Companies_extracted.csv",
+      8875
+    ],
+    [
+      "IT\\IT-Nursing Homes_extracted.csv",
+      9430
+    ],
+    [
+      "IT\\IT-Nutrition_extracted.csv",
+      7276
+    ],
+    [
+      "IT\\IT-Opticians_extracted.csv",
+      4503
+    ],
+    [
+      "IT\\IT-Orthopedic_extracted.csv",
+      6376
+    ],
+    [
+      "IT\\IT-Pet_extracted.csv",
+      9058
+    ],
+    [
+      "IT\\IT-Pharmacies_extracted.csv",
+      6053
+    ],
+    [
+      "IT\\IT-photovoltaic installation company_extracted.csv",
+      1741
+    ],
+    [
+      "IT\\IT-Printing_extracted.csv",
+      13939
+    ],
+    [
+      "IT\\IT-Real-State_extracted.csv",
+      13851
+    ],
+    [
+      "IT\\IT-Restaurants_extracted.csv",
+      23348
+    ],
+    [
+      "IT\\IT-Security_extracted.csv",
+      5624
+    ],
+    [
+      "IT\\IT-solar thermal installation company_extracted.csv",
+      1839
+    ],
+    [
+      "IT\\IT-Sports Clubs_extracted.csv",
+      18037
+    ],
+    [
+      "IT\\IT-Transport_extracted.csv",
+      9888
+    ],
+    [
+      "IT\\IT-Travel Agencies_extracted.csv",
+      16607
+    ],
+    [
+      "IT\\IT-ventilation heat recovery systems_extracted.csv",
+      304
+    ],
+    [
+      "IT\\IT-Veterinarian_extracted.csv",
+      3640
+    ],
+    [
+      "IT\\IT-Work Clothes_extracted.csv",
+      6049
+    ]
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "country": "Austria",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 57157,
+    "emails_unique": 57449,
+    "email_domains_unique": 30440,
+    "web_domains_unique": 46693,
+    "hosts_unique": 47543,
+    "phones_unique": 50308,
+    "sector_count": 2373,
+    "rows_with_email": 33937,
+    "rows_with_website": 57157,
+    "rows_with_phone": 53551,
+    "rows_with_any_social": 25078,
+    "rows_with_feed": 17117,
+    "social_counts": {
+      "facebook": 20960,
+      "instagram": 17604,
+      "linkedin": 8036,
+      "twitter": 3489,
+      "tiktok": 1834,
+      "youtube": 7442
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "AT\\AT-Architects_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1594
+    ],
+    [
+      "AT\\AT-Architects_extracted.csv",
+      1594
+    ],
+    [
+      "AT\\AT-Art Galleries_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      692
+    ],
+    [
+      "AT\\AT-Art Galleries_extracted.csv",
+      692
+    ],
+    [
+      "AT\\AT-Art Galleries_extracted2.csv",
+      692
+    ],
+    [
+      "AT\\AT-Associations_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2965
+    ],
+    [
+      "AT\\AT-Associations_extracted.csv",
+      2965
+    ],
+    [
+      "AT\\AT-Banks_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      422
+    ],
+    [
+      "AT\\AT-Banks_extracted.csv",
+      422
+    ],
+    [
+      "AT\\AT-Bars and Nightclubs_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1291
+    ],
+    [
+      "AT\\AT-Bars and Nightclubs_extracted.csv",
+      1291
+    ],
+    [
+      "AT\\AT-Bookstores_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      377
+    ],
+    [
+      "AT\\AT-Bookstores_extracted.csv",
+      377
+    ],
+    [
+      "AT\\AT-Cafes_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2274
+    ],
+    [
+      "AT\\AT-Cafes_extracted.csv",
+      2274
+    ],
+    [
+      "AT\\AT-Car Dealerships_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      902
+    ],
+    [
+      "AT\\AT-Car Dealerships_extracted.csv",
+      902
+    ],
+    [
+      "AT\\AT-CarDealerships_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      817
+    ],
+    [
+      "AT\\AT-CarDealerships_extracted.csv",
+      817
+    ],
+    [
+      "AT\\AT-Carpentries_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      109
+    ],
+    [
+      "AT\\AT-Carpentries_extracted.csv",
+      109
+    ],
+    [
+      "AT\\AT-Cleaning_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1739
+    ],
+    [
+      "AT\\AT-Cleaning_extracted.csv",
+      1739
+    ],
+    [
+      "AT\\AT-Clinics_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2634
+    ],
+    [
+      "AT\\AT-Clinics_extracted.csv",
+      2634
+    ],
+    [
+      "AT\\AT-Clothing_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1874
+    ],
+    [
+      "AT\\AT-Clothing_extracted.csv",
+      1874
+    ],
+    [
+      "AT\\AT-Construction suppliers_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      620
+    ],
+    [
+      "AT\\AT-Construction suppliers_extracted.csv",
+      620
+    ],
+    [
+      "AT\\AT-Construction_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2679
+    ],
+    [
+      "AT\\AT-Construction_extracted.csv",
+      2679
+    ],
+    [
+      "AT\\At-Consulting_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2658
+    ],
+    [
+      "AT\\At-Consulting_extracted.csv",
+      2658
+    ],
+    [
+      "AT\\AT-Dentists_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1400
+    ],
+    [
+      "AT\\AT-Dentists_extracted.csv",
+      1400
+    ],
+    [
+      "AT\\AT-Education center_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2326
+    ],
+    [
+      "AT\\AT-Education center_extracted.csv",
+      2326
+    ],
+    [
+      "AT\\AT-Electronics_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1728
+    ],
+    [
+      "AT\\AT-Electronics_extracted.csv",
+      1728
+    ],
+    [
+      "AT\\AT-Florist_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      484
+    ],
+    [
+      "AT\\AT-Florist_extracted.csv",
+      484
+    ],
+    [
+      "AT\\AT-Foundations_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      530
+    ],
+    [
+      "AT\\AT-Foundations_extracted.csv",
+      530
+    ],
+    [
+      "AT\\AT-Furniture_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1608
+    ],
+    [
+      "AT\\AT-Furniture_extracted.csv",
+      1608
+    ],
+    [
+      "AT\\AT-GasStations_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      717
+    ],
+    [
+      "AT\\AT-GasStations_extracted.csv",
+      717
+    ],
+    [
+      "AT\\AT-Gyms_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1386
+    ],
+    [
+      "AT\\AT-Gyms_extracted.csv",
+      1386
+    ],
+    [
+      "AT\\AT-Insurance_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1584
+    ],
+    [
+      "AT\\AT-Insurance_extracted.csv",
+      1584
+    ],
+    [
+      "AT\\AT-Interior Design_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1189
+    ],
+    [
+      "AT\\AT-Interior Design_extracted.csv",
+      1189
+    ],
+    [
+      "AT\\AT-IT Companies_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      3117
+    ],
+    [
+      "AT\\AT-IT Companies_extracted.csv",
+      3117
+    ],
+    [
+      "AT\\AT-Jewelry_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1364
+    ],
+    [
+      "AT\\AT-Jewelry_extracted.csv",
+      1364
+    ],
+    [
+      "AT\\AT-Laboratories_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      858
+    ],
+    [
+      "AT\\AT-Laboratories_extracted.csv",
+      858
+    ],
+    [
+      "AT\\AT-Lawyers_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1377
+    ],
+    [
+      "AT\\AT-Lawyers_extracted.csv",
+      1377
+    ],
+    [
+      "AT\\AT-Legal Accounting_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      917
+    ],
+    [
+      "AT\\AT-Legal Accounting_extracted.csv",
+      917
+    ],
+    [
+      "AT\\AT-Livestock_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      91
+    ],
+    [
+      "AT\\AT-Livestock_extracted.csv",
+      91
+    ],
+    [
+      "AT\\AT-Manufacturing_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2921
+    ],
+    [
+      "AT\\AT-Manufacturing_extracted.csv",
+      2921
+    ],
+    [
+      "AT\\AT-Marketing_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2768
+    ],
+    [
+      "AT\\AT-Marketing_extracted.csv",
+      2768
+    ],
+    [
+      "AT\\AT-Mining_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1461
+    ],
+    [
+      "AT\\AT-Mining_extracted.csv",
+      1461
+    ],
+    [
+      "AT\\AT-Moving Companies_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1286
+    ],
+    [
+      "AT\\AT-Moving Companies_extracted.csv",
+      1286
+    ],
+    [
+      "AT\\AT-Museums_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      402
+    ],
+    [
+      "AT\\AT-Museums_extracted.csv",
+      402
+    ],
+    [
+      "AT\\AT-Nursing Homes_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      649
+    ],
+    [
+      "AT\\AT-Nursing Homes_extracted.csv",
+      649
+    ],
+    [
+      "AT\\AT-Nutrition_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      912
+    ],
+    [
+      "AT\\AT-Nutrition_extracted.csv",
+      912
+    ],
+    [
+      "AT\\AT-Opticians_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      536
+    ],
+    [
+      "AT\\AT-Opticians_extracted.csv",
+      536
+    ],
+    [
+      "AT\\AT-Orthopedic_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      947
+    ],
+    [
+      "AT\\AT-Orthopedic_extracted.csv",
+      947
+    ],
+    [
+      "AT\\AT-Pet_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1420
+    ],
+    [
+      "AT\\AT-Pet_extracted.csv",
+      1420
+    ],
+    [
+      "AT\\AT-Pharmacies_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      669
+    ],
+    [
+      "AT\\AT-Pharmacies_extracted.csv",
+      669
+    ],
+    [
+      "AT\\AT-Printing_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1382
+    ],
+    [
+      "AT\\AT-Printing_extracted.csv",
+      1382
+    ],
+    [
+      "AT\\AT-Real State_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1050
+    ],
+    [
+      "AT\\AT-Real State_extracted.csv",
+      1050
+    ],
+    [
+      "AT\\AT-Restaurants_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2956
+    ],
+    [
+      "AT\\AT-Restaurants_extracted.csv",
+      2956
+    ],
+    [
+      "AT\\AT-Security_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      611
+    ],
+    [
+      "AT\\AT-Security_extracted.csv",
+      611
+    ],
+    [
+      "AT\\AT-Shops_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      2911
+    ],
+    [
+      "AT\\AT-Shops_extracted.csv",
+      2911
+    ],
+    [
+      "AT\\AT-Textile_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1530
+    ],
+    [
+      "AT\\AT-Textile_extracted.csv",
+      1530
+    ],
+    [
+      "AT\\AT-Transport_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1194
+    ],
+    [
+      "AT\\AT-Transport_extracted.csv",
+      1194
+    ],
+    [
+      "AT\\AT-Travel Agencies_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      1439
+    ],
+    [
+      "AT\\AT-Travel Agencies_extracted.csv",
+      1439
+    ],
+    [
+      "AT\\AT-Waste Management_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      815
+    ],
+    [
+      "AT\\AT-Waste Management_extracted.csv",
+      815
+    ],
+    [
+      "AT\\AT-Work Clothes_extracted (Copia en conflicto de SERVIDOR3012 2025-12-19).csv",
+      610
+    ],
+    [
+      "AT\\AT-Work Clothes_extracted.csv",
+      610
+    ]
+  ]
+}

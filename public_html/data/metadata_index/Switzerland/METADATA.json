@@ -1,0 +1,267 @@
+{
+  "country": "Switzerland",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 117297,
+    "emails_unique": 109021,
+    "email_domains_unique": 58299,
+    "web_domains_unique": 90541,
+    "hosts_unique": 92353,
+    "phones_unique": 100328,
+    "sector_count": 4027,
+    "rows_with_email": 69338,
+    "rows_with_website": 117297,
+    "rows_with_phone": 108250,
+    "rows_with_any_social": 55016,
+    "rows_with_feed": 35741,
+    "social_counts": {
+      "facebook": 40735,
+      "instagram": 39724,
+      "linkedin": 23618,
+      "twitter": 7848,
+      "tiktok": 4252,
+      "youtube": 14587
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "CH\\CH-Agriculture_extracted.csv",
+      3586
+    ],
+    [
+      "CH\\CH-Architects_extracted.csv",
+      4732
+    ],
+    [
+      "CH\\CH-Art Galleries_extracted.csv",
+      1024
+    ],
+    [
+      "CH\\CH-Associations_extracted.csv",
+      4084
+    ],
+    [
+      "CH\\CH-Banks_extracted.csv",
+      1537
+    ],
+    [
+      "CH\\CH-Bars and Nightclubs_extracted.csv",
+      3253
+    ],
+    [
+      "CH\\CH-Bookstores_extracted.csv",
+      1221
+    ],
+    [
+      "CH\\CH-Cafes_extracted.csv",
+      4003
+    ],
+    [
+      "CH\\CH-Car Dealerships_extracted.csv",
+      2049
+    ],
+    [
+      "CH\\CH-Carpentries_extracted.csv",
+      618
+    ],
+    [
+      "CH\\CH-Catering_extracted.csv",
+      2307
+    ],
+    [
+      "CH\\CH-Cleaning_extracted.csv",
+      3447
+    ],
+    [
+      "CH\\CH-Clothing_extracted.csv",
+      4523
+    ],
+    [
+      "CH\\CH-Construction suppliers_extracted.csv",
+      4886
+    ],
+    [
+      "CH\\CH-Construction_extracted.csv",
+      5549
+    ],
+    [
+      "CH\\CH-Consulting_extracted.csv",
+      5655
+    ],
+    [
+      "CH\\CH-Cooperatives_extracted.csv",
+      962
+    ],
+    [
+      "CH\\CH-Dentists_extracted.csv",
+      3023
+    ],
+    [
+      "CH\\CH-Education center_extracted.csv",
+      4851
+    ],
+    [
+      "CH\\CH-Electronics_extracted.csv",
+      3706
+    ],
+    [
+      "CH\\CH-Foundations_extracted.csv",
+      2270
+    ],
+    [
+      "CH\\CH-Furniture_extracted.csv",
+      3134
+    ],
+    [
+      "CH\\CH-Gas Stations_extracted.csv",
+      1188
+    ],
+    [
+      "CH\\CH-Gyms_extracted.csv",
+      2514
+    ],
+    [
+      "CH\\CH-Hospitals_extracted.csv",
+      507
+    ],
+    [
+      "CH\\CH-Hotels_extracted.csv",
+      2337
+    ],
+    [
+      "CH\\CH-Human Resources_extracted.csv",
+      2171
+    ],
+    [
+      "CH\\CH-Insurance_extracted.csv",
+      2707
+    ],
+    [
+      "CH\\CH-Interior Design_extracted.csv",
+      2508
+    ],
+    [
+      "CH\\CH-IT Companies_extracted.csv",
+      5805
+    ],
+    [
+      "CH\\CH-Jewelry_extracted.csv",
+      3437
+    ],
+    [
+      "CH\\CH-Laboratories_extracted.csv",
+      1862
+    ],
+    [
+      "CH\\CH-Land Surveyor_extracted.csv",
+      566
+    ],
+    [
+      "CH\\CH-Lawyers_extracted.csv",
+      2847
+    ],
+    [
+      "CH\\CH-Livestock_extracted.csv",
+      229
+    ],
+    [
+      "CH\\CH-Manufacturing_extracted.csv",
+      5577
+    ],
+    [
+      "CH\\CH-Moving Companies_extracted.csv",
+      1777
+    ],
+    [
+      "CH\\CH-Museums_extracted.csv",
+      604
+    ],
+    [
+      "CH\\CH-Nursing Homes_extracted.csv",
+      1817
+    ],
+    [
+      "CH\\CH-Nutrition_extracted.csv",
+      2234
+    ],
+    [
+      "CH\\CH-ONGs_extracted.csv",
+      1396
+    ],
+    [
+      "CH\\CH-Opticians_extracted.csv",
+      965
+    ],
+    [
+      "CH\\CH-Orthopedics_extracted.csv",
+      914
+    ],
+    [
+      "CH\\CH-Pet_extracted.csv",
+      2888
+    ],
+    [
+      "CH\\CH-Printing_extracted.csv",
+      2655
+    ],
+    [
+      "CH\\CH-production_extracted.csv",
+      4956
+    ],
+    [
+      "CH\\CH-Real State_extracted.csv",
+      4268
+    ],
+    [
+      "CH\\CH-Restaurants_extracted.csv",
+      5882
+    ],
+    [
+      "CH\\CH-Second Hand_extracted.csv",
+      1337
+    ],
+    [
+      "CH\\CH-Security_extracted.csv",
+      1318
+    ],
+    [
+      "CH\\CH-Shops_extracted.csv",
+      6042
+    ],
+    [
+      "CH\\CH-Sports Clubs_extracted.csv",
+      4958
+    ],
+    [
+      "CH\\CH-Supermarkets_extracted.csv",
+      2668
+    ],
+    [
+      "CH\\CH-Textile_extracted.csv",
+      3743
+    ],
+    [
+      "CH\\CH-Transport_extracted.csv",
+      2338
+    ],
+    [
+      "CH\\CH-Travel Agencies_extracted.csv",
+      3042
+    ],
+    [
+      "CH\\CH-Veterinarian_extracted.csv",
+      1159
+    ],
+    [
+      "CH\\CH-Waste Management_extracted.csv",
+      1285
+    ],
+    [
+      "CH\\CH-Work Clothes_extracted.csv",
+      1767
+    ]
+  ]
+}

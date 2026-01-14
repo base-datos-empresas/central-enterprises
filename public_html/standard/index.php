@@ -28,10 +28,13 @@ $basePath = "..";
     <header class="hero">
       <div class="grid-container">
         <div class="section-meta">TECHNICAL SPECIFICATION</div>
-        <h1 class="hero-title">STANDARD v1.1</h1>
-        <div class="hero-desc">
+        <h1 class="hero-title">
+          <span style="color: #64748b; font-weight:800;">STANDARD</span> <br>
+          <span style="color: var(--accent); font-weight:300;">v1.1 SPECIFICATION</span>
+        </h1>
+        <div class="hero-desc" style="max-width: 700px;">
           The definitive open schema for normalized corporate registry data.
-          Designed for interoperability, safety, and long-term citation.
+          Designed for strict interoperability, legal safety, and citation at scale.
         </div>
       </div>
     </header>
@@ -58,18 +61,23 @@ $basePath = "..";
 
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1.5rem; margin-bottom:2rem;">
             <div style="background:var(--bg-secondary); padding:1.5rem; border:1px solid var(--structural-line);">
-              <h3 class="titan-label" style="margin-bottom:0.5rem; color:var(--text-header);">1. OpenData Tier</h3>
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem;">
+                <h3 class="titan-label" style="color:var(--text-header);">1. OpenData Tier</h3>
+                <span class="tier-badge tier-od">OpenData</span>
+              </div>
               <p style="font-size:0.9rem; opacity:0.8;">
                 Published for education, research, and public interest. Sensitive or proprietary fields (like direct
-                contacts) are <strong>masked</strong> (exported as empty strings), ensuring safety and compliance while
-                maintaining structural integrity.
+                contacts) are <strong>masked</strong> to ensure safety while maintaining structural integrity.
               </p>
             </div>
             <div style="background:var(--bg-secondary); padding:1.5rem; border:1px solid var(--accent);">
-              <h3 class="titan-label" style="margin-bottom:0.5rem; color:var(--accent);">2. Premium (Pro) Tier</h3>
+              <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem;">
+                <h3 class="titan-label" style="color:var(--accent);">2. Premium (Pro) Tier</h3>
+                <span class="tier-badge tier-premium">Premium</span>
+              </div>
               <p style="font-size:0.9rem; opacity:0.8;">
-                Designed for operational intelligence. Includes full enrichment values for all columns, such as specific
-                contact details, social signals, and spending indicators.
+                Designed for operational intelligence. Includes full enrichment values for all columns, such as verified
+                direct emails, active social signals, and spending indicators.
               </p>
             </div>
           </div>

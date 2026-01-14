@@ -1,0 +1,271 @@
+{
+  "country": "Romania",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 75838,
+    "emails_unique": 51716,
+    "email_domains_unique": 27017,
+    "web_domains_unique": 57464,
+    "hosts_unique": 59737,
+    "phones_unique": 66733,
+    "sector_count": 2513,
+    "rows_with_email": 40459,
+    "rows_with_website": 75838,
+    "rows_with_phone": 70830,
+    "rows_with_any_social": 40390,
+    "rows_with_feed": 32238,
+    "social_counts": {
+      "facebook": 37398,
+      "instagram": 21314,
+      "linkedin": 9361,
+      "twitter": 7930,
+      "tiktok": 4483,
+      "youtube": 13613
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "RO\\RO-Agriculture_extracted.csv",
+      3361
+    ],
+    [
+      "RO\\RO-Architects_extracted.csv",
+      1399
+    ],
+    [
+      "RO\\RO-Art Galleries_extracted.csv",
+      339
+    ],
+    [
+      "RO\\RO-Associations_extracted.csv",
+      3108
+    ],
+    [
+      "RO\\RO-Banks_extracted.csv",
+      712
+    ],
+    [
+      "RO\\RO-Bars and Nightclubs_extracted.csv",
+      1665
+    ],
+    [
+      "RO\\RO-Beauty Centers_extracted.csv",
+      1741
+    ],
+    [
+      "RO\\RO-Bookstores_extracted.csv",
+      421
+    ],
+    [
+      "RO\\RO-Cafes_extracted.csv",
+      2802
+    ],
+    [
+      "RO\\RO-Car Dealerships_extracted.csv",
+      1042
+    ],
+    [
+      "RO\\RO-Carpentries_extracted.csv",
+      231
+    ],
+    [
+      "RO\\RO-Cleaning_extracted.csv",
+      1915
+    ],
+    [
+      "RO\\RO-Clinics_extracted.csv",
+      3634
+    ],
+    [
+      "RO\\RO-Clothing_extracted.csv",
+      2484
+    ],
+    [
+      "RO\\RO-Construction suppliers_extracted.csv",
+      2931
+    ],
+    [
+      "RO\\RO-Construction_extracted.csv",
+      4427
+    ],
+    [
+      "RO\\RO-Consulting_extracted.csv",
+      3784
+    ],
+    [
+      "RO\\RO-Dentists_extracted.csv",
+      2452
+    ],
+    [
+      "RO\\RO-Education center_extracted.csv",
+      2506
+    ],
+    [
+      "RO\\RO-Electronics_extracted.csv",
+      2662
+    ],
+    [
+      "RO\\RO-Florists_extracted.csv",
+      831
+    ],
+    [
+      "RO\\RO-Foundations_extracted.csv",
+      751
+    ],
+    [
+      "RO\\RO-Furniture_extracted.csv",
+      2075
+    ],
+    [
+      "RO\\RO-Gas Stations_extracted.csv",
+      656
+    ],
+    [
+      "RO\\RO-Gyms_extracted.csv",
+      874
+    ],
+    [
+      "RO\\RO-Hardware_extracted.csv",
+      896
+    ],
+    [
+      "RO\\RO-Hotels_extracted.csv",
+      3746
+    ],
+    [
+      "RO\\RO-Human Resources_extracted.csv",
+      662
+    ],
+    [
+      "RO\\RO-Insurance_extracted.csv",
+      1173
+    ],
+    [
+      "RO\\RO-Interior Design_extracted.csv",
+      2046
+    ],
+    [
+      "RO\\RO-IT Companies_extracted.csv",
+      6054
+    ],
+    [
+      "RO\\RO-Jewelry_extracted.csv",
+      1132
+    ],
+    [
+      "RO\\RO-Laboratories_extracted.csv",
+      1445
+    ],
+    [
+      "RO\\RO-Lawyers_extracted.csv",
+      1479
+    ],
+    [
+      "RO\\RO-Legal Accounting_extracted.csv",
+      677
+    ],
+    [
+      "RO\\RO-Livestock_extracted.csv",
+      93
+    ],
+    [
+      "RO\\RO-Manufacturing_extracted.csv",
+      5101
+    ],
+    [
+      "RO\\RO-Marketing_extracted.csv",
+      3008
+    ],
+    [
+      "RO\\RO-Mechanics_extracted.csv",
+      1906
+    ],
+    [
+      "RO\\RO-Mining_extracted.csv",
+      3772
+    ],
+    [
+      "RO\\RO-Moving Companies_extracted.csv",
+      1112
+    ],
+    [
+      "RO\\RO-Museums_extracted.csv",
+      431
+    ],
+    [
+      "RO\\RO-Nursing Homes_extracted.csv",
+      1092
+    ],
+    [
+      "RO\\RO-Nutrition_extracted.csv",
+      1073
+    ],
+    [
+      "RO\\RO-Opticians_extracted.csv",
+      759
+    ],
+    [
+      "RO\\RO-Orthopedic_extracted.csv",
+      887
+    ],
+    [
+      "RO\\RO-Pet_extracted.csv",
+      1110
+    ],
+    [
+      "RO\\RO-Pharmacies_extracted.csv",
+      874
+    ],
+    [
+      "RO\\RO-Printing_extracted.csv",
+      2095
+    ],
+    [
+      "RO\\RO-Real State_extracted.csv",
+      834
+    ],
+    [
+      "RO\\RO-Restaurants_extracted.csv",
+      3888
+    ],
+    [
+      "RO\\RO-Security_extracted.csv",
+      1292
+    ],
+    [
+      "RO\\RO-Shops_extracted.csv",
+      4543
+    ],
+    [
+      "RO\\RO-Sports Clubs_extracted.csv",
+      1649
+    ],
+    [
+      "RO\\RO-Textile_extracted.csv",
+      1894
+    ],
+    [
+      "RO\\RO-Transport_extracted.csv",
+      2774
+    ],
+    [
+      "RO\\RO-Travel Agencies_extracted.csv",
+      2374
+    ],
+    [
+      "RO\\RO-Veterinarian_extracted.csv",
+      853
+    ],
+    [
+      "RO\\RO-Waste Management_extracted.csv",
+      541
+    ],
+    [
+      "RO\\RO-Work Clothes_extracted.csv",
+      978
+    ]
+  ]
+}

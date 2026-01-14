@@ -3,7 +3,6 @@ require_once __DIR__ . '/../includes/security_headers.php';
 $basePath = "..";
 
 // 1. Load Registry (Digital Library)
-// This file is the single source of truth for all countries and links
 $registryFile = __DIR__ . '/../../data/digital_library.json';
 $library = [];
 
@@ -13,37 +12,113 @@ if (file_exists($registryFile)) {
     error_log("Titan Registry: Library file not found at " . $registryFile);
 }
 
-// 2. Prepare Catalog Data
-// We iterate the library to build the view structure
+// 2. ISO Mapping (Ensure correct map rendering)
+$isoMap = [
+    'Spain' => 'ES',
+    'United States' => 'US',
+    'Germany' => 'DE',
+    'France' => 'FR',
+    'Italy' => 'IT',
+    'United Kingdom' => 'GB',
+    'Austria' => 'AT',
+    'Belgium' => 'BE',
+    'Brazil' => 'BR',
+    'Canada' => 'CA',
+    'Switzerland' => 'CH',
+    'Indonesia' => 'ID',
+    'Ireland' => 'IE',
+    'Lithuania' => 'LT',
+    'Malaysia' => 'MY',
+    'Netherlands' => 'NL',
+    'Norway' => 'NO',
+    'Poland' => 'PL',
+    'Portugal' => 'PT',
+    'Romania' => 'RO',
+    'Australia' => 'AU',
+    'Chile' => 'CL',
+    'Colombia' => 'CO',
+    'Mexico' => 'MX',
+    'Argentina' => 'AR',
+    'Peru' => 'PE',
+    'Russia' => 'RU',
+    'China' => 'CN',
+    'Japan' => 'JP',
+    'India' => 'IN',
+    'South Korea' => 'KR',
+    'Singapore' => 'SG',
+    'Sweden' => 'SE',
+    'Denmark' => 'DK',
+    'Finland' => 'FI',
+    'Greece' => 'GR',
+    'Turkey' => 'TR',
+    'Czech Republic' => 'CZ',
+    'Hungary' => 'HU',
+    'Slovakia' => 'SK',
+    'Croatia' => 'HR',
+    'Bulgaria' => 'BG',
+    'Serbia' => 'RS',
+    'Slovenia' => 'SI',
+    'Estonia' => 'EE',
+    'Latvia' => 'LV',
+    'Ukraine' => 'UA',
+    'South Africa' => 'ZA',
+    'United Arab Emirates' => 'AE',
+    'Saudi Arabia' => 'SA',
+    'Thailand' => 'TH',
+    'Vietnam' => 'VN',
+    'Philippines' => 'PH',
+    'New Zealand' => 'NZ',
+    'Czechia' => 'CZ',
+    'Slovak Republic' => 'SK'
+];
+
+// 3. Prepare Catalog Data & Map Data
 $groupedCatalog = [];
+$mapValues = [];
 
 foreach ($library as $countryName => $tiers) {
     if ($countryName === '_metadata')
         continue;
 
-    // Check availability
     $openData = $tiers['OpenData'] ?? null;
     $premium = $tiers['Premium'] ?? null;
+    $metrics = $openData['metrics'] ?? ['companies' => 0, 'emails' => 0];
 
-    // We only list if there is Open Data available (or at least placeholder)
+    // Resolve ISO
+    $iso = $isoMap[$countryName] ?? strtoupper(substr($countryName, 0, 2));
+    $slug = strtolower(str_replace(' ', '-', $countryName));
+    $link = "/country/" . $slug;
+
     $groupedCatalog[$countryName] = [
         'name' => $countryName,
-        'iso' => strtoupper(substr($countryName, 0, 2)), // Approximation, or use a map if needed
-        'metrics' => $openData['metrics'] ?? ['companies' => 0],
+        'iso' => $iso,
+        'metrics' => $metrics,
         'links' => $openData['links'] ?? [],
-        'premium_links' => $premium['links'] ?? [], // For upselling logic if needed
-        'updated_at' => $library['_metadata']['last_update'] ?? date('Y-m-d')
+        'premium_links' => $premium['links'] ?? [],
+        'updated_at' => $library['_metadata']['last_update'] ?? date('Y-m-d'),
+        'slug' => $slug,
+        'url' => $link
     ];
+
+    // Prepare Data for Map
+    // Ensure we only map valid ISOs (2 characters)
+    if (strlen($iso) === 2 && ($metrics['companies'] > 0 || $metrics['emails'] > 0)) {
+        $mapValues[$iso] = [
+            'companies' => $metrics['companies'],
+            'emails' => $metrics['emails'],
+            'link' => $link,
+            'name' => $countryName
+        ];
+    }
 }
 
 // Sort alphabetically
 ksort($groupedCatalog);
 
-// 3. Filter Handling (Search/URL)
+// 4. Filter Handling
 $filterJurisdiction = $_GET['jurisdiction'] ?? null;
 
 if ($filterJurisdiction) {
-    // Case insensitive search
     foreach ($groupedCatalog as $name => $data) {
         if (strcasecmp($name, $filterJurisdiction) === 0) {
             $groupedCatalog = [$name => $data];
@@ -52,29 +127,14 @@ if ($filterJurisdiction) {
     }
 }
 
+// 5. SEO
+$pageTitle = "Dataset Map & Catalog | Central.Enterprises";
+$metaDescription = "Interactive global dataset map. Access verified business registries, company records, and contact data for over 50 jurisdictions.";
 
-// --- SEO METADATA GENERATION ---
-$pageTitle = "Dataset Catalog | The Global Reference Layer";
-$metaDescription = "Access the world's most comprehensive open repository of business data. Verify companies, download official registries, and integrate global market intelligence.";
-$canonicalUrl = "https://central.enterprises/data/";
-
-// Dynamic SEO based on active view
 if ($filterJurisdiction && count($groupedCatalog) === 1) {
-    // We are in a specific view
     $ds = current($groupedCatalog);
-
-    if ($filterSector) {
-        // SECTOR VIEW
-        $sectorName = str_replace('-', ' ', $filterSector);
-        $pageTitle = "{$filterJurisdiction} {$sectorName} Database - Verified Business List 2025";
-        $metaDescription = "Download the official list of {$sectorName} in {$filterJurisdiction}. Complete registry with verified contacts, emails, and legal status. Updated 2025.";
-        $canonicalUrl = "https://central.enterprises/data/" . urlencode($filterJurisdiction) . "/" . urlencode($filterSector);
-    } else {
-        // COUNTRY LANDING PAGE
-        $pageTitle = "{$filterJurisdiction} Business Registry - Open Data";
-        $metaDescription = "Official Open Data Record for {$filterJurisdiction}. Access active companies and verified contacts. Download the full {$filterJurisdiction} dataset.";
-        $canonicalUrl = "https://central.enterprises/data/" . urlencode($filterJurisdiction);
-    }
+    $pageTitle = "{$ds['name']} Dataset | Central.Enterprises";
+    $metaDescription = "Download verified {$ds['name']} business data. Companies: " . number_format($ds['metrics']['companies']) . ".";
 }
 ?>
 <!DOCTYPE html>
@@ -84,101 +144,155 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
-    <meta name="robots" content="index, follow">
-    <title><?= htmlspecialchars($pageTitle) ?> | Central.Enterprises</title>
+    <title><?= htmlspecialchars($pageTitle) ?></title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Sora:wght@800;900&display=swap"
         rel="stylesheet">
+
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=11">
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=12">
     <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=logo_native">
-    <script src="<?= $basePath ?>/assets/theme-toggle.js?v=7" defer></script>
+
+    <!-- Map Libraries (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svgmap@2.18.1/dist/svgMap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/svgmap@2.18.1/dist/svgMap.min.css" rel="stylesheet">
+
+    <style>
+        /* Map Customization for Titan Dark */
+        .svgMap-map-wrapper {
+            background: transparent !important;
+            padding-bottom: 0 !important;
+            /* Fix aspect ratio weirdness if needed */
+        }
+
+        .svgMap-map-image {
+            background: transparent !important;
+        }
+
+        .svgMap-country {
+            stroke: #333 !important;
+            stroke-width: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .svgMap-tooltip {
+            background: rgba(10, 10, 10, 0.95) !important;
+            border: 1px solid var(--accent) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+            border-radius: 4px !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        .svgMap-tooltip .svgMap-tooltip-content-container .svgMap-tooltip-flag-container {
+            display: none !important;
+            /* Hide flags for cleaner look */
+        }
+
+        .svgMap-tooltip-title {
+            font-family: 'Sora', sans-serif !important;
+            font-weight: 800 !important;
+            color: var(--text-header) !important;
+            font-size: 1.1rem !important;
+            text-transform: uppercase;
+        }
+
+        .svgMap-tooltip-content {
+            margin-top: 0.5rem;
+        }
+
+        .svgMap-tooltip-content table td {
+            color: var(--text-muted) !important;
+            font-size: 0.85rem !important;
+            padding: 2px 5px !important;
+        }
+
+        .svgMap-tooltip-content table td span {
+            color: var(--accent) !important;
+            font-weight: 600;
+        }
+    </style>
 </head>
 
-<body data-theme="titan-dark">
+<body>
     <div class="grid-bg"></div>
-
     <?php include $basePath . '/includes/header.php'; ?>
 
     <main>
-        <header class="hero">
+        <header class="hero" style="padding-bottom: 2rem;">
             <div class="grid-container">
-                <div class="section-meta">GLOBAL INVENTORY</div>
-                <h1 class="hero-title">DATASET <br>CATALOG.</h1>
+                <div class="section-meta">GLOBAL INTELLIGENCE LAYER</div>
+                <h1 class="hero-title">DATASET MAP.</h1>
                 <div class="hero-desc">
-                    Browse and inspect the institutional datasets currently managed by the Central.Enterprises sovereign
-                    infrastructure.
-                    <?php if ($filterJurisdiction): ?>
-                        <div style="margin-top: 1.5rem;">
-                            <a href="<?= $basePath ?>/data"
-                                style="font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">←
-                                Return to Global Catalog</a>
-                        </div>
-                    <?php endif; ?>
+                    Interactive visualization of sovereign registry coverage. Select a jurisdiction to inspect available
+                    datasets.
                 </div>
-            </div>
-            </div>
             </div>
         </header>
 
-        <!-- SEARCH BAR -->
+        <!-- MAP SECTION -->
+        <?php if (!$filterJurisdiction): ?>
+            <section class="section" style="padding-top: 0;">
+                <div class="grid-container">
+                    <div class="span-12">
+                        <div id="svgMap"
+                            style="width: 100%; height: 600px; border: 1px solid var(--structural-line); background: rgba(255,255,255,0.02); border-radius: 8px;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php endif; ?>
+
+        <!-- SEARCH -->
         <div class="test-search-container"
-            style="background:var(--bg-secondary); border-top:1px solid var(--structural-line); border-bottom:1px solid var(--structural-line);">
+            style="background:var(--bg-secondary); border-top:1px solid var(--structural-line); border-bottom:1px solid var(--structural-line); margin-top: 2rem;">
             <div class="grid-container" style="padding: 1rem 2rem;">
-                <input type="text" id="catalog-search"
-                    placeholder="SEARCH CATALOG (e.g. 'Spain', 'Tax', 'Companies')..." class="titan-input"
+                <input type="text" id="catalog-search" placeholder="SEARCH CATALOG (e.g. 'Spain', 'Companies')..."
+                    class="titan-input"
                     style="font-size:1.2rem; padding:1.5rem; background:transparent; border:none; width:100%; color:var(--text-header);">
             </div>
         </div>
 
+        <!-- TABLE SECTION -->
         <section class="section">
             <div class="grid-container">
-                <!-- TABLE VIEW FOR GLOBAL CATALOG -->
+                <!-- TABLE VIEW -->
                 <?php if (!$filterJurisdiction): ?>
                     <div class="span-12">
                         <div
                             style="background: var(--bg-secondary); border: 1px solid var(--structural-line); overflow: hidden;">
-                            <table class="titan-table" style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <table class="titan-table" style="width: 100%; border-collapse: collapse;">
                                 <thead>
                                     <tr style="border-bottom: 1px solid var(--accent); background: rgba(0,0,0,0.2);">
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--accent); letter-spacing: 0.05em;">
+                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--accent);">
                                             Country</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">
+                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">
                                             ISO</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; text-align: right;">
+                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
                                             Companies</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; text-align: right;">
+                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
                                             Emails</th>
                                         <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; text-align: right;">
-                                            Categories</th>
-                                        <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em;">
-                                            Latest Sync</th>
-                                        <th
-                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; text-align: right;">
-                                            Access</th>
+                                            style="padding: 1.5rem; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); text-align: right;">
+                                            Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($groupedCatalog as $jurisdiction => $ds): ?>
-                                        <tr style="border-bottom: 1px solid var(--structural-line); transition: background 0.2s;"
-                                            onmouseover="this.style.background='rgba(255,255,255,0.02)'"
-                                            onmouseout="this.style.background='transparent'">
-                                            <td style="padding: 1.5rem; font-weight: 700; color: var(--text-header);">
-                                                <?php $slug = strtolower(str_replace(' ', '-', $ds['name'])) . '-business-databases-b2b'; ?>
-                                                <a href="/country/<?= $slug ?>"
+                                    <?php foreach ($groupedCatalog as $name => $ds): ?>
+                                        <tr style="border-bottom: 1px solid var(--structural-line);">
+                                            <td style="padding: 1.5rem; font-weight: 700;">
+                                                <a href="<?= $ds['url'] ?>"
                                                     style="color: inherit; text-decoration: none; display: flex; align-items: center;">
                                                     <span
                                                         style="display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 1rem;"></span>
-                                                    <?= strtoupper($ds['name']) ?>
+                                                    <?= strtoupper($name) ?>
                                                 </a>
                                             </td>
                                             <td style="padding: 1.5rem; font-family: monospace; opacity: 0.7;"><?= $ds['iso'] ?>
@@ -190,19 +304,9 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                                                 style="padding: 1.5rem; text-align: right; font-family: 'Sora', sans-serif; opacity: 0.8;">
                                                 <?= number_format($ds['metrics']['emails']) ?>
                                             </td>
-                                            <td
-                                                style="padding: 1.5rem; text-align: right; font-family: 'Sora', sans-serif; opacity: 0.8;">
-                                                <?= number_format($ds['metrics']['categories']) ?>
-                                            </td>
-                                            <td style="padding: 1.5rem; font-size: 0.85rem; opacity: 0.6;">
-                                                <?= date('M d, Y', strtotime($ds['updated_at'])) ?>
-                                            </td>
                                             <td style="padding: 1.5rem; text-align: right;">
-                                                <a href="/country/<?= strtolower(str_replace(' ', '-', $ds['name'])) ?>-business-databases-b2b"
-                                                    class="btn-institutional small"
-                                                    style="padding: 0.5rem 1rem; font-size: 0.7rem; border: 1px solid var(--structural-line); text-decoration: none; color: var(--text-header);">
-                                                    INSPECT
-                                                </a>
+                                                <a href="<?= $ds['url'] ?>" class="btn-institutional small"
+                                                    style="padding: 0.5rem 1rem; font-size: 0.7rem; border: 1px solid var(--structural-line); text-decoration: none; color: var(--text-header);">INSPECT</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -211,84 +315,12 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
                         </div>
                     </div>
                 <?php else: ?>
-                    <!-- SINGLE COUNTRY VIEW -->
-                    <?php
-                    // Since filter logic (ln 94 approx) effectively reduces groupedCatalog to 1 item
-                    // We can just iterate the single item
-                    $ds = current($groupedCatalog);
-                    $jurisdiction = key($groupedCatalog);
-                    ?>
-                    <div id="assets-<?= $jurisdiction ?>" class="span-12"
-                        style="margin-top: 4rem; padding-top: 4rem; border-top: 1px solid var(--structural-line);">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3rem;">
-                            <h3 class="titan-label" style="font-size: 1.5rem; color:white;"><?= strtoupper($ds['name']) ?>
-                                | REPOSITORY</h3>
-                            <a href="?" style="font-size: 0.8rem; opacity: 0.6; text-decoration: none;">← Back to Index</a>
-                        </div>
-
-                        <!-- OPEN DATA ASSETS -->
-                        <?php if (!empty($ds['links'])): ?>
-                            <div style="margin-bottom: 4rem;">
-                                <h4 class="titan-label" style="margin-bottom: 2rem;">🔓 OPEN DATA (PUBLIC LICENSE)</h4>
-                                <div class="grid-container" style="padding:0">
-                                    <div class="span-12"
-                                        style="background: var(--bg-secondary); padding: 2rem; border: 1px solid var(--accent);">
-                                        <div
-                                            style="font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-header);">
-                                            <?= $ds['name'] ?> Official Registry (Open Data)
-                                        </div>
-                                        <div style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">
-                                            Full masked dataset for <?= $ds['name'] ?>. Includes Company Names, IDs, Cities, and
-                                            masked emails.
-                                        </div>
-
-                                        <div style="display: flex; gap: 0.5rem; flex-wrap:wrap;">
-                                            <?php foreach ($ds['links'] as $format => $link):
-                                                $icon = '📎';
-                                                if ($format === 'ZIP')
-                                                    $icon = '📦';
-                                                if ($format === 'CSV')
-                                                    $icon = '📄';
-                                                if ($format === 'Excel')
-                                                    $icon = '📊';
-                                                ?>
-                                                <a href="<?= $link ?>" target="_blank" class="btn-institutional primary"
-                                                    style="padding: 0.75rem 1.5rem; font-size: 0.7rem;">
-                                                    <span style="margin-right: 0.5rem;"><?= $icon ?></span>
-                                                    DOWNLOAD <?= strtoupper($format) ?>
-                                                </a>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-
-                        <!-- PREMIUM ASSETS (UPSCREEN) -->
-                        <?php if (!empty($ds['premium_links'])): ?>
-                            <div>
-                                <h4 class="titan-label" style="margin-bottom: 2rem; color:var(--accent);">🔒 PREMIUM DATA (FULL
-                                    CONTACTS)</h4>
-                                <div class="grid-container" style="padding:0">
-                                    <div class="span-12"
-                                        style="background: rgba(255,255,255,0.05); padding: 2rem; border: 1px dashed var(--structural-line);">
-                                        <div
-                                            style="font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-muted);">
-                                            <?= $ds['name'] ?> Complete Marketing Database
-                                        </div>
-                                        <div style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 1.5rem;">
-                                            Includes unmasked emails, direct phone numbers, and full executive contacts.
-                                        </div>
-                                        <div style="display: flex; gap: 0.5rem;">
-                                            <a href="/pro" class="btn-institutional secondary" style="opacity:0.7">
-                                                Upgrade to Access
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                    <!-- SINGLE COUNTRY VIEW (Legacy fallback or specific view) -->
+                    <?php $ds = current($groupedCatalog); ?>
+                    <div class="span-12" style="margin-top: 2rem;">
+                        <a href="<?= $basePath ?>/data" style="margin-bottom:2rem; display:block;">← Back to Map</a>
+                        <h2 class="section-title"><?= $ds['name'] ?></h2>
+                        <a href="<?= $ds['url'] ?>" class="btn-institutional primary">Go to Country Page</a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -297,23 +329,84 @@ if ($filterJurisdiction && count($groupedCatalog) === 1) {
 
     <?php include $basePath . '/includes/footer.php'; ?>
 
-    <script>
-        // Simple Client-Side Search
-        document.getElementById('catalog-search').addEventListener('input', function (e) {
-            const term = e.target.value.toLowerCase();
-            const isTable = document.querySelector('table.titan-table');
+    <!-- Theme Toggle Logic -->
+    <script src="<?= $basePath ?>/assets/theme-toggle.js?v=2"></script>
 
-            if (isTable) {
-                // Filter Table Rows
+    <!-- Map Initialization Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Only init map if container exists
+            if (document.getElementById('svgMap')) {
+                var mapData = <?= json_encode($mapValues) ?>;
+
+                new svgMap({
+                    targetElementID: 'svgMap',
+                    data: {
+                        data: {
+                            companies: {
+                                name: 'Companies',
+                                format: '{0}',
+                                thousandSeparator: ',',
+                                thresholdMax: 2000000,
+                                thresholdMin: 0
+                            },
+                            emails: {
+                                name: 'Emails',
+                                format: '{0}',
+                                thousandSeparator: ','
+                            }
+                        },
+                        applyData: 'companies',
+                        values: mapData
+                    },
+                    colorMin: '#1a1a1a',
+                    colorMax: '#00e5ff', // Titan Accent Cyan
+                    colorNoData: '#ffffff',
+                    minZoom: 1.0,
+                    maxZoom: 3.5,
+                    initialZoom: 1.06,
+                    flagType: 'emoji', // Lightweight
+                    showContinentSelector: false,
+                });
+
+                // Custom Click Handling for Navigation
+                var mapContainer = document.getElementById('svgMap');
+                mapContainer.addEventListener('click', function (e) {
+                    var target = e.target;
+                    while (target && target !== mapContainer && target.tagName !== 'path') {
+                        target = target.parentNode;
+                    }
+
+                    if (target && target.tagName === 'path') {
+                        var id = target.getAttribute('id');
+                        if (id && id.includes('country-')) {
+                            var iso = id.split('country-')[1]; // ES
+                            if (mapData[iso] && mapData[iso].link) {
+                                window.location.href = mapData[iso].link;
+                            }
+                        }
+                    }
+                });
+
+                // Add cursor pointer styles dynamically
+                var styleElement = document.createElement('style');
+                var css = '';
+                for (var iso in mapData) {
+                    css += '#svgMap-map-country-' + iso + ' { cursor: pointer; fill-opacity: 1 !important; stroke: #fff !important; } ';
+                }
+                styleElement.type = 'text/css';
+                styleElement.appendChild(document.createTextNode(css));
+                document.head.appendChild(styleElement);
+            }
+
+            // Search Filter
+            document.getElementById('catalog-search').addEventListener('input', function (e) {
+                const term = e.target.value.toLowerCase();
                 document.querySelectorAll('table.titan-table tbody tr').forEach(row => {
                     const text = row.innerText.toLowerCase();
                     row.style.display = text.includes(term) ? 'table-row' : 'none';
                 });
-            } else {
-                // Filter Asset Cards (Single View)
-                // In single view, we probably don't need search as much, or just search sections?
-                // For now, let's just ensure we don't break.
-            }
+            });
         });
     </script>
 </body>

@@ -1,0 +1,235 @@
+{
+  "country": "Portugal",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 79498,
+    "emails_unique": 51726,
+    "email_domains_unique": 26662,
+    "web_domains_unique": 56771,
+    "hosts_unique": 60399,
+    "phones_unique": 70315,
+    "sector_count": 2255,
+    "rows_with_email": 40017,
+    "rows_with_website": 79498,
+    "rows_with_phone": 74474,
+    "rows_with_any_social": 42079,
+    "rows_with_feed": 26469,
+    "social_counts": {
+      "facebook": 37634,
+      "instagram": 30879,
+      "linkedin": 15587,
+      "twitter": 7511,
+      "tiktok": 2155,
+      "youtube": 11779
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "PT\\PT-Architects_extracted.csv",
+      2485
+    ],
+    [
+      "PT\\PT-Banks_extracted.csv",
+      806
+    ],
+    [
+      "PT\\PT-BarsAndNightclubs_extracted.csv",
+      1030
+    ],
+    [
+      "PT\\PT-BeautyCenters_extracted.csv",
+      1914
+    ],
+    [
+      "PT\\PT-Bookstores_extracted.csv",
+      505
+    ],
+    [
+      "PT\\PT-Cafes_extracted.csv",
+      1703
+    ],
+    [
+      "PT\\PT-Car Dealerships_extracted.csv",
+      1676
+    ],
+    [
+      "PT\\PT-Carpentries_extracted.csv",
+      237
+    ],
+    [
+      "PT\\PT-Cleaning_extracted.csv",
+      1538
+    ],
+    [
+      "PT\\PT-Clinics_extracted.csv",
+      4308
+    ],
+    [
+      "PT\\PT-Clothing_extracted.csv",
+      2919
+    ],
+    [
+      "PT\\PT-Construction Suppliers_extracted.csv",
+      3571
+    ],
+    [
+      "PT\\PT-Construction_extracted.csv",
+      4585
+    ],
+    [
+      "PT\\PT-Consulting_extracted.csv",
+      5755
+    ],
+    [
+      "PT\\PT-Dentists_extracted.csv",
+      1902
+    ],
+    [
+      "PT\\PT-Electronics_extracted.csv",
+      2910
+    ],
+    [
+      "PT\\PT-Florist_extracted.csv",
+      386
+    ],
+    [
+      "PT\\PT-Foundations_extracted.csv",
+      1247
+    ],
+    [
+      "PT\\PT-Furniture_extracted.csv",
+      1722
+    ],
+    [
+      "PT\\PT-GasStations_extracted.csv",
+      1084
+    ],
+    [
+      "PT\\PT-Gyms_extracted.csv",
+      1109
+    ],
+    [
+      "PT\\PT-Hardware_extracted.csv",
+      950
+    ],
+    [
+      "PT\\PT-Hotels_extracted.csv",
+      3940
+    ],
+    [
+      "PT\\PT-HumanResources_extracted.csv",
+      797
+    ],
+    [
+      "PT\\PT-Insurance_extracted.csv",
+      2103
+    ],
+    [
+      "PT\\PT-InteriorDesign_extracted.csv",
+      2070
+    ],
+    [
+      "PT\\PT-ITCompanies_extracted.csv",
+      5559
+    ],
+    [
+      "PT\\PT-JewelryStores_extracted.csv",
+      1255
+    ],
+    [
+      "PT\\PT-Laboratories_extracted.csv",
+      1307
+    ],
+    [
+      "PT\\PT-Lawyers_extracted.csv",
+      1515
+    ],
+    [
+      "PT\\PT-Manufacturing_extracted.csv",
+      5327
+    ],
+    [
+      "PT\\PT-Marketing_extracted.csv",
+      4053
+    ],
+    [
+      "PT\\PT-Mechanics_extracted.csv",
+      1576
+    ],
+    [
+      "PT\\PT-MovingCompanies_extracted.csv",
+      1533
+    ],
+    [
+      "PT\\PT-NursingHomes_extracted.csv",
+      1179
+    ],
+    [
+      "PT\\PT-Nutrition_extracted.csv",
+      1559
+    ],
+    [
+      "PT\\PT-Opticians_extracted.csv",
+      1061
+    ],
+    [
+      "PT\\PT-Orthopaedics_extracted.csv",
+      549
+    ],
+    [
+      "PT\\PT-OrthopedicShops_extracted.csv",
+      339
+    ],
+    [
+      "PT\\PT-Pet_extracted.csv",
+      1813
+    ],
+    [
+      "PT\\PT-Pharmacies_extracted.csv",
+      1224
+    ],
+    [
+      "PT\\PT-PrintingShops_extracted.csv",
+      1712
+    ],
+    [
+      "PT\\PT-Real-State_extracted.csv",
+      3371
+    ],
+    [
+      "PT\\PT-Restaurants_extracted.csv",
+      3636
+    ],
+    [
+      "PT\\PT-Security_extracted.csv",
+      1220
+    ],
+    [
+      "PT\\PT-Shops_extracted.csv",
+      4728
+    ],
+    [
+      "PT\\PT-SportsClubs_extracted.csv",
+      2646
+    ],
+    [
+      "PT\\PT-Textile_extracted.csv",
+      2888
+    ],
+    [
+      "PT\\PT-Transport_extracted.csv",
+      2034
+    ],
+    [
+      "PT\\PT-Travel-Agency_extracted.csv",
+      3226
+    ],
+    [
+      "PT\\PT-Work Clothes_extracted.csv",
+      780
+    ]
+  ]
+}

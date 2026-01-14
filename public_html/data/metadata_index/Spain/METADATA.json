@@ -1,0 +1,635 @@
+{
+  "country": "Spain",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 651154,
+    "emails_unique": 404039,
+    "email_domains_unique": 238896,
+    "web_domains_unique": 483795,
+    "hosts_unique": 509473,
+    "phones_unique": 576512,
+    "sector_count": 4627,
+    "rows_with_email": 366462,
+    "rows_with_website": 651154,
+    "rows_with_phone": 619273,
+    "rows_with_any_social": 350087,
+    "rows_with_feed": 297976,
+    "social_counts": {
+      "facebook": 283979,
+      "instagram": 261549,
+      "linkedin": 100603,
+      "twitter": 122732,
+      "tiktok": 28401,
+      "youtube": 107474
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "ES\\ES-Abogados_extracted.csv",
+      16042
+    ],
+    [
+      "ES\\ES-Administraciones de Lotería_extracted.csv",
+      1432
+    ],
+    [
+      "ES\\ES-Administradores Fincas_extracted.csv",
+      4271
+    ],
+    [
+      "ES\\ES-Agencias de viajes_extracted.csv",
+      9825
+    ],
+    [
+      "ES\\ES-Agricultura_extracted.csv",
+      10048
+    ],
+    [
+      "ES\\ES-Almacenes_extracted.csv",
+      13501
+    ],
+    [
+      "ES\\ES-Alquiler de maquinaria y equipos_extracted.csv",
+      2677
+    ],
+    [
+      "ES\\ES-Arquitectos_extracted.csv",
+      11775
+    ],
+    [
+      "ES\\ES-Asesorías_extracted.csv",
+      18452
+    ],
+    [
+      "ES\\ES-Asociaciones_extracted.csv",
+      24607
+    ],
+    [
+      "ES\\ES-Autoescuela_extracted.csv",
+      4252
+    ],
+    [
+      "ES\\ES-Ayuda a Domicilio_extracted.csv",
+      4265
+    ],
+    [
+      "ES\\ES-Ayuntamiento_extracted.csv",
+      909
+    ],
+    [
+      "ES\\ES-Bancos_extracted.csv",
+      6273
+    ],
+    [
+      "ES\\ES-Bares_extracted.csv",
+      4468
+    ],
+    [
+      "ES\\ES-Bodas_extracted.csv",
+      14480
+    ],
+    [
+      "ES\\ES-Bodegas_extracted.csv",
+      4666
+    ],
+    [
+      "ES\\ES-Bricolaje_extracted.csv",
+      7645
+    ],
+    [
+      "ES\\ES-Cafeterías_extracted.csv",
+      13720
+    ],
+    [
+      "ES\\ES-Calzado_extracted.csv",
+      7059
+    ],
+    [
+      "ES\\ES-Campamentos_extracted.csv",
+      6871
+    ],
+    [
+      "ES\\ES-Carnicerias_extracted.csv",
+      2757
+    ],
+    [
+      "ES\\ES-Carpinterías_extracted.csv",
+      8930
+    ],
+    [
+      "ES\\ES-Catering_extracted.csv",
+      7585
+    ],
+    [
+      "ES\\ES-Cementerios_extracted.csv",
+      467
+    ],
+    [
+      "ES\\ES-Centros de belleza_extracted.csv",
+      16421
+    ],
+    [
+      "ES\\ES-Centros de bienestar_extracted.csv",
+      11981
+    ],
+    [
+      "ES\\ES-Centros de estética_extracted.csv",
+      14508
+    ],
+    [
+      "ES\\ES-Centros educativos_extracted.csv",
+      15707
+    ],
+    [
+      "ES\\ES-Climatizacion_extracted.csv",
+      6459
+    ],
+    [
+      "ES\\ES-Clinica veterinaria_extracted.csv",
+      3574
+    ],
+    [
+      "ES\\ES-Clínicas_extracted.csv",
+      23818
+    ],
+    [
+      "ES\\ES-Colegios mayores_extracted.csv",
+      5941
+    ],
+    [
+      "ES\\ES-Comercio_extracted.csv",
+      26996
+    ],
+    [
+      "ES\\ES-Concesionarios_extracted.csv",
+      9964
+    ],
+    [
+      "ES\\ES-Construcciones de obras y contratas_extracted.csv",
+      3178
+    ],
+    [
+      "ES\\ES-Construcción_extracted.csv",
+      28569
+    ],
+    [
+      "ES\\ES-Constructoras_extracted.csv",
+      23997
+    ],
+    [
+      "ES\\ES-Consultoría_extracted.csv",
+      31297
+    ],
+    [
+      "ES\\ES-Consultorías_extracted.csv",
+      24355
+    ],
+    [
+      "ES\\ES-Contabilidad_extracted.csv",
+      10366
+    ],
+    [
+      "ES\\ES-Cooperativas_extracted.csv",
+      4900
+    ],
+    [
+      "ES\\ES-Dentistas_extracted.csv",
+      15657
+    ],
+    [
+      "ES\\ES-Desguaces-_extracted.csv",
+      1169
+    ],
+    [
+      "ES\\ES-Discotecas_extracted.csv",
+      4403
+    ],
+    [
+      "ES\\ES-Diseño de interiores_extracted.csv",
+      8763
+    ],
+    [
+      "ES\\ES-Disfraces_extracted.csv",
+      2083
+    ],
+    [
+      "ES\\ES-Editoriales_extracted.csv",
+      7737
+    ],
+    [
+      "ES\\ES-Electrodomesticos_extracted.csv",
+      5315
+    ],
+    [
+      "ES\\ES-Electrónica_extracted.csv",
+      15828
+    ],
+    [
+      "ES\\ES-Emisoras_extracted.csv",
+      2331
+    ],
+    [
+      "ES\\ES-Escuelas_extracted.csv",
+      22992
+    ],
+    [
+      "ES\\ES-Estaciones de servicio_extracted.csv",
+      6449
+    ],
+    [
+      "ES\\ES-Estancos_extracted.csv",
+      810
+    ],
+    [
+      "ES\\ES-Exportadoras_extracted.csv",
+      2714
+    ],
+    [
+      "ES\\ES-Fabrica_extracted.csv",
+      27456
+    ],
+    [
+      "ES\\ES-Fabricación de maquinaria_extracted.csv",
+      7816
+    ],
+    [
+      "ES\\ES-Fabricación de metal_extracted.csv",
+      7372
+    ],
+    [
+      "ES\\ES-Fabricantes_extracted.csv",
+      29140
+    ],
+    [
+      "ES\\ES-Farmacias_extracted.csv",
+      5348
+    ],
+    [
+      "ES\\ES-Ferreterías_extracted.csv",
+      3027
+    ],
+    [
+      "ES\\ES-Finanzas_extracted.csv",
+      14327
+    ],
+    [
+      "ES\\ES-Fisioterapia_extracted.csv",
+      11365
+    ],
+    [
+      "ES\\ES-Floristerías_extracted.csv",
+      2790
+    ],
+    [
+      "ES\\ES-Fontaneros_extracted.csv",
+      4036
+    ],
+    [
+      "ES\\ES-Fotografos_extracted.csv",
+      15974
+    ],
+    [
+      "ES\\ES-Fruterías_extracted.csv",
+      3006
+    ],
+    [
+      "ES\\ES-Fundaciones_extracted.csv",
+      21099
+    ],
+    [
+      "ES\\ES-Funerarias_extracted.csv",
+      1878
+    ],
+    [
+      "ES\\ES-Fábricas de alimentación_extracted.csv",
+      11936
+    ],
+    [
+      "ES\\ES-Galerías de arte_extracted.csv",
+      4763
+    ],
+    [
+      "ES\\ES-Ganadería_extracted.csv",
+      2191
+    ],
+    [
+      "ES\\ES-Gasolineras_extracted.csv",
+      5610
+    ],
+    [
+      "ES\\ES-Gestión de residuos_extracted.csv",
+      3263
+    ],
+    [
+      "ES\\ES-Gestorías_extracted.csv",
+      9690
+    ],
+    [
+      "ES\\ES-Gimnasios_extracted.csv",
+      9413
+    ],
+    [
+      "ES\\ES-Guarderías_extracted.csv",
+      4034
+    ],
+    [
+      "ES\\ES-Herbolarios_extracted.csv",
+      1524
+    ],
+    [
+      "ES\\ES-Hospital veterinario_extracted.csv",
+      2715
+    ],
+    [
+      "ES\\ES-Hospitales_extracted.csv",
+      3790
+    ],
+    [
+      "ES\\ES-Hostales-Central.xlsx",
+      4221
+    ],
+    [
+      "ES\\ES-Hostales_extracted.csv",
+      4221
+    ],
+    [
+      "ES\\ES-Hostelería-Central.xlsx",
+      16057
+    ],
+    [
+      "ES\\ES-Hostelería_extracted.csv",
+      16057
+    ],
+    [
+      "ES\\ES-Hoteles-Central.xlsx",
+      15649
+    ],
+    [
+      "ES\\ES-Hoteles_extracted.csv",
+      15649
+    ],
+    [
+      "ES\\ES-Imprentas_extracted.csv",
+      8209
+    ],
+    [
+      "ES\\ES-Informática_extracted.csv",
+      16229
+    ],
+    [
+      "ES\\ES-Inmobiliarias_extracted.csv",
+      19312
+    ],
+    [
+      "ES\\ES-Institutos_extracted.csv",
+      7451
+    ],
+    [
+      "ES\\ES-Jardineria_extracted.csv",
+      9189
+    ],
+    [
+      "ES\\ES-Joyerías_extracted.csv",
+      5142
+    ],
+    [
+      "ES\\ES-Juegos y Videojuegos_extracted.csv",
+      2030
+    ],
+    [
+      "ES\\ES-Jugueterías_extracted.csv",
+      7696
+    ],
+    [
+      "ES\\ES-Laboratorios_extracted.csv",
+      5317
+    ],
+    [
+      "ES\\ES-Lavanderías_extracted.csv",
+      2440
+    ],
+    [
+      "ES\\ES-Librerías_extracted.csv",
+      4887
+    ],
+    [
+      "ES\\ES-Limpieza_extracted.csv",
+      10444
+    ],
+    [
+      "ES\\ES-Marketing_extracted.csv",
+      22792
+    ],
+    [
+      "ES\\ES-Marmolistas_extracted.csv",
+      1178
+    ],
+    [
+      "ES\\ES-Mascotas_extracted.csv",
+      7162
+    ],
+    [
+      "ES\\ES-Mataderos_extracted.csv",
+      1212
+    ],
+    [
+      "ES\\ES-Mayoristas de pescado_extracted.csv",
+      2034
+    ],
+    [
+      "ES\\ES-Medios de comunicacion_extracted.csv",
+      17020
+    ],
+    [
+      "ES\\ES-Minería_extracted.csv",
+      5252
+    ],
+    [
+      "ES\\ES-Mudanzas_extracted.csv",
+      4285
+    ],
+    [
+      "ES\\ES-Muebles_extracted.csv",
+      10922
+    ],
+    [
+      "ES\\ES-Museos_extracted.csv",
+      3222
+    ],
+    [
+      "ES\\ES-Nutrición_extracted.csv",
+      8232
+    ],
+    [
+      "ES\\ES-ONG_extracted.csv",
+      5715
+    ],
+    [
+      "ES\\ES-Opticas_extracted.csv",
+      4683
+    ],
+    [
+      "ES\\ES-Ortopedias_extracted.csv",
+      1766
+    ],
+    [
+      "ES\\ES-Panaderías_extracted.csv",
+      5229
+    ],
+    [
+      "ES\\ES-Papelerías_extracted.csv",
+      5108
+    ],
+    [
+      "ES\\ES-Parafarmacias_extracted.csv",
+      3777
+    ],
+    [
+      "ES\\ES-Pastelerías_extracted.csv",
+      5378
+    ],
+    [
+      "ES\\ES-Peluquerías_extracted.csv",
+      10071
+    ],
+    [
+      "ES\\ES-Perfumerias_extracted.csv",
+      3518
+    ],
+    [
+      "ES\\ES-Pescaderías_extracted.csv",
+      1488
+    ],
+    [
+      "ES\\ES-Pinturas_extracted.csv",
+      5712
+    ],
+    [
+      "ES\\ES-Productoras Audiovisuales_extracted.csv",
+      5966
+    ],
+    [
+      "ES\\ES-Productoras_extracted.csv",
+      21639
+    ],
+    [
+      "ES\\ES-Proveedores de construcción_extracted.csv",
+      25279
+    ],
+    [
+      "ES\\ES-Psicologos_extracted.csv",
+      15121
+    ],
+    [
+      "ES\\ES-Puertos_extracted.csv",
+      2323
+    ],
+    [
+      "ES\\ES-Recursos humanos_extracted.csv",
+      6795
+    ],
+    [
+      "ES\\ES-Reformas_extracted.csv",
+      13980
+    ],
+    [
+      "ES\\ES-Renovables_extracted.csv",
+      5353
+    ],
+    [
+      "ES\\ES-Residencias de Ancianos_extracted.csv",
+      3309
+    ],
+    [
+      "ES\\ES-Residencias de estudiantes_extracted.csv",
+      2433
+    ],
+    [
+      "ES\\ES-Residencias de mayores_extracted.csv",
+      3650
+    ],
+    [
+      "ES\\ES-Restaurantes_extracted.csv",
+      4939
+    ],
+    [
+      "ES\\ES-Ropa de trabajo_extracted.csv",
+      3360
+    ],
+    [
+      "ES\\ES-Ropa_extracted.csv",
+      17925
+    ],
+    [
+      "ES\\ES-Salud Mental_extracted.csv",
+      11270
+    ],
+    [
+      "ES\\ES-Segunda Mano_extracted.csv",
+      6492
+    ],
+    [
+      "ES\\ES-Seguridad_extracted.csv",
+      8629
+    ],
+    [
+      "ES\\ES-Servicios Sociales_extracted.csv",
+      2563
+    ],
+    [
+      "ES\\ES-Spas_extracted.csv",
+      13440
+    ],
+    [
+      "ES\\ES-Supermercados_extracted.csv",
+      11926
+    ],
+    [
+      "ES\\ES-Talleres mecánicos_extracted.csv",
+      10798
+    ],
+    [
+      "ES\\ES-Tatuajes_extracted.csv",
+      2207
+    ],
+    [
+      "ES\\ES-Telefonía movil_extracted.csv",
+      6854
+    ],
+    [
+      "ES\\ES-Textil_extracted.csv",
+      5928
+    ],
+    [
+      "ES\\ES-Tiendas de Bebé_extracted.csv",
+      2755
+    ],
+    [
+      "ES\\ES-Tiendas de Ropa_extracted.csv",
+      15691
+    ],
+    [
+      "ES\\ES-Tiendas_extracted.csv",
+      28028
+    ],
+    [
+      "ES\\ES-Transporte de mercancías_extracted.csv",
+      6960
+    ],
+    [
+      "ES\\ES-Transporte de pasajeros_extracted.csv",
+      5606
+    ],
+    [
+      "ES\\ES-Traumatologia-Reumatologos_extracted.csv",
+      971
+    ],
+    [
+      "ES\\ES-Veterinarios_extracted.csv",
+      4177
+    ]
+  ]
+}

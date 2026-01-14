@@ -1,0 +1,247 @@
+{
+  "country": "Malaysia",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 52504,
+    "emails_unique": 31623,
+    "email_domains_unique": 12768,
+    "web_domains_unique": 33095,
+    "hosts_unique": 36372,
+    "phones_unique": 47702,
+    "sector_count": 2342,
+    "rows_with_email": 21572,
+    "rows_with_website": 52504,
+    "rows_with_phone": 50145,
+    "rows_with_any_social": 26874,
+    "rows_with_feed": 16982,
+    "social_counts": {
+      "facebook": 24796,
+      "instagram": 18107,
+      "linkedin": 4780,
+      "twitter": 6482,
+      "tiktok": 6100,
+      "youtube": 9702
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "MY\\MY-Architects_extracted.csv",
+      916
+    ],
+    [
+      "MY\\MY-Art Galleries_extracted.csv",
+      504
+    ],
+    [
+      "MY\\MY-Banks_extracted.csv",
+      381
+    ],
+    [
+      "MY\\MY-Bars and Nightclubs_extracted.csv",
+      601
+    ],
+    [
+      "MY\\MY-Beauty Centers_extracted.csv",
+      1052
+    ],
+    [
+      "MY\\MY-Bookstores_extracted.csv",
+      552
+    ],
+    [
+      "MY\\MY-Cafes_extracted.csv",
+      1194
+    ],
+    [
+      "MY\\MY-Car Dealerships_extracted.csv",
+      1534
+    ],
+    [
+      "MY\\MY-Carpentries_extracted.csv",
+      425
+    ],
+    [
+      "MY\\MY-Cleaning_extracted.csv",
+      1146
+    ],
+    [
+      "MY\\MY-Clothing_extracted.csv",
+      2073
+    ],
+    [
+      "MY\\MY-Construction suppliers_extracted.csv",
+      1996
+    ],
+    [
+      "MY\\MY-Construction_extracted.csv",
+      1766
+    ],
+    [
+      "MY\\MY-Consulting_extracted.csv",
+      3040
+    ],
+    [
+      "MY\\MY-Dentists_extracted.csv",
+      1022
+    ],
+    [
+      "MY\\MY-Education center_extracted.csv",
+      2150
+    ],
+    [
+      "MY\\MY-Electronics_extracted.csv",
+      1858
+    ],
+    [
+      "MY\\MY-Florists_extracted.csv",
+      750
+    ],
+    [
+      "MY\\MY-Furniture_extracted.csv",
+      1273
+    ],
+    [
+      "MY\\MY-Gas Stations_extracted.csv",
+      1230
+    ],
+    [
+      "MY\\MY-Gyms_extracted.csv",
+      493
+    ],
+    [
+      "MY\\MY-Hardware_extracted.csv",
+      805
+    ],
+    [
+      "MY\\MY-Hotels_extracted.csv",
+      2812
+    ],
+    [
+      "MY\\MY-Human Resources_extracted.csv",
+      1130
+    ],
+    [
+      "MY\\MY-Insurance_extracted.csv",
+      983
+    ],
+    [
+      "MY\\MY-Interior Design_extracted.csv",
+      1428
+    ],
+    [
+      "MY\\MY-IT Companies_extracted.csv",
+      4126
+    ],
+    [
+      "MY\\MY-Jewelry_extracted.csv",
+      938
+    ],
+    [
+      "MY\\MY-Laboratories_extracted.csv",
+      933
+    ],
+    [
+      "MY\\MY-Lawyers_extracted.csv",
+      1145
+    ],
+    [
+      "MY\\MY-Legal Accounting_extracted.csv",
+      827
+    ],
+    [
+      "MY\\MY-Livestock_extracted.csv",
+      101
+    ],
+    [
+      "MY\\MY-Manufacturing_extracted.csv",
+      3937
+    ],
+    [
+      "MY\\MY-Mechanics_extracted.csv",
+      956
+    ],
+    [
+      "MY\\MY-Mining_extracted.csv",
+      1697
+    ],
+    [
+      "MY\\MY-Moving Companies_extracted.csv",
+      1063
+    ],
+    [
+      "MY\\MY-Museums_extracted.csv",
+      408
+    ],
+    [
+      "MY\\MY-Nutrition_extracted.csv",
+      634
+    ],
+    [
+      "MY\\MY-Opticians_extracted.csv",
+      477
+    ],
+    [
+      "MY\\MY-Orthopedic_extracted.csv",
+      368
+    ],
+    [
+      "MY\\MY-Pharmacies_extracted.csv",
+      411
+    ],
+    [
+      "MY\\MY-Printing_extracted.csv",
+      1703
+    ],
+    [
+      "MY\\MY-Real State_extracted.csv",
+      963
+    ],
+    [
+      "MY\\MY-Restaurants_extracted.csv",
+      1577
+    ],
+    [
+      "MY\\MY-Security_extracted.csv",
+      747
+    ],
+    [
+      "MY\\MY-Shops_extracted.csv",
+      2724
+    ],
+    [
+      "MY\\MY-Sports Clubs_extracted.csv",
+      1120
+    ],
+    [
+      "MY\\MY-Textile_extracted.csv",
+      1503
+    ],
+    [
+      "MY\\MY-Transport_extracted.csv",
+      1433
+    ],
+    [
+      "MY\\MY-Travel_extracted.csv",
+      1945
+    ],
+    [
+      "MY\\MY-Veterinarian_extracted.csv",
+      232
+    ],
+    [
+      "MY\\MY-Waste Management_extracted.csv",
+      582
+    ],
+    [
+      "MY\\MY-Work Clothes_extracted.csv",
+      1639
+    ],
+    [
+      "MY\\MY_Pet_extracted.csv",
+      867
+    ]
+  ]
+}

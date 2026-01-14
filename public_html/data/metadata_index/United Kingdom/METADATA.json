@@ -1,0 +1,383 @@
+{
+  "country": "United Kingdom",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 1121392,
+    "emails_unique": 561743,
+    "email_domains_unique": 303125,
+    "web_domains_unique": 805855,
+    "hosts_unique": 832650,
+    "phones_unique": 952438,
+    "sector_count": 5731,
+    "rows_with_email": 491914,
+    "rows_with_website": 1121392,
+    "rows_with_phone": 1047708,
+    "rows_with_any_social": 567111,
+    "rows_with_feed": 310150,
+    "social_counts": {
+      "facebook": 501576,
+      "instagram": 377352,
+      "linkedin": 170922,
+      "twitter": 243183,
+      "tiktok": 65274,
+      "youtube": 147168
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "UK\\UK-Architects_extracted.csv",
+      12379
+    ],
+    [
+      "UK\\UK-ArtGalleries_extracted.csv",
+      5519
+    ],
+    [
+      "UK\\UK-Associations_extracted.csv",
+      50007
+    ],
+    [
+      "UK\\UK-Bakeries_extracted.csv",
+      11878
+    ],
+    [
+      "UK\\UK-Banks_extracted.csv",
+      7693
+    ],
+    [
+      "UK\\UK-BarsAndNightclubs_extracted.csv",
+      18857
+    ],
+    [
+      "UK\\UK-BeautyCenters_extracted.csv",
+      25272
+    ],
+    [
+      "UK\\UK-Bookstores_extracted.csv",
+      3585
+    ],
+    [
+      "UK\\UK-Butcher_extracted.csv",
+      2830
+    ],
+    [
+      "UK\\UK-Cafés_extracted.csv",
+      19407
+    ],
+    [
+      "UK\\UK-Car Wash_extracted.csv",
+      9558
+    ],
+    [
+      "UK\\UK-CarDealerships_extracted.csv",
+      19089
+    ],
+    [
+      "UK\\UK-Carpentries_extracted.csv",
+      7255
+    ],
+    [
+      "UK\\UK-Casino_extracted.csv",
+      2650
+    ],
+    [
+      "UK\\UK-Catering_extracted.csv",
+      17887
+    ],
+    [
+      "UK\\UK-Childcare_extracted.csv",
+      21662
+    ],
+    [
+      "UK\\UK-Churches_extracted.csv",
+      19173
+    ],
+    [
+      "UK\\UK-Cleaning _extracted.csv",
+      24988
+    ],
+    [
+      "UK\\UK-Clinics _extracted.csv",
+      31090
+    ],
+    [
+      "UK\\UK-ClothingStores_extracted.csv",
+      32642
+    ],
+    [
+      "UK\\UK-Construction suppliers_extracted.csv",
+      32720
+    ],
+    [
+      "UK\\UK-Construction_extracted.csv",
+      45055
+    ],
+    [
+      "UK\\UK-Consulting_extracted.csv",
+      46058
+    ],
+    [
+      "UK\\UK-Convenience_extracted.csv",
+      7280
+    ],
+    [
+      "UK\\UK-Cooperatives_extracted.csv",
+      4898
+    ],
+    [
+      "UK\\UK-Dentists_extracted.csv",
+      10503
+    ],
+    [
+      "UK\\UK-Driving_extracted.csv",
+      12426
+    ],
+    [
+      "UK\\UK-Education center_extracted.csv",
+      31588
+    ],
+    [
+      "UK\\UK-Electricians_extracted.csv",
+      17967
+    ],
+    [
+      "UK\\UK-Electronics_extracted.csv",
+      31324
+    ],
+    [
+      "UK\\UK-Fast Food_extracted.csv",
+      38587
+    ],
+    [
+      "UK\\UK-Florists_extracted.csv",
+      6239
+    ],
+    [
+      "UK\\UK-Foundations_extracted.csv",
+      14095
+    ],
+    [
+      "UK\\UK-Furniture_extracted.csv",
+      17627
+    ],
+    [
+      "UK\\UK-Gas Stations_extracted.csv",
+      11559
+    ],
+    [
+      "UK\\UK-Gyms_extracted.csv",
+      12277
+    ],
+    [
+      "UK\\UK-Hairdressers_extracted.csv",
+      18744
+    ],
+    [
+      "UK\\UK-Hardware_extracted.csv",
+      9375
+    ],
+    [
+      "UK\\UK-Hospitals_extracted.csv",
+      2191
+    ],
+    [
+      "UK\\UK-Hotels_extracted.csv",
+      17656
+    ],
+    [
+      "UK\\UK-Human Resources_extracted.csv",
+      28982
+    ],
+    [
+      "UK\\UK-Insurance_extracted.csv",
+      12040
+    ],
+    [
+      "UK\\UK-Interior Design_extracted.csv",
+      19803
+    ],
+    [
+      "UK\\UK-ITCompanies_extracted.csv",
+      46878
+    ],
+    [
+      "UK\\UK-Jewelry_extracted.csv",
+      19634
+    ],
+    [
+      "UK\\UK-Laboratories_extracted.csv",
+      27792
+    ],
+    [
+      "UK\\UK-Lawyer_extracted.csv",
+      14811
+    ],
+    [
+      "UK\\UK-Legal Accounting_extracted.csv",
+      17961
+    ],
+    [
+      "UK\\UK-Livestock_extracted.csv",
+      14051
+    ],
+    [
+      "UK\\UK-Locksmiths_extracted.csv",
+      5958
+    ],
+    [
+      "UK\\UK-Logistics_extracted.csv",
+      35450
+    ],
+    [
+      "UK\\UK-Malls_extracted.csv",
+      6967
+    ],
+    [
+      "UK\\UK-Manufacturing_extracted.csv",
+      50696
+    ],
+    [
+      "UK\\UK-Marketing_extracted.csv",
+      36162
+    ],
+    [
+      "UK\\UK-Mechanics_extracted.csv",
+      22406
+    ],
+    [
+      "UK\\UK-Mining_extracted.csv",
+      21616
+    ],
+    [
+      "UK\\UK-Mobile Phone_extracted.csv",
+      8271
+    ],
+    [
+      "UK\\UK-Moving Companies_extracted.csv",
+      14168
+    ],
+    [
+      "UK\\UK-Museums_extracted.csv",
+      3417
+    ],
+    [
+      "UK\\UK-NGOs_extracted.csv",
+      7958
+    ],
+    [
+      "UK\\UK-Nursing Homes_extracted.csv",
+      15155
+    ],
+    [
+      "UK\\UK-Nutrition_extracted.csv",
+      32615
+    ],
+    [
+      "UK\\UK-Opticians_extracted.csv",
+      5352
+    ],
+    [
+      "UK\\UK-Orthopaedics_extracted.csv",
+      9201
+    ],
+    [
+      "UK\\UK-Parking_extracted.csv",
+      12336
+    ],
+    [
+      "UK\\UK-Pet _extracted.csv",
+      20512
+    ],
+    [
+      "UK\\UK-Pharmacies_extracted.csv",
+      8173
+    ],
+    [
+      "UK\\UK-Plumbers_extracted.csv",
+      13372
+    ],
+    [
+      "UK\\UK-Printing_extracted.csv",
+      20821
+    ],
+    [
+      "UK\\UK-Production_extracted.csv",
+      50054
+    ],
+    [
+      "UK\\UK-Psychologists_extracted.csv",
+      21398
+    ],
+    [
+      "UK\\UK-Real-State_extracted.csv",
+      21406
+    ],
+    [
+      "UK\\UK-Restaurant_extracted.csv",
+      47143
+    ],
+    [
+      "UK\\UK-Schools_extracted.csv",
+      25341
+    ],
+    [
+      "UK\\UK-Second Hand_extracted.csv",
+      35098
+    ],
+    [
+      "UK\\UK-Security_extracted.csv",
+      14896
+    ],
+    [
+      "UK\\UK-Shops_extracted.csv",
+      43111
+    ],
+    [
+      "UK\\UK-Software_extracted.csv",
+      29010
+    ],
+    [
+      "UK\\UK-Sports Clubs_extracted.csv",
+      30174
+    ],
+    [
+      "UK\\UK-Stationery_extracted.csv",
+      8953
+    ],
+    [
+      "UK\\UK-Taxi_extracted.csv",
+      7998
+    ],
+    [
+      "UK\\UK-Textile_extracted.csv",
+      18534
+    ],
+    [
+      "UK\\UK-Transport_extracted.csv",
+      22825
+    ],
+    [
+      "UK\\UK-Travel Agencies_extracted.csv",
+      16984
+    ],
+    [
+      "UK\\UK-Veterinarian_extracted.csv",
+      7254
+    ],
+    [
+      "UK\\UK-Waste Management_extracted.csv",
+      13543
+    ],
+    [
+      "UK\\UK-Web Design_extracted.csv",
+      23796
+    ],
+    [
+      "UK\\UK-Work Clothes_extracted.csv",
+      13023
+    ]
+  ]
+}

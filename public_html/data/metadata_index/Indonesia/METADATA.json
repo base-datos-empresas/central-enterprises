@@ -1,0 +1,271 @@
+{
+  "country": "Indonesia",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 110196,
+    "emails_unique": 47345,
+    "email_domains_unique": 16523,
+    "web_domains_unique": 58314,
+    "hosts_unique": 69298,
+    "phones_unique": 95028,
+    "sector_count": 3263,
+    "rows_with_email": 33537,
+    "rows_with_website": 110196,
+    "rows_with_phone": 100748,
+    "rows_with_any_social": 51439,
+    "rows_with_feed": 33609,
+    "social_counts": {
+      "facebook": 37651,
+      "instagram": 43030,
+      "linkedin": 8716,
+      "twitter": 17969,
+      "tiktok": 12031,
+      "youtube": 25495
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "ID\\ID-Agriculture_extracted.csv",
+      1723
+    ],
+    [
+      "ID\\ID-Architects_extracted.csv",
+      2402
+    ],
+    [
+      "ID\\ID-Art Galleries_extracted.csv",
+      785
+    ],
+    [
+      "ID\\ID-Associations_extracted.csv",
+      2948
+    ],
+    [
+      "ID\\ID-Banks_extracted.csv",
+      1816
+    ],
+    [
+      "ID\\ID-Bars and Nightclubs_extracted.csv",
+      1551
+    ],
+    [
+      "ID\\ID-Beauty Centers_extracted.csv",
+      1748
+    ],
+    [
+      "ID\\ID-Bookstores_extracted.csv",
+      1429
+    ],
+    [
+      "ID\\ID-Cafes_extracted.csv",
+      2149
+    ],
+    [
+      "ID\\ID-Car Dealerships_extracted.csv",
+      3296
+    ],
+    [
+      "ID\\ID-Carpentries_extracted.csv",
+      488
+    ],
+    [
+      "ID\\ID-Cleaning_extracted.csv",
+      2350
+    ],
+    [
+      "ID\\ID-Clinics_extracted.csv",
+      3872
+    ],
+    [
+      "ID\\ID-Clothing_extracted.csv",
+      3256
+    ],
+    [
+      "ID\\ID-Construction suppliers_extracted.csv",
+      2675
+    ],
+    [
+      "ID\\ID-Construction_extracted.csv",
+      3326
+    ],
+    [
+      "ID\\ID-Consulting_extracted.csv",
+      4556
+    ],
+    [
+      "ID\\ID-Dentist_extracted.csv",
+      2161
+    ],
+    [
+      "ID\\ID-Education center_extracted.csv",
+      4661
+    ],
+    [
+      "ID\\ID-Electronics_extracted.csv",
+      3330
+    ],
+    [
+      "ID\\ID-Florists_extracted.csv",
+      1871
+    ],
+    [
+      "ID\\ID-Foundations_extracted.csv",
+      2452
+    ],
+    [
+      "ID\\ID-Furniture_extracted.csv",
+      2341
+    ],
+    [
+      "ID\\ID-Gas Stations_extracted.csv",
+      1199
+    ],
+    [
+      "ID\\ID-Gyms_extracted.csv",
+      1530
+    ],
+    [
+      "ID\\ID-Hardware_extracted.csv",
+      2135
+    ],
+    [
+      "ID\\ID-Hospitals_extracted.csv",
+      1417
+    ],
+    [
+      "ID\\ID-Hotels_extracted.csv",
+      6315
+    ],
+    [
+      "ID\\ID-Human Resources_extracted.csv",
+      1356
+    ],
+    [
+      "ID\\ID-Insurance_extracted.csv",
+      1128
+    ],
+    [
+      "ID\\ID-Interior Design_extracted.csv",
+      2621
+    ],
+    [
+      "ID\\ID-IT Companies_extracted.csv",
+      6571
+    ],
+    [
+      "ID\\ID-Jewelry_extracted.csv",
+      1608
+    ],
+    [
+      "ID\\ID-Laboratories_extracted.csv",
+      1287
+    ],
+    [
+      "ID\\ID-Lawyers_extracted.csv",
+      1721
+    ],
+    [
+      "ID\\ID-Legal Accounting_extracted.csv",
+      773
+    ],
+    [
+      "ID\\ID-Livestock_extracted.csv",
+      1129
+    ],
+    [
+      "ID\\ID-Manufacturing_extracted.csv",
+      5297
+    ],
+    [
+      "ID\\ID-Marketing_extracted.csv",
+      4582
+    ],
+    [
+      "ID\\ID-Mechanics_extracted.csv",
+      1659
+    ],
+    [
+      "ID\\ID-Moving Companies_extracted.csv",
+      2281
+    ],
+    [
+      "ID\\ID-Museums_extracted.csv",
+      714
+    ],
+    [
+      "ID\\ID-Nursing Homes_extracted.csv",
+      1009
+    ],
+    [
+      "ID\\ID-Nutrition_extracted.csv",
+      703
+    ],
+    [
+      "ID\\ID-Opticians_extracted.csv",
+      833
+    ],
+    [
+      "ID\\ID-Orthopedic_extracted.csv",
+      534
+    ],
+    [
+      "ID\\ID-Pet_extracted.csv",
+      1468
+    ],
+    [
+      "ID\\ID-Pharmacies_extracted.csv",
+      1900
+    ],
+    [
+      "ID\\ID-Real State_extracted.csv",
+      2758
+    ],
+    [
+      "ID\\ID-Restaurants_extracted.csv",
+      3351
+    ],
+    [
+      "ID\\ID-Security_extracted.csv",
+      1612
+    ],
+    [
+      "ID\\ID-Shops_extracted.csv",
+      5045
+    ],
+    [
+      "ID\\ID-Sports Clubs_extracted.csv",
+      1624
+    ],
+    [
+      "ID\\ID-Supermarkets_extracted.csv",
+      1542
+    ],
+    [
+      "ID\\ID-Textile_extracted.csv",
+      2197
+    ],
+    [
+      "ID\\ID-Transport_extracted.csv",
+      2968
+    ],
+    [
+      "ID\\ID-Travel Agencies_extracted.csv",
+      5584
+    ],
+    [
+      "ID\\ID-Veterinarian_extracted.csv",
+      692
+    ],
+    [
+      "ID\\ID-Waste Management_extracted.csv",
+      693
+    ],
+    [
+      "ID\\ID-Work Clothes_extracted.csv",
+      2958
+    ]
+  ]
+}

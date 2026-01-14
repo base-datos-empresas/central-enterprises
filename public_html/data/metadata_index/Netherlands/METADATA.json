@@ -1,0 +1,247 @@
+{
+  "country": "Netherlands",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 258884,
+    "emails_unique": 161021,
+    "email_domains_unique": 106071,
+    "web_domains_unique": 215387,
+    "hosts_unique": 218275,
+    "phones_unique": 218654,
+    "sector_count": 4651,
+    "rows_with_email": 129605,
+    "rows_with_website": 258884,
+    "rows_with_phone": 236262,
+    "rows_with_any_social": 136638,
+    "rows_with_feed": 102889,
+    "social_counts": {
+      "facebook": 112170,
+      "instagram": 89151,
+      "linkedin": 57300,
+      "twitter": 26570,
+      "tiktok": 9832,
+      "youtube": 30531
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "NL\\NL-Architects_extracted.csv",
+      6288
+    ],
+    [
+      "NL\\NL-Art Galleries_extracted.csv",
+      2351
+    ],
+    [
+      "NL\\NL-Associations_extracted.csv",
+      9616
+    ],
+    [
+      "NL\\NL-Banks_extracted.csv",
+      16567
+    ],
+    [
+      "NL\\NL-Bars and NightClubs_extracted.csv",
+      4798
+    ],
+    [
+      "NL\\NL-Beauty Centers_extracted.csv",
+      10640
+    ],
+    [
+      "NL\\NL-BookStores_extracted.csv",
+      1189
+    ],
+    [
+      "NL\\NL-Cafe_extracted.csv",
+      12049
+    ],
+    [
+      "NL\\NL-Car Dealerships_extracted.csv",
+      7400
+    ],
+    [
+      "NL\\NL-Carpentries_extracted.csv",
+      1450
+    ],
+    [
+      "NL\\NL-Cleaning_extracted.csv",
+      8433
+    ],
+    [
+      "NL\\NL-Clinics_extracted.csv",
+      11050
+    ],
+    [
+      "NL\\NL-Clothing_extracted.csv",
+      13118
+    ],
+    [
+      "NL\\NL-Consulting_extracted.csv",
+      15978
+    ],
+    [
+      "NL\\NL-Dentist_extracted.csv",
+      4500
+    ],
+    [
+      "NL\\NL-Electronics_extracted.csv",
+      9891
+    ],
+    [
+      "NL\\NL-Florist_extracted.csv",
+      1987
+    ],
+    [
+      "NL\\NL-Foundations_extracted.csv",
+      8878
+    ],
+    [
+      "NL\\NL-Furniture_extracted.csv",
+      10340
+    ],
+    [
+      "NL\\NL-Gas Stations_extracted.csv",
+      2087
+    ],
+    [
+      "NL\\NL-Gyms_extracted.csv",
+      5284
+    ],
+    [
+      "NL\\NL-Hardware_extracted.csv",
+      2600
+    ],
+    [
+      "NL\\NL-Hotels_extracted.csv",
+      5568
+    ],
+    [
+      "NL\\NL-Human Resources_extracted.csv",
+      6646
+    ],
+    [
+      "NL\\NL-Insurance_extracted.csv",
+      3969
+    ],
+    [
+      "NL\\NL-Interior Design_extracted.csv",
+      7262
+    ],
+    [
+      "NL\\NL-IT-companies_extracted.csv",
+      16435
+    ],
+    [
+      "NL\\NL-Jewelry_extracted.csv",
+      4614
+    ],
+    [
+      "NL\\NL-Laboratories_extracted.csv",
+      3723
+    ],
+    [
+      "NL\\NL-Lawyers_extracted.csv",
+      4385
+    ],
+    [
+      "NL\\NL-Marketing_extracted (2).csv",
+      12568
+    ],
+    [
+      "NL\\NL-Marketing_extracted.csv",
+      12568
+    ],
+    [
+      "NL\\NL-Mechanics_extracted (2).csv",
+      6988
+    ],
+    [
+      "NL\\NL-Mechanics_extracted.csv",
+      6988
+    ],
+    [
+      "NL\\NL-Moving Companies_extracted (2).csv",
+      5242
+    ],
+    [
+      "NL\\NL-Moving Companies_extracted.csv",
+      5242
+    ],
+    [
+      "NL\\NL-Nursing Homes_extracted (2).csv",
+      15769
+    ],
+    [
+      "NL\\NL-Nursing Homes_extracted.csv",
+      15769
+    ],
+    [
+      "NL\\NL-Nutrition_extracted (2).csv",
+      4779
+    ],
+    [
+      "NL\\NL-Nutrition_extracted.csv",
+      4779
+    ],
+    [
+      "NL\\NL-Opticians_extracted.csv",
+      2253
+    ],
+    [
+      "NL\\NL-Orthopedics_extracted.csv",
+      1605
+    ],
+    [
+      "NL\\NL-Pets_extracted.csv",
+      8982
+    ],
+    [
+      "NL\\NL-Pharmacies_extracted.csv",
+      1882
+    ],
+    [
+      "NL\\NL-Printing_extracted.csv",
+      6648
+    ],
+    [
+      "NL\\NL-Real State_extracted.csv",
+      3492
+    ],
+    [
+      "NL\\NL-Restaurants_extracted.csv",
+      13682
+    ],
+    [
+      "NL\\NL-Security_extracted.csv",
+      4472
+    ],
+    [
+      "NL\\NL-Shops_extracted.csv",
+      17799
+    ],
+    [
+      "NL\\NL-Textile_extracted.csv",
+      8820
+    ],
+    [
+      "NL\\NL-Transport_extracted.csv",
+      5103
+    ],
+    [
+      "NL\\NL-Travel Agencies_extracted.csv",
+      8137
+    ],
+    [
+      "NL\\NL-Veterinarian_extracted.csv",
+      2416
+    ],
+    [
+      "NL\\NL-Work Clothes_extracted.csv",
+      2871
+    ]
+  ]
+}

@@ -1,0 +1,247 @@
+{
+  "country": "France",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 580729,
+    "emails_unique": 331822,
+    "email_domains_unique": 127424,
+    "web_domains_unique": 345838,
+    "hosts_unique": 379848,
+    "phones_unique": 504639,
+    "sector_count": 3295,
+    "rows_with_email": 259436,
+    "rows_with_website": 580729,
+    "rows_with_phone": 541949,
+    "rows_with_any_social": 306152,
+    "rows_with_feed": 171073,
+    "social_counts": {
+      "facebook": 260216,
+      "instagram": 199360,
+      "linkedin": 138395,
+      "twitter": 81859,
+      "tiktok": 27913,
+      "youtube": 96868
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "FR\\FR-Architects_extracted.csv",
+      13038
+    ],
+    [
+      "FR\\FR-ArtGalleries_extracted.csv",
+      4180
+    ],
+    [
+      "FR\\FR-Associations_extracted.csv",
+      27370
+    ],
+    [
+      "FR\\FR-Bakery_extracted.csv",
+      9875
+    ],
+    [
+      "FR\\FR-Banks_extracted.csv",
+      11895
+    ],
+    [
+      "FR\\FR-BarsAndNightclubs_extracted.csv",
+      7961
+    ],
+    [
+      "FR\\FR-Beauty-Centers_extracted.csv",
+      20312
+    ],
+    [
+      "FR\\FR-Bookstores_extracted.csv",
+      3545
+    ],
+    [
+      "FR\\FR-Cafes_extracted.csv",
+      14935
+    ],
+    [
+      "FR\\FR-CarDealerships_extracted.csv",
+      15711
+    ],
+    [
+      "FR\\FR-Carpentries_extracted.csv",
+      2462
+    ],
+    [
+      "FR\\FR-Cleaning_extracted.csv",
+      17322
+    ],
+    [
+      "FR\\FR-Clinics_extracted.csv",
+      24151
+    ],
+    [
+      "FR\\FR-Clothing Store_extracted.csv",
+      21043
+    ],
+    [
+      "FR\\FR-Construction suppliers_extracted.csv",
+      24412
+    ],
+    [
+      "FR\\FR-Construction_extracted.csv",
+      33268
+    ],
+    [
+      "FR\\FR-Consulting_extracted.csv",
+      28992
+    ],
+    [
+      "FR\\FR-Dentist_extracted.csv",
+      10850
+    ],
+    [
+      "FR\\FR-Electronics_extracted.csv",
+      19058
+    ],
+    [
+      "FR\\FR-Florists_extracted.csv",
+      3759
+    ],
+    [
+      "FR\\FR-Foundations_extracted.csv",
+      7540
+    ],
+    [
+      "FR\\FR-Furniture_extracted.csv",
+      14578
+    ],
+    [
+      "FR\\FR-GasStations_extracted.csv",
+      4339
+    ],
+    [
+      "FR\\FR-Gyms_extracted.csv",
+      8189
+    ],
+    [
+      "FR\\FR-Hardware_extracted.csv",
+      6732
+    ],
+    [
+      "FR\\FR-Hotels_extracted.csv",
+      16438
+    ],
+    [
+      "FR\\FR-HumanResources_extracted.csv",
+      11513
+    ],
+    [
+      "FR\\FR-Insurance_extracted.csv",
+      20192
+    ],
+    [
+      "FR\\FR-Interior Design_extracted.csv",
+      13583
+    ],
+    [
+      "FR\\FR-ITCompanies_extracted.csv",
+      33997
+    ],
+    [
+      "FR\\FR-Jewelry_extracted.csv",
+      14547
+    ],
+    [
+      "FR\\FR-Laboratories_extracted.csv",
+      7408
+    ],
+    [
+      "FR\\FR-Lawyers_extracted.csv",
+      12910
+    ],
+    [
+      "FR\\FR-Manufacturing_extracted.csv",
+      35497
+    ],
+    [
+      "FR\\FR-Marketing_extracted.csv",
+      25982
+    ],
+    [
+      "FR\\FR-Mechanics_extracted.csv",
+      15103
+    ],
+    [
+      "FR\\FR-MovingCompanies_extracted.csv",
+      9155
+    ],
+    [
+      "FR\\FR-NursingHomes_extracted.csv",
+      11631
+    ],
+    [
+      "FR\\FR-Nutrition_extracted.csv",
+      11361
+    ],
+    [
+      "FR\\FR-Opticians_extracted.csv",
+      9027
+    ],
+    [
+      "FR\\FR-OrthopedicShops_extracted.csv",
+      2755
+    ],
+    [
+      "FR\\FR-Pet_extracted.csv",
+      16195
+    ],
+    [
+      "FR\\FR-Pharmacies_extracted.csv",
+      7113
+    ],
+    [
+      "FR\\FR-PrintingShops_extracted.csv",
+      9270
+    ],
+    [
+      "FR\\FR-Real-State_extracted.csv",
+      19291
+    ],
+    [
+      "FR\\FR-Restaurant_extracted.csv",
+      27993
+    ],
+    [
+      "FR\\FR-Security_extracted.csv",
+      9325
+    ],
+    [
+      "FR\\FR-Shops_extracted.csv",
+      39090
+    ],
+    [
+      "FR\\FR-SportsClub_extracted.csv",
+      24400
+    ],
+    [
+      "FR\\FR-Textile_extracted.csv",
+      18695
+    ],
+    [
+      "FR\\FR-Transport_extracted.csv",
+      17917
+    ],
+    [
+      "FR\\FR-Travel-Agency_extracted.csv",
+      10814
+    ],
+    [
+      "FR\\FR-Veterinarian_extracted.csv",
+      3994
+    ],
+    [
+      "FR\\FR-Work Clothes_extracted.csv",
+      6912
+    ]
+  ]
+}

@@ -84,7 +84,7 @@ $basePath = "";
 
                     <div class="grid-container" style="padding:0; margin-top:3rem; gap: 1.5rem;">
                         <!-- Country Cards -->
-                        <a href="/country/spain-business-databases-b2b" class="feature-card span-4"
+                        <a href="/country/spain" class="feature-card span-4"
                             style="text-decoration:none; color:inherit; display:block">
                             <span class="feature-num">EU-01</span>
                             <h3>Spain Registry</h3>
@@ -93,7 +93,7 @@ $basePath = "";
                                 Data (CC0) →</span>
                         </a>
 
-                        <a href="/country/united-states-business-databases-b2b" class="feature-card span-4"
+                        <a href="/country/united-states" class="feature-card span-4"
                             style="text-decoration:none; color:inherit; display:block">
                             <span class="feature-num">NA-01</span>
                             <h3>United States</h3>

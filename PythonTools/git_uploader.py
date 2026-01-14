@@ -13,12 +13,46 @@ def run_command(command, cwd=None):
         print(f"Stderr: {e.stderr}")
         return None
 
+def verify_consistency(project_root):
+    """Performs pre-push checks."""
+    print("\n[*] Running Consistency Verification...")
+    
+    # 1. Check PHP Syntax
+    print(" - Checking PHP Syntax...")
+    try:
+        # Check specific critical files or everything in public_html
+        crit_files = ["public_html/index.php", "public_html/country/index.php", "public_html/data/index.php"]
+        for f in crit_files:
+            path = os.path.join(project_root, f)
+            if os.path.exists(path):
+                subprocess.run(f"php -l {path}", shell=True, check=True, capture_output=True)
+    except subprocess.CalledProcessError as e:
+        print(f"CRITICAL ERROR: PHP Syntax error found in {f}!")
+        print(e.stderr.decode())
+        return False
+
+    # 2. Check Sitemap Freshness
+    print(" - Checking Sitemap Status...")
+    sitemap_path = os.path.join(project_root, "public_html", "sitemap.xml")
+    if os.path.exists(sitemap_path):
+        mtime = os.path.getmtime(sitemap_path)
+        from datetime import datetime, timedelta
+        if datetime.fromtimestamp(mtime) < datetime.now() - timedelta(hours=24):
+            print("WARNING: sitemap.xml is more than 24 hours old. Please run sitemap_generator.py.")
+    
+    return True
+
 def main():
     print("--- Oracle Git Uploader ---")
     
     # Project root is one level up from PythonTools
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
+    # 0. Consistency Check
+    if not verify_consistency(project_root):
+        print("\nABORTING: Consistency checks failed. Fix the errors before pushing.")
+        sys.exit(1)
+
     # 1. Check git status
     print("\n[1/4] Checking Git status...")
     status = run_command("git status --short", cwd=project_root)

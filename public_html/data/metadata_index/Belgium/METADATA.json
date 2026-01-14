@@ -1,0 +1,275 @@
+{
+  "country": "Belgium",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 229492,
+    "emails_unique": 159430,
+    "email_domains_unique": 89681,
+    "web_domains_unique": 165514,
+    "hosts_unique": 170379,
+    "phones_unique": 191119,
+    "sector_count": 3156,
+    "rows_with_email": 120566,
+    "rows_with_website": 218702,
+    "rows_with_phone": 207179,
+    "rows_with_any_social": 113944,
+    "rows_with_feed": 62939,
+    "social_counts": {
+      "facebook": 100364,
+      "instagram": 71859,
+      "linkedin": 44100,
+      "twitter": 20049,
+      "tiktok": 7570,
+      "youtube": 25171
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "BE\\BE-Agriculture_extracted.csv",
+      7432
+    ],
+    [
+      "BE\\BE-Architects_extracted.csv",
+      5537
+    ],
+    [
+      "BE\\BE-Art Galleries_extracted.csv",
+      1625
+    ],
+    [
+      "BE\\BE-Associations-_extracted.csv",
+      497
+    ],
+    [
+      "BE\\BE-Associations_extracted.csv",
+      11525
+    ],
+    [
+      "BE\\BE-Banks_extracted.csv",
+      2056
+    ],
+    [
+      "BE\\BE-Bars and Nightclubs_extracted.csv",
+      4894
+    ],
+    [
+      "BE\\BE-Beauty Centers_extracted.csv",
+      3006
+    ],
+    [
+      "BE\\BE-Bookstores_extracted.csv",
+      1377
+    ],
+    [
+      "BE\\BE-Cafes_extracted.csv",
+      8019
+    ],
+    [
+      "BE\\BE-Car Dealerships_extracted.csv",
+      5102
+    ],
+    [
+      "BE\\BE-Carpentries_extracted.csv",
+      1713
+    ],
+    [
+      "BE\\BE-Cleaning_extracted.csv",
+      4843
+    ],
+    [
+      "BE\\BE-Clinics_extracted.csv",
+      9282
+    ],
+    [
+      "BE\\BE-Clothing_extracted.csv",
+      9197
+    ],
+    [
+      "BE\\BE-Construction_extracted.csv",
+      11876
+    ],
+    [
+      "BE\\BE-Consulting_extracted.csv",
+      11523
+    ],
+    [
+      "BE\\BE-Dentists_extracted.csv",
+      3350
+    ],
+    [
+      "BE\\BE-Education center_extracted.csv",
+      8708
+    ],
+    [
+      "BE\\BE-Electronics_extracted.csv",
+      7092
+    ],
+    [
+      "BE\\BE-Florist_extracted.csv",
+      2181
+    ],
+    [
+      "BE\\BE-Foundations_extracted.csv",
+      3447
+    ],
+    [
+      "BE\\BE-Furniture_extracted.csv",
+      5993
+    ],
+    [
+      "BE\\BE-Gas Stations_extracted.csv",
+      2058
+    ],
+    [
+      "BE\\BE-Gyms_extracted.csv",
+      2970
+    ],
+    [
+      "BE\\BE-Hardware_extracted.csv",
+      5136
+    ],
+    [
+      "BE\\BE-Hotels_extracted.csv",
+      4220
+    ],
+    [
+      "BE\\BE-Insurance_extracted.csv",
+      5011
+    ],
+    [
+      "BE\\BE-Interior Design_extracted.csv",
+      4653
+    ],
+    [
+      "BE\\BE-IT Companies_extracted.csv",
+      10122
+    ],
+    [
+      "BE\\BE-Jewelry_extracted.csv",
+      5469
+    ],
+    [
+      "BE\\BE-Laboratories_extracted.csv",
+      1872
+    ],
+    [
+      "BE\\BE-Lawyers_extracted.csv",
+      4294
+    ],
+    [
+      "BE\\BE-Legal Accounting_extracted.csv",
+      2207
+    ],
+    [
+      "BE\\BE-Manufacturing_extracted.csv",
+      12460
+    ],
+    [
+      "BE\\BE-Marketing_extracted.csv",
+      7330
+    ],
+    [
+      "BE\\BE-Mechanics_extracted.csv",
+      3916
+    ],
+    [
+      "BE\\BE-Mining_extracted.csv",
+      7348
+    ],
+    [
+      "BE\\BE-Moving Companies_extracted.csv",
+      3073
+    ],
+    [
+      "BE\\BE-Museums_extracted.csv",
+      1233
+    ],
+    [
+      "BE\\BE-Nursing Homes_extracted.csv",
+      2888
+    ],
+    [
+      "BE\\BE-Nutrition_extracted.csv",
+      3810
+    ],
+    [
+      "BE\\BE-Opticians_extracted.csv",
+      3449
+    ],
+    [
+      "BE\\BE-Orthopedic_extracted.csv",
+      1716
+    ],
+    [
+      "BE\\BE-Pet_extracted.csv",
+      7005
+    ],
+    [
+      "BE\\BE-Pharmacies_extracted.csv",
+      2986
+    ],
+    [
+      "BE\\BE-Printing_extracted.csv",
+      5497
+    ],
+    [
+      "BE\\BE-Real State_extracted.csv",
+      4668
+    ],
+    [
+      "BE\\BE-Restaurants_extracted.csv",
+      12043
+    ],
+    [
+      "BE\\BE-Security_extracted.csv",
+      2747
+    ],
+    [
+      "BE\\BE-Shops.csv",
+      23378
+    ],
+    [
+      "BE\\BE-Shops_extracted.csv",
+      15296
+    ],
+    [
+      "BE\\BE-Sports Clubs.csv",
+      12531
+    ],
+    [
+      "BE\\BE-Sports Clubs_extracted.csv",
+      8736
+    ],
+    [
+      "BE\\BE-Textile.csv",
+      12076
+    ],
+    [
+      "BE\\BE-Textile_extracted.csv",
+      7297
+    ],
+    [
+      "BE\\BE-Transport_extracted.csv",
+      4095
+    ],
+    [
+      "BE\\BE-Travel Agencies_extracted.csv",
+      4243
+    ],
+    [
+      "BE\\BE-Veterinarian_extracted.csv",
+      3005
+    ],
+    [
+      "BE\\BE-Waste Management_extracted.csv",
+      1898
+    ],
+    [
+      "BE\\BE-Work Clothes_extracted.csv",
+      2254
+    ]
+  ]
+}

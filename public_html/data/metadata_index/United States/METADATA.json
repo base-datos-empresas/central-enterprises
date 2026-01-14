@@ -1,0 +1,127 @@
+{
+  "country": "United States",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 1546772,
+    "emails_unique": 806837,
+    "email_domains_unique": 365121,
+    "web_domains_unique": 1059957,
+    "hosts_unique": 1109694,
+    "phones_unique": 1400297,
+    "sector_count": 4889,
+    "rows_with_email": 637225,
+    "rows_with_website": 1546772,
+    "rows_with_phone": 1487377,
+    "rows_with_any_social": 829299,
+    "rows_with_feed": 420235,
+    "social_counts": {
+      "facebook": 741549,
+      "instagram": 559506,
+      "linkedin": 293239,
+      "twitter": 317777,
+      "tiktok": 75099,
+      "youtube": 286826
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "US\\US-Architects_extracted.csv",
+      35205
+    ],
+    [
+      "US\\US-ArtGalleries_extracted.csv",
+      19627
+    ],
+    [
+      "US\\US-Associations_extracted.csv",
+      149768
+    ],
+    [
+      "US\\US-Banks_extracted.csv",
+      51487
+    ],
+    [
+      "US\\US-BarsAndNightclubs_extracted.csv",
+      41523
+    ],
+    [
+      "US\\US-BeautyCenters_extracted.csv",
+      96436
+    ],
+    [
+      "US\\US-Bookstores_extracted.csv",
+      9619
+    ],
+    [
+      "US\\US-Cafes_extracted.csv",
+      101621
+    ],
+    [
+      "US\\US-CarDealerships_extracted.csv",
+      66646
+    ],
+    [
+      "US\\US-Carpentries_extracted.csv",
+      13472
+    ],
+    [
+      "US\\US-Cleaning_extracted.csv",
+      79485
+    ],
+    [
+      "US\\US-Clinics_extracted.csv",
+      120948
+    ],
+    [
+      "US\\US-Clothing_extracted.csv",
+      123511
+    ],
+    [
+      "US\\US-Hotels_extracted.csv",
+      53682
+    ],
+    [
+      "US\\US-HumanResources_extracted.csv",
+      24292
+    ],
+    [
+      "US\\US-Insurance_extracted.csv",
+      90362
+    ],
+    [
+      "US\\US-InteriorDesign_extracted.csv",
+      46715
+    ],
+    [
+      "US\\US-ITCompanies_extracted.csv",
+      139213
+    ],
+    [
+      "US\\US-Jewelry_extracted.csv",
+      57429
+    ],
+    [
+      "US\\US-Laboratories_extracted.csv",
+      32302
+    ],
+    [
+      "US\\US-Lawyers_extracted.csv",
+      100719
+    ],
+    [
+      "US\\US-Marketing_extracted.csv",
+      103944
+    ],
+    [
+      "US\\USA-ITCompanies_extracted.csv",
+      139213
+    ],
+    [
+      "US\\USA-Manufacturing_extracted.csv",
+      118706
+    ]
+  ]
+}

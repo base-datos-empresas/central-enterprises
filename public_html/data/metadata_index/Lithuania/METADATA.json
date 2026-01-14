@@ -1,0 +1,391 @@
+{
+  "country": "Lithuania",
+  "variant": "OpenData",
+  "metrics": {
+    "companies": 33213,
+    "emails_unique": 27003,
+    "email_domains_unique": 14345,
+    "web_domains_unique": 23807,
+    "hosts_unique": 24529,
+    "phones_unique": 29005,
+    "sector_count": 2886,
+    "rows_with_email": 20476,
+    "rows_with_website": 33213,
+    "rows_with_phone": 31133,
+    "rows_with_any_social": 15943,
+    "rows_with_feed": 11327,
+    "social_counts": {
+      "facebook": 14955,
+      "instagram": 8701,
+      "linkedin": 4246,
+      "twitter": 1291,
+      "tiktok": 999,
+      "youtube": 4327
+    },
+    "feed_cols_present": [
+      "rss"
+    ]
+  },
+  "files": [
+    [
+      "LT\\LT-Agriculture_extracted.csv",
+      1512
+    ],
+    [
+      "LT\\LT-Architects_extracted.csv",
+      406
+    ],
+    [
+      "LT\\LT-Art Galleries_extracted.csv",
+      332
+    ],
+    [
+      "LT\\LT-Associations_extracted.csv",
+      1397
+    ],
+    [
+      "LT\\LT-Bakeries_extracted.csv",
+      408
+    ],
+    [
+      "LT\\LT-Banks_extracted.csv",
+      317
+    ],
+    [
+      "LT\\LT-Bars and Nightclubs_extracted.csv",
+      548
+    ],
+    [
+      "LT\\LT-Beauty Centers_extracted.csv",
+      748
+    ],
+    [
+      "LT\\LT-Bookstores_extracted.csv",
+      297
+    ],
+    [
+      "LT\\LT-Butcher_extracted.csv",
+      92
+    ],
+    [
+      "LT\\LT-Cafes_extracted.csv",
+      805
+    ],
+    [
+      "LT\\LT-Car Dealerships_extracted.csv",
+      1213
+    ],
+    [
+      "LT\\LT-Car Wash_extracted.csv",
+      320
+    ],
+    [
+      "LT\\LT-Carpentries_extracted.csv",
+      136
+    ],
+    [
+      "LT\\LT-Casino_extracted.csv",
+      36
+    ],
+    [
+      "LT\\LT-Childcare_extracted.csv",
+      528
+    ],
+    [
+      "LT\\LT-Churches_extracted.csv",
+      276
+    ],
+    [
+      "LT\\LT-Cleaning_extracted.csv",
+      463
+    ],
+    [
+      "LT\\LT-Clinics_extracted.csv",
+      1378
+    ],
+    [
+      "LT\\LT-Clothing_extracted.csv",
+      1140
+    ],
+    [
+      "LT\\LT-Construction suppliers_extracted.csv",
+      1314
+    ],
+    [
+      "LT\\LT-Construction_extracted.csv",
+      1875
+    ],
+    [
+      "LT\\LT-Consulting_extracted.csv",
+      1422
+    ],
+    [
+      "LT\\LT-Convenience_extracted.csv",
+      97
+    ],
+    [
+      "LT\\LT-Cooperatives_extracted.csv",
+      236
+    ],
+    [
+      "LT\\LT-Dentists_extracted.csv",
+      864
+    ],
+    [
+      "LT\\LT-Driving Schools_extracted.csv",
+      249
+    ],
+    [
+      "LT\\LT-Education center_extracted.csv",
+      989
+    ],
+    [
+      "LT\\LT-Electricians_extracted.csv",
+      856
+    ],
+    [
+      "LT\\LT-Electronics_extracted.csv",
+      882
+    ],
+    [
+      "LT\\LT-Florists_extracted.csv",
+      299
+    ],
+    [
+      "LT\\LT-Foundations_extracted.csv",
+      224
+    ],
+    [
+      "LT\\LT-Furniture_extracted.csv",
+      835
+    ],
+    [
+      "LT\\LT-Gas Stations_extracted.csv",
+      302
+    ],
+    [
+      "LT\\LT-Gyms_extracted.csv",
+      344
+    ],
+    [
+      "LT\\LT-Hairdressers_extracted.csv",
+      629
+    ],
+    [
+      "LT\\LT-Hardware_extracted.csv",
+      371
+    ],
+    [
+      "LT\\LT-Hospital_extracted.csv",
+      252
+    ],
+    [
+      "LT\\LT-Hotels_extracted.csv",
+      539
+    ],
+    [
+      "LT\\LT-Human Resources_extracted.csv",
+      299
+    ],
+    [
+      "LT\\LT-Insurance_extracted.csv",
+      234
+    ],
+    [
+      "LT\\LT-Interior Design_extracted.csv",
+      375
+    ],
+    [
+      "LT\\LT-IT Companies 2_extracted.csv",
+      1227
+    ],
+    [
+      "LT\\LT-IT Companies_extracted.csv",
+      1251
+    ],
+    [
+      "LT\\LT-Jewelry 2_extracted.csv",
+      414
+    ],
+    [
+      "LT\\LT-Jewelry_extracted.csv",
+      425
+    ],
+    [
+      "LT\\LT-Laboratories_extracted.csv",
+      576
+    ],
+    [
+      "LT\\LT-Lawyers_extracted.csv",
+      387
+    ],
+    [
+      "LT\\LT-Legal Accounting_extracted.csv",
+      162
+    ],
+    [
+      "LT\\LT-Livestock_extracted.csv",
+      577
+    ],
+    [
+      "LT\\LT-Locksmiths_extracted.csv",
+      70
+    ],
+    [
+      "LT\\LT-Logistics_extracted.csv",
+      628
+    ],
+    [
+      "LT\\LT-Manufacturing_extracted.csv",
+      2103
+    ],
+    [
+      "LT\\LT-Marketing_extracted.csv",
+      1061
+    ],
+    [
+      "LT\\LT-Mechanics_extracted.csv",
+      1214
+    ],
+    [
+      "LT\\LT-Mining_extracted.csv",
+      1478
+    ],
+    [
+      "LT\\LT-Mobile Phone_extracted.csv",
+      391
+    ],
+    [
+      "LT\\LT-Moving Companies_extracted.csv",
+      351
+    ],
+    [
+      "LT\\LT-Museums_extracted.csv",
+      234
+    ],
+    [
+      "LT\\LT-Ngos (2)_extracted.csv",
+      119
+    ],
+    [
+      "LT\\LT-NGOs_extracted.csv",
+      122
+    ],
+    [
+      "LT\\LT-Nursing Homes_extracted.csv",
+      774
+    ],
+    [
+      "LT\\LT-Nutrition_extracted.csv",
+      211
+    ],
+    [
+      "LT\\LT-Opticians_extracted.csv",
+      202
+    ],
+    [
+      "LT\\LT-Orthopedic_extracted.csv",
+      223
+    ],
+    [
+      "LT\\LT-Parking_extracted.csv",
+      326
+    ],
+    [
+      "LT\\LT-Pet_extracted.csv",
+      560
+    ],
+    [
+      "LT\\LT-Pharmacies_extracted.csv",
+      423
+    ],
+    [
+      "LT\\LT-Plant Nurseries_extracted.csv",
+      228
+    ],
+    [
+      "LT\\LT-Plumbers_extracted.csv",
+      247
+    ],
+    [
+      "LT\\LT-Printing_extracted.csv",
+      507
+    ],
+    [
+      "LT\\LT-Production_extracted.csv",
+      1993
+    ],
+    [
+      "LT\\LT-Psychologists_extracted.csv",
+      539
+    ],
+    [
+      "LT\\LT-Real State_extracted.csv",
+      664
+    ],
+    [
+      "LT\\LT-Restaurants_extracted.csv",
+      780
+    ],
+    [
+      "LT\\LT-Schools_extracted.csv",
+      1282
+    ],
+    [
+      "LT\\LT-Second Hand_extracted.csv",
+      499
+    ],
+    [
+      "LT\\LT-Security_extracted.csv",
+      364
+    ],
+    [
+      "LT\\LT-Shops_extracted.csv",
+      1952
+    ],
+    [
+      "LT\\LT-Software_extracted.csv",
+      903
+    ],
+    [
+      "LT\\LT-Sports Clubs_extracted.csv",
+      615
+    ],
+    [
+      "LT\\LT-Stationery_extracted.csv",
+      506
+    ],
+    [
+      "LT\\LT-Supermarkets_extracted.csv",
+      794
+    ],
+    [
+      "LT\\LT-Textile_extracted.csv",
+      1011
+    ],
+    [
+      "LT\\LT-Transport_extracted.csv",
+      1001
+    ],
+    [
+      "LT\\LT-Travel Agencies_extracted.csv",
+      699
+    ],
+    [
+      "LT\\LT-Veterinarian_extracted.csv",
+      294
+    ],
+    [
+      "LT\\LT-Waste Management_extracted.csv",
+      427
+    ],
+    [
+      "LT\\LT-Work Clothes 2_extracted.csv",
+      437
+    ],
+    [
+      "LT\\LT-Work Clothes_extracted.csv",
+      441
+    ]
+  ]
+}
