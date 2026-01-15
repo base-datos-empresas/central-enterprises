@@ -4,8 +4,13 @@ from datetime import datetime
 
 def generate_sitemap():
     base_url = "https://central.enterprises"
-    library_path = r"c:\Users\MASTER\Desktop\Centra-data\central-enterprises\data\digital_library.json"
-    output_path = r"c:\Users\MASTER\Desktop\Centra-data\central-enterprises\public_html\sitemap.xml"
+    
+    # Robust relative paths
+    script_dir = os.path.dirname(os.path.abspath(__file__)) # PythonTools/
+    project_root = os.path.dirname(script_dir)              # Project Root
+    
+    library_path = os.path.join(project_root, 'data', 'digital_library.json')
+    output_path = os.path.join(project_root, 'public_html', 'sitemap.xml')
     
     if not os.path.exists(library_path):
         print(f"Error: {library_path} not found.")

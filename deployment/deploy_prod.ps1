@@ -59,8 +59,8 @@ Write-Host "Deployment Files Uploaded."
 Write-Host "Updating Remote Environment and Permissions..."
 $RemoteCmds = "cd $RemotePath && " +
 "sudo chown -R ubuntu:www-data public_html data bases && " +
-"sudo find public_html data bases -type d -exec chmod 755 {} \; && " +
-"sudo find public_html data bases -type f -exec chmod 644 {} \; && " +
+"sudo find public_html data bases -type d -exec chmod 775 {} \; && " +
+"sudo find public_html data bases -type f -exec chmod 664 {} \; && " +
 "if [ ! -d 'venv' ]; then sudo python3 -m venv venv; fi && " +
 "sudo ./venv/bin/pip install -r requirements.txt || echo 'Pip failed but continuing...'"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $RemoteCmds
@@ -75,7 +75,8 @@ $ServiceCmds = "sudo cp $RemotePath/centralui-api.service /etc/systemd/system/ &
 "sudo ln -sf /etc/nginx/sites-available/central.enterprises /etc/nginx/sites-enabled/ && " +
 "sudo systemctl restart nginx && " +
 "sudo /opt/centralui/self_heal.sh && " +
-"(crontab -l 2>/dev/null | grep -v 'self_heal.sh'; echo '*/5 * * * * /opt/centralui/self_heal.sh') | crontab -"
+"sudo ./venv/bin/python PythonTools/sitemap_generator.py && " +
+"(crontab -l 2>/dev/null | grep -v 'self_heal.sh' | grep -v 'backup_db.py'; echo '*/5 * * * * /opt/centralui/self_heal.sh'; echo '0 3 * * * cd /opt/centralui && ./venv/bin/python PythonTools/backup_db.py >> /var/log/central_backup.log 2>&1') | crontab -"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $ServiceCmds
 
 # 7. Post-Deployment Verification

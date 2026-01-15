@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <div class="announcement-bar"
     style="background: var(--bg-secondary); border-bottom: 1px solid var(--structural-line); padding: 0.6rem 0; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;">
     <div class="grid-container">

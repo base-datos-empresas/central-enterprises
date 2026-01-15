@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/security_headers.php';
 require_once __DIR__ . '/../includes/pricing_config.php';
+require_once __DIR__ . '/../stripe/config.php';
 $basePath = "..";
 
 // 1. Load Primary Manifests
@@ -680,35 +681,76 @@ $datasetSchema['isAccessibleForFree'] = true;
                 </div>
             </div>
 
-            <!-- 2. Commercial Pro (Trigger) -->
-            <div
-                style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--accent); position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <!-- 2. Commercial Pro Logic (Unlocked vs Locked) -->
+            <?php
+            $isPremium = isset($_SESSION['premium_active']) && $_SESSION['premium_active'];
+            // Safety check: Ensure filter matches filter in filters.
+            $premiumLinks = $library[$targetCountry['name']]['Premium']['links'] ?? [];
+            ?>
+
+            <?php if ($isPremium && !empty($premiumLinks)): ?>
+                <!-- UNLOCKED PREMIUM CARD -->
                 <div
-                    style="position: absolute; top: 0; right: 0; background: var(--accent); color: white; font-size: 0.6rem; padding: 2px 8px; font-weight: 800;">
-                    RECOMMENDED</div>
+                    style="padding: 1.5rem; background: var(--bg-primary); border: 2px solid #10b981; position: relative; overflow: hidden; box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1rem;">
+                        <h4 style="color: #10b981; margin: 0; font-size: 1rem; text-transform:uppercase; font-weight:800;">
+                            <span style="margin-right:0.5rem;">🔓</span> Premium Active
+                        </h4>
+                        <span
+                            style="font-size:0.6rem; background:rgba(16,185,129,0.1); color:#10b981; padding:2px 8px; border-radius:4px; font-weight:700; border: 1px solid #10b981;">LICENSED</span>
+                    </div>
 
-                <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem; text-transform:uppercase;">
-                    Pro Access</h4>
+                    <div style="font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.5; color: var(--text-body);">
+                        Full commercial access unlocked for
+                        <strong><?= htmlspecialchars($targetCountry['name']) ?></strong>.
+                    </div>
 
-                <div style="font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.5;">
-                    Commercial license including daily updates, contact enrichment, and API support.
+                    <div style="display:grid; grid-template-columns: 1fr; gap: 0.8rem;">
+                        <?php foreach ($premiumLinks as $type => $link): ?>
+                            <a href="<?= $link ?>" target="_blank"
+                                style="display:flex; justify-content:center; align-items:center; gap:0.5rem; padding: 0.8rem; background: #334155; color: white; text-decoration: none; font-weight: 700; border-radius: 4px; font-size: 0.85rem; transition: all 0.2s; border: 1px solid rgba(255,255,255,0.1);">
+                                <span>⬇</span> Download <?= $type ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <div
+                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--structural-line); font-size: 0.7rem; opacity: 0.5;">
+                        Valid Session. <br>
+                        Auto-updates enabled.
+                    </div>
                 </div>
+            <?php else: ?>
+                <!-- LOCKED COMMERCIAL CARD -->
+                <div
+                    style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--accent); position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div
+                        style="position: absolute; top: 0; right: 0; background: var(--accent); color: white; font-size: 0.6rem; padding: 2px 8px; font-weight: 800;">
+                        RECOMMENDED</div>
 
-                <!-- Marketed as Monthly -->
-                <div style="display:flex; align-items: baseline; gap: 4px; margin-bottom: 1.5rem;">
-                    <span
-                        style="font-size: 1.8rem; font-weight: 800; line-height: 1;">€<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></span>
-                    <span style="font-size: 0.8rem; opacity: 0.7;">/ mo</span>
-                </div>
+                    <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem; text-transform:uppercase;">
+                        Pro Access</h4>
 
-                <button onclick="openPricingModal()"
-                    style="display:block; width:100%; padding: 1rem; background: var(--accent); color: white; text-align: center; border:none; cursor:pointer; font-weight: 800; font-size: 0.9rem; text-transform:uppercase; transition: opacity 0.2s;">
-                    VIEW LICENSING PLANS
-                </button>
-                <div style="text-align:center; margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.6;">
-                    Compare Starter, Pro & Agency
+                    <div style="font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.5;">
+                        Commercial license including daily updates, contact enrichment, and API support.
+                    </div>
+
+                    <!-- Marketed as Monthly -->
+                    <div style="display:flex; align-items: baseline; gap: 4px; margin-bottom: 1.5rem;">
+                        <span
+                            style="font-size: 1.8rem; font-weight: 800; line-height: 1;">€<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></span>
+                        <span style="font-size: 0.8rem; opacity: 0.7;">/ mo</span>
+                    </div>
+
+                    <button onclick="openPricingModal()"
+                        style="display:block; width:100%; padding: 1rem; background: var(--accent); color: white; text-align: center; border:none; cursor:pointer; font-weight: 800; font-size: 0.9rem; text-transform:uppercase; transition: opacity 0.2s;">
+                        VIEW LICENSING PLANS
+                    </button>
+                    <div style="text-align:center; margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.6;">
+                        Compare Starter, Pro & Agency
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
         </div>
         </div>
@@ -845,8 +887,9 @@ $datasetSchema['isAccessibleForFree'] = true;
                         <li>✓ Verified Contact Data</li>
                     </ul>
 
-                    <a href="<?= PricingConfig::getStripeLink('pro', $iso, $pricing['pro']['price_annual']) ?>"
-                        style="display: block; padding: 1rem; text-align: center; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 800; text-transform:uppercase; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,229,255,0.3);">
+                    <a href="javascript:void(0)" class="stripe-checkout-btn"
+                        data-price-id="<?= STRIPE_PRICES['pro_country_year'] ?>" data-plan-type="pro_country"
+                        style="display: block; padding: 1rem; text-align: center; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 800; text-transform:uppercase; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,229,255,0.3); transition: transform 0.2s;">
                         Pay €<?= number_format($pricing['pro']['price_annual'], 0) ?> Now
                     </a>
                     <div style="text-align:center; font-size: 0.6rem; margin-top: 0.5rem; opacity: 0.5;">Secure Annual
@@ -960,6 +1003,44 @@ $datasetSchema['isAccessibleForFree'] = true;
             });
         });
     </script>
+</body>
+
+<!-- Stripe Checkout Logic -->
+<script>
+    document.querySelectorAll('.stripe-checkout-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const originalText = button.innerText;
+            button.innerText = 'Redirecting...';
+            button.style.opacity = '0.7';
+
+            try {
+                const response = await fetch('<?= $basePath ?>/stripe/create-checkout-session.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        priceId: button.dataset.priceId,
+                        mode: 'subscription'
+                    })
+                });
+
+                const session = await response.json();
+
+                if (session.error) {
+                    alert("Checkout Error: " + session.error);
+                    button.innerText = originalText;
+                    button.style.opacity = '1';
+                } else {
+                    window.location.href = session.url;
+                }
+            } catch (e) {
+                console.error(e);
+                alert("Network Error. Please try again.");
+                button.innerText = originalText;
+                button.style.opacity = '1';
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

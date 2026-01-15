@@ -27,10 +27,25 @@ graph TD
 
 ### Presentation Layer (`public_html/`)
 
+### Presentation Layer (`public_html/`)
+
 - **`country/index.php`**: The dynamic landing page engine that aggregates manifest data and sector metadata.
 - **`assets/titan.css`**: The design system authority.
+  - **Version 2.0 (Mobile First)**: Implements critical resets for layout stability.
+  - **Variables**: Global color/spacing tokens (`--accent`, `--bg-primary`).
+  - **Grid System**: 12-column recursive grid used for all layouts.
 
 ## 3. Infrastructure
 
 - **Web Server**: Nginx (Oracle Cloud Ubuntu 22.04).
 - **Automation**: Systemd services for API layers and Cron for self-healing permissions.
+
+---
+
+## 4. Mobile Architecture (Titan v2)
+
+The system enforces a **strict mobile-stability policy**.
+
+1. **Header Stacking**: On screens <768px, the navigational banner switches from `flex-row` to `flex-col` to prevent overlap.
+2. **Logo Constraint**: Logos are hard-locked to `24px` height with `!important` to prevent "Giant Logo Syndrome".
+3. **Map Hydration**: The D3.js World Map includes a specific initialization delay to ensure the container is rendered before calculation, fixing the "Invisible Map" bug on iOS.

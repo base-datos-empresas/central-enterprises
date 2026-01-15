@@ -12,6 +12,13 @@
 
 ---
 
+## TECHNICAL IMPLEMENTATION
+
+For configuration keys, webhooks, and testing, see:  
+[**STRIPE BILLING MASTER DOC**](./STRIPE_BILLING_MASTER.md)
+
+---
+
 ## CORE PRINCIPLES
 
 | Rule | Description |

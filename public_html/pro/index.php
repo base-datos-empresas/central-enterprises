@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/security_headers.php';
 require_once __DIR__ . '/../includes/pricing_config.php';
+require_once __DIR__ . '/../stripe/config.php';
 $globalPrices = PricingConfig::getGlobalPricing();
 $basePath = "..";
 
@@ -271,8 +272,10 @@ $countCountries = count($proStats['countries']);
                             <li>Bulk CSV/Excel Access</li>
                             <li>Priority Support</li>
                         </ul>
-                        <a href="<?= $basePath ?>/contact/?plan=agency" class="btn-institutional primary">Request
-                            Access</a>
+                        <a href="javascript:void(0)" class="btn-institutional primary stripe-checkout-btn"
+                            data-price-id="<?= STRIPE_PRICES['agency_global_year'] ?>">
+                            Subscribe Now
+                        </a>
                     </div>
 
                     <!-- ENTERPRISE (Base) -->
@@ -319,6 +322,44 @@ $countCountries = count($proStats['countries']);
     </main>
 
     <?php include $basePath . '/includes/footer.php'; ?>
+</body>
+
+<!-- Stripe Checkout Logic -->
+<script>
+    document.querySelectorAll('.stripe-checkout-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            const originalText = button.innerText;
+            button.innerText = 'Redirecting...';
+            button.style.opacity = '0.7';
+
+            try {
+                const response = await fetch('<?= $basePath ?>/stripe/create-checkout-session.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        priceId: button.dataset.priceId,
+                        mode: 'subscription'
+                    })
+                });
+
+                const session = await response.json();
+
+                if (session.error) {
+                    alert("Checkout Error: " + session.error);
+                    button.innerText = originalText;
+                    button.style.opacity = '1';
+                } else {
+                    window.location.href = session.url;
+                }
+            } catch (e) {
+                console.error(e);
+                alert("Network Error. Please try again.");
+                button.innerText = originalText;
+                button.style.opacity = '1';
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
