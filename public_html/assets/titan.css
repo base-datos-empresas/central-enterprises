@@ -168,14 +168,26 @@ nav {
     background: var(--bg-primary);
     border-bottom: 1px solid var(--structural-line);
     padding: 0.75rem 0;
-    /* More compact */
+    /* --- NAVIGATION --- */
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    grid-column: span 12;
+    padding: 1.5rem 0;
+    position: relative;
+}
+
+.header-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-toggle-btn {
+    display: none;
+    /* Desktop hidden */
 }
 
 .logo {
@@ -731,10 +743,11 @@ footer {
     /* HERO RESET */
     .hero-title {
         font-size: 2rem;
-        /* Reduced from 2.5rem */
         line-height: 1.2;
         margin-bottom: 1rem;
-        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        max-width: 100%;
     }
 
     .hero-desc {
@@ -791,21 +804,27 @@ footer {
         border-bottom: 1px solid var(--structural-line);
     }
 
-    /* HAMBURGER BUTTON (Created in header.php) */
+    /* HAMBURGER BUTTON */
     .nav-toggle-btn {
         display: block !important;
-        font-size: 1.5rem;
+        font-size: 2rem;
         cursor: pointer;
-        padding: 0.5rem;
+        background: none;
+        border: none;
+        color: var(--text-header);
     }
 
-    /* MAP FIX */
-    #svgMap,
+    /* MAP FIX - Forces visibility */
+    #svgMap {
+        width: 100% !important;
+        height: 350px !important;
+        display: block !important;
+        margin: 2rem 0;
+    }
+
     #svgMap svg {
         width: 100% !important;
-        height: auto !important;
-        min-height: 300px;
-        display: block;
+        height: 100% !important;
     }
 
     /* TABLE RESPONSIVE WRAPPER */
