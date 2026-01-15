@@ -76,11 +76,23 @@ html[data-theme="titan-light"] {
     padding: 0;
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
     background-color: var(--bg-primary);
     color: var(--text-body);
     font-family: var(--font-body);
@@ -740,14 +752,18 @@ footer {
         grid-column-start: auto !important;
     }
 
-    /* HERO RESET */
+    /* HERO RESET & RESPONSIVE TYPE */
     .hero-title {
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-bottom: 1rem;
+        font-size: clamp(2rem, 8vw, 4rem);
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
         word-break: break-word;
         overflow-wrap: anywhere;
         max-width: 100%;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
     }
 
     .hero-desc {
@@ -804,27 +820,43 @@ footer {
         border-bottom: 1px solid var(--structural-line);
     }
 
-    /* HAMBURGER BUTTON */
-    .nav-toggle-btn {
-        display: block !important;
-        font-size: 2rem;
+    /* HAMBURGER BUTTON - High Specificity Fix */
+    header .nav-toggle-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        font-size: 1.8rem;
         cursor: pointer;
-        background: none;
-        border: none;
+        background: var(--bg-secondary);
+        border: 1px solid var(--structural-line);
         color: var(--text-header);
+        border-radius: 4px;
+        position: relative;
+        z-index: 10001;
     }
 
-    /* MAP FIX - Forces visibility */
+    /* MAP FIX - Forces visibility and aspect ratio */
     #svgMap {
         width: 100% !important;
-        height: 350px !important;
+        height: 400px !important;
         display: block !important;
         margin: 2rem 0;
+        background: var(--bg-secondary);
+        border: 1px solid var(--structural-line);
+        position: relative;
+        overflow: hidden;
+    }
+
+    #svgMap .svgMap-map-wrapper {
+        height: 100% !important;
     }
 
     #svgMap svg {
         width: 100% !important;
         height: 100% !important;
+        display: block !important;
     }
 
     /* TABLE RESPONSIVE WRAPPER */
