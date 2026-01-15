@@ -794,11 +794,42 @@ footer {
         max-width: calc(100vw - 2rem) !important;
     }
 
-    .nav-content .logo img {
+    .nav-content .logo img,
+    header .logo img,
+    nav .logo img {
         height: 24px !important;
         width: auto !important;
         max-width: 45vw !important;
         display: block !important;
+    }
+
+    /* BANNER COMPRESSION FIX */
+    .top-banner .grid-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+        text-align: center !important;
+        padding: 1rem !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    .banner-text {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .banner-links {
+        display: flex !important;
+        gap: 1.5rem !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    .banner-links a {
+        font-size: 0.75rem !important;
+        white-space: nowrap !important;
     }
 
     /* SECTION STACKING (Standard, Pro, Legal) */
