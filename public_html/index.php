@@ -401,78 +401,90 @@ $basePath = "";
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            if (typeof svgMap !== 'undefined') {
-                const mapData = <?= json_encode($mapData) ?>;
+            // Small delay to ensure flex containers are stable
+            setTimeout(function () {
+                if (typeof svgMap !== 'undefined') {
+                    console.log('svgMap: Initializing...');
+                    const mapData = <?= json_encode($mapData) ?>;
 
-                new svgMap({
-                    targetElementID: 'svgMap',
-                    data: {
-                        data: {
-                            companies: {
-                                name: 'Companies',
-                                format: '{0}',
-                                thousandSeparator: ',',
-                                thresholdMax: 2000000,
-                                thresholdMin: 0
+                    try {
+                        window.svgMapInstance = new svgMap({
+                            targetElementID: 'svgMap',
+                            data: {
+                                data: {
+                                    companies: {
+                                        name: 'Companies',
+                                        format: '{0}',
+                                        thousandSeparator: ',',
+                                        thresholdMax: 2000000,
+                                        thresholdMin: 0
+                                    },
+                                    emails: {
+                                        name: 'Verified Emails',
+                                        format: '{0}',
+                                        thousandSeparator: ','
+                                    }
+                                },
+                                applyData: 'companies',
+                                values: mapData
                             },
-                            emails: {
-                                name: 'Verified Emails',
-                                format: '{0}',
-                                thousandSeparator: ','
-                            }
-                        },
-                        applyData: 'companies',
-                        values: mapData
-                    },
-                    colorMin: '#2d3748',
-                    colorMax: '#00e5ff',
-                    colorNoData: 'rgba(0,0,0,0)', /* TRUE TRANSPARENCY */
-                    minZoom: 1.0,
-                    maxZoom: 3.5,
-                    initialZoom: 1.06,
-                    flagType: 'emoji',
-                    showContinentSelector: false
-                });
-
-                // Interaction Handling
-                const mapContainer = document.getElementById('svgMap');
-
-                // Trigger resize calculation for responsive libs
-                window.addEventListener('resize', () => {
-                    if (window.svgMapInstance) { /* No-op or re-init if needed */ }
-                });
-
-                mapContainer.addEventListener('click', function (e) {
-                    let target = e.target;
-                    while (target && target !== mapContainer && target.tagName !== 'path') {
-                        target = target.parentNode;
+                            colorMin: '#2d3748',
+                            colorMax: '#00e5ff',
+                            colorNoData: 'rgba(50, 50, 50, 0.1)', /* Visible background for empty countries */
+                            minZoom: 1.0,
+                            maxZoom: 3.5,
+                            initialZoom: 1.06,
+                            flagType: 'emoji',
+                            showContinentSelector: false
+                        });
+                        console.log('svgMap: Success');
+                    } catch (e) {
+                        console.error('svgMap Error:', e);
                     }
-                    if (target && target.tagName === 'path') {
-                        const id = target.getAttribute('id');
-                        if (id && id.includes('country-')) {
-                            const iso = id.split('country-')[1];
-                            if (mapData[iso] && mapData[iso].link) {
-                                window.location.href = mapData[iso].link;
-                            }
+                } else {
+                    console.error('svgMap: Library not loaded');
+                }
+            }, 500);
+
+            // Interaction Handling
+            const mapContainer = document.getElementById('svgMap');
+
+            // Trigger resize calculation for responsive libs
+            window.addEventListener('resize', () => {
+                if (window.svgMapInstance) { /* No-op or re-init if needed */ }
+            });
+
+            mapContainer.addEventListener('click', function (e) {
+                let target = e.target;
+                while (target && target !== mapContainer && target.tagName !== 'path') {
+                    target = target.parentNode;
+                }
+                if (target && target.tagName === 'path') {
+                    const id = target.getAttribute('id');
+                    if (id && id.includes('country-')) {
+                        const iso = id.split('country-')[1];
+                        if (mapData[iso] && mapData[iso].link) {
+                            window.location.href = mapData[iso].link;
                         }
                     }
-                });
-
-                // Cursor pointer for active countries
-                const style = document.createElement('style');
-                let css = '';
-                for (const iso in mapData) {
-                    css += `#svgMap-map-country-${iso} { cursor: pointer; } `;
                 }
-                style.type = 'text/css';
-                style.appendChild(document.createTextNode(css));
-                document.head.appendChild(style);
+            });
+
+            // Cursor pointer for active countries
+            const style = document.createElement('style');
+            let css = '';
+            for (const iso in mapData) {
+                css += `#svgMap-map-country-${iso} { cursor: pointer; } `;
             }
+            style.type = 'text/css';
+            style.appendChild(document.createTextNode(css));
+            document.head.appendChild(style);
+        }
             document.head.appendChild(style);
         }
 
-            // Force Resize Calculation
-            window.addEventListener('resize', function () {
+        // Force Resize Calculation
+        window.addEventListener('resize', function () {
             const mapWrapper = document.querySelector('.svgMap-map-wrapper');
             if (mapWrapper) {
                 mapWrapper.style.width = '100%';
