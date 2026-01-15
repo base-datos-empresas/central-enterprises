@@ -827,9 +827,14 @@ footer {
     }
 
     .pricing-grid {
-        grid-template-columns: 1fr !important;
-        /* Stack pricing cards */
-        gap: 2rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+
+    .pricing-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 
