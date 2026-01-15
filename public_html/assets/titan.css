@@ -82,17 +82,21 @@ html[data-theme="titan-light"] {
     box-sizing: border-box;
 }
 
+html,
+body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
 html {
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
     background-color: var(--bg-primary);
     color: var(--text-body);
     font-family: var(--font-body);
@@ -757,11 +761,14 @@ footer {
 /* Mobile First Overrides (Titan Master Reset) */
 @media (max-width: 900px) {
 
-    /* MASTER GRID RESET: Force single column stack */
+    /* MASTER GRID RESET: Kill the grid, force block flow */
     .grid-container {
-        padding: 0 1.5rem;
-        /* Maximize width */
-        gap: 1.5rem;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 1rem !important;
+        overflow: hidden !important;
     }
 
     .span-12,
@@ -771,8 +778,32 @@ footer {
     .span-3,
     .offset-2,
     .offset-4 {
-        grid-column: span 12 !important;
-        grid-column-start: auto !important;
+        display: block !important;
+        width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 0 !important;
+        grid-column: auto !important;
+    }
+
+    .nav-content {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: calc(100vw - 2rem) !important;
+    }
+
+    .logo img {
+        height: 24px !important;
+        /* Smaller for mobile */
+        width: auto !important;
+        max-width: 40vw !important;
+    }
+
+    .logo span {
+        font-size: 0.9rem !important;
+        white-space: nowrap;
     }
 
     .hero-split {
