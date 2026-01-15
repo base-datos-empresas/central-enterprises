@@ -234,7 +234,7 @@ $datasetSchema['isAccessibleForFree'] = true;
         rel="stylesheet">
     <meta name="description" content="<?= htmlspecialchars($stats['landing_description']) ?>">
     <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=logo_native">
-    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=101">
+    <link rel="stylesheet" href="<?= $basePath ?>/assets/titan.css?v=102">
 
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
