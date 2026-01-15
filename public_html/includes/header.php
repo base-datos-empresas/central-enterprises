@@ -32,7 +32,7 @@
                 <button id="theme-toggle" class="theme-btn" title="Toggle Theme"></button>
 
                 <button class="nav-toggle-btn"
-                    onclick="document.querySelector('.header-links').classList.toggle('active')">
+                    onclick="const nav = this.closest('.nav-content').querySelector('.header-links'); nav.classList.toggle('active');">
                     ☰
                 </button>
             </div>

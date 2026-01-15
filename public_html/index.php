@@ -17,7 +17,7 @@ $basePath = "";
     <meta name="description"
         content="Central.Enterprises is a Spain-based foundation providing a CC0 reference layer and professional company databases. Open data as infrastructure.">
     <!-- Titan Core Styles -->
-    <link rel="stylesheet" href="assets/titan.css?v=100">
+    <link rel="stylesheet" href="assets/titan.css?v=101">
     <link rel="icon" type="image/png" href="assets/favicon.png?v=logo_native">
     <script src="assets/theme-toggle.js?v=7" defer></script>
     <script src="assets/cookies.js?v=5" defer></script>

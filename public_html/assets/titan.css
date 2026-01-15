@@ -794,11 +794,31 @@ footer {
         max-width: calc(100vw - 2rem) !important;
     }
 
-    .logo img {
+    .nav-content .logo img {
         height: 24px !important;
-        /* Smaller for mobile */
         width: auto !important;
-        max-width: 40vw !important;
+        max-width: 45vw !important;
+        display: block !important;
+    }
+
+    /* SECTION STACKING (Standard, Pro, Legal) */
+    .section-grid,
+    .pricing-grid,
+    .hero-split,
+    .spec-grid,
+    .comparison-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+
+    .info-card,
+    .spec-card,
+    .pricing-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 1rem !important;
+        padding: 1.5rem !important;
     }
 
     .logo span {
