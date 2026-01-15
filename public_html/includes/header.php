@@ -17,7 +17,7 @@
             <div class="logo">
                 <a href="<?= $basePath ?>/">
                     <img src="<?= $basePath ?>/assets/Logo-Opendata-Central.png" alt="Central Enterprises Logo">
-                    <span>Central.Enterprises</span>
+                    <span>Central<b style="opacity: 0.5; font-weight: 400;">.Enterprises</b></span>
                 </a>
             </div>
 

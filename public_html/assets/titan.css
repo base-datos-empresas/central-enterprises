@@ -187,8 +187,32 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     position: relative;
+    width: 100%;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    color: var(--text-header);
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .header-links {
@@ -204,7 +228,6 @@ nav {
 
 .logo {
     font-family: var(--font-header);
-    font-size: 1.25rem;
     letter-spacing: -1.5px;
 }
 
@@ -799,26 +822,27 @@ footer {
     /* MOBILE NAVIGATION - HAMBURGER STYLE */
     .nav-content .header-links {
         display: none !important;
-        /* Force hide desktop links */
+        /* ABSOLUTE HIDE */
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
+        max-width: 100vw;
         background: var(--bg-secondary);
         position: fixed;
-        /* Fixed overlay for mobile */
         top: 60px;
         left: 0;
+        right: 0;
         height: auto;
         padding: 2rem 1rem;
         border-bottom: 2px solid var(--accent);
         z-index: 9999;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
     }
 
     .nav-content .header-links.active {
         display: flex !important;
     }
 
-    .header-links .toc-item {
+    .nav-content .header-links .toc-item {
         font-size: 1.2rem;
         padding: 1.5rem;
         width: 100%;
@@ -827,30 +851,29 @@ footer {
         background: transparent;
         border-bottom: 1px solid var(--structural-line);
         color: var(--text-header) !important;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+        display: block;
     }
 
-    /* HAMBURGER BUTTON - High Specificity */
+    /* HAMBURGER BUTTON */
     .nav-content .nav-toggle-btn {
         display: flex !important;
         align-items: center;
         justify-content: center;
-        width: 48px;
-        height: 48px;
-        font-size: 2rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.8rem;
         cursor: pointer;
         background: var(--bg-secondary);
         border: 1px solid var(--structural-line);
         color: var(--accent) !important;
         border-radius: 4px;
-        position: relative;
         z-index: 10001;
     }
 
-    /* THEME TOGGLE MOBILE */
-    .nav-content .theme-btn {
-        margin-right: 0.5rem;
+    .nav-content .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     /* MAP FIX - Forces visibility and aspect ratio */
