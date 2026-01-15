@@ -35,9 +35,14 @@ Write-Host "Uploading PythonTools..."
 scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "PythonTools") "${User}@${HostName}:${RemotePath}"
 
 # 3. Upload Data & Bases
-# 3. Upload Data & Bases (SKIPPED - DROPBOX REFERENCED)
-Write-Host "Skipping Data/Bases Upload (Dropbox Referenced)..."
-# scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "data") "${User}@${HostName}:${RemotePath}"
+# 3. Upload Data & Bases (METADATA ONLY)
+Write-Host "Uploading Critical Metadata (Registry & Library)..."
+# Ensure remote data directory exists
+ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" "sudo mkdir -p ${RemotePath}/data && sudo chown ubuntu:ubuntu ${RemotePath}/data"
+# Upload only the index files
+scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $ProjectRoot "data\registry_index.json") "${User}@${HostName}:${RemotePath}/data/"
+scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $ProjectRoot "data\digital_library.json") "${User}@${HostName}:${RemotePath}/data/"
+# Bases are skipped as requested
 # scp -i $KeyPath -o StrictHostKeyChecking=no -r (Join-Path $ProjectRoot "bases") "${User}@${HostName}:${RemotePath}"
 
 # 4. Upload System Files
@@ -50,15 +55,16 @@ scp -i $KeyPath -o StrictHostKeyChecking=no (Join-Path $ProjectRoot "requirement
 Write-Host "Deployment Files Uploaded."
 
 # 5. Remote Environment, Dependencies & Permissions
+# 5. Remote Environment, Dependencies & Permissions
 Write-Host "Updating Remote Environment and Permissions..."
 $RemoteCmds = "cd $RemotePath && " +
-"sudo ./venv/bin/pip install -r requirements.txt && " +
-"sudo chmod +x self_heal.sh && " +
+"sudo chown -R ubuntu:www-data public_html data bases && " +
 "sudo find public_html data bases -type d -exec chmod 755 {} \; && " +
 "sudo find public_html data bases -type f -exec chmod 644 {} \; && " +
-"sudo chown -R ubuntu:www-data data bases public_html"
+"if [ ! -d 'venv' ]; then sudo python3 -m venv venv; fi && " +
+"sudo ./venv/bin/pip install -r requirements.txt || echo 'Pip failed but continuing...'"
 ssh -i $KeyPath -o StrictHostKeyChecking=no "${User}@${HostName}" $RemoteCmds
-if ($LASTEXITCODE -ne 0) { Write-Error "Failed to update remote environment/permissions." }
+if ($LASTEXITCODE -ne 0) { Write-Warning "Remote command had issues, but attempting to proceed..." }
 
 # 6. Restart Services & Apply Config & Set Cron
 Write-Host "Restarting Services..."

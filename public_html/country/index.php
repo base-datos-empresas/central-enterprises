@@ -233,6 +233,7 @@ $datasetSchema['isAccessibleForFree'] = true;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap"
         rel="stylesheet">
     <meta name="description" content="<?= htmlspecialchars($stats['landing_description']) ?>">
+    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=logo_native">
     <link rel="stylesheet" href="/assets/titan.css?v=marketplace_4">
 
     <!-- JSON-LD Schema -->
@@ -471,12 +472,7 @@ $datasetSchema['isAccessibleForFree'] = true;
                                 style="color: var(--text-header); font-weight: 800;">€<?= number_format($monthlyDisplay, 2) ?></span>
                             / MO
                         </div>
-                        <div
-                            style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600;">
-                            STARTING FROM <span
-                                style="color: var(--text-header); font-weight: 800;">€<?= number_format($monthlyDisplay, 2) ?></span>
-                            / MO
-                        </div>
+
                         <p class="hero-desc"
                             style="grid-column: auto; border: none; padding: 0; font-size: 1.1rem; max-width: 600px;">
                             <?= htmlspecialchars($stats['landing_description']) ?>
@@ -598,33 +594,39 @@ $datasetSchema['isAccessibleForFree'] = true;
                                 </p>
 
                                 <div style="overflow-x: auto;">
-                                    <table class="titan-table" style="font-size: 0.75rem;">
+                                    <table class="titan-table" style="font-size: 0.75rem; white-space: nowrap;">
                                         <thead>
                                             <tr>
+                                                <th style="color:var(--text-muted);">REGISTRY ID</th>
                                                 <th>ENTITY NAME</th>
-                                                <th>INDUSTRIAL SECTOR</th>
-                                                <th>LOCATION</th>
-                                                <th style="color:var(--accent);">PREMIUM ENRICHMENT</th>
+                                                <th>LEGAL FORM</th>
+                                                <th>INCORP. DATE</th>
+                                                <th>STATUS</th>
+                                                <th style="text-align:right">CAPITAL</th>
+                                                <th style="color:var(--accent); border-left: 2px solid var(--accent);">PREMIUM ENRICHMENT</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                             $mockEntities = [
-                                                ['Acme Industrial S.A.', 'Construction & Infrastructure', 'Madrid', 'Verified Email + Social'],
-                                                ['Titan Logistics SL', 'Transport & Distribution', 'Barcelona', 'Direct Phone + Contact Name'],
-                                                ['Green Energy Corp', 'Renewable Energy Systems', 'Granada', 'Spending Signals + LinkedIn'],
-                                                ['Global Software Solutions', 'IT Services & Software', 'Valencia', 'Validated Domain + Ad Data'],
-                                                ['Central Food Group', 'Food Processing & Supply', 'Sevilla', 'Full Executive Mapping']
+                                                ['B-8230192', 'Acme Industrial S.A.', 'Sociedad Anónima', '1998-04-12', 'Active', '€60.000', 'Verified Email + Social'],
+                                                ['B-9102381', 'Titan Logistics SL', 'Soc. Limitada', '2015-11-03', 'Active', '€3.000', 'Direct Phone + Contact'],
+                                                ['A-2840192', 'Green Energy Corp', 'Sociedad Anónima', '2009-02-14', 'Active', '€150.000', 'Spending Signals + LinkedIn'],
+                                                ['B-1029384', 'Global Software Solutions', 'Soc. Limitada', '2021-06-22', 'Active', '€3.000', 'Validated Domain + Ad Data'],
+                                                ['A-4029182', 'Central Food Group', 'Sociedad Anónima', '1985-09-30', 'Active', '€2.500.000', 'Full Executive Mapping'],
+                                                ['B-5019283', 'NEXUS Consulting', 'Soc. Limitada', '2019-01-15', 'Active', '€12.500', 'B2B Tech Stack Data'],
                                             ];
                                             foreach ($mockEntities as $entity):
                                                 ?>
                                                 <tr>
-                                                    <td style="font-weight:700;"><?= $entity[0] ?></td>
-                                                    <td style="opacity:0.8;"><?= $entity[1] ?></td>
-                                                    <td style="opacity:0.7;"><?= $entity[2] ?></td>
-                                                    <td
-                                                        style="font-family:monospace; color:var(--accent); font-size: 0.7rem;">
-                                                        <span style="opacity:0.4;">[MASKED]</span> <?= $entity[3] ?>
+                                                    <td style="font-family:monospace; opacity:0.6;"><?= $entity[0] ?></td>
+                                                    <td style="font-weight:700; color:var(--text-header);"><?= $entity[1] ?></td>
+                                                    <td style="opacity:0.8;"><?= $entity[2] ?></td>
+                                                    <td style="opacity:0.8;"><?= $entity[3] ?></td>
+                                                    <td><span style="color:#10b981; font-weight:700; font-size:0.65rem; border:1px solid #10b981; padding:1px 4px; border-radius:3px;">ACTIVE</span></td>
+                                                    <td style="text-align:right; font-family:monospace; opacity:0.8;"><?= $entity[5] ?></td>
+                                                    <td style="font-family:monospace; color:var(--accent); font-size: 0.7rem; border-left: 2px solid var(--accent); background: rgba(0, 229, 255, 0.03);">
+                                                        <span style="opacity:0.4;">[MASKED]</span> <?= $entity[6] ?>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -641,6 +643,7 @@ $datasetSchema['isAccessibleForFree'] = true;
 
                     <!-- Right: Asset Card -->
                     <!-- Right: Pricing Card -->
+                    <!-- Right: Pricing Card (Simplified 2-Block) -->
                     <div class="asset-card">
                         <div
                             style="text-align:center; padding-bottom: 1.5rem; border-bottom: 1px solid var(--structural-line); margin-bottom: 1.5rem;">
@@ -650,91 +653,64 @@ $datasetSchema['isAccessibleForFree'] = true;
                         </div>
 
                         <!-- 1. Open Data (Free) -->
-                        <div style="margin-bottom: 2rem; opacity: 0.8;">
-                            <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem;">
-                                <span style="font-weight:700; font-size: 0.9rem;">Open Data</span>
-                                <span style="font-weight:700; color: var(--accent);">Free</span>
+                        <div style="margin-bottom: 2rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--structural-line); border-left: 3px solid #10b981;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+                                <span style="font-weight:800; font-size: 1rem; color: #10b981; text-transform:uppercase;">Open Data</span>
+                                <span style="font-weight:800; font-size: 1.2rem; color: var(--text-header);">€0</span>
                             </div>
-                            <div style="font-size: 0.8rem; line-height: 1.4;">
-                                Public CC0 license. Basic identity fields only. No contact data.
+    <div style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem; opacity: 0.9; color: var(--text-body);">
+                                <strong>Standardized Legal Identity.</strong> Normalized structural data ideal for entity verification, deduplication, and master data management.<br>
+                                <span style="font-size:0.75rem; opacity:0.7; display:block; margin-top:0.4rem;">✓ Full Official Registry &nbsp; ✓ CC0 License &nbsp; ✓ Clean</span>
                             </div>
-                            <?php if (isset($stats['links']['ZIP'])): ?>
-                                <a href="<?= $stats['links']['ZIP'] ?>"
-                                    style="display:block; margin-top:0.5rem; padding: 0.6rem; border: 1px solid var(--structural-line); text-align: center; text-decoration: none; font-size: 0.8rem; font-weight: 600; color: var(--text-body);">
-                                    Download ZIP
+                            
+                            <!-- Options Grid -->
+                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                <?php if (isset($stats['links']['ZIP'])): ?>
+                                    <a href="<?= $stats['links']['ZIP'] ?>" 
+                                       style="grid-column: span 2; display:block; padding: 0.6rem; background: var(--bg-primary); border: 1px solid var(--structural-line); text-align: center; text-decoration: none; font-size: 0.8rem; font-weight: 700; color: var(--text-header); transition: all 0.2s;">
+                                       ⬇ Download ZIP
+                                    </a>
+                                <?php endif; ?>
+                                <a href="#schema" onclick="document.querySelector('.tab-link[aria-controls=\'schema\']').click()" 
+                                   style="display:block; padding: 0.5rem; text-align: center; border: 1px solid var(--structural-line); color: var(--text-muted); text-decoration: none; font-size: 0.7rem;">
+                                   View Schema
                                 </a>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- 2. Starter 90D -->
-                        <div
-                            style="margin-bottom: 2rem; padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--structural-line);">
-                            <div
-                                style="display:flex; justify-content:space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                                <span style="font-weight:800; font-size: 1rem; text-transform:uppercase;">Starter
-                                    90D</span>
-                                <span
-                                    style="font-weight:800; font-size: 1.2rem;">€<?= number_format($pricing['starter']['price_one_time'], 0) ?></span>
+                                <a href="/legal/open-data/" target="_blank"
+                                   style="display:block; padding: 0.5rem; text-align: center; border: 1px solid var(--structural-line); color: var(--text-muted); text-decoration: none; font-size: 0.7rem;">
+                                   License
+                                </a>
                             </div>
-                            <div style="font-size: 0.75rem; opacity: 0.6; margin-bottom: 1rem;">One-time payment • No
-                                updates</div>
-                            <ul style="list-style: none; font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.6;">
-                                <li>✓ Full Dataset Export</li>
-                                <li>✓ Commercial Use</li>
-                                <li>✓ 90 Day Validity</li>
-                            </ul>
-                            <a href="<?= PricingConfig::getStripeLink('starter', $iso, $pricing['starter']['price_one_time']) ?>"
-                                style="display:block; width:100%; padding: 0.8rem; background: transparent; border: 2px solid var(--text-header); color: var(--text-header); text-align: center; text-decoration: none; font-weight: 800; font-size: 0.9rem;">
-                                GET STARTER
-                            </a>
                         </div>
 
-                        <!-- 3. Pro Country (Hero) -->
+                        <!-- 2. Commercial Pro (Trigger) -->
                         <div
-                            style="padding: 1.5rem; background: var(--text-header); color: var(--bg-primary); position: relative; overflow: hidden;">
+                            style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--accent); position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
                             <div
                                 style="position: absolute; top: 0; right: 0; background: var(--accent); color: white; font-size: 0.6rem; padding: 2px 8px; font-weight: 800;">
                                 RECOMMENDED</div>
 
                             <h4
-                                style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.9rem; text-transform:uppercase;">
-                                Pro Country</h4>
+                                style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem; text-transform:uppercase;">
+                                Pro Access</h4>
+
+                            <div style="font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.5;">
+                                Commercial license including daily updates, contact enrichment, and API support.
+                            </div>
 
                             <!-- Marketed as Monthly -->
-                            <div style="display:flex; align-items: baseline; gap: 4px;">
+                            <div style="display:flex; align-items: baseline; gap: 4px; margin-bottom: 1.5rem;">
                                 <span
-                                    style="font-size: 2.5rem; font-weight: 800; line-height: 1;">€<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></span>
+                                    style="font-size: 1.8rem; font-weight: 800; line-height: 1;">€<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></span>
                                 <span style="font-size: 0.8rem; opacity: 0.7;">/ mo</span>
                             </div>
-                            <div style="font-size: 0.75rem; opacity: 0.5; margin-bottom: 1.5rem;">
-                                Billed <strong>€<?= number_format($pricing['pro']['price_annual'], 0) ?></strong> yearly
+
+                            <button onclick="openPricingModal()"
+                                style="display:block; width:100%; padding: 1rem; background: var(--accent); color: white; text-align: center; border:none; cursor:pointer; font-weight: 800; font-size: 0.9rem; text-transform:uppercase; transition: opacity 0.2s;">
+                                VIEW LICENSING PLANS
+                            </button>
+                            <div style="text-align:center; margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.6;">
+                                Compare Starter, Pro & Agency
                             </div>
-
-                            <ul style="list-style: none; font-size: 0.9rem; margin-bottom: 2rem; line-height: 1.6;">
-                                <li style="margin-bottom: 0.5rem;">✓ <strong>Everything in Starter</strong></li>
-                                <li style="margin-bottom: 0.5rem;">✓ <strong>Daily Updates</strong> (1 Year)</li>
-                                <li style="margin-bottom: 0.5rem;">✓ Priority Support</li>
-                                <li>✓ Verified Emails & Phones</li>
-                            </ul>
-
-                            <a href="<?= PricingConfig::getStripeLink('pro', $iso, $pricing['pro']['price_annual']) ?>"
-                                style="display:block; width:100%; padding: 1rem; background: var(--accent); color: white; text-align: center; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform:uppercase; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
-                                PAY €<?= number_format($pricing['pro']['price_annual'], 0) ?> NOW — 1 YEAR ACCESS
-                            </a>
-                            <div style="text-align:center; margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.5;">
-                                Secure Stripe Checkout
-                            </div>
-                        </div>
-
-                        <!-- 4. Global Agency -->
-                        <div
-                            style="margin-top: 2rem; text-align: center; border-top: 1px solid var(--structural-line); padding-top: 1.5rem;">
-                            <div
-                                style="font-size: 0.8rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-header);">
-                                AGENCY / MULTI-COUNTRY?</div>
-                            <a href="/contact/?plan=agency"
-                                style="font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 600;">Contact
-                                Sales for Global Plans →</a>
                         </div>
                     </div>
                 </div>
@@ -807,6 +783,123 @@ $datasetSchema['isAccessibleForFree'] = true;
     </main>
 
     <?php include __DIR__ . '/../includes/footer.php'; ?>
+
+    <!-- NEW: Comparative Pricing Modal -->
+    <div id="pricingModal" class="modal-overlay" style="display:none;">
+        <div class="modal-content" style="max-width: 900px; width: 95%;">
+            <div class="modal-close" onclick="closePricingModal()">×</div>
+            <div class="modal-title" style="text-align:center; margin-bottom: 0.5rem;">Commercial Licensing Options
+            </div>
+            <div style="text-align:center; font-size:0.9rem; color:var(--text-muted); margin-bottom: 2rem;">Select the
+                plan that fits your integration needs for <?= $currentCountryName ?>.</div>
+
+            <div class="pricing-grid"
+                style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: left;">
+
+                <!-- STARTER -->
+                <div class="pricing-card"
+                    style="padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--structural-line);">
+                    <h4
+                        style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-header); text-transform:uppercase;">
+                        Starter 90D</h4>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">
+                        €<?= number_format($pricing['starter']['price_one_time'], 0) ?></div>
+                    <div style="font-size: 0.75rem; opacity: 0.6; margin-bottom: 1.5rem;">One-time payment</div>
+
+                    <ul
+                        style="list-style: none; font-size: 0.8rem; opacity: 0.8; line-height: 1.6; margin-bottom: 2rem;">
+                        <li>✓ Full dataset export</li>
+                        <li>✓ <strong>No updates</strong> included</li>
+                        <li>✓ Internal commercial use</li>
+                        <li>✓ 90 Day License</li>
+                    </ul>
+
+                    <a href="<?= PricingConfig::getStripeLink('starter', $iso, $pricing['starter']['price_one_time']) ?>"
+                        style="display: block; padding: 1rem; text-align: center; background: #334155; border: none; color: white; text-decoration: none; font-size: 0.9rem; font-weight: 800; border-radius: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                        GET STARTER
+                    </a>
+                </div>
+
+                <!-- PRO (HIGHLIGHT) -->
+                <div class="pricing-card"
+                    style="padding: 1.5rem; background: var(--bg-primary); border: 2px solid var(--accent); position: relative; transform: scale(1.02); box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                    <div
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent);">
+                    </div>
+                    <h4
+                        style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--accent); text-transform:uppercase; font-weight:800;">
+                        Pro Country</h4>
+
+                    <div style="font-size: 2rem; font-weight: 800; color: var(--text-header); margin-bottom: 0px;">
+                        €<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></div>
+                    <div style="font-size: 0.8rem; color: var(--accent); margin-bottom: 0.5rem; font-weight:700;">/
+                        month</div>
+
+                    <div
+                        style="font-size: 0.7rem; opacity: 0.6; margin-bottom: 1.5rem; border-top: 1px solid var(--structural-line); padding-top: 0.5rem;">
+                        Billed <strong>€<?= number_format($pricing['pro']['price_annual'], 0) ?></strong> yearly
+                    </div>
+
+                    <ul
+                        style="list-style: none; font-size: 0.85rem; color: var(--text-header); line-height: 1.6; margin-bottom: 2rem;">
+                        <li>✓ <strong>Everything in Starter</strong></li>
+                        <li>✓ <strong>Daily Updates</strong> (1 Year)</li>
+                        <li>✓ Priority Email Support</li>
+                        <li>✓ Verified Contact Data</li>
+                    </ul>
+
+                    <a href="<?= PricingConfig::getStripeLink('pro', $iso, $pricing['pro']['price_annual']) ?>"
+                        style="display: block; padding: 1rem; text-align: center; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.9rem; font-weight: 800; text-transform:uppercase; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,229,255,0.3);">
+                        Pay €<?= number_format($pricing['pro']['price_annual'], 0) ?> Now
+                    </a>
+                    <div style="text-align:center; font-size: 0.6rem; margin-top: 0.5rem; opacity: 0.5;">Secure Annual
+                        Billing</div>
+                </div>
+
+                <!-- AGENCY -->
+                <div class="pricing-card"
+                    style="padding: 1.5rem; background: var(--bg-secondary); border: 1px solid var(--structural-line);">
+                    <h4
+                        style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-header); text-transform:uppercase;">
+                        Agency</h4>
+                    <div style="font-size: 1.5rem; font-weight: 800; color: var(--text-header); margin-bottom: 0.5rem;">
+                        €325</div>
+                    <div style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 0.5rem;">/ month</div>
+                    <div style="font-size: 0.7rem; opacity: 0.6; margin-bottom: 1.5rem;">Billed €3.900 yearly</div>
+
+                    <ul
+                        style="list-style: none; font-size: 0.8rem; opacity: 0.8; line-height: 1.6; margin-bottom: 2rem;">
+                        <li>✓ Up to 5 Countries</li>
+                        <li>✓ Client Services License</li>
+                        <li>✓ Multi-seat Access</li>
+                        <li>✓ Dedicated Account Mgr</li>
+                    </ul>
+
+                    <a href="/contact/?plan=agency"
+                        style="display: block; padding: 1rem; text-align: center; background: transparent; border: 1px solid var(--text-header); color: var(--text-header); text-decoration: none; font-size: 0.9rem; font-weight: 800; border-radius: 4px;">
+                        CONTACT SALES
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script update for new modal -->
+    <script>
+        function openPricingModal() {
+            document.getElementById('pricingModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePricingModal() {
+            document.getElementById('pricingModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('pricingModal').addEventListener('click', (e) => {
+            if (e.target.id === 'pricingModal') closePricingModal();
+        });
+    </script>
 
     <!-- Coming Soon Modal -->
     <div id="comingSoonModal" class="modal-overlay">
