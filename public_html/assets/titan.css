@@ -726,10 +726,11 @@ footer {
 
     /* HERO RESET */
     .hero-title {
-        font-size: 2.5rem;
-        /* Readable on mobile */
-        line-height: 1.1;
+        font-size: 2rem;
+        /* Reduced from 2.5rem */
+        line-height: 1.2;
         margin-bottom: 1rem;
+        word-wrap: break-word;
     }
 
     .hero-desc {
@@ -756,25 +757,33 @@ footer {
         font-size: 3rem;
     }
 
-    /* NAVIGATION TARGETS */
+    /* NAVIGATION TARGETS - SCROLLABLE BAR */
     .header-links {
         display: flex;
-        /* Ensure visible */
         justify-content: flex-start;
         gap: 1rem;
-        /* Let's keep it visible but scrollable if needed */
         overflow-x: auto;
         padding-bottom: 0.5rem;
         width: 100%;
         margin-top: 1rem;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scroll on iOS */
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+    }
+
+    .header-links::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
     }
 
     .toc-item {
-        font-size: 0.85rem;
-        /* Larger */
-        padding: 0.8rem 1rem;
-        /* Hit area */
+        font-size: 0.8rem;
+        padding: 0.6rem 0.8rem;
         white-space: nowrap;
+        background: var(--bg-secondary);
+        border: 1px solid var(--structural-line);
+        border-radius: 4px;
     }
 
     /* TABLE RESPONSIVE WRAPPER */
@@ -791,20 +800,36 @@ footer {
         border-top: none;
         padding-top: 0;
         margin-bottom: 0.5rem;
+        font-size: 0.7rem;
     }
 
     .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
     }
 
     /* LEGAL TEXT */
     .legal-content,
     p,
     li {
-        font-size: 1rem;
-        /* 16px base for readability */
+        font-size: 0.95rem;
+        /* Slightly smaller for mobile density */
         line-height: 1.6;
+    }
+
+    /* MODAL MOBILE RESET */
+    .modal-content {
+        width: 95% !important;
+        margin: 1rem auto;
+        padding: 1.5rem !important;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        /* Stack pricing cards */
+        gap: 2rem !important;
     }
 }
 

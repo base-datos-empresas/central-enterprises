@@ -234,7 +234,7 @@ $datasetSchema['isAccessibleForFree'] = true;
         rel="stylesheet">
     <meta name="description" content="<?= htmlspecialchars($stats['landing_description']) ?>">
     <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=logo_native">
-    <link rel="stylesheet" href="/assets/titan.css?v=marketplace_4">
+    <link rel="stylesheet" href="/assets/titan.css?v=11">
 
     <!-- JSON-LD Schema -->
     <script type="application/ld+json">
@@ -593,7 +593,7 @@ $datasetSchema['isAccessibleForFree'] = true;
                                     <strong>OpenData</strong> tier to maintain privacy and compliance requirements.
                                 </p>
 
-                                <div style="overflow-x: auto;">
+                                <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1rem; border: 1px solid var(--structural-line); border-radius: 4px;">
                                     <table class="titan-table" style="font-size: 0.75rem; white-space: nowrap;">
                                         <thead>
                                             <tr>
