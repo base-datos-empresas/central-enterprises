@@ -243,8 +243,13 @@ $datasetSchema['isAccessibleForFree'] = true;
 
     <style>
         /* Marketplace Specific Overrides */
-        body, html { overflow-x: hidden; } /* CRITICAL: Prevent horiz scroll */
-        
+        body,
+        html {
+            overflow-x: hidden;
+        }
+
+        /* CRITICAL: Prevent horiz scroll */
+
         /* SEO Enhancements */
         h1,
         h2,
@@ -453,269 +458,260 @@ $datasetSchema['isAccessibleForFree'] = true;
     <script src="<?= $basePath ?>/assets/theme-toggle.js"></script>
 
     <main>
-        <section class="hero">
-            <div class="grid-container">
-                <div class="span-12 hero-split">
-                    <!-- Left: Info -->
-                    <div>
-                        <div class="section-meta" style="margin-bottom:1rem; border:none; padding:0;">VERIFIED DATASET •
-                            <?= $iso ?>
-                        </div>
-                        <h1 class="hero-title" style="margin-bottom: 1.5rem;">
-                            <span
-                                style="color: #64748b; font-weight:800;"><?= htmlspecialchars($currentCountryName) ?></span>
-                            <br>
-                            <span style="color: var(--accent); font-weight:300;">Business Database</span>
-                        </h1>
-                        <div
-                            style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600;">
-                            STARTING FROM <span
-                                style="color: var(--text-header); font-weight: 800;">€<?= number_format($monthlyDisplay, 2) ?></span>
-                            / MO
-                        </div>
+        </h1>
+        <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 600;">
+            STARTING FROM <span
+                style="color: var(--text-header); font-weight: 800;">€<?= number_format($monthlyDisplay, 2) ?></span>
+            / MO
+        </div>
 
-                        <p class="hero-desc"
-                            style="grid-column: auto; border: none; padding: 0; font-size: 1.1rem; max-width: 600px;">
-                            <?= htmlspecialchars($stats['landing_description']) ?>
-                        </p>
+        <p class="hero-desc" style="grid-column: auto; border: none; padding: 0; font-size: 1.1rem; max-width: 600px;">
+            <?= htmlspecialchars($stats['landing_description']) ?>
+        </p>
 
-                        <div style="margin-top: 3rem; display: flex; gap: 1rem; align-items: center;">
-                            <span
-                                style="padding: 0.5rem 1rem; background: rgba(0,255,0,0.1); color: #00ff00; font-size: 0.7rem; font-weight: 700; border: 1px solid #00ff00;">LIVE
-                                UPDATE</span>
-                            <span style="font-size: 0.8rem; opacity: 0.7;">Last synced:
-                                <strong><?= date('M d, Y') ?></strong></span>
-                        </div>
+        <div style="margin-top: 3rem; display: flex; gap: 1rem; align-items: center;">
+            <span
+                style="padding: 0.5rem 1rem; background: rgba(0,255,0,0.1); color: #00ff00; font-size: 0.7rem; font-weight: 700; border: 1px solid #00ff00;">LIVE
+                UPDATE</span>
+            <span style="font-size: 0.8rem; opacity: 0.7;">Last synced:
+                <strong><?= date('M d, Y') ?></strong></span>
+        </div>
 
-                        <!-- Tabs -->
-                        <div class="tab-nav" style="margin-top: 4rem;" role="tablist">
-                            <a href="#overview" class="tab-link active" role="tab" aria-selected="true"
-                                aria-controls="overview">Refined Highlights</a>
-                            <a href="#schema" class="tab-link" role="tab" aria-selected="false"
-                                aria-controls="schema">Data Schema</a>
-                            <a href="#sample" class="tab-link" role="tab" aria-selected="false"
-                                aria-controls="sample">Sample Data</a>
-                        </div>
+        <!-- Tabs -->
+        <div class="tab-nav" style="margin-top: 4rem;" role="tablist">
+            <a href="#overview" class="tab-link active" role="tab" aria-selected="true" aria-controls="overview">Refined
+                Highlights</a>
+            <a href="#schema" class="tab-link" role="tab" aria-selected="false" aria-controls="schema">Data Schema</a>
+            <a href="#sample" class="tab-link" role="tab" aria-selected="false" aria-controls="sample">Sample Data</a>
+        </div>
 
-                        <!-- Content Area -->
-                        <div id="overview">
-                            <h3 style="margin-bottom: 1.5rem;">Advanced Dataset Insights</h3>
+        <!-- Content Area -->
+        <div id="overview">
+            <h3 style="margin-bottom: 1.5rem;">Advanced Dataset Insights</h3>
 
-                            <!-- Highlights Grid -->
-                            <div class="grid-container" style="padding:0; gap:1.5rem; margin-bottom:3rem;">
-                                <div class="span-6"
-                                    style="background: var(--bg-secondary); padding: 1.5rem; border: 1px solid var(--structural-line);">
-                                    <h4
-                                        style="color: var(--accent); margin-bottom: 0.5rem; display:flex; justify-content:space-between;">
-                                        Core Identity <span class="tier-badge tier-od">OpenData</span>
-                                    </h4>
-                                    <div style="font-size: 2rem; font-weight: 800; margin: 1rem 0;">
-                                        <?= number_format($stats['total_companies']) ?>
-                                    </div>
-                                    <p style="font-size: 0.8rem; opacity: 0.8;">Verified legal entities having passed
-                                        validation checks. Full address resolution included.</p>
-                                </div>
-                                <div class="span-6"
-                                    style="background: linear-gradient(135deg, var(--bg-secondary), rgba(0, 229, 255, 0.05)); padding: 1.5rem; border: 1px solid var(--accent);">
-                                    <h4
-                                        style="color: var(--accent); margin-bottom: 0.5rem; display:flex; justify-content:space-between;">
-                                        Contact Enrichment <span class="tier-badge tier-premium">Premium</span>
-                                    </h4>
-                                    <div
-                                        style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8; line-height: 1.4;">
-                                        Full contact profiles including verified direct emails via <a
-                                            href="https://kaijuverifier.com/api-docs" target="_blank"
-                                            style="color: var(--accent); font-weight: 700; text-decoration: none;">Email
-                                            Verifier API</a>, active phone lines, and social footprints.
-                                    </div>
-                                    <div style="display:flex; justify-content: space-between; margin-top: 1rem;">
-                                        <div>
-                                            <div style="font-size: 1.5rem; font-weight: 800;">
-                                                <?= number_format($stats['total_emails']) ?>
-                                            </div>
-                                            <div style="font-size: 0.7rem;">DIRECT EMAILS</div>
-                                            <div style="font-size: 0.6rem; margin-top: 0.3rem;">
-                                                <a href="https://kaijuverifier.com/api-docs" target="_blank"
-                                                    style="color: var(--accent); opacity: 0.8; text-decoration: none;">Verified
-                                                    via Email Verifier API</a>
-                                            </div>
-                                        </div>
-                                        <div style="text-align: right;">
-                                            <div style="font-size: 1.5rem; font-weight: 800;">
-                                                ~<?= number_format($stats['total_domains']) ?></div>
-                                            <div style="font-size: 0.7rem;">WEB DOMAINS</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div id="schema" style="margin-top: 4rem;">
-                            <h3 style="margin-bottom: 1.5rem;">Technical Schema & Access Levels</h3>
-                            <table class="titan-table">
-                                <thead>
-                                    <tr>
-                                        <th>Field Name</th>
-                                        <th>Data Type</th>
-                                        <th>Access Tier</th>
-                                        <th style="text-align:right">Fill Rate</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($schemaFields as $field): ?>
-                                        <tr>
-                                            <td style="font-family: monospace; font-weight: 700;">
-                                                <?= $field['Field Name'] ?>
-                                            </td>
-                                            <td style="font-size: 0.75rem; opacity: 0.8;"><?= $field['Type'] ?></td>
-                                            <td>
-                                                <?php if ($field['Access'] == 'OpenData'): ?>
-                                                    <span class="tier-badge tier-od">OpenData</span>
-                                                <?php else: ?>
-                                                    <span class="tier-badge tier-premium">Premium</span>
-                                                <?php endif; ?>
-                                            </td>
-                                            <td style="text-align:right; color: var(--accent);"><?= $field['Fill Rate'] ?>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div id="sample">
-                            <div
-                                style="background: var(--bg-secondary); border: 1px solid var(--structural-line); padding: 1.5rem; margin-bottom: 2rem;">
-                                <h4 class="titan-label" style="margin-bottom: 1rem;">PROFESSIONAL DATA PREVIEW</h4>
-                                <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem;">
-                                    This preview demonstrates the normalized record quality. Field masking is applied to
-                                    the
-                                    <strong>OpenData</strong> tier to maintain privacy and compliance requirements.
-                                </p>
-
-                                <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1rem; border: 1px solid var(--structural-line); border-radius: 4px;">
-                                    <table class="titan-table" style="font-size: 0.75rem; white-space: nowrap;">
-                                        <thead>
-                                            <tr>
-                                                <th style="color:var(--text-muted);">REGISTRY ID</th>
-                                                <th>ENTITY NAME</th>
-                                                <th>LEGAL FORM</th>
-                                                <th>INCORP. DATE</th>
-                                                <th>STATUS</th>
-                                                <th style="text-align:right">CAPITAL</th>
-                                                <th style="color:var(--accent); border-left: 2px solid var(--accent);">PREMIUM ENRICHMENT</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $mockEntities = [
-                                                ['B-8230192', 'Acme Industrial S.A.', 'Sociedad Anónima', '1998-04-12', 'Active', '€60.000', 'Verified Email + Social'],
-                                                ['B-9102381', 'Titan Logistics SL', 'Soc. Limitada', '2015-11-03', 'Active', '€3.000', 'Direct Phone + Contact'],
-                                                ['A-2840192', 'Green Energy Corp', 'Sociedad Anónima', '2009-02-14', 'Active', '€150.000', 'Spending Signals + LinkedIn'],
-                                                ['B-1029384', 'Global Software Solutions', 'Soc. Limitada', '2021-06-22', 'Active', '€3.000', 'Validated Domain + Ad Data'],
-                                                ['A-4029182', 'Central Food Group', 'Sociedad Anónima', '1985-09-30', 'Active', '€2.500.000', 'Full Executive Mapping'],
-                                                ['B-5019283', 'NEXUS Consulting', 'Soc. Limitada', '2019-01-15', 'Active', '€12.500', 'B2B Tech Stack Data'],
-                                            ];
-                                            foreach ($mockEntities as $entity):
-                                                ?>
-                                                <tr>
-                                                    <td style="font-family:monospace; opacity:0.6;"><?= $entity[0] ?></td>
-                                                    <td style="font-weight:700; color:var(--text-header);"><?= $entity[1] ?></td>
-                                                    <td style="opacity:0.8;"><?= $entity[2] ?></td>
-                                                    <td style="opacity:0.8;"><?= $entity[3] ?></td>
-                                                    <td><span style="color:#10b981; font-weight:700; font-size:0.65rem; border:1px solid #10b981; padding:1px 4px; border-radius:3px;">ACTIVE</span></td>
-                                                    <td style="text-align:right; font-family:monospace; opacity:0.8;"><?= $entity[5] ?></td>
-                                                    <td style="font-family:monospace; color:var(--accent); font-size: 0.7rem; border-left: 2px solid var(--accent); background: rgba(0, 229, 255, 0.03);">
-                                                        <span style="opacity:0.4;">[MASKED]</span> <?= $entity[6] ?>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div style="margin-top: 1rem; font-size: 0.7rem; opacity: 0.5; font-style: italic;">
-                                    * Sample represents generalized record structure. Download full dataset for real
-                                    entity data.
-                                </div>
-                            </div>
-                        </div>
+            <!-- Highlights Grid -->
+            <div class="grid-container" style="padding:0; gap:1.5rem; margin-bottom:3rem;">
+                <div class="span-6"
+                    style="background: var(--bg-secondary); padding: 1.5rem; border: 1px solid var(--structural-line);">
+                    <h4
+                        style="color: var(--accent); margin-bottom: 0.5rem; display:flex; justify-content:space-between;">
+                        Core Identity <span class="tier-badge tier-od">OpenData</span>
+                    </h4>
+                    <div style="font-size: 2rem; font-weight: 800; margin: 1rem 0;">
+                        <?= number_format($stats['total_companies']) ?>
                     </div>
-
-                    <!-- Right: Asset Card -->
-                    <!-- Right: Pricing Card -->
-                    <!-- Right: Pricing Card (Simplified 2-Block) -->
-                    <div class="asset-card">
-                        <div
-                            style="text-align:center; padding-bottom: 1.5rem; border-bottom: 1px solid var(--structural-line); margin-bottom: 1.5rem;">
-                            <h3 style="margin-bottom: 0.5rem; color: var(--text-header);">LICENSING OPTIONS</h3>
-                            <div style="font-size: 0.8rem; color: var(--accent); font-weight: 700;">OFFICIAL DATASET
-                                ACCESS</div>
-                        </div>
-
-                        <!-- 1. Open Data (Free) -->
-                        <div style="margin-bottom: 2rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--structural-line); border-left: 3px solid #10b981;">
-                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
-                                <span style="font-weight:800; font-size: 1rem; color: #10b981; text-transform:uppercase;">Open Data</span>
-                                <span style="font-weight:800; font-size: 1.2rem; color: var(--text-header);">€0</span>
+                    <p style="font-size: 0.8rem; opacity: 0.8;">Verified legal entities having passed
+                        validation checks. Full address resolution included.</p>
+                </div>
+                <div class="span-6"
+                    style="background: linear-gradient(135deg, var(--bg-secondary), rgba(0, 229, 255, 0.05)); padding: 1.5rem; border: 1px solid var(--accent);">
+                    <h4
+                        style="color: var(--accent); margin-bottom: 0.5rem; display:flex; justify-content:space-between;">
+                        Contact Enrichment <span class="tier-badge tier-premium">Premium</span>
+                    </h4>
+                    <div style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8; line-height: 1.4;">
+                        Full contact profiles including verified direct emails via <a
+                            href="https://kaijuverifier.com/api-docs" target="_blank"
+                            style="color: var(--accent); font-weight: 700; text-decoration: none;">Email
+                            Verifier API</a>, active phone lines, and social footprints.
+                    </div>
+                    <div style="display:flex; justify-content: space-between; margin-top: 1rem;">
+                        <div>
+                            <div style="font-size: 1.5rem; font-weight: 800;">
+                                <?= number_format($stats['total_emails']) ?>
                             </div>
-    <div style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem; opacity: 0.9; color: var(--text-body);">
-                                <strong>Standardized Legal Identity.</strong> Normalized structural data ideal for entity verification, deduplication, and master data management.<br>
-                                <span style="font-size:0.75rem; opacity:0.7; display:block; margin-top:0.4rem;">✓ Full Official Registry &nbsp; ✓ CC0 License &nbsp; ✓ Clean</span>
-                            </div>
-                            
-                            <!-- Options Grid -->
-                            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
-                                <?php if (isset($stats['links']['ZIP'])): ?>
-                                    <a href="<?= $stats['links']['ZIP'] ?>" 
-                                       style="grid-column: span 2; display:block; padding: 0.6rem; background: var(--bg-primary); border: 1px solid var(--structural-line); text-align: center; text-decoration: none; font-size: 0.8rem; font-weight: 700; color: var(--text-header); transition: all 0.2s;">
-                                       ⬇ Download ZIP
-                                    </a>
-                                <?php endif; ?>
-                                <a href="#schema" onclick="document.querySelector('.tab-link[aria-controls=\'schema\']').click()" 
-                                   style="display:block; padding: 0.5rem; text-align: center; border: 1px solid var(--structural-line); color: var(--text-muted); text-decoration: none; font-size: 0.7rem;">
-                                   View Schema
-                                </a>
-                                <a href="/legal/open-data/" target="_blank"
-                                   style="display:block; padding: 0.5rem; text-align: center; border: 1px solid var(--structural-line); color: var(--text-muted); text-decoration: none; font-size: 0.7rem;">
-                                   License
-                                </a>
+                            <div style="font-size: 0.7rem;">DIRECT EMAILS</div>
+                            <div style="font-size: 0.6rem; margin-top: 0.3rem;">
+                                <a href="https://kaijuverifier.com/api-docs" target="_blank"
+                                    style="color: var(--accent); opacity: 0.8; text-decoration: none;">Verified
+                                    via Email Verifier API</a>
                             </div>
                         </div>
-
-                        <!-- 2. Commercial Pro (Trigger) -->
-                        <div
-                            style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--accent); position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                            <div
-                                style="position: absolute; top: 0; right: 0; background: var(--accent); color: white; font-size: 0.6rem; padding: 2px 8px; font-weight: 800;">
-                                RECOMMENDED</div>
-
-                            <h4
-                                style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem; text-transform:uppercase;">
-                                Pro Access</h4>
-
-                            <div style="font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.5;">
-                                Commercial license including daily updates, contact enrichment, and API support.
-                            </div>
-
-                            <!-- Marketed as Monthly -->
-                            <div style="display:flex; align-items: baseline; gap: 4px; margin-bottom: 1.5rem;">
-                                <span
-                                    style="font-size: 1.8rem; font-weight: 800; line-height: 1;">€<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></span>
-                                <span style="font-size: 0.8rem; opacity: 0.7;">/ mo</span>
-                            </div>
-
-                            <button onclick="openPricingModal()"
-                                style="display:block; width:100%; padding: 1rem; background: var(--accent); color: white; text-align: center; border:none; cursor:pointer; font-weight: 800; font-size: 0.9rem; text-transform:uppercase; transition: opacity 0.2s;">
-                                VIEW LICENSING PLANS
-                            </button>
-                            <div style="text-align:center; margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.6;">
-                                Compare Starter, Pro & Agency
-                            </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1.5rem; font-weight: 800;">
+                                ~<?= number_format($stats['total_domains']) ?></div>
+                            <div style="font-size: 0.7rem;">WEB DOMAINS</div>
                         </div>
                     </div>
                 </div>
             </div>
+
+        </div>
+
+        <div id="schema" style="margin-top: 4rem;">
+            <h3 style="margin-bottom: 1.5rem;">Technical Schema & Access Levels</h3>
+            <table class="titan-table">
+                <thead>
+                    <tr>
+                        <th>Field Name</th>
+                        <th>Data Type</th>
+                        <th>Access Tier</th>
+                        <th style="text-align:right">Fill Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($schemaFields as $field): ?>
+                        <tr>
+                            <td style="font-family: monospace; font-weight: 700;">
+                                <?= $field['Field Name'] ?>
+                            </td>
+                            <td style="font-size: 0.75rem; opacity: 0.8;"><?= $field['Type'] ?></td>
+                            <td>
+                                <?php if ($field['Access'] == 'OpenData'): ?>
+                                    <span class="tier-badge tier-od">OpenData</span>
+                                <?php else: ?>
+                                    <span class="tier-badge tier-premium">Premium</span>
+                                <?php endif; ?>
+                            </td>
+                            <td style="text-align:right; color: var(--accent);"><?= $field['Fill Rate'] ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sample">
+            <div
+                style="background: var(--bg-secondary); border: 1px solid var(--structural-line); padding: 1.5rem; margin-bottom: 2rem;">
+                <h4 class="titan-label" style="margin-bottom: 1rem;">PROFESSIONAL DATA PREVIEW</h4>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 1.5rem;">
+                    This preview demonstrates the normalized record quality. Field masking is applied to
+                    the
+                    <strong>OpenData</strong> tier to maintain privacy and compliance requirements.
+                </p>
+
+                <div
+                    style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 1rem; border: 1px solid var(--structural-line); border-radius: 4px;">
+                    <table class="titan-table" style="font-size: 0.75rem; white-space: nowrap;">
+                        <thead>
+                            <tr>
+                                <th style="color:var(--text-muted);">REGISTRY ID</th>
+                                <th>ENTITY NAME</th>
+                                <th>LEGAL FORM</th>
+                                <th>INCORP. DATE</th>
+                                <th>STATUS</th>
+                                <th style="text-align:right">CAPITAL</th>
+                                <th style="color:var(--accent); border-left: 2px solid var(--accent);">PREMIUM
+                                    ENRICHMENT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $mockEntities = [
+                                ['B-8230192', 'Acme Industrial S.A.', 'Sociedad Anónima', '1998-04-12', 'Active', '€60.000', 'Verified Email + Social'],
+                                ['B-9102381', 'Titan Logistics SL', 'Soc. Limitada', '2015-11-03', 'Active', '€3.000', 'Direct Phone + Contact'],
+                                ['A-2840192', 'Green Energy Corp', 'Sociedad Anónima', '2009-02-14', 'Active', '€150.000', 'Spending Signals + LinkedIn'],
+                                ['B-1029384', 'Global Software Solutions', 'Soc. Limitada', '2021-06-22', 'Active', '€3.000', 'Validated Domain + Ad Data'],
+                                ['A-4029182', 'Central Food Group', 'Sociedad Anónima', '1985-09-30', 'Active', '€2.500.000', 'Full Executive Mapping'],
+                                ['B-5019283', 'NEXUS Consulting', 'Soc. Limitada', '2019-01-15', 'Active', '€12.500', 'B2B Tech Stack Data'],
+                            ];
+                            foreach ($mockEntities as $entity):
+                                ?>
+                                <tr>
+                                    <td style="font-family:monospace; opacity:0.6;"><?= $entity[0] ?></td>
+                                    <td style="font-weight:700; color:var(--text-header);"><?= $entity[1] ?></td>
+                                    <td style="opacity:0.8;"><?= $entity[2] ?></td>
+                                    <td style="opacity:0.8;"><?= $entity[3] ?></td>
+                                    <td><span
+                                            style="color:#10b981; font-weight:700; font-size:0.65rem; border:1px solid #10b981; padding:1px 4px; border-radius:3px;">ACTIVE</span>
+                                    </td>
+                                    <td style="text-align:right; font-family:monospace; opacity:0.8;"><?= $entity[5] ?></td>
+                                    <td
+                                        style="font-family:monospace; color:var(--accent); font-size: 0.7rem; border-left: 2px solid var(--accent); background: rgba(0, 229, 255, 0.03);">
+                                        <span style="opacity:0.4;">[MASKED]</span> <?= $entity[6] ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 1rem; font-size: 0.7rem; opacity: 0.5; font-style: italic;">
+                    * Sample represents generalized record structure. Download full dataset for real
+                    entity data.
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Right: Asset Card -->
+        <!-- Right: Pricing Card -->
+        <!-- Right: Pricing Card (Simplified 2-Block) -->
+        <div class="asset-card">
+            <div
+                style="text-align:center; padding-bottom: 1.5rem; border-bottom: 1px solid var(--structural-line); margin-bottom: 1.5rem;">
+                <h3 style="margin-bottom: 0.5rem; color: var(--text-header);">LICENSING OPTIONS</h3>
+                <div style="font-size: 0.8rem; color: var(--accent); font-weight: 700;">OFFICIAL DATASET
+                    ACCESS</div>
+            </div>
+
+            <!-- 1. Open Data (Free) -->
+            <div
+                style="margin-bottom: 2rem; padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--structural-line); border-left: 3px solid #10b981;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+                    <span style="font-weight:800; font-size: 1rem; color: #10b981; text-transform:uppercase;">Open
+                        Data</span>
+                    <span style="font-weight:800; font-size: 1.2rem; color: var(--text-header);">€0</span>
+                </div>
+                <div
+                    style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 1rem; opacity: 0.9; color: var(--text-body);">
+                    <strong>Standardized Legal Identity.</strong> Normalized structural data ideal for entity
+                    verification, deduplication, and master data management.<br>
+                    <span style="font-size:0.75rem; opacity:0.7; display:block; margin-top:0.4rem;">✓ Full Official
+                        Registry &nbsp; ✓ CC0 License &nbsp; ✓ Clean</span>
+                </div>
+
+                <!-- Options Grid -->
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                    <?php if (isset($stats['links']['ZIP'])): ?>
+                        <a href="<?= $stats['links']['ZIP'] ?>"
+                            style="grid-column: span 2; display:block; padding: 0.6rem; background: var(--bg-primary); border: 1px solid var(--structural-line); text-align: center; text-decoration: none; font-size: 0.8rem; font-weight: 700; color: var(--text-header); transition: all 0.2s;">
+                            ⬇ Download ZIP
+                        </a>
+                    <?php endif; ?>
+                    <a href="#schema" onclick="document.querySelector('.tab-link[aria-controls=\'schema\']').click()"
+                        style="display:block; padding: 0.5rem; text-align: center; border: 1px solid var(--structural-line); color: var(--text-muted); text-decoration: none; font-size: 0.7rem;">
+                        View Schema
+                    </a>
+                    <a href="/legal/open-data/" target="_blank"
+                        style="display:block; padding: 0.5rem; text-align: center; border: 1px solid var(--structural-line); color: var(--text-muted); text-decoration: none; font-size: 0.7rem;">
+                        License
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Commercial Pro (Trigger) -->
+            <div
+                style="padding: 1.5rem; background: var(--bg-primary); border: 1px solid var(--accent); position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div
+                    style="position: absolute; top: 0; right: 0; background: var(--accent); color: white; font-size: 0.6rem; padding: 2px 8px; font-weight: 800;">
+                    RECOMMENDED</div>
+
+                <h4 style="color: var(--accent); margin-bottom: 0.5rem; font-size: 1rem; text-transform:uppercase;">
+                    Pro Access</h4>
+
+                <div style="font-size: 0.85rem; margin-bottom: 1rem; line-height: 1.5;">
+                    Commercial license including daily updates, contact enrichment, and API support.
+                </div>
+
+                <!-- Marketed as Monthly -->
+                <div style="display:flex; align-items: baseline; gap: 4px; margin-bottom: 1.5rem;">
+                    <span
+                        style="font-size: 1.8rem; font-weight: 800; line-height: 1;">€<?= number_format($pricing['pro']['price_monthly_display'], 2) ?></span>
+                    <span style="font-size: 0.8rem; opacity: 0.7;">/ mo</span>
+                </div>
+
+                <button onclick="openPricingModal()"
+                    style="display:block; width:100%; padding: 1rem; background: var(--accent); color: white; text-align: center; border:none; cursor:pointer; font-weight: 800; font-size: 0.9rem; text-transform:uppercase; transition: opacity 0.2s;">
+                    VIEW LICENSING PLANS
+                </button>
+                <div style="text-align:center; margin-top: 0.8rem; font-size: 0.7rem; opacity: 0.6;">
+                    Compare Starter, Pro & Agency
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
         </section>
 
         <!-- SECTORS SECTION -->

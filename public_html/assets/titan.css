@@ -752,6 +752,12 @@ footer {
         grid-column-start: auto !important;
     }
 
+    .hero-split {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+
     /* HERO RESET & RESPONSIVE TYPE */
     .hero-title {
         font-size: clamp(2rem, 8vw, 4rem);
@@ -791,50 +797,60 @@ footer {
     }
 
     /* MOBILE NAVIGATION - HAMBURGER STYLE */
-    .header-links {
-        display: none;
+    .nav-content .header-links {
+        display: none !important;
+        /* Force hide desktop links */
         flex-direction: column;
-        width: 100%;
+        width: 100vw;
         background: var(--bg-secondary);
-        position: absolute;
-        top: 100%;
-        /* Relative to nav container */
+        position: fixed;
+        /* Fixed overlay for mobile */
+        top: 60px;
         left: 0;
-        padding: 1rem;
+        height: auto;
+        padding: 2rem 1rem;
         border-bottom: 2px solid var(--accent);
         z-index: 9999;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
     }
 
-    .header-links.active {
+    .nav-content .header-links.active {
         display: flex !important;
     }
 
-    .toc-item {
-        font-size: 1rem;
-        padding: 1rem;
+    .header-links .toc-item {
+        font-size: 1.2rem;
+        padding: 1.5rem;
         width: 100%;
-        text-align: center;
+        text-align: left;
         border: none;
         background: transparent;
         border-bottom: 1px solid var(--structural-line);
+        color: var(--text-header) !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
 
-    /* HAMBURGER BUTTON - High Specificity Fix */
-    header .nav-toggle-btn {
+    /* HAMBURGER BUTTON - High Specificity */
+    .nav-content .nav-toggle-btn {
         display: flex !important;
         align-items: center;
         justify-content: center;
-        width: 44px;
-        height: 44px;
-        font-size: 1.8rem;
+        width: 48px;
+        height: 48px;
+        font-size: 2rem;
         cursor: pointer;
         background: var(--bg-secondary);
         border: 1px solid var(--structural-line);
-        color: var(--text-header);
+        color: var(--accent) !important;
         border-radius: 4px;
         position: relative;
         z-index: 10001;
+    }
+
+    /* THEME TOGGLE MOBILE */
+    .nav-content .theme-btn {
+        margin-right: 0.5rem;
     }
 
     /* MAP FIX - Forces visibility and aspect ratio */

@@ -145,12 +145,11 @@ $basePath = "";
     ?>
 
     <main>
-        <header class="hero" style="padding-bottom: 0;">
+        <header class="hero">
             <div class="grid-container">
                 <div class="section-meta">GLOBAL REGISTRY FOUNDATION</div>
                 <h1 class="hero-title">
-                    <span style="color: #64748b; font-weight:800;">THE GLOBAL REFERENCE LAYER</span> <br>
-                    <span style="color: var(--accent); font-weight:300;">FOR BUSINESS REALITY.</span>
+                    The Reference <br> Layer for Global <br> Business Reality.
                 </h1>
                 <div class="hero-desc" style="max-width: 800px;">
                     Central.Enterprises provides the definitive CC0 reference layer for business identity.
@@ -437,6 +436,12 @@ $basePath = "";
 
                 // Interaction Handling
                 const mapContainer = document.getElementById('svgMap');
+
+                // Trigger resize calculation for responsive libs
+                window.addEventListener('resize', () => {
+                    if (window.svgMapInstance) { /* No-op or re-init if needed */ }
+                });
+
                 mapContainer.addEventListener('click', function (e) {
                     let target = e.target;
                     while (target && target !== mapContainer && target.tagName !== 'path') {
