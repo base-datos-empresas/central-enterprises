@@ -76,6 +76,10 @@ html[data-theme="titan-light"] {
     padding: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: var(--bg-primary);
     color: var(--text-body);
@@ -760,21 +764,21 @@ footer {
     /* MOBILE NAVIGATION - HAMBURGER STYLE */
     .header-links {
         display: none;
-        /* Hidden by default on mobile */
         flex-direction: column;
         width: 100%;
-        background: var(--bg-primary);
+        background: var(--bg-secondary);
         position: absolute;
-        top: 60px;
+        top: 100%;
+        /* Relative to nav container */
         left: 0;
         padding: 1rem;
-        border-bottom: 1px solid var(--structural-line);
-        z-index: 1000;
+        border-bottom: 2px solid var(--accent);
+        z-index: 9999;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     }
 
     .header-links.active {
-        display: flex;
-        /* Show when active */
+        display: flex !important;
     }
 
     .toc-item {
