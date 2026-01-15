@@ -233,7 +233,7 @@ $datasetSchema['isAccessibleForFree'] = true;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700;800&display=swap"
         rel="stylesheet">
     <meta name="description" content="<?= htmlspecialchars($stats['landing_description']) ?>">
-    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/favicon.png?v=logo_native">
+    <link rel="icon" type="image/png" href="<?= $basePath ?>/assets/titan.css?v=100">logo_native">
     <link rel="stylesheet" href="/assets/titan.css?v=11">
 
     <!-- JSON-LD Schema -->
