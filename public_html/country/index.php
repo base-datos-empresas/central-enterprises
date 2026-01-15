@@ -243,7 +243,8 @@ $datasetSchema['isAccessibleForFree'] = true;
 
     <style>
         /* Marketplace Specific Overrides */
-
+        body, html { overflow-x: hidden; } /* CRITICAL: Prevent horiz scroll */
+        
         /* SEO Enhancements */
         h1,
         h2,
