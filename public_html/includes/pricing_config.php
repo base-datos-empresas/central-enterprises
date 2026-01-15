@@ -115,8 +115,29 @@ class PricingConfig
      */
     public static function getStripeLink(string $plan, string $iso, float $amount): string
     {
-        // In production, this would map to specific Stripe Product IDs
-        // For now, we return a link to the contact/checkout placeholder
-        return "/contact/?plan=" . urlencode($plan) . "&country=" . urlencode($iso) . "&price=" . $amount;
+        // 1. Resolve Config Key
+        $iso = strtolower($iso);
+        $configKey = '';
+
+        if ($plan === 'pro') {
+            $configKey = "pro_{$iso}";
+        } elseif ($plan === 'starter') {
+            $configKey = "starter_{$iso}";
+        } elseif ($plan === 'agency') {
+            $configKey = 'agency_global';
+        } elseif (strpos($plan, 'enterprise') === 0) {
+            $configKey = $plan;
+        }
+
+        // 2. Resolve Price ID from Global Config
+        // Ensure constants are loaded. If not, fallback or error?
+        // STRIPE_PRICES is defined in stripe/config.php
+        if (defined('STRIPE_PRICES') && isset(STRIPE_PRICES[$configKey])) {
+            $priceId = STRIPE_PRICES[$configKey];
+            return "/stripe/buy.php?price_id=" . urlencode($priceId);
+        }
+
+        // 3. Fallback (If key missing or config not loaded)
+        return "/contact/?plan=" . urlencode($plan) . "&error=price_missing";
     }
 }
